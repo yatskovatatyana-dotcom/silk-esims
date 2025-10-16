@@ -36,7 +36,7 @@ const Hero = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
             <Button 
-              variant="hero" 
+              variant="gradient" 
               size="xl"
               onClick={() => window.open('https://t.me/your_bot', '_blank')}
             >

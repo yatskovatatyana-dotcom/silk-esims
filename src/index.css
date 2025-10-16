@@ -17,67 +17,77 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 220 15% 15%;
 
-    --primary: 217 91% 60%;
+    --primary: 200 100% 40%;           /* Голубой - основной цвет бренда */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 20% 95%;
-    --secondary-foreground: 220 15% 15%;
+    --secondary: 260 60% 55%;          /* Фиолетовый - акцент */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 20% 95%;
+    --muted: 220 20% 93%;
     --muted-foreground: 220 10% 45%;
 
-    --accent: 271 81% 56%;
+    --accent: 280 70% 60%;             /* Яркий фиолетовый для акцентов */
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 220 15% 88%;
     --input: 220 15% 88%;
-    --ring: 217 91% 60%;
+    --ring: 200 100% 40%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(271 81% 56%));
-    --gradient-hero: linear-gradient(135deg, hsl(217 91% 60% / 0.1), hsl(271 81% 56% / 0.1));
+    /* Градиенты */
+    --gradient-primary: linear-gradient(135deg, hsl(200, 100%, 40%), hsl(260, 60%, 55%));
+    --gradient-card: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(220, 25%, 98%));
+    --gradient-hero: linear-gradient(180deg, hsl(220, 25%, 97%), hsl(200, 100%, 95%));
     
-    /* Shadows */
-    --shadow-primary: 0 10px 40px -10px hsl(217 91% 60% / 0.3);
-    --shadow-card: 0 4px 20px -4px hsl(220 15% 15% / 0.08);
+    /* Тени */
+    --shadow-elegant: 0 10px 40px -10px hsl(200 100% 40% / 0.2);
+    --shadow-card: 0 4px 20px -4px hsl(200 100% 40% / 0.15);
 
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    --background: 220 30% 8%;
+    --background: 220 25% 8%;
     --foreground: 220 15% 95%;
 
-    --card: 220 25% 12%;
+    --card: 220 20% 12%;
     --card-foreground: 220 15% 95%;
 
-    --popover: 220 25% 12%;
+    --popover: 220 20% 12%;
     --popover-foreground: 220 15% 95%;
 
-    --primary: 217 91% 60%;
+    --primary: 200 100% 50%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 20% 18%;
-    --secondary-foreground: 220 15% 95%;
+    --secondary: 260 60% 60%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 20% 18%;
-    --muted-foreground: 220 10% 65%;
+    --muted: 220 15% 18%;
+    --muted-foreground: 220 10% 60%;
 
-    --accent: 271 81% 56%;
+    --accent: 280 70% 65%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 62.8% 50.6%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 20% 20%;
-    --input: 220 20% 20%;
-    --ring: 217 91% 60%;
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 200 100% 50%;
+
+    /* Градиенты для темной темы */
+    --gradient-primary: linear-gradient(135deg, hsl(200, 100%, 50%), hsl(260, 60%, 60%));
+    --gradient-card: linear-gradient(135deg, hsl(220, 20%, 12%), hsl(220, 20%, 15%));
+    --gradient-hero: linear-gradient(180deg, hsl(220, 25%, 8%), hsl(200, 100%, 15%));
+
+    /* Тени для темной темы */
+    --shadow-elegant: 0 10px 40px -10px hsl(200 100% 50% / 0.3);
+    --shadow-card: 0 4px 20px -4px hsl(200 100% 50% / 0.2);
   }
 }
 
