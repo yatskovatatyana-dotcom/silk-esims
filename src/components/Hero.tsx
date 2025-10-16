@@ -44,7 +44,7 @@ const Hero = () => {
             <Button 
               variant="outline" 
               size="xl"
-              className="border-2 border-white text-white hover:bg-white/10 backdrop-blur-sm font-semibold"
+              className="border-2 border-white bg-white/20 text-white hover:bg-white hover:text-primary backdrop-blur-sm font-semibold shadow-lg"
             >
               Узнать больше
             </Button>
