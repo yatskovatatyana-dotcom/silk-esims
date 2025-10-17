@@ -17,7 +17,7 @@ const steps = [
   {
     icon: Smartphone,
     title: "Активируйте eSIM",
-    description: "Отсканируйте QR-код и начните пользоваться",
+    description: "Отсканируйте QR-код и получите неограниченный доступ к интернету и соцсетям",
     step: "03",
   },
 ];
@@ -31,7 +31,7 @@ const HowItWorks = () => {
             Как это работает
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Три простых шага до подключения
+            Три простых шага до доступа в интернет без ограничений
           </p>
         </div>
         

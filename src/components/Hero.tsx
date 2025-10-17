@@ -28,7 +28,7 @@ const Hero = () => {
           </h1>
           
           <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto font-medium drop-shadow">
-            Подключайте мобильную связь за минуту прямо в Telegram. Без физических SIM-карт, без очередей.
+            eSIM зарубежного оператора для неограниченного доступа в интернет, соцсети, мессенджеры. Подключайтесь за минуту прямо в Telegram без физических SIM-карт и очередей.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
