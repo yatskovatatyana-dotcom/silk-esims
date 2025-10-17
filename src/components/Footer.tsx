@@ -1,4 +1,5 @@
 import { Mail, MessageCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -29,6 +30,11 @@ const Footer = () => {
                 <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
                   FAQ
                 </a>
+              </li>
+              <li>
+                <Link to="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors">
+                  Политика конфиденциальности
+                </Link>
               </li>
             </ul>
           </div>
