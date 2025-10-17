@@ -6,7 +6,7 @@ const resources = {
     translation: {
       "hero": {
         "badge": "Mobile Internet Worldwide",
-        "title": "Travel Without Borders with",
+        "title": "Travel Without Borders with Silk eSIM",
         "brandName": "Silk eSIM",
         "description": "Connect to mobile internet anywhere in the world without changing your SIM card. Affordable plans for travelers.",
         "ctaButton": "Open Telegram Bot",
@@ -160,7 +160,7 @@ const resources = {
     translation: {
       "hero": {
         "badge": "Мобильный интернет по всему миру",
-        "title": "Путешествуйте без границ с",
+        "title": "Путешествуйте без границ с Silk eSIM",
         "brandName": "Silk eSIM",
         "description": "Подключайтесь к мобильному интернету в любой точке мира без смены SIM-карты. Доступные тарифы для путешественников.",
         "ctaButton": "Открыть Telegram бот",
