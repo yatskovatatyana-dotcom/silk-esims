@@ -23,7 +23,7 @@ const Hero = () => {
           <h1 className="text-6xl md:text-8xl font-bold text-white leading-tight drop-shadow-lg">
             Freedom
             <span className="block mt-4 text-5xl md:text-7xl">
-              Быстро и удобно
+              eSIM для России
             </span>
           </h1>
           
