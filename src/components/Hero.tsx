@@ -1,9 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Smartphone, Zap, Shield } from "lucide-react";
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Hero = () => {
+  const { t } = useTranslation();
+  
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary to-secondary">
+      {/* Language Switcher */}
+      <div className="absolute top-6 right-6 z-20">
+        <LanguageSwitcher />
+      </div>
+      
       {/* Animated background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
@@ -17,18 +26,18 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
           <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-5 py-2.5 mb-6">
             <Smartphone className="w-5 h-5 text-white" />
-            <span className="text-sm font-semibold text-white">Будущее связи уже здесь</span>
+            <span className="text-sm font-semibold text-white">{t('hero.badge')}</span>
           </div>
           
           <h1 className="text-6xl md:text-8xl font-bold text-white leading-tight drop-shadow-lg">
-            Silk eSIM
+            {t('hero.brandName')}
             <span className="block mt-4 text-5xl md:text-7xl">
-              Мобильный интернет по всему миру
+              {t('hero.title')}
             </span>
           </h1>
           
           <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto font-medium drop-shadow">
-            eSIM для путешествий в 150+ странах мира. Оставайтесь на связи без роуминга, высоких тарифов и физических SIM-карт. Активация за минуту в Telegram.
+            {t('hero.description')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
@@ -38,7 +47,7 @@ const Hero = () => {
               className="bg-white text-primary hover:bg-white/90 hover:scale-105 shadow-2xl font-bold"
               onClick={() => window.open('https://t.me/your_bot', '_blank')}
             >
-              Открыть в Telegram
+              {t('hero.ctaButton')}
               <ArrowRight className="ml-2" />
             </Button>
             <Button 
@@ -46,25 +55,25 @@ const Hero = () => {
               size="xl"
               className="border-2 border-white bg-white/20 text-white hover:bg-white hover:text-primary backdrop-blur-sm font-semibold shadow-lg"
             >
-              Узнать больше
+              {t('hero.learnMore')}
             </Button>
           </div>
           
           <div className="pt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
             <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300">
               <Zap className="w-10 h-10 text-white mx-auto mb-3" />
-              <div className="text-4xl font-bold text-white">1 мин</div>
-              <div className="text-sm text-white/80 mt-2 font-medium">Мгновенная активация</div>
+              <div className="text-4xl font-bold text-white">1 {t('hero.learnMore').includes('Learn') ? 'min' : 'мин'}</div>
+              <div className="text-sm text-white/80 mt-2 font-medium">{t('features.items.instant.title')}</div>
             </div>
             <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300">
               <Shield className="w-10 h-10 text-white mx-auto mb-3" />
               <div className="text-4xl font-bold text-white">100%</div>
-              <div className="text-sm text-white/80 mt-2 font-medium">Полностью онлайн</div>
+              <div className="text-sm text-white/80 mt-2 font-medium">{t('hero.learnMore').includes('Learn') ? 'Fully Online' : 'Полностью онлайн'}</div>
             </div>
             <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300">
               <Smartphone className="w-10 h-10 text-white mx-auto mb-3" />
               <div className="text-4xl font-bold text-white">24/7</div>
-              <div className="text-sm text-white/80 mt-2 font-medium">Круглосуточная поддержка</div>
+              <div className="text-sm text-white/80 mt-2 font-medium">{t('features.items.support.title')}</div>
             </div>
           </div>
         </div>

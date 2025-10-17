@@ -1,37 +1,40 @@
 import { Card } from "@/components/ui/card";
 import { MessageSquare, CreditCard, Smartphone } from "lucide-react";
-
-const steps = [
-  {
-    icon: MessageSquare,
-    title: "Откройте Telegram",
-    description: "Перейдите в наш бот и начните диалог",
-    step: "01",
-  },
-  {
-    icon: CreditCard,
-    title: "Выберите страну и тариф",
-    description: "Оплатите картой МИР",
-    step: "02",
-  },
-  {
-    icon: Smartphone,
-    title: "Активируйте eSIM",
-    description: "Отсканируйте QR-код и пользуйтесь интернетом в любой точке мира",
-    step: "03",
-  },
-];
+import { useTranslation } from 'react-i18next';
 
 const HowItWorks = () => {
+  const { t } = useTranslation();
+
+  const steps = [
+    {
+      icon: MessageSquare,
+      title: t('howItWorks.steps.choose.title'),
+      description: t('howItWorks.steps.choose.description'),
+      step: "01",
+    },
+    {
+      icon: CreditCard,
+      title: t('howItWorks.steps.pay.title'),
+      description: t('howItWorks.steps.pay.description'),
+      step: "02",
+    },
+    {
+      icon: Smartphone,
+      title: t('howItWorks.steps.activate.title'),
+      description: t('howItWorks.steps.activate.description'),
+      step: "03",
+    },
+  ];
+
   return (
-    <section className="py-20 bg-secondary/30">
+    <section className="py-20 bg-secondary/30" id="how-it-works">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Как это работает
+            {t('howItWorks.title')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Три простых шага до интернета в любой стране мира
+            {t('howItWorks.subtitle')}
           </p>
         </div>
         

@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Send } from "lucide-react";
+import { useTranslation } from 'react-i18next';
 
 const CTA = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="py-20 bg-gradient-primary relative overflow-hidden">
       {/* Decorative elements */}
@@ -14,10 +17,10 @@ const CTA = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center text-primary-foreground">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Готовы путешествовать без границ?
+            {t('cta.title')}
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Присоединяйтесь к тысячам путешественников, которые экономят на роуминге с Silk eSIM
+            {t('cta.subtitle')}
           </p>
           
           <Button 
@@ -27,11 +30,11 @@ const CTA = () => {
             className="shadow-lg hover:shadow-xl"
           >
             <Send className="mr-2" />
-            Открыть Telegram бот
+            {t('cta.button')}
           </Button>
           
           <p className="mt-6 text-sm opacity-75">
-            Активация занимает менее 1 минуты
+            {t('cta.note')}
           </p>
         </div>
       </div>

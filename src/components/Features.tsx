@@ -1,43 +1,56 @@
 import { Card } from "@/components/ui/card";
-import { Zap, Shield, Globe, Clock } from "lucide-react";
-
-const features = [
-  {
-    icon: Globe,
-    title: "150+ стран мира",
-    description: "Путешествуйте по всему миру с одной eSIM. Европа, Азия, Америка, Африка — мы работаем везде",
-  },
-  {
-    icon: Zap,
-    title: "Без роуминга",
-    description: "Забудьте о дорогих роуминговых тарифах. Используйте местные тарифы по всему миру",
-  },
-  {
-    icon: Shield,
-    title: "Мгновенная активация",
-    description: "Купите eSIM в Telegram и активируйте её за минуту. Не нужно искать местные SIM-карты в аэропорту",
-  },
-  {
-    icon: Clock,
-    title: "Гибкие тарифы",
-    description: "Выбирайте тарифы от 1 дня до месяца. Оплачивайте только то время, которое вам нужно",
-  },
-];
+import { Zap, DollarSign, Globe, Smartphone, Users, Headphones } from "lucide-react";
+import { useTranslation } from 'react-i18next';
 
 const Features = () => {
+  const { t } = useTranslation();
+  
+  const features = [
+    {
+      icon: Zap,
+      title: t('features.items.instant.title'),
+      description: t('features.items.instant.description'),
+    },
+    {
+      icon: DollarSign,
+      title: t('features.items.savings.title'),
+      description: t('features.items.savings.description'),
+    },
+    {
+      icon: Globe,
+      title: t('features.items.flexibility.title'),
+      description: t('features.items.flexibility.description'),
+    },
+    {
+      icon: Smartphone,
+      title: t('features.items.noPhysical.title'),
+      description: t('features.items.noPhysical.description'),
+    },
+    {
+      icon: Users,
+      title: t('features.items.multipleProfiles.title'),
+      description: t('features.items.multipleProfiles.description'),
+    },
+    {
+      icon: Headphones,
+      title: t('features.items.support.title'),
+      description: t('features.items.support.description'),
+    },
+  ];
+
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Преимущества eSIM за границей
+            {t('features.title')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Путешествуйте по миру без границ и переплат за роуминг
+            {t('features.subtitle')}
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
             <Card 
               key={index} 
