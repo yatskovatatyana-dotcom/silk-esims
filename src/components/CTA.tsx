@@ -14,10 +14,10 @@ const CTA = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center text-primary-foreground">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Готовы начать?
+            Готовы путешествовать без границ?
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Присоединяйтесь к тысячам пользователей с неограниченным доступом к интернету, соцсетям и мессенджерам
+            Присоединяйтесь к тысячам путешественников, которые экономят на роуминге с Silk eSIM
           </p>
           
           <Button 

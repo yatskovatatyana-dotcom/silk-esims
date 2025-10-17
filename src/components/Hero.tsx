@@ -21,14 +21,14 @@ const Hero = () => {
           </div>
           
           <h1 className="text-6xl md:text-8xl font-bold text-white leading-tight drop-shadow-lg">
-            Freedom
+            Silk eSIM
             <span className="block mt-4 text-5xl md:text-7xl">
-              eSIM для России
+              Мобильный интернет по всему миру
             </span>
           </h1>
           
           <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto font-medium drop-shadow">
-            eSIM зарубежного оператора для неограниченного доступа в интернет, соцсети, мессенджеры. Подключайтесь за минуту прямо в Telegram без физических SIM-карт и очередей.
+            eSIM для путешествий в 150+ странах мира. Оставайтесь на связи без роуминга, высоких тарифов и физических SIM-карт. Активация за минуту в Telegram.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
