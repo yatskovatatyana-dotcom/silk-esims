@@ -11,7 +11,7 @@ const steps = [
   {
     icon: CreditCard,
     title: "Выберите страну и тариф",
-    description: "Оплатите картой МИР или международной картой",
+    description: "Оплатите картой МИР",
     step: "02",
   },
   {
