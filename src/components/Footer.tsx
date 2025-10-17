@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="text-xl font-bold text-foreground mb-4">eSIM Россия</h3>
+            <h3 className="text-xl font-bold text-foreground mb-4">Freedom</h3>
             <p className="text-muted-foreground">
               Современный способ подключения мобильной связи без физических SIM-карт
             </p>
@@ -53,7 +53,7 @@ const Footer = () => {
         </div>
         
         <div className="pt-8 border-t border-border text-center text-muted-foreground text-sm">
-          <p>&copy; {new Date().getFullYear()} eSIM Россия. Все права защищены.</p>
+          <p>&copy; {new Date().getFullYear()} Freedom. Все права защищены.</p>
         </div>
       </div>
     </footer>
