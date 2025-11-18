@@ -74,7 +74,7 @@ const Promotions = () => {
               <Button
                 variant="outline"
                 className="w-full"
-                onClick={() => window.open('https://t.me/your_bot', '_blank')}
+                onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 {t('promotions.button')}
               </Button>

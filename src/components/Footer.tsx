@@ -47,9 +47,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-muted-foreground">
                 <MessageCircle className="w-4 h-4 text-primary" />
-                <a href="https://t.me/your_support" className="hover:text-primary transition-colors">
-                  {t('footer.contacts.telegram')}
-                </a>
+                <span>{t('footer.contacts.support')}</span>
               </li>
               <li className="flex items-center gap-2 text-muted-foreground">
                 <Mail className="w-4 h-4 text-primary" />

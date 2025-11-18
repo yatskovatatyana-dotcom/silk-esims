@@ -9,7 +9,7 @@ const resources = {
         "title": "Travel Without Borders",
         "brandName": "Silk eSIM",
         "description": "Connect to mobile internet anywhere in the world without changing your SIM card. Affordable plans for travelers.",
-        "ctaButton": "Open Telegram Bot",
+        "ctaButton": "Buy eSIM",
         "learnMore": "Learn More"
       },
       "features": {
@@ -38,7 +38,7 @@ const resources = {
           },
           "support": {
             "title": "24/7 Support",
-            "description": "Assistance anytime in English via Telegram"
+            "description": "Assistance anytime in English"
           }
         }
       },
@@ -48,7 +48,7 @@ const resources = {
         "steps": {
           "choose": {
             "title": "Choose a Plan",
-            "description": "Open the Telegram bot and select your country and plan"
+            "description": "Select your country and data plan"
           },
           "pay": {
             "title": "Pay with MIR Card",
@@ -134,7 +134,7 @@ const resources = {
       "cta": {
         "title": "Ready to Travel Without Borders?",
         "subtitle": "Join thousands of travelers who save on roaming with Silk eSIM",
-        "button": "Open Telegram Bot",
+        "button": "Buy eSIM Now",
         "note": "Activation takes less than 1 minute"
       },
       "footer": {
@@ -149,7 +149,7 @@ const resources = {
         },
         "contacts": {
           "title": "Contacts",
-          "telegram": "Telegram Support",
+          "support": "Online Support",
           "email": "support@esim.ru"
         },
         "copyright": "All rights reserved."
@@ -163,7 +163,7 @@ const resources = {
         "title": "Путешествуйте без границ",
         "brandName": "Silk eSIM",
         "description": "Подключайтесь к мобильному интернету в любой точке мира без смены SIM-карты. Доступные тарифы для путешественников.",
-        "ctaButton": "Открыть Telegram бот",
+        "ctaButton": "Купить eSIM",
         "learnMore": "Узнать больше"
       },
       "features": {
@@ -192,7 +192,7 @@ const resources = {
           },
           "support": {
             "title": "Поддержка 24/7",
-            "description": "Помощь в любое время суток на русском языке через Telegram"
+            "description": "Помощь в любое время суток на русском языке"
           }
         }
       },
@@ -202,7 +202,7 @@ const resources = {
         "steps": {
           "choose": {
             "title": "Выберите тариф",
-            "description": "Откройте бот в Telegram и выберите страну и тариф"
+            "description": "Выберите страну и тариф передачи данных"
           },
           "pay": {
             "title": "Оплатите картой МИР",
@@ -288,7 +288,7 @@ const resources = {
       "cta": {
         "title": "Готовы путешествовать без границ?",
         "subtitle": "Присоединяйтесь к тысячам путешественников, которые экономят на роуминге с Silk eSIM",
-        "button": "Открыть Telegram бот",
+        "button": "Купить eSIM сейчас",
         "note": "Активация занимает менее 1 минуты"
       },
       "footer": {
@@ -303,7 +303,7 @@ const resources = {
         },
         "contacts": {
           "title": "Контакты",
-          "telegram": "Поддержка в Telegram",
+          "support": "Онлайн поддержка",
           "email": "support@esim.ru"
         },
         "copyright": "Все права защищены."
