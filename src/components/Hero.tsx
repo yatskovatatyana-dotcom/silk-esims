@@ -45,7 +45,7 @@ const Hero = () => {
               variant="secondary" 
               size="xl"
               className="bg-white text-primary hover:bg-white/90 hover:scale-105 shadow-2xl font-bold"
-              onClick={() => window.open('https://t.me/your_bot', '_blank')}
+              onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
             >
               {t('hero.ctaButton')}
               <ArrowRight className="ml-2" />

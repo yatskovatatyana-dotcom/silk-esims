@@ -26,7 +26,7 @@ const CTA = () => {
           <Button 
             variant="secondary" 
             size="xl"
-            onClick={() => window.open('https://t.me/your_bot', '_blank')}
+            onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
             className="shadow-lg hover:shadow-xl"
           >
             <Send className="mr-2" />
