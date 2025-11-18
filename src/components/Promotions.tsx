@@ -47,7 +47,7 @@ const Promotions = () => {
           {promotions.map((promo, index) => (
             <Card
               key={index}
-              className="p-6 relative overflow-hidden hover:shadow-card transition-all duration-300 hover:-translate-y-1 bg-card border-border group"
+              className="p-6 relative overflow-hidden hover:shadow-card transition-all duration-300 hover:-translate-y-1 bg-card border-border group h-full flex flex-col"
             >
               <div
                 className={`absolute inset-0 bg-gradient-to-br ${promo.color} opacity-5 group-hover:opacity-10 transition-opacity`}
@@ -61,11 +61,11 @@ const Promotions = () => {
                 {promo.title}
               </h3>
 
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground mb-4 flex-grow">
                 {promo.description}
               </p>
 
-              <div className="bg-secondary/50 rounded-lg p-3 mb-4 border border-border">
+              <div className="bg-secondary/50 rounded-lg p-3 mb-4 border border-border mt-auto">
                 <div className="font-mono font-bold text-foreground text-lg text-center">
                   {promo.code}
                 </div>
