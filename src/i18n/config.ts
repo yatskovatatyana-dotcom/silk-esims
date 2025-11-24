@@ -150,7 +150,7 @@ const resources = {
         "contacts": {
           "title": "Contacts",
           "support": "Online Support",
-          "email": "support@esim.ru"
+          "email": "silk-esim@srsignal.com"
         },
         "legalEntity": {
           "company": "SILK ROAD SIGNAL LLC",
@@ -308,7 +308,7 @@ const resources = {
         "contacts": {
           "title": "Контакты",
           "support": "Онлайн поддержка",
-          "email": "support@esim.ru"
+          "email": "silk-esim@srsignal.com"
         },
         "legalEntity": {
           "company": "SILK ROAD SIGNAL LLC",
