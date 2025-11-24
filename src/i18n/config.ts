@@ -107,7 +107,9 @@ const resources = {
             "price": "1990 ₽"
           }
         },
-        "button": "Select Plan"
+        "button": "Select Plan",
+        "inDevelopment": "Service in development",
+        "comingSoon": "We're working on launching the service. Stay tuned!"
       },
       "promotions": {
         "title": "Special Offers",
@@ -265,7 +267,9 @@ const resources = {
             "price": "1990 ₽"
           }
         },
-        "button": "Выбрать тариф"
+        "button": "Выбрать тариф",
+        "inDevelopment": "Сервис находится в разработке",
+        "comingSoon": "Мы работаем над запуском сервиса. Следите за обновлениями!"
       },
       "promotions": {
         "title": "Специальные предложения",

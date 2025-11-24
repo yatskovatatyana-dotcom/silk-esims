@@ -3,9 +3,18 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Check } from "lucide-react";
 import { useTranslation } from 'react-i18next';
+import { useToast } from "@/hooks/use-toast";
 
 const Pricing = () => {
   const { t } = useTranslation();
+  const { toast } = useToast();
+
+  const handlePlanClick = () => {
+    toast({
+      title: t('pricing.inDevelopment'),
+      description: t('pricing.comingSoon'),
+    });
+  };
 
   const regions = [
     {
@@ -101,6 +110,7 @@ const Pricing = () => {
               <Button
                 className="w-full"
                 variant={region.popular ? "default" : "outline"}
+                onClick={handlePlanClick}
               >
                 {t('pricing.button')}
               </Button>
