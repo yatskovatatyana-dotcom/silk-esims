@@ -152,6 +152,10 @@ const resources = {
           "support": "Online Support",
           "email": "support@esim.ru"
         },
+        "legalEntity": {
+          "company": "SILK ROAD SIGNAL LLC",
+          "address": "APT. 2/1, 1ST SARMEN STR., KENTRON, 0009, YEREVAN, ARMENIA"
+        },
         "copyright": "All rights reserved."
       }
     }
@@ -305,6 +309,10 @@ const resources = {
           "title": "Контакты",
           "support": "Онлайн поддержка",
           "email": "support@esim.ru"
+        },
+        "legalEntity": {
+          "company": "SILK ROAD SIGNAL LLC",
+          "address": "APT. 2/1, 1ST SARMEN STR., KENTRON, 0009, YEREVAN, ARMENIA"
         },
         "copyright": "Все права защищены."
       }
