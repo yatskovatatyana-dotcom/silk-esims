@@ -60,6 +60,10 @@ const Footer = () => {
         </div>
         
         <div className="pt-8 border-t border-border text-center text-muted-foreground text-sm">
+          <div className="mb-4">
+            <p className="font-semibold">{t('footer.legalEntity.company')}</p>
+            <p className="text-xs mt-1">{t('footer.legalEntity.address')}</p>
+          </div>
           <p>&copy; {new Date().getFullYear()} {t('footer.brandName')}. {t('footer.copyright')}</p>
         </div>
       </div>
