@@ -51,7 +51,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2 text-muted-foreground">
                 <Mail className="w-4 h-4 text-primary" />
-                <a href="mailto:support@esim.ru" className="hover:text-primary transition-colors">
+                <a href="mailto:silk-esim@srsignal.com" className="hover:text-primary transition-colors">
                   {t('footer.contacts.email')}
                 </a>
               </li>
