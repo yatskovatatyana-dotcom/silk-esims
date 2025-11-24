@@ -108,8 +108,8 @@ const resources = {
           }
         },
         "button": "Select Plan",
-        "inDevelopment": "Service in development",
-        "comingSoon": "We're working on launching the service. Stay tuned!"
+        "inDevelopment": "We're glad you're interested!",
+        "comingSoon": "Our service is currently in development. We'll be launching very soon!"
       },
       "promotions": {
         "title": "Special Offers",
@@ -268,8 +268,8 @@ const resources = {
           }
         },
         "button": "Выбрать тариф",
-        "inDevelopment": "Сервис находится в разработке",
-        "comingSoon": "Мы работаем над запуском сервиса. Следите за обновлениями!"
+        "inDevelopment": "Рады, что вы заинтересовались!",
+        "comingSoon": "Сейчас сервис находится в разработке. В ближайшее время мы запустимся!"
       },
       "promotions": {
         "title": "Специальные предложения",
