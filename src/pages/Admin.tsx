@@ -69,7 +69,7 @@ const dashboardData: Record<Period, {
   avgCheck: number; conversionRate: number;
   repeatPurchase: { rate: number; totalRepeatUsers: number; avgOrdersPerUser: number; topRepeaters: { user: string; orders: number; totalSpent: number; lastPurchase: string }[] };
   topCountries: { country: string; sales: number; revenue: number }[];
-  topPlans: { plan: string; sales: number; share: number }[];
+  topPlans: { plan: string; sales: number; share: number; revenue: number }[];
   dailyRevenue: { label: string; value: number }[];
   ltvCohorts: { cohort: string; users: number; avgLtv: number; avgOrders: number; retention: number; color: string }[];
 }> = {
@@ -84,8 +84,8 @@ const dashboardData: Record<Period, {
       { country: "Италия", sales: 6, revenue: 5940 }, { country: "Германия", sales: 5, revenue: 4950 }, { country: "США", sales: 3, revenue: 3570 },
     ],
     topPlans: [
-      { plan: "Европа 10 ГБ", sales: 14, share: 41 }, { plan: "Азия 8 ГБ", sales: 9, share: 26 },
-      { plan: "Глобальный 20 ГБ", sales: 6, share: 18 }, { plan: "США 15 ГБ", sales: 5, share: 15 },
+      { plan: "Европа 10 ГБ", sales: 14, share: 41, revenue: 13860 }, { plan: "Азия 8 ГБ", sales: 9, share: 26, revenue: 7200 },
+      { plan: "Глобальный 20 ГБ", sales: 6, share: 18, revenue: 7140 }, { plan: "США 15 ГБ", sales: 5, share: 15, revenue: 5950 },
     ],
     dailyRevenue: [
       { label: "00:00", value: 1990 }, { label: "04:00", value: 790 }, { label: "08:00", value: 5940 },
@@ -109,8 +109,8 @@ const dashboardData: Record<Period, {
       { country: "Италия", sales: 38, revenue: 37620 }, { country: "Германия", sales: 32, revenue: 31680 }, { country: "США", sales: 20, revenue: 23800 },
     ],
     topPlans: [
-      { plan: "Европа 10 ГБ", sales: 88, share: 40 }, { plan: "Азия 8 ГБ", sales: 59, share: 27 },
-      { plan: "Глобальный 20 ГБ", sales: 44, share: 20 }, { plan: "США 15 ГБ", sales: 29, share: 13 },
+      { plan: "Европа 10 ГБ", sales: 88, share: 40, revenue: 87120 }, { plan: "Азия 8 ГБ", sales: 59, share: 27, revenue: 47200 },
+      { plan: "Глобальный 20 ГБ", sales: 44, share: 20, revenue: 52360 }, { plan: "США 15 ГБ", sales: 29, share: 13, revenue: 34510 },
     ],
     dailyRevenue: [
       { label: "Пн", value: 38000 }, { label: "Вт", value: 42000 }, { label: "Ср", value: 48000 },
@@ -135,8 +135,8 @@ const dashboardData: Record<Period, {
       { country: "Италия", sales: 145, revenue: 143550 }, { country: "Германия", sales: 112, revenue: 110880 }, { country: "США", sales: 89, revenue: 105910 },
     ],
     topPlans: [
-      { plan: "Европа 10 ГБ", sales: 356, share: 40 }, { plan: "Азия 8 ГБ", sales: 245, share: 27 },
-      { plan: "Глобальный 20 ГБ", sales: 178, share: 20 }, { plan: "США 15 ГБ", sales: 113, share: 13 },
+      { plan: "Европа 10 ГБ", sales: 356, share: 40, revenue: 352440 }, { plan: "Азия 8 ГБ", sales: 245, share: 27, revenue: 196000 },
+      { plan: "Глобальный 20 ГБ", sales: 178, share: 20, revenue: 211820 }, { plan: "США 15 ГБ", sales: 113, share: 13, revenue: 134470 },
     ],
     dailyRevenue: [
       { label: "Нед 1", value: 280000 }, { label: "Нед 2", value: 320000 }, { label: "Нед 3", value: 345000 }, { label: "Нед 4", value: 298000 },
@@ -160,8 +160,8 @@ const dashboardData: Record<Period, {
       { country: "Италия", sales: 480, revenue: 475200 }, { country: "Германия", sales: 390, revenue: 386100 }, { country: "США", sales: 280, revenue: 333200 },
     ],
     topPlans: [
-      { plan: "Европа 10 ГБ", sales: 1112, share: 40 }, { plan: "Азия 8 ГБ", sales: 750, share: 27 },
-      { plan: "Глобальный 20 ГБ", sales: 556, share: 20 }, { plan: "США 15 ГБ", sales: 362, share: 13 },
+      { plan: "Европа 10 ГБ", sales: 1112, share: 40, revenue: 1100880 }, { plan: "Азия 8 ГБ", sales: 750, share: 27, revenue: 600000 },
+      { plan: "Глобальный 20 ГБ", sales: 556, share: 20, revenue: 661640 }, { plan: "США 15 ГБ", sales: 362, share: 13, revenue: 430780 },
     ],
     dailyRevenue: [
       { label: "Мес 1", value: 1100000 }, { label: "Мес 2", value: 1350000 }, { label: "Мес 3", value: 1440000 },
@@ -185,8 +185,8 @@ const dashboardData: Record<Period, {
       { country: "Италия", sales: 1780, revenue: 1762200 }, { country: "Германия", sales: 1450, revenue: 1435500 }, { country: "США", sales: 1040, revenue: 1237600 },
     ],
     topPlans: [
-      { plan: "Европа 10 ГБ", sales: 4168, share: 40 }, { plan: "Азия 8 ГБ", sales: 2813, share: 27 },
-      { plan: "Глобальный 20 ГБ", sales: 2084, share: 20 }, { plan: "США 15 ГБ", sales: 1355, share: 13 },
+      { plan: "Европа 10 ГБ", sales: 4168, share: 40, revenue: 4126320 }, { plan: "Азия 8 ГБ", sales: 2813, share: 27, revenue: 2250400 },
+      { plan: "Глобальный 20 ГБ", sales: 2084, share: 20, revenue: 2479960 }, { plan: "США 15 ГБ", sales: 1355, share: 13, revenue: 1612450 },
     ],
     dailyRevenue: [
       { label: "Q1", value: 2800000 }, { label: "Q2", value: 3500000 }, { label: "Q3", value: 4200000 }, { label: "Q4", value: 4060000 },
@@ -484,7 +484,7 @@ function DashboardTab({ period, setPeriod }: { period: Period; setPeriod: (p: Pe
                 <div key={plan.plan} className="space-y-1">
                   <div className="flex justify-between text-sm">
                     <span className="text-foreground font-medium">{plan.plan}</span>
-                    <span className="text-muted-foreground">{plan.sales} продаж ({plan.share}%)</span>
+                    <span className="text-muted-foreground">{plan.sales} продаж · {plan.revenue.toLocaleString('ru-RU')} ₽ ({plan.share}%)</span>
                   </div>
                   <Progress value={plan.share} className="h-3" />
                 </div>
