@@ -490,7 +490,7 @@ function DashboardTab({ period, setPeriod }: { period: Period; setPeriod: (p: Pe
                         <div className="flex justify-between text-sm">
                           <span className="text-foreground font-medium">{plan.plan}</span>
                           <span className="text-muted-foreground">
-                            {plan.sales} продаж · {plan.revenue.toLocaleString('ru-RU')} ₽ ({plan.share}% продаж · {revenueShare}% выручки)
+                            {plan.sales} продаж ({plan.share}%) · {plan.revenue.toLocaleString('ru-RU')} ₽ ({revenueShare}%)
                           </span>
                         </div>
                         <Progress value={plan.share} className="h-3" />
