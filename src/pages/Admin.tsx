@@ -479,17 +479,27 @@ function DashboardTab({ period, setPeriod }: { period: Period; setPeriod: (p: Pe
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
-              {data.topPlans.map((plan) => (
-                <div key={plan.plan} className="space-y-1">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-foreground font-medium">{plan.plan}</span>
-                    <span className="text-muted-foreground">{plan.sales} продаж · {plan.revenue.toLocaleString('ru-RU')} ₽ ({plan.share}%)</span>
-                  </div>
-                  <Progress value={plan.share} className="h-3" />
+            {(() => {
+              const totalRevenue = data.topPlans.reduce((s, p) => s + p.revenue, 0);
+              return (
+                <div className="space-y-4">
+                  {data.topPlans.map((plan) => {
+                    const revenueShare = totalRevenue ? Math.round(plan.revenue / totalRevenue * 100) : 0;
+                    return (
+                      <div key={plan.plan} className="space-y-1">
+                        <div className="flex justify-between text-sm">
+                          <span className="text-foreground font-medium">{plan.plan}</span>
+                          <span className="text-muted-foreground">
+                            {plan.sales} продаж · {plan.revenue.toLocaleString('ru-RU')} ₽ ({plan.share}% продаж · {revenueShare}% выручки)
+                          </span>
+                        </div>
+                        <Progress value={plan.share} className="h-3" />
+                      </div>
+                    );
+                  })}
                 </div>
-              ))}
-            </div>
+              );
+            })()}
           </CardContent>
         </Card>
       </div>
