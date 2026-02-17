@@ -9,6 +9,8 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Search } from "lucide-react";
 
 type Period = "day" | "week" | "month" | "quarter" | "year";
 type AdminTab = "dashboard" | "users" | "consumption" | "purchases";
@@ -548,16 +550,28 @@ function DashboardTab({ period, setPeriod }: { period: Period; setPeriod: (p: Pe
 
 // ===== Users Tab =====
 function UsersTab({ period, setPeriod }: { period: Period; setPeriod: (p: Period) => void }) {
+  const [search, setSearch] = useState("");
   const data = mockUsers[period];
-  const { sorted, sortCol, sortDir, toggle } = useSortable(data, "totalSpent");
+  const filtered = useMemo(() => {
+    if (!search.trim()) return data;
+    const q = search.toLowerCase();
+    return data.filter(u => u.name.toLowerCase().includes(q) || u.email.toLowerCase().includes(q) || u.country.toLowerCase().includes(q));
+  }, [data, search]);
+  const { sorted, sortCol, sortDir, toggle } = useSortable(filtered, "totalSpent");
 
-  const totalUsers = data.length;
-  const totalActiveEsims = data.reduce((s, u) => s + u.activeEsims, 0);
-  const totalSpent = data.reduce((s, u) => s + u.totalSpent, 0);
+  const totalUsers = filtered.length;
+  const totalActiveEsims = filtered.reduce((s, u) => s + u.activeEsims, 0);
+  const totalSpent = filtered.reduce((s, u) => s + u.totalSpent, 0);
 
   return (
     <div className="space-y-6">
-      <PeriodSelector period={period} setPeriod={setPeriod} />
+      <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
+        <PeriodSelector period={period} setPeriod={setPeriod} />
+        <div className="relative w-full sm:w-72">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+          <Input placeholder="Поиск по имени, email, стране…" value={search} onChange={e => setSearch(e.target.value)} className="pl-9" maxLength={100} />
+        </div>
+      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <Card>
@@ -619,15 +633,27 @@ function UsersTab({ period, setPeriod }: { period: Period; setPeriod: (p: Period
 
 // ===== Consumption Tab =====
 function ConsumptionTab({ period, setPeriod }: { period: Period; setPeriod: (p: Period) => void }) {
+  const [search, setSearch] = useState("");
   const data = mockConsumption[period];
-  const { sorted, sortCol, sortDir, toggle } = useSortable(data, "dataUsedMb");
+  const filtered = useMemo(() => {
+    if (!search.trim()) return data;
+    const q = search.toLowerCase();
+    return data.filter(d => d.user.toLowerCase().includes(q) || d.plan.toLowerCase().includes(q) || d.country.toLowerCase().includes(q));
+  }, [data, search]);
+  const { sorted, sortCol, sortDir, toggle } = useSortable(filtered, "dataUsedMb");
 
-  const totalDataUsed = data.reduce((s, d) => s + d.dataUsedMb, 0);
-  const avgUsage = data.length > 0 ? Math.round(data.reduce((s, d) => s + (d.dataUsedMb / d.dataTotalMb) * 100, 0) / data.length) : 0;
+  const totalDataUsed = filtered.reduce((s, d) => s + d.dataUsedMb, 0);
+  const avgUsage = filtered.length > 0 ? Math.round(filtered.reduce((s, d) => s + (d.dataUsedMb / d.dataTotalMb) * 100, 0) / filtered.length) : 0;
 
   return (
     <div className="space-y-6">
-      <PeriodSelector period={period} setPeriod={setPeriod} />
+      <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
+        <PeriodSelector period={period} setPeriod={setPeriod} />
+        <div className="relative w-full sm:w-72">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+          <Input placeholder="Поиск по пользователю, тарифу, стране…" value={search} onChange={e => setSearch(e.target.value)} className="pl-9" maxLength={100} />
+        </div>
+      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <Card>
@@ -649,7 +675,7 @@ function ConsumptionTab({ period, setPeriod }: { period: Period; setPeriod: (p: 
             <CardTitle className="text-sm font-medium text-muted-foreground">Активных eSIM</CardTitle>
             <Activity className="h-4 w-4 text-primary" />
           </CardHeader>
-          <CardContent><div className="text-2xl font-bold text-foreground">{data.filter(d => d.status === "active").length}</div></CardContent>
+          <CardContent><div className="text-2xl font-bold text-foreground">{filtered.filter(d => d.status === "active").length}</div></CardContent>
         </Card>
       </div>
 
@@ -693,28 +719,40 @@ function ConsumptionTab({ period, setPeriod }: { period: Period; setPeriod: (p: 
 
 // ===== Purchases Tab =====
 function PurchasesTab({ period, setPeriod }: { period: Period; setPeriod: (p: Period) => void }) {
+  const [search, setSearch] = useState("");
   const data = mockPurchases[period];
-  const { sorted, sortCol, sortDir, toggle } = useSortable(data, "amount");
+  const filtered = useMemo(() => {
+    if (!search.trim()) return data;
+    const q = search.toLowerCase();
+    return data.filter(d => d.user.toLowerCase().includes(q) || d.orderId.toLowerCase().includes(q) || d.plan.toLowerCase().includes(q) || d.country.toLowerCase().includes(q));
+  }, [data, search]);
+  const { sorted, sortCol, sortDir, toggle } = useSortable(filtered, "amount");
 
-  const totalRevenue = data.filter(d => d.status === "completed").reduce((s, d) => s + d.amount, 0);
-  const totalOrders = data.length;
-  const refunds = data.filter(d => d.status === "refunded").length;
+  const totalRevenue = filtered.filter(d => d.status === "completed").reduce((s, d) => s + d.amount, 0);
+  const totalOrders = filtered.length;
+  const refunds = filtered.filter(d => d.status === "refunded").length;
 
   // Group by user for summary
   const userSummary = useMemo(() => {
     const map = new Map<string, { orders: number; spent: number }>();
-    data.forEach(d => {
+    filtered.forEach(d => {
       const cur = map.get(d.user) || { orders: 0, spent: 0 };
       cur.orders++;
       if (d.status === "completed") cur.spent += d.amount;
       map.set(d.user, cur);
     });
     return Array.from(map.entries()).sort((a, b) => b[1].spent - a[1].spent);
-  }, [data]);
+  }, [filtered]);
 
   return (
     <div className="space-y-6">
-      <PeriodSelector period={period} setPeriod={setPeriod} />
+      <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
+        <PeriodSelector period={period} setPeriod={setPeriod} />
+        <div className="relative w-full sm:w-72">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+          <Input placeholder="Поиск по пользователю, заказу, стране…" value={search} onChange={e => setSearch(e.target.value)} className="pl-9" maxLength={100} />
+        </div>
+      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
         <Card>
