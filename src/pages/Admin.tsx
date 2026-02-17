@@ -504,56 +504,6 @@ function DashboardTab({ period, setPeriod }: { period: Period; setPeriod: (p: Pe
         </Card>
       </div>
 
-      {/* Repeat Purchases */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-foreground">
-            <Repeat className="h-5 w-5 text-primary" />
-            Повторные покупки
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="bg-muted/50 rounded-lg p-4 text-center">
-              <p className="text-sm text-muted-foreground">Доля повторных</p>
-              <p className="text-3xl font-bold text-primary">{data.repeatPurchase.rate}%</p>
-            </div>
-            <div className="bg-muted/50 rounded-lg p-4 text-center">
-              <p className="text-sm text-muted-foreground">Возвращающихся клиентов</p>
-              <p className="text-3xl font-bold text-foreground">{formatNumber(data.repeatPurchase.totalRepeatUsers)}</p>
-            </div>
-            <div className="bg-muted/50 rounded-lg p-4 text-center">
-              <p className="text-sm text-muted-foreground">Ср. заказов на клиента</p>
-              <p className="text-3xl font-bold text-foreground">{data.repeatPurchase.avgOrdersPerUser}</p>
-            </div>
-          </div>
-          <div>
-            <h4 className="text-sm font-medium text-muted-foreground mb-3">Топ возвращающихся клиентов</h4>
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Пользователь</TableHead>
-                  <TableHead className="text-right">Заказы</TableHead>
-                  <TableHead className="text-right">Потрачено</TableHead>
-                  <TableHead className="text-right">Последняя покупка</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {data.repeatPurchase.topRepeaters.map((row) => (
-                  <TableRow key={row.user}>
-                    <TableCell className="font-medium">{row.user}</TableCell>
-                    <TableCell className="text-right">{row.orders}</TableCell>
-                    <TableCell className="text-right">{formatCurrency(row.totalSpent)}</TableCell>
-                    <TableCell className="text-right text-muted-foreground">{row.lastPurchase}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </div>
-        </CardContent>
-      </Card>
-
-
       {/* LTV Cohorts */}
       <Card>
         <CardHeader>
@@ -601,8 +551,6 @@ function DashboardTab({ period, setPeriod }: { period: Period; setPeriod: (p: Pe
               })}
             </TableBody>
           </Table>
-
-          {/* LTV summary */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6">
             {data.ltvCohorts.map((cohort) => {
               const totalRevenue = data.ltvCohorts.reduce((s, c) => s + c.users * c.avgLtv, 0);
@@ -617,6 +565,55 @@ function DashboardTab({ period, setPeriod }: { period: Period; setPeriod: (p: Pe
                 </div>
               );
             })}
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Repeat Purchases */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-foreground">
+            <Repeat className="h-5 w-5 text-primary" />
+            Повторные покупки
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="bg-muted/50 rounded-lg p-4 text-center">
+              <p className="text-sm text-muted-foreground">Доля повторных</p>
+              <p className="text-3xl font-bold text-primary">{data.repeatPurchase.rate}%</p>
+            </div>
+            <div className="bg-muted/50 rounded-lg p-4 text-center">
+              <p className="text-sm text-muted-foreground">Возвращающихся клиентов</p>
+              <p className="text-3xl font-bold text-foreground">{formatNumber(data.repeatPurchase.totalRepeatUsers)}</p>
+            </div>
+            <div className="bg-muted/50 rounded-lg p-4 text-center">
+              <p className="text-sm text-muted-foreground">Ср. заказов на клиента</p>
+              <p className="text-3xl font-bold text-foreground">{data.repeatPurchase.avgOrdersPerUser}</p>
+            </div>
+          </div>
+          <div>
+            <h4 className="text-sm font-medium text-muted-foreground mb-3">Топ возвращающихся клиентов</h4>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Пользователь</TableHead>
+                  <TableHead className="text-right">Заказы</TableHead>
+                  <TableHead className="text-right">Потрачено</TableHead>
+                  <TableHead className="text-right">Последняя покупка</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {data.repeatPurchase.topRepeaters.map((row) => (
+                  <TableRow key={row.user}>
+                    <TableCell className="font-medium">{row.user}</TableCell>
+                    <TableCell className="text-right">{row.orders}</TableCell>
+                    <TableCell className="text-right">{formatCurrency(row.totalSpent)}</TableCell>
+                    <TableCell className="text-right text-muted-foreground">{row.lastPurchase}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
           </div>
         </CardContent>
       </Card>
