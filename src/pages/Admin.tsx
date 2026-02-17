@@ -71,6 +71,7 @@ const dashboardData: Record<Period, {
   topCountries: { country: string; sales: number; revenue: number }[];
   topPlans: { plan: string; sales: number; share: number }[];
   dailyRevenue: { label: string; value: number }[];
+  ltvCohorts: { cohort: string; users: number; avgLtv: number; avgOrders: number; retention: number; color: string }[];
 }> = {
   day: {
     revenue: 47800, orders: 34, users: 12, activeEsims: 28, avgCheck: 1406, conversionRate: 4.2,
@@ -89,6 +90,12 @@ const dashboardData: Record<Period, {
     dailyRevenue: [
       { label: "00:00", value: 1990 }, { label: "04:00", value: 790 }, { label: "08:00", value: 5940 },
       { label: "12:00", value: 12800 }, { label: "16:00", value: 15200 }, { label: "20:00", value: 11080 },
+    ],
+    ltvCohorts: [
+      { cohort: "Новички (1 покупка)", users: 8, avgLtv: 1050, avgOrders: 1, retention: 0, color: "bg-muted" },
+      { cohort: "Возвращающиеся (2–3)", users: 3, avgLtv: 2400, avgOrders: 2.3, retention: 25, color: "bg-primary/20" },
+      { cohort: "Лояльные (4–10)", users: 1, avgLtv: 5200, avgOrders: 5, retention: 60, color: "bg-primary/50" },
+      { cohort: "VIP (10+)", users: 0, avgLtv: 0, avgOrders: 0, retention: 0, color: "bg-primary" },
     ],
   },
   week: {
@@ -109,6 +116,12 @@ const dashboardData: Record<Period, {
       { label: "Пн", value: 38000 }, { label: "Вт", value: 42000 }, { label: "Ср", value: 48000 },
       { label: "Чт", value: 51000 }, { label: "Пт", value: 55000 }, { label: "Сб", value: 44000 }, { label: "Вс", value: 34000 },
     ],
+    ltvCohorts: [
+      { cohort: "Новички (1 покупка)", users: 52, avgLtv: 1180, avgOrders: 1, retention: 0, color: "bg-muted" },
+      { cohort: "Возвращающиеся (2–3)", users: 22, avgLtv: 3200, avgOrders: 2.4, retention: 30, color: "bg-primary/20" },
+      { cohort: "Лояльные (4–10)", users: 9, avgLtv: 7800, avgOrders: 5.6, retention: 55, color: "bg-primary/50" },
+      { cohort: "VIP (10+)", users: 2, avgLtv: 14500, avgOrders: 12, retention: 80, color: "bg-primary" },
+    ],
   },
   month: {
     revenue: 1243000, orders: 892, users: 345, activeEsims: 670, avgCheck: 1393, conversionRate: 5.1,
@@ -127,6 +140,12 @@ const dashboardData: Record<Period, {
     ],
     dailyRevenue: [
       { label: "Нед 1", value: 280000 }, { label: "Нед 2", value: 320000 }, { label: "Нед 3", value: 345000 }, { label: "Нед 4", value: 298000 },
+    ],
+    ltvCohorts: [
+      { cohort: "Новички (1 покупка)", users: 180, avgLtv: 1290, avgOrders: 1, retention: 0, color: "bg-muted" },
+      { cohort: "Возвращающиеся (2–3)", users: 98, avgLtv: 3800, avgOrders: 2.6, retention: 34, color: "bg-primary/20" },
+      { cohort: "Лояльные (4–10)", users: 52, avgLtv: 9200, avgOrders: 6.1, retention: 62, color: "bg-primary/50" },
+      { cohort: "VIP (10+)", users: 15, avgLtv: 22400, avgOrders: 14.2, retention: 85, color: "bg-primary" },
     ],
   },
   quarter: {
@@ -147,6 +166,12 @@ const dashboardData: Record<Period, {
     dailyRevenue: [
       { label: "Мес 1", value: 1100000 }, { label: "Мес 2", value: 1350000 }, { label: "Мес 3", value: 1440000 },
     ],
+    ltvCohorts: [
+      { cohort: "Новички (1 покупка)", users: 520, avgLtv: 1350, avgOrders: 1, retention: 0, color: "bg-muted" },
+      { cohort: "Возвращающиеся (2–3)", users: 340, avgLtv: 4200, avgOrders: 2.8, retention: 38, color: "bg-primary/20" },
+      { cohort: "Лояльные (4–10)", users: 190, avgLtv: 12600, avgOrders: 7.3, retention: 68, color: "bg-primary/50" },
+      { cohort: "VIP (10+)", users: 70, avgLtv: 35800, avgOrders: 18.5, retention: 90, color: "bg-primary" },
+    ],
   },
   year: {
     revenue: 14560000, orders: 10420, users: 4200, activeEsims: 3500, avgCheck: 1397, conversionRate: 5.8,
@@ -166,10 +191,15 @@ const dashboardData: Record<Period, {
     dailyRevenue: [
       { label: "Q1", value: 2800000 }, { label: "Q2", value: 3500000 }, { label: "Q3", value: 4200000 }, { label: "Q4", value: 4060000 },
     ],
+    ltvCohorts: [
+      { cohort: "Новички (1 покупка)", users: 1850, avgLtv: 1400, avgOrders: 1, retention: 0, color: "bg-muted" },
+      { cohort: "Возвращающиеся (2–3)", users: 1200, avgLtv: 4800, avgOrders: 3.0, retention: 42, color: "bg-primary/20" },
+      { cohort: "Лояльные (4–10)", users: 780, avgLtv: 16200, avgOrders: 8.5, retention: 72, color: "bg-primary/50" },
+      { cohort: "VIP (10+)", users: 370, avgLtv: 52400, avgOrders: 24, retention: 93, color: "bg-primary" },
+    ],
   },
 };
 
-// Mock data generators
 const mockUsers: Record<Period, UserData[]> = {
   day: [
     { email: "user_a1@mail.ru", name: "Алексей Иванов", registeredAt: "Сегодня", totalOrders: 1, totalSpent: 990, activeEsims: 1, lastActivity: "1 час назад", country: "Россия" },
@@ -542,6 +572,73 @@ function DashboardTab({ period, setPeriod }: { period: Period; setPeriod: (p: Pe
               ))}
             </TableBody>
           </Table>
+        </CardContent>
+      </Card>
+
+      {/* LTV Cohorts */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-foreground">
+            <TrendingUp className="h-5 w-5 text-primary" />
+            Когорты по LTV
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Когорта</TableHead>
+                <TableHead className="text-right">Пользователей</TableHead>
+                <TableHead className="text-right">Ср. LTV</TableHead>
+                <TableHead className="text-right">Ср. заказов</TableHead>
+                <TableHead className="text-right">Retention</TableHead>
+                <TableHead>Доля</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {data.ltvCohorts.map((cohort) => {
+                const totalUsers = data.ltvCohorts.reduce((s, c) => s + c.users, 0);
+                const share = totalUsers > 0 ? Math.round((cohort.users / totalUsers) * 100) : 0;
+                return (
+                  <TableRow key={cohort.cohort}>
+                    <TableCell>
+                      <div className="flex items-center gap-2">
+                        <div className={`w-3 h-3 rounded-full ${cohort.color}`} />
+                        <span className="font-medium">{cohort.cohort}</span>
+                      </div>
+                    </TableCell>
+                    <TableCell className="text-right">{formatNumber(cohort.users)}</TableCell>
+                    <TableCell className="text-right font-medium">{formatCurrency(cohort.avgLtv)}</TableCell>
+                    <TableCell className="text-right">{cohort.avgOrders}</TableCell>
+                    <TableCell className="text-right">{cohort.retention}%</TableCell>
+                    <TableCell className="min-w-[100px]">
+                      <div className="flex items-center gap-2">
+                        <Progress value={share} className="h-2 flex-1" />
+                        <span className="text-xs text-muted-foreground w-8">{share}%</span>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+
+          {/* LTV summary */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6">
+            {data.ltvCohorts.map((cohort) => {
+              const totalRevenue = data.ltvCohorts.reduce((s, c) => s + c.users * c.avgLtv, 0);
+              const cohortRevenue = cohort.users * cohort.avgLtv;
+              const revenueShare = totalRevenue > 0 ? Math.round((cohortRevenue / totalRevenue) * 100) : 0;
+              return (
+                <div key={cohort.cohort} className="bg-muted/30 rounded-lg p-3 text-center">
+                  <div className={`w-3 h-3 rounded-full ${cohort.color} mx-auto mb-2`} />
+                  <p className="text-xs text-muted-foreground mb-1">Доля выручки</p>
+                  <p className="text-xl font-bold text-foreground">{revenueShare}%</p>
+                  <p className="text-xs text-muted-foreground">{formatCurrency(cohortRevenue)}</p>
+                </div>
+              );
+            })}
+          </div>
         </CardContent>
       </Card>
     </div>
