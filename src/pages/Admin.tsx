@@ -562,6 +562,7 @@ function DashboardTab({ period, setPeriod }: { period: Period; setPeriod: (p: Pe
                   <p className="text-xs text-muted-foreground mb-1">Доля выручки</p>
                   <p className="text-xl font-bold text-foreground">{revenueShare}%</p>
                   <p className="text-xs text-muted-foreground">{formatCurrency(cohortRevenue)}</p>
+                  <p className="text-xs text-muted-foreground mt-1">{cohort.users} польз.</p>
                 </div>
               );
             })}
