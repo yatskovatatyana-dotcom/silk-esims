@@ -92,7 +92,7 @@ const dashboardData: Record<Period, {
       { label: "12:00", value: 12800 }, { label: "16:00", value: 15200 }, { label: "20:00", value: 11080 },
     ],
     ltvCohorts: [
-      { cohort: "Новички (1 покупка)", users: 8, avgLtv: 1050, avgOrders: 1, retention: 0, color: "bg-[hsl(220,15%,85%)]" },
+      { cohort: "Новички (1 покупка)", users: 8, avgLtv: 1050, avgOrders: 1, retention: 0, color: "bg-[hsl(150,60%,45%)]" },
       { cohort: "Возвращающиеся (2–3)", users: 3, avgLtv: 2400, avgOrders: 2.3, retention: 25, color: "bg-[hsl(200,100%,45%)]" },
       { cohort: "Лояльные (4–10)", users: 1, avgLtv: 5200, avgOrders: 5, retention: 60, color: "bg-[hsl(260,60%,55%)]" },
       { cohort: "VIP (10+)", users: 0, avgLtv: 0, avgOrders: 0, retention: 0, color: "bg-[hsl(35,100%,50%)]" },
@@ -117,7 +117,7 @@ const dashboardData: Record<Period, {
       { label: "Чт", value: 51000 }, { label: "Пт", value: 55000 }, { label: "Сб", value: 44000 }, { label: "Вс", value: 34000 },
     ],
     ltvCohorts: [
-      { cohort: "Новички (1 покупка)", users: 52, avgLtv: 1180, avgOrders: 1, retention: 0, color: "bg-[hsl(220,15%,85%)]" },
+      { cohort: "Новички (1 покупка)", users: 52, avgLtv: 1180, avgOrders: 1, retention: 0, color: "bg-[hsl(150,60%,45%)]" },
       { cohort: "Возвращающиеся (2–3)", users: 22, avgLtv: 3200, avgOrders: 2.4, retention: 30, color: "bg-[hsl(200,100%,45%)]" },
       { cohort: "Лояльные (4–10)", users: 9, avgLtv: 7800, avgOrders: 5.6, retention: 55, color: "bg-[hsl(260,60%,55%)]" },
       { cohort: "VIP (10+)", users: 2, avgLtv: 14500, avgOrders: 12, retention: 80, color: "bg-[hsl(35,100%,50%)]" },
@@ -142,7 +142,7 @@ const dashboardData: Record<Period, {
       { label: "Нед 1", value: 280000 }, { label: "Нед 2", value: 320000 }, { label: "Нед 3", value: 345000 }, { label: "Нед 4", value: 298000 },
     ],
     ltvCohorts: [
-      { cohort: "Новички (1 покупка)", users: 180, avgLtv: 1290, avgOrders: 1, retention: 0, color: "bg-[hsl(220,15%,85%)]" },
+      { cohort: "Новички (1 покупка)", users: 180, avgLtv: 1290, avgOrders: 1, retention: 0, color: "bg-[hsl(150,60%,45%)]" },
       { cohort: "Возвращающиеся (2–3)", users: 98, avgLtv: 3800, avgOrders: 2.6, retention: 34, color: "bg-[hsl(200,100%,45%)]" },
       { cohort: "Лояльные (4–10)", users: 52, avgLtv: 9200, avgOrders: 6.1, retention: 62, color: "bg-[hsl(260,60%,55%)]" },
       { cohort: "VIP (10+)", users: 15, avgLtv: 22400, avgOrders: 14.2, retention: 85, color: "bg-[hsl(35,100%,50%)]" },
@@ -167,7 +167,7 @@ const dashboardData: Record<Period, {
       { label: "Мес 1", value: 1100000 }, { label: "Мес 2", value: 1350000 }, { label: "Мес 3", value: 1440000 },
     ],
     ltvCohorts: [
-      { cohort: "Новички (1 покупка)", users: 520, avgLtv: 1350, avgOrders: 1, retention: 0, color: "bg-[hsl(220,15%,85%)]" },
+      { cohort: "Новички (1 покупка)", users: 520, avgLtv: 1350, avgOrders: 1, retention: 0, color: "bg-[hsl(150,60%,45%)]" },
       { cohort: "Возвращающиеся (2–3)", users: 340, avgLtv: 4200, avgOrders: 2.8, retention: 38, color: "bg-[hsl(200,100%,45%)]" },
       { cohort: "Лояльные (4–10)", users: 190, avgLtv: 12600, avgOrders: 7.3, retention: 68, color: "bg-[hsl(260,60%,55%)]" },
       { cohort: "VIP (10+)", users: 70, avgLtv: 35800, avgOrders: 18.5, retention: 90, color: "bg-[hsl(35,100%,50%)]" },
@@ -192,7 +192,7 @@ const dashboardData: Record<Period, {
       { label: "Q1", value: 2800000 }, { label: "Q2", value: 3500000 }, { label: "Q3", value: 4200000 }, { label: "Q4", value: 4060000 },
     ],
     ltvCohorts: [
-      { cohort: "Новички (1 покупка)", users: 1850, avgLtv: 1400, avgOrders: 1, retention: 0, color: "bg-[hsl(220,15%,85%)]" },
+      { cohort: "Новички (1 покупка)", users: 1850, avgLtv: 1400, avgOrders: 1, retention: 0, color: "bg-[hsl(150,60%,45%)]" },
       { cohort: "Возвращающиеся (2–3)", users: 1200, avgLtv: 4800, avgOrders: 3.0, retention: 42, color: "bg-[hsl(200,100%,45%)]" },
       { cohort: "Лояльные (4–10)", users: 780, avgLtv: 16200, avgOrders: 8.5, retention: 72, color: "bg-[hsl(260,60%,55%)]" },
       { cohort: "VIP (10+)", users: 370, avgLtv: 52400, avgOrders: 24, retention: 93, color: "bg-[hsl(35,100%,50%)]" },
