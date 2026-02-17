@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Progress } from "@/components/ui/progress";
-import { ArrowLeft, Users, ShoppingCart, DollarSign, TrendingUp, Globe, Smartphone, BarChart3, Activity } from "lucide-react";
+import { ArrowLeft, Users, ShoppingCart, DollarSign, TrendingUp, Globe, Smartphone, BarChart3, Activity, Repeat } from "lucide-react";
 import { Link } from "react-router-dom";
 
 type Period = "day" | "month" | "quarter" | "year";
@@ -16,6 +16,12 @@ const mockData: Record<Period, {
   activeEsims: number;
   avgCheck: number;
   conversionRate: number;
+  repeatPurchase: {
+    rate: number;
+    totalRepeatUsers: number;
+    avgOrdersPerUser: number;
+    topRepeaters: { user: string; orders: number; totalSpent: number; lastPurchase: string }[];
+  };
   topCountries: { country: string; sales: number; revenue: number }[];
   topPlans: { plan: string; sales: number; share: number }[];
   dailyRevenue: { label: string; value: number }[];
@@ -27,6 +33,15 @@ const mockData: Record<Period, {
     activeEsims: 28,
     avgCheck: 1406,
     conversionRate: 4.2,
+    repeatPurchase: {
+      rate: 18,
+      totalRepeatUsers: 2,
+      avgOrdersPerUser: 1.2,
+      topRepeaters: [
+        { user: "user_a1@mail.ru", orders: 3, totalSpent: 3970, lastPurchase: "Сегодня" },
+        { user: "travel_fan@gmail.com", orders: 2, totalSpent: 2180, lastPurchase: "Сегодня" },
+      ],
+    },
     topCountries: [
       { country: "Турция", sales: 12, revenue: 11880 },
       { country: "Таиланд", sales: 8, revenue: 6320 },
@@ -56,6 +71,17 @@ const mockData: Record<Period, {
     activeEsims: 670,
     avgCheck: 1393,
     conversionRate: 5.1,
+    repeatPurchase: {
+      rate: 24,
+      totalRepeatUsers: 83,
+      avgOrdersPerUser: 1.8,
+      topRepeaters: [
+        { user: "user_a1@mail.ru", orders: 5, totalSpent: 7450, lastPurchase: "2 дня назад" },
+        { user: "travel_fan@gmail.com", orders: 4, totalSpent: 5960, lastPurchase: "5 дней назад" },
+        { user: "nomad_life@ya.ru", orders: 3, totalSpent: 4770, lastPurchase: "1 неделю назад" },
+        { user: "world_trip@inbox.ru", orders: 3, totalSpent: 3970, lastPurchase: "2 недели назад" },
+      ],
+    },
     topCountries: [
       { country: "Турция", sales: 312, revenue: 308880 },
       { country: "Таиланд", sales: 198, revenue: 156420 },
@@ -83,6 +109,17 @@ const mockData: Record<Period, {
     activeEsims: 1890,
     avgCheck: 1399,
     conversionRate: 5.4,
+    repeatPurchase: {
+      rate: 28,
+      totalRepeatUsers: 314,
+      avgOrdersPerUser: 2.1,
+      topRepeaters: [
+        { user: "user_a1@mail.ru", orders: 12, totalSpent: 18900, lastPurchase: "2 дня назад" },
+        { user: "travel_fan@gmail.com", orders: 9, totalSpent: 13420, lastPurchase: "5 дней назад" },
+        { user: "nomad_life@ya.ru", orders: 8, totalSpent: 11860, lastPurchase: "1 неделю назад" },
+        { user: "world_trip@inbox.ru", orders: 7, totalSpent: 9930, lastPurchase: "3 недели назад" },
+      ],
+    },
     topCountries: [
       { country: "Турция", sales: 890, revenue: 881100 },
       { country: "Таиланд", sales: 620, revenue: 489800 },
@@ -109,6 +146,17 @@ const mockData: Record<Period, {
     activeEsims: 3500,
     avgCheck: 1397,
     conversionRate: 5.8,
+    repeatPurchase: {
+      rate: 32,
+      totalRepeatUsers: 1344,
+      avgOrdersPerUser: 2.5,
+      topRepeaters: [
+        { user: "user_a1@mail.ru", orders: 38, totalSpent: 56200, lastPurchase: "2 дня назад" },
+        { user: "travel_fan@gmail.com", orders: 29, totalSpent: 42800, lastPurchase: "5 дней назад" },
+        { user: "nomad_life@ya.ru", orders: 24, totalSpent: 35600, lastPurchase: "1 неделю назад" },
+        { user: "world_trip@inbox.ru", orders: 21, totalSpent: 31200, lastPurchase: "3 недели назад" },
+      ],
+    },
     topCountries: [
       { country: "Турция", sales: 3340, revenue: 3306600 },
       { country: "Таиланд", sales: 2310, revenue: 1824900 },
@@ -291,6 +339,58 @@ const Admin = () => {
             </CardContent>
           </Card>
         </div>
+
+        {/* Repeat Purchases */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-foreground">
+              <Repeat className="h-5 w-5 text-primary" />
+              Повторные покупки
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            {/* Summary metrics */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="bg-muted/50 rounded-lg p-4 text-center">
+                <p className="text-sm text-muted-foreground">Доля повторных</p>
+                <p className="text-3xl font-bold text-primary">{data.repeatPurchase.rate}%</p>
+              </div>
+              <div className="bg-muted/50 rounded-lg p-4 text-center">
+                <p className="text-sm text-muted-foreground">Возвращающихся клиентов</p>
+                <p className="text-3xl font-bold text-foreground">{formatNumber(data.repeatPurchase.totalRepeatUsers)}</p>
+              </div>
+              <div className="bg-muted/50 rounded-lg p-4 text-center">
+                <p className="text-sm text-muted-foreground">Ср. заказов на клиента</p>
+                <p className="text-3xl font-bold text-foreground">{data.repeatPurchase.avgOrdersPerUser}</p>
+              </div>
+            </div>
+
+            {/* Top repeat buyers table */}
+            <div>
+              <h4 className="text-sm font-medium text-muted-foreground mb-3">Топ возвращающихся клиентов</h4>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Пользователь</TableHead>
+                    <TableHead className="text-right">Заказы</TableHead>
+                    <TableHead className="text-right">Потрачено</TableHead>
+                    <TableHead className="text-right">Последняя покупка</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {data.repeatPurchase.topRepeaters.map((row) => (
+                    <TableRow key={row.user}>
+                      <TableCell className="font-medium">{row.user}</TableCell>
+                      <TableCell className="text-right">{row.orders}</TableCell>
+                      <TableCell className="text-right">{formatCurrency(row.totalSpent)}</TableCell>
+                      <TableCell className="text-right text-muted-foreground">{row.lastPurchase}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+          </CardContent>
+        </Card>
 
         {/* Top Countries Table */}
         <Card>
