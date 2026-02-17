@@ -553,37 +553,6 @@ function DashboardTab({ period, setPeriod }: { period: Period; setPeriod: (p: Pe
         </CardContent>
       </Card>
 
-      {/* Top Countries */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-foreground">
-            <Globe className="h-5 w-5 text-primary" />
-            Топ стран по продажам
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="w-12">#</TableHead>
-                <TableHead>Страна</TableHead>
-                <TableHead className="text-right">Продажи</TableHead>
-                <TableHead className="text-right">Выручка</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {data.topCountries.map((row, i) => (
-                <TableRow key={row.country}>
-                  <TableCell className="font-medium text-muted-foreground">{i + 1}</TableCell>
-                  <TableCell className="font-medium">{row.country}</TableCell>
-                  <TableCell className="text-right">{formatNumber(row.sales)}</TableCell>
-                  <TableCell className="text-right">{formatCurrency(row.revenue)}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </CardContent>
-      </Card>
 
       {/* LTV Cohorts */}
       <Card>
