@@ -191,7 +191,7 @@ const resources = {
       },
       "features": {
         "title": "Почему Silk eSIM лучше VPN",
-        "subtitle": "Надёжная альтернатива VPN, который с каждым днём работает всё хуже",
+        "subtitle": "VPN активно теряет актуальность",
         "items": {
           "instant": {
             "title": "Не блокируется",
