@@ -229,7 +229,7 @@ const resources = {
           },
           "pay": {
             "title": "Оплатите картой МИР",
-            "description": "Безопасная оплата только картой МИР"
+            "description": "Безопасная мгновенная оплата"
           },
           "activate": {
             "title": "Активируйте eSIM",
