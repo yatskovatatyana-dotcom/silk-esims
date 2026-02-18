@@ -13,7 +13,7 @@ const Hero = () => {
     { label: t('nav.features', 'Преимущества'), id: 'features' },
     { label: t('nav.pricing', 'Тарифы'), id: 'pricing' },
     { label: t('nav.howItWorks', 'Как начать'), id: 'how-it-works' },
-    { label: t('nav.promotions', 'Акции'), id: 'promotions' },
+    { label: t('nav.connectionGuide', 'Подключение'), id: 'connection-guide' },
   ];
 
   const scrollTo = (id: string) => {
