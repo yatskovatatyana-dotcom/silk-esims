@@ -62,13 +62,19 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right: Illustration */}
-          <div className="flex-1 flex justify-center lg:justify-end animate-fade-in">
-            <img 
-              src={heroIllustration} 
-              alt="People using mobile internet" 
-              className="w-full max-w-lg drop-shadow-2xl"
-            />
+          {/* Right: Illustration - blended into background */}
+          <div className="hidden lg:flex flex-1 justify-end items-center animate-fade-in relative">
+            <div className="relative w-full max-w-xl">
+              <img 
+                src={heroIllustration} 
+                alt="People using mobile internet" 
+                className="w-full object-contain mix-blend-luminosity opacity-90 drop-shadow-2xl"
+                style={{
+                  maskImage: 'radial-gradient(ellipse 80% 80% at center, black 40%, transparent 100%)',
+                  WebkitMaskImage: 'radial-gradient(ellipse 80% 80% at center, black 40%, transparent 100%)',
+                }}
+              />
+            </div>
           </div>
         </div>
 
