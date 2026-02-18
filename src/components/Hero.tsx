@@ -34,13 +34,23 @@ const Hero = () => {
           <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-5 py-2.5">
             <span className="text-sm font-semibold text-white">Silk eSIM</span>
           </div>
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="text-white/80 hover:text-white transition-colors p-2"
-            aria-label="Menu"
-          >
+          <div className="flex items-center gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              className="bg-white/10 border-white/30 text-white hover:bg-white/20 rounded-full px-4 text-sm font-medium"
+              onClick={() => {}}
+            >
+              Личный кабинет
+            </Button>
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="text-white/80 hover:text-white transition-colors p-2"
+              aria-label="Menu"
+            >
             {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+            </button>
+          </div>
         </div>
 
         {/* Dropdown menu */}
