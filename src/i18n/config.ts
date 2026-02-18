@@ -6,7 +6,7 @@ const resources = {
     translation: {
       "hero": {
         "badge": "VPN Alternative",
-        "title": "Silk eSIM - интернет совсем иного уровня",
+        "title": "Tired of VPN?",
         "brandName": "Silk eSIM",
         "description": "Без блокировок и замедлений\nБезопасный и быстрый\nМобильный интернет как раньше",
         "ctaButton": "Choose Plan",
@@ -174,7 +174,7 @@ const resources = {
     translation: {
       "hero": {
         "badge": "Альтернатива VPN",
-        "title": "Silk eSIM - интернет совсем иного уровня",
+        "title": "Надоел VPN?",
         "brandName": "Silk eSIM",
         "description": "Без блокировок и замедлений\nБезопасный и быстрый\nМобильный интернет как раньше",
         "ctaButton": "Выбрать тариф",

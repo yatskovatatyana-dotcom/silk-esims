@@ -74,7 +74,7 @@ const Hero = () => {
             <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight drop-shadow-lg">
               {t('hero.title')}
               <span className="block mt-3 text-2xl md:text-3xl font-medium opacity-90">
-                {t('hero.brandName')} — мобильный интернет по-взрослому
+                {t('hero.brandName')} — интернет совсем иного уровня
               </span>
             </h1>
 
