@@ -32,7 +32,7 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary to-secondary">
       {/* Overlay to close menu */}
       {menuOpen && (
-        <div className="fixed inset-0 z-10" onClick={() => setMenuOpen(false)} />
+        <div className="fixed inset-0 z-40" onClick={() => setMenuOpen(false)} />
       )}
       
       {/* Top bar */}
