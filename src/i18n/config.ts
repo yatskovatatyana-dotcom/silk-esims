@@ -211,7 +211,7 @@ const resources = {
           },
           "savings": {
             "title": "Стабильная скорость",
-            "description": "Никаких замедлений — полная скорость 4G/LTE для YouTube, Instagram и всего остального"
+            "description": "Никаких замедлений — полная скорость 4G/LTE для YouTube, Instagram, видео звонки и обмен файлами без помех"
           },
           "flexibility": {
             "title": "Все сервисы доступны",
