@@ -1,7 +1,16 @@
 import { Card } from "@/components/ui/card";
 import { Zap, Gauge, Globe } from "lucide-react";
 import { useTranslation } from 'react-i18next';
-import lotusIcon from "@/assets/lotus-icon.png";
+
+const LotusIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M12 3c-1.5 3-3 5.5-3 8.5C9 14.5 10.5 17 12 17c1.5 0 3-2.5 3-5.5C15 8.5 13.5 6 12 3z" />
+    <path d="M7.5 8C6 10 5 12.5 5.5 15c.5 2 2 3.5 4 4" />
+    <path d="M16.5 8c1.5 2 2.5 4.5 2 7-.5 2-2 3.5-4 4" />
+    <path d="M4 14c-1 1.5-1 3 0 4.5C5.5 20 8 20.5 10 20" />
+    <path d="M20 14c1 1.5 1 3 0 4.5C18.5 20 16 20.5 14 20" />
+  </svg>
+);
 
 const Features = () => {
   const { t } = useTranslation();
@@ -23,7 +32,7 @@ const Features = () => {
       description: t('features.items.flexibility.description'),
     },
     {
-      customIcon: lotusIcon,
+      icon: LotusIcon,
       title: t('features.items.noPhysical.title'),
       description: t('features.items.noPhysical.description'),
     },
@@ -49,11 +58,7 @@ const Features = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mb-4">
-                {'customIcon' in feature ? (
-                  <img src={feature.customIcon} alt="" className="w-6 h-6 brightness-0 invert" />
-                ) : (
-                  <feature.icon className="w-6 h-6 text-primary-foreground" />
-                )}
+                <feature.icon className="w-6 h-6 text-primary-foreground" />
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-2">
                 {feature.title}
