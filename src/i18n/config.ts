@@ -69,53 +69,54 @@ const resources = {
         }
       },
       "pricing": {
-        "title": "Plans",
-        "subtitle": "Choose the right data volume",
+        "title": "Choose Plan",
+        "subtitle": "Access to all blocked services",
+        "countries": {
+          "russia": "Russia",
+          "turkey": "Turkey",
+          "uae": "UAE",
+          "egypt": "Egypt"
+        },
         "plans": {
           "start": {
-            "name": "Start",
+            "name": "Starter",
+            "data": "1 GB",
+            "duration": "5 days",
             "features": {
-              "data": "5 GB data",
-              "validity": "30 days",
-              "speed": "4G/LTE speed",
-              "access": "All services without blocks"
+              "f1": "YouTube without limits",
+              "f2": "Instagram & social media",
+              "f3": "WhatsApp calls",
+              "f4": "Instant activation"
             },
-            "price": "490 ₽"
+            "price": "199 ₽"
           },
           "optimal": {
             "name": "Optimal",
-            "popular": "Popular",
+            "popular": "Hit",
+            "data": "5 GB",
+            "duration": "2 weeks",
             "features": {
-              "data": "15 GB data",
-              "validity": "30 days",
-              "speed": "4G/LTE speed",
-              "access": "All services without blocks"
+              "f1": "Everything from Starter",
+              "f2": "Stable connection",
+              "f3": "High speed",
+              "f4": "24/7 support"
             },
-            "price": "990 ₽"
+            "price": "499 ₽"
           },
-          "advanced": {
-            "name": "Advanced",
+          "max": {
+            "name": "Maximum",
+            "data": "10 GB",
+            "duration": "1 month",
             "features": {
-              "data": "30 GB data",
-              "validity": "30 days",
-              "speed": "4G/LTE speed",
-              "access": "All services without blocks"
+              "f1": "Maximum data volume",
+              "f2": "Best price per GB",
+              "f3": "Priority support",
+              "f4": "No restrictions"
             },
-            "price": "1 690 ₽"
-          },
-          "unlimited": {
-            "name": "Unlimited",
-            "bestValue": "Best Value",
-            "features": {
-              "data": "Unlimited data",
-              "validity": "30 days",
-              "speed": "4G/LTE speed",
-              "access": "All services without blocks"
-            },
-            "price": "2 490 ₽"
+            "price": "999 ₽"
           }
         },
-        "button": "Select Plan",
+        "button": "Buy",
         "inDevelopment": "We're glad you're interested!",
         "comingSoon": "Our service is currently in development. We'll be launching very soon!"
       },
@@ -237,53 +238,54 @@ const resources = {
         }
       },
       "pricing": {
-        "title": "Тарифы",
-        "subtitle": "Выберите подходящий объём трафика",
+        "title": "Выберите тариф",
+        "subtitle": "Доступ ко всем заблокированным сервисам",
+        "countries": {
+          "russia": "Россия",
+          "turkey": "Турция",
+          "uae": "ОАЭ",
+          "egypt": "Египет"
+        },
         "plans": {
           "start": {
-            "name": "Старт",
+            "name": "Стартовый",
+            "data": "1 GB",
+            "duration": "5 дней",
             "features": {
-              "data": "5 ГБ трафика",
-              "validity": "30 дней",
-              "speed": "4G/LTE скорость",
-              "access": "Все сервисы без блокировок"
+              "f1": "YouTube без ограничений",
+              "f2": "Instagram и соцсети",
+              "f3": "WhatsApp звонки",
+              "f4": "Мгновенная активация"
             },
-            "price": "490 ₽"
+            "price": "199 ₽"
           },
           "optimal": {
             "name": "Оптимальный",
-            "popular": "Популярно",
+            "popular": "хит",
+            "data": "5 GB",
+            "duration": "2 недели",
             "features": {
-              "data": "15 ГБ трафика",
-              "validity": "30 дней",
-              "speed": "4G/LTE скорость",
-              "access": "Все сервисы без блокировок"
+              "f1": "Всё из Стартового",
+              "f2": "Стабильное соединение",
+              "f3": "Высокая скорость",
+              "f4": "Поддержка 24/7"
             },
-            "price": "990 ₽"
+            "price": "499 ₽"
           },
-          "advanced": {
-            "name": "Продвинутый",
+          "max": {
+            "name": "Максимальный",
+            "data": "10 GB",
+            "duration": "1 месяц",
             "features": {
-              "data": "30 ГБ трафика",
-              "validity": "30 дней",
-              "speed": "4G/LTE скорость",
-              "access": "Все сервисы без блокировок"
+              "f1": "Максимальный объём",
+              "f2": "Лучшая цена за GB",
+              "f3": "Приоритетная поддержка",
+              "f4": "Всё без ограничений"
             },
-            "price": "1 690 ₽"
-          },
-          "unlimited": {
-            "name": "Безлимит",
-            "bestValue": "Лучшая цена",
-            "features": {
-              "data": "Безлимитный трафик",
-              "validity": "30 дней",
-              "speed": "4G/LTE скорость",
-              "access": "Все сервисы без блокировок"
-            },
-            "price": "2 490 ₽"
+            "price": "999 ₽"
           }
         },
-        "button": "Выбрать тариф",
+        "button": "Купить",
         "inDevelopment": "Рады, что вы заинтересовались!",
         "comingSoon": "Сейчас сервис находится в разработке. В ближайшее время мы запустимся!"
       },
