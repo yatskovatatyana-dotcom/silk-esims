@@ -83,7 +83,7 @@ const resources = {
             "data": "1 GB",
             "duration": "5 days",
             "features": {
-              "f1": "YouTube without limits",
+              "f1": "Telegram without limits",
               "f2": "Instagram & social media",
               "f3": "WhatsApp calls",
               "f4": "Instant activation"
@@ -111,7 +111,7 @@ const resources = {
               "f1": "Maximum data volume",
               "f2": "Best price per GB",
               "f3": "Priority support",
-              "f4": "No restrictions"
+              "f4": "YouTube without limits"
             },
             "price": "999 ₽"
           }
@@ -252,7 +252,7 @@ const resources = {
             "data": "1 GB",
             "duration": "5 дней",
             "features": {
-              "f1": "YouTube без ограничений",
+              "f1": "Telegram без ограничений",
               "f2": "Instagram и соцсети",
               "f3": "WhatsApp звонки",
               "f4": "Мгновенная активация"
@@ -280,7 +280,7 @@ const resources = {
               "f1": "Максимальный объём",
               "f2": "Лучшая цена за GB",
               "f3": "Приоритетная поддержка",
-              "f4": "Всё без ограничений"
+              "f4": "YouTube без ограничений"
             },
             "price": "999 ₽"
           }
