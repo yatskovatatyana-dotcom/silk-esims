@@ -120,21 +120,18 @@ const Hero = () => {
         </div>
 
         {/* Stats */}
-        <div className="pt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300">
-            <Zap className="w-10 h-10 text-white mx-auto mb-3" />
-            <div className="text-4xl font-bold text-white">{t('hero.stats.time')}</div>
-            <div className="text-sm text-white/80 mt-2 font-medium">{t('hero.stats.timeLabel')}</div>
+        <div className="pt-6 grid grid-cols-3 gap-3 max-w-2xl mx-auto">
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-3 text-center hover:bg-white/20 transition-all duration-300">
+            <Zap className="w-6 h-6 text-white mx-auto mb-1" />
+            <div className="text-xs md:text-sm text-white font-semibold leading-tight">Мгновенное подключение</div>
           </div>
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300">
-            <Shield className="w-10 h-10 text-white mx-auto mb-3" />
-            <div className="text-4xl font-bold text-white">{t('hero.stats.access')}</div>
-            <div className="text-sm text-white/80 mt-2 font-medium">{t('hero.stats.accessLabel')}</div>
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-3 text-center hover:bg-white/20 transition-all duration-300">
+            <Shield className="w-6 h-6 text-white mx-auto mb-1" />
+            <div className="text-xs md:text-sm text-white font-semibold leading-tight">Безопасность ваших данных</div>
           </div>
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300">
-            <Smartphone className="w-10 h-10 text-white mx-auto mb-3" />
-            <div className="text-4xl font-bold text-white">{t('hero.stats.uptime')}</div>
-            <div className="text-sm text-white/80 mt-2 font-medium">{t('hero.stats.uptimeLabel')}</div>
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-3 text-center hover:bg-white/20 transition-all duration-300">
+            <Smartphone className="w-6 h-6 text-white mx-auto mb-1" />
+            <div className="text-xs md:text-sm text-white font-semibold leading-tight">Скорость и стабильность соединения</div>
           </div>
         </div>
       </div>
