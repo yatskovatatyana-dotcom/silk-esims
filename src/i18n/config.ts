@@ -4,6 +4,12 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
   en: {
     translation: {
+      "nav": {
+        "features": "Benefits",
+        "pricing": "Plans",
+        "howItWorks": "Get Started",
+        "promotions": "Deals"
+      },
       "hero": {
         "badge": "VPN Alternative",
         "title": "Tired of VPN?",
@@ -173,6 +179,12 @@ const resources = {
   },
   ru: {
     translation: {
+      "nav": {
+        "features": "Преимущества",
+        "pricing": "Тарифы",
+        "howItWorks": "Как начать",
+        "promotions": "Акции"
+      },
       "hero": {
         "badge": "Альтернатива VPN",
         "title": "Надоел VPN?",

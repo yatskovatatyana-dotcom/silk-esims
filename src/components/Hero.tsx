@@ -10,10 +10,10 @@ const Hero = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navItems = [
-    { label: t('features.title'), id: 'features' },
-    { label: t('pricing.title'), id: 'pricing' },
-    { label: t('howItWorks.title'), id: 'how-it-works' },
-    { label: t('promotions.title'), id: 'promotions' },
+    { label: t('nav.features', 'Преимущества'), id: 'features' },
+    { label: t('nav.pricing', 'Тарифы'), id: 'pricing' },
+    { label: t('nav.howItWorks', 'Как начать'), id: 'how-it-works' },
+    { label: t('nav.promotions', 'Акции'), id: 'promotions' },
   ];
 
   const scrollTo = (id: string) => {
@@ -23,6 +23,10 @@ const Hero = () => {
   
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary to-secondary">
+      {/* Overlay to close menu */}
+      {menuOpen && (
+        <div className="fixed inset-0 z-10" onClick={() => setMenuOpen(false)} />
+      )}
       
       {/* Top bar */}
       <div className="absolute top-0 left-0 right-0 z-20 container mx-auto px-4">
