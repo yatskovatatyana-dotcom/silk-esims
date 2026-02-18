@@ -9,10 +9,7 @@ const Hero = () => {
   
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary to-secondary">
-      {/* Language Switcher */}
-      <div className="absolute top-6 right-6 z-20">
-        <LanguageSwitcher />
-      </div>
+      
       
       {/* Animated background pattern */}
       <div className="absolute inset-0 opacity-10">
@@ -27,19 +24,22 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           {/* Left: Text content */}
           <div className="flex-1 text-center lg:text-left space-y-6 animate-fade-in">
-            <div className="flex items-center justify-between lg:justify-start gap-4 mb-2">
+            <div className="flex items-center justify-between mb-2">
               <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-5 py-2.5">
                 <span className="text-sm font-semibold text-white">Silk eSIM</span>
               </div>
-              <Button 
-                variant="secondary" 
-                size="default"
-                className="bg-white text-primary hover:bg-white/90 hover:scale-105 shadow-xl font-bold rounded-full px-6"
-                onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                {t('hero.ctaButton')}
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
+              <div className="flex items-center gap-3">
+                <Button 
+                  variant="secondary" 
+                  size="default"
+                  className="bg-white text-primary hover:bg-white/90 hover:scale-105 shadow-xl font-bold rounded-full px-6"
+                  onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  {t('hero.ctaButton')}
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+                <LanguageSwitcher />
+              </div>
             </div>
             
             <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight drop-shadow-lg">
