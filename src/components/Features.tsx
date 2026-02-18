@@ -1,7 +1,6 @@
 import { Card } from "@/components/ui/card";
-import { Zap, Gauge } from "lucide-react";
+import { Zap, Gauge, ShieldAlert } from "lucide-react";
 import { useTranslation } from 'react-i18next';
-import thiefIcon from "@/assets/thief-icon.png";
 
 const LotusIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -28,7 +27,7 @@ const Features = () => {
       description: t('features.items.savings.description'),
     },
     {
-      customImage: thiefIcon,
+      icon: ShieldAlert,
       title: t('features.items.flexibility.title'),
       description: t('features.items.flexibility.description'),
     },
@@ -59,11 +58,7 @@ const Features = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mb-4">
-                {'customImage' in feature ? (
-                  <img src={(feature as any).customImage} alt="" className="w-7 h-7 brightness-0 invert" />
-                ) : (
-                  <feature.icon className="w-6 h-6 text-primary-foreground" />
-                )}
+                <feature.icon className="w-6 h-6 text-primary-foreground" />
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-2">
                 {feature.title}
