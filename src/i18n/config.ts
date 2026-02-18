@@ -39,8 +39,8 @@ const resources = {
             "description": "No throttling — full 4G/LTE speed for YouTube, Instagram and everything else"
           },
           "flexibility": {
-            "title": "All Services Available",
-            "description": "Instagram, YouTube, Twitter and any websites without restrictions"
+            "title": "You're Protected",
+            "description": "No risk of data theft, activity tracking, or personal information leaks"
           },
           "noPhysical": {
             "title": "No Stress",
@@ -214,8 +214,8 @@ const resources = {
             "description": "Никаких замедлений — полная скорость 4G/LTE для YouTube, Instagram, видео звонки и обмен файлами без помех"
           },
           "flexibility": {
-            "title": "Все сервисы доступны",
-            "description": "Видеозвонки в мессенджерах без помех, соцсети без замедлений. Видео на высокой скорости."
+            "title": "Вы под защитой",
+            "description": "Нет риска кражи данных, отслеживания активности или утечки личной информации"
           },
           "noPhysical": {
             "title": "Без стресса",
