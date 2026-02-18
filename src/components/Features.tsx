@@ -12,16 +12,15 @@ const LotusIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const MaskedFaceIcon = ({ className }: { className?: string }) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <circle cx="12" cy="10" r="7" />
-    <path d="M5.5 8.5C6.5 7 9 6 12 6s5.5 1 6.5 2.5" />
-    <rect x="5" y="8" width="14" height="5" rx="2" fill="currentColor" opacity="0.9" />
-    <circle cx="9" cy="10.5" r="1.2" fill="none" stroke="currentColor" strokeWidth="1.5" />
-    <circle cx="15" cy="10.5" r="1.2" fill="none" stroke="currentColor" strokeWidth="1.5" />
-    <path d="M9 20c1 1.5 2 2 3 2s2-.5 3-2" />
-    <path d="M8 17l-2 3" />
-    <path d="M16 17l2 3" />
+const SpyIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+    {/* Hat */}
+    <ellipse cx="12" cy="9" rx="10" ry="2" />
+    <path d="M5 9C5 9 6 3 12 3C18 3 19 9 19 9" />
+    {/* Mask / eyes */}
+    <path d="M3 13C3 11.5 5 11 8 11C9.5 11 10.5 11.5 12 12C13.5 11.5 14.5 11 16 11C19 11 21 11.5 21 13C21 14.5 19 15 16 15C14.5 15 13.5 14.5 12 14C10.5 14.5 9.5 15 8 15C5 15 3 14.5 3 13Z" />
+    <ellipse cx="8" cy="13" rx="2.2" ry="1.3" fill="none" stroke="currentColor" strokeWidth="0.8" />
+    <ellipse cx="16" cy="13" rx="2.2" ry="1.3" fill="none" stroke="currentColor" strokeWidth="0.8" />
   </svg>
 );
 
@@ -40,7 +39,7 @@ const Features = () => {
       description: t('features.items.savings.description'),
     },
     {
-      icon: MaskedFaceIcon,
+      icon: SpyIcon,
       title: t('features.items.flexibility.title'),
       description: t('features.items.flexibility.description'),
     },
