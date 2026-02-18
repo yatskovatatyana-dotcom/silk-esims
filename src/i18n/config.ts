@@ -154,6 +154,38 @@ const resources = {
         "button": "Get eSIM Now",
         "note": "Activation takes less than 1 minute"
       },
+      "connectionGuide": {
+        "title": "How to Connect",
+        "subtitle": "Step-by-step guide from purchase to working internet",
+        "buyOnSite": "Buy on website",
+        "buyTelegram": "Connect via Telegram",
+        "steps": {
+          "buy": {
+            "title": "Purchase eSIM",
+            "description": "Buy on our website or through the Telegram bot"
+          },
+          "qr": {
+            "title": "Get QR Code",
+            "description": "After purchase you'll receive a QR code to install the eSIM"
+          },
+          "install": {
+            "title": "Install eSIM",
+            "description": "Scan the QR code with your phone — the eSIM profile will install automatically"
+          },
+          "enable": {
+            "title": "Enable Mobile Data",
+            "description": "Turn on mobile data for the eSIM and enable data roaming in settings"
+          },
+          "captcha": {
+            "title": "Complete Captcha",
+            "description": "You'll receive an SMS from the carrier — complete the captcha to bypass the 24-hour cooling period"
+          },
+          "ready": {
+            "title": "Internet is Ready!",
+            "description": "Done! Enjoy fast internet without blocks"
+          }
+        }
+      },
       "footer": {
         "brandName": "Silk eSIM",
         "description": "Stable mobile internet without blocks and throttling. A VPN alternative powered by a foreign carrier.",
@@ -328,6 +360,38 @@ const resources = {
         "subtitle": "Присоединяйся к тысячам пользователей,\nкоторые уже перешли с VPN на Silk eSIM",
         "button": "Подключить eSIM сейчас",
         "note": ""
+      },
+      "connectionGuide": {
+        "title": "Схема подключения",
+        "subtitle": "Пошаговая инструкция от покупки до работающего интернета",
+        "buyOnSite": "Купить на сайте",
+        "buyTelegram": "Подключить через Telegram",
+        "steps": {
+          "buy": {
+            "title": "Купи eSIM",
+            "description": "Оформи покупку на сайте или через Telegram-бота"
+          },
+          "qr": {
+            "title": "Получи QR-код",
+            "description": "После покупки придёт QR-код для установки eSIM"
+          },
+          "install": {
+            "title": "Установи eSIM",
+            "description": "Отсканируй QR-код телефоном — профиль eSIM установится автоматически"
+          },
+          "enable": {
+            "title": "Включи мобильные данные",
+            "description": "Включи мобильные данные на eSIM и роуминг данных в настройках"
+          },
+          "captcha": {
+            "title": "Пройди каптчу",
+            "description": "Придёт SMS от оператора — пройди каптчу для обхода 24-часового охлаждающего периода"
+          },
+          "ready": {
+            "title": "Интернет готов!",
+            "description": "Готово! Наслаждайся быстрым интернетом без блокировок"
+          }
+        }
       },
       "footer": {
         "brandName": "Silk eSIM",
