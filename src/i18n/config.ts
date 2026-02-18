@@ -9,7 +9,7 @@ const resources = {
         "title": "Tired of VPN?",
         "brandName": "Silk eSIM",
         "description": "Без блокировок и замедлений.\nБезопасный и быстрый.\nМобильный интернет как раньше.",
-        "ctaButton": "Get eSIM",
+        "ctaButton": "Choose Plan",
         "learnMore": "How It Works",
         "stats": {
           "time": "1 min",
@@ -177,7 +177,7 @@ const resources = {
         "title": "Надоел VPN?",
         "brandName": "Silk eSIM",
         "description": "Без блокировок и замедлений.\nБезопасный и быстрый.\nМобильный интернет как раньше.",
-        "ctaButton": "Подключить eSIM",
+        "ctaButton": "Выбрать тариф",
         "learnMore": "Как это работает",
         "stats": {
           "time": "1 мин",
