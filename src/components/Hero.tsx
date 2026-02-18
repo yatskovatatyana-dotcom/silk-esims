@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Shield, Gauge, Menu, X } from "lucide-react";
 import { useTranslation } from 'react-i18next';
@@ -8,6 +8,13 @@ import heroIllustration from '@/assets/hero-illustration.png';
 const Hero = () => {
   const { t } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const navItems = [
     { label: t('nav.features', 'Преимущества'), id: 'features' },
@@ -29,7 +36,7 @@ const Hero = () => {
       )}
       
       {/* Top bar */}
-      <div className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md">
+      <div className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${scrolled ? 'bg-[hsl(200,100%,40%)] shadow-lg' : ''}`}>
         <div className="container mx-auto px-4 flex items-center justify-between py-3">
           <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-5 py-2.5">
             <span className="text-sm font-semibold text-white">Silk eSIM</span>
