@@ -5,40 +5,48 @@ const resources = {
   en: {
     translation: {
       "hero": {
-        "badge": "Mobile Internet Worldwide",
-        "title": "Travel Without Borders",
+        "badge": "Stable Internet Without Blocks",
+        "title": "Internet Like It Used to Be",
         "brandName": "Silk eSIM",
-        "description": "Connect to mobile internet anywhere in the world without changing your SIM card. Affordable plans for travelers.",
-        "ctaButton": "Buy eSIM",
-        "learnMore": "Learn More"
+        "description": "Forget about blocks and throttling. Silk eSIM is a foreign carrier right in your phone. All websites, social media, and messengers work fast and stable.",
+        "ctaButton": "Get eSIM",
+        "learnMore": "How It Works",
+        "stats": {
+          "time": "1 min",
+          "timeLabel": "Instant activation",
+          "access": "100%",
+          "accessLabel": "No blocks",
+          "uptime": "24/7",
+          "uptimeLabel": "Stable connection"
+        }
       },
       "features": {
-        "title": "Benefits of eSIM Abroad",
-        "subtitle": "Forget about roaming problems and local SIM cards",
+        "title": "Why Silk eSIM Is Better Than VPN",
+        "subtitle": "A reliable alternative to VPN that gets worse every day",
         "items": {
           "instant": {
-            "title": "Instant Activation",
-            "description": "Activate your eSIM right upon arrival without wasting time searching for local carriers"
+            "title": "Can't Be Blocked",
+            "description": "Works via a foreign mobile carrier network, not through VPN protocols that get blocked"
           },
           "savings": {
-            "title": "Save up to 90%",
-            "description": "Pay significantly less than your home carrier's roaming rates"
+            "title": "Full Speed",
+            "description": "No throttling — full 4G/LTE speed for YouTube, Instagram and everything else"
           },
           "flexibility": {
-            "title": "Flexible Plans",
-            "description": "Choose plans for specific countries or regions for the period you need"
+            "title": "All Services Available",
+            "description": "Instagram, YouTube, Twitter and any websites without restrictions"
           },
           "noPhysical": {
-            "title": "No Physical Card",
-            "description": "No need to swap SIM cards, manage everything from your phone"
+            "title": "Easier Than VPN",
+            "description": "No apps to install, no settings to change, no searching for working servers"
           },
           "multipleProfiles": {
-            "title": "Multiple Profiles",
-            "description": "Keep your home number and use eSIM for data simultaneously"
+            "title": "Always Works",
+            "description": "Doesn't depend on VPN protocol blocks — stable 24/7 connection"
           },
           "support": {
             "title": "24/7 Support",
-            "description": "Assistance anytime in English"
+            "description": "Help anytime in Russian and English"
           }
         }
       },
@@ -48,7 +56,7 @@ const resources = {
         "steps": {
           "choose": {
             "title": "Choose a Plan",
-            "description": "Select your country and data plan"
+            "description": "Pick the right data volume for you"
           },
           "pay": {
             "title": "Pay with MIR Card",
@@ -56,55 +64,55 @@ const resources = {
           },
           "activate": {
             "title": "Activate eSIM",
-            "description": "Receive a QR code and scan it in your phone settings"
+            "description": "Scan the QR code — internet without blocks is already working"
           }
         }
       },
       "pricing": {
-        "title": "Plans by Country",
-        "subtitle": "Affordable prices for travelers",
-        "regions": {
-          "europe": {
-            "name": "Europe",
+        "title": "Plans",
+        "subtitle": "Choose the right data volume",
+        "plans": {
+          "start": {
+            "name": "Start",
+            "features": {
+              "data": "5 GB data",
+              "validity": "30 days",
+              "speed": "4G/LTE speed",
+              "access": "All services without blocks"
+            },
+            "price": "490 ₽"
+          },
+          "optimal": {
+            "name": "Optimal",
             "popular": "Popular",
-            "features": {
-              "data": "10 GB data",
-              "validity": "30 days",
-              "speed": "4G/LTE speed",
-              "countries": "Works in 30+ EU countries"
-            },
-            "price": "990 ₽"
-          },
-          "asia": {
-            "name": "Asia",
-            "features": {
-              "data": "8 GB data",
-              "validity": "30 days",
-              "speed": "4G/LTE speed",
-              "countries": "Thailand, Japan, Korea, etc."
-            },
-            "price": "790 ₽"
-          },
-          "usa": {
-            "name": "USA",
             "features": {
               "data": "15 GB data",
               "validity": "30 days",
               "speed": "4G/LTE speed",
-              "countries": "USA and Canada"
+              "access": "All services without blocks"
             },
-            "price": "1190 ₽"
+            "price": "990 ₽"
           },
-          "global": {
-            "name": "Global",
-            "bestValue": "Best Value",
+          "advanced": {
+            "name": "Advanced",
             "features": {
-              "data": "20 GB data",
+              "data": "30 GB data",
               "validity": "30 days",
               "speed": "4G/LTE speed",
-              "countries": "Works in 120+ countries"
+              "access": "All services without blocks"
             },
-            "price": "1990 ₽"
+            "price": "1 690 ₽"
+          },
+          "unlimited": {
+            "name": "Unlimited",
+            "bestValue": "Best Value",
+            "features": {
+              "data": "Unlimited data",
+              "validity": "30 days",
+              "speed": "4G/LTE speed",
+              "access": "All services without blocks"
+            },
+            "price": "2 490 ₽"
           }
         },
         "button": "Select Plan",
@@ -113,7 +121,7 @@ const resources = {
       },
       "promotions": {
         "title": "Special Offers",
-        "subtitle": "Promotions and discounts for our customers",
+        "subtitle": "Promotions and discounts for new users",
         "items": {
           "firstPurchase": {
             "title": "15% Off First Purchase",
@@ -121,9 +129,9 @@ const resources = {
             "code": "FIRST15"
           },
           "longTrip": {
-            "title": "20% Off Global Plan",
+            "title": "20% Off Unlimited Plan",
             "description": "When purchasing a 90-day plan",
-            "code": "GLOBAL20"
+            "code": "UNLIM20"
           },
           "referral": {
             "title": "Refer a Friend",
@@ -134,17 +142,17 @@ const resources = {
         "button": "Apply Promo Code"
       },
       "cta": {
-        "title": "Ready to Travel Without Borders?",
-        "subtitle": "Join thousands of travelers who save on roaming with Silk eSIM",
-        "button": "Buy eSIM Now",
+        "title": "Ready to Forget About Blocks?",
+        "subtitle": "Join thousands of users who switched from VPN to Silk eSIM",
+        "button": "Get eSIM Now",
         "note": "Activation takes less than 1 minute"
       },
       "footer": {
         "brandName": "Silk eSIM",
-        "description": "Modern way to connect mobile service without physical SIM cards",
+        "description": "Stable mobile internet without blocks and throttling. A VPN alternative powered by a foreign carrier.",
         "quickLinks": {
           "title": "Quick Links",
-          "features": "Features",
+          "features": "Why Us",
           "howItWorks": "How It Works",
           "faq": "FAQ",
           "privacy": "Privacy Policy"
@@ -165,36 +173,44 @@ const resources = {
   ru: {
     translation: {
       "hero": {
-        "badge": "Мобильный интернет по всему миру",
-        "title": "Путешествуйте без границ",
+        "badge": "Стабильный интернет без блокировок",
+        "title": "Интернет как раньше",
         "brandName": "Silk eSIM",
-        "description": "Подключайтесь к мобильному интернету в любой точке мира без смены SIM-карты. Доступные тарифы для путешественников.",
-        "ctaButton": "Купить eSIM",
-        "learnMore": "Узнать больше"
+        "description": "Забудьте о блокировках и замедлениях. Silk eSIM — это зарубежный оператор прямо в вашем телефоне. Все сайты, соцсети и мессенджеры работают стабильно и быстро.",
+        "ctaButton": "Подключить eSIM",
+        "learnMore": "Как это работает",
+        "stats": {
+          "time": "1 мин",
+          "timeLabel": "Мгновенное подключение",
+          "access": "100%",
+          "accessLabel": "Без блокировок",
+          "uptime": "24/7",
+          "uptimeLabel": "Стабильное соединение"
+        }
       },
       "features": {
-        "title": "Преимущества eSIM за границей",
-        "subtitle": "Забудьте о проблемах с роумингом и местными SIM-картами",
+        "title": "Почему Silk eSIM лучше VPN",
+        "subtitle": "Надёжная альтернатива VPN, который с каждым днём работает всё хуже",
         "items": {
           "instant": {
-            "title": "Мгновенная активация",
-            "description": "Активируйте eSIM сразу по прилету, не тратя время на поиск местных операторов"
+            "title": "Не блокируется",
+            "description": "Работает через мобильную сеть зарубежного оператора, а не через VPN-протоколы, которые блокируют"
           },
           "savings": {
-            "title": "Экономия до 90%",
-            "description": "Платите в разы меньше, чем за роуминг вашего домашнего оператора"
+            "title": "Стабильная скорость",
+            "description": "Никаких замедлений — полная скорость 4G/LTE для YouTube, Instagram и всего остального"
           },
           "flexibility": {
-            "title": "Гибкость тарифов",
-            "description": "Выбирайте тарифы под конкретную страну или регион на нужный период"
+            "title": "Все сервисы доступны",
+            "description": "Instagram, YouTube, Twitter и любые сайты без ограничений"
           },
           "noPhysical": {
-            "title": "Без физической карты",
-            "description": "Не нужно менять SIM-карты, все управление через телефон"
+            "title": "Проще чем VPN",
+            "description": "Не нужно устанавливать приложения, менять настройки, искать рабочие серверы"
           },
           "multipleProfiles": {
-            "title": "Несколько профилей",
-            "description": "Сохраняйте домашний номер и используйте eSIM для интернета одновременно"
+            "title": "Работает всегда",
+            "description": "Не зависит от блокировок VPN-протоколов — стабильное соединение 24/7"
           },
           "support": {
             "title": "Поддержка 24/7",
@@ -208,7 +224,7 @@ const resources = {
         "steps": {
           "choose": {
             "title": "Выберите тариф",
-            "description": "Выберите страну и тариф передачи данных"
+            "description": "Выберите подходящий объём трафика"
           },
           "pay": {
             "title": "Оплатите картой МИР",
@@ -216,55 +232,55 @@ const resources = {
           },
           "activate": {
             "title": "Активируйте eSIM",
-            "description": "Получите QR-код и отсканируйте его в настройках телефона"
+            "description": "Отсканируйте QR-код — интернет без блокировок уже работает"
           }
         }
       },
       "pricing": {
-        "title": "Тарифы по странам",
-        "subtitle": "Выгодные цены для путешественников",
-        "regions": {
-          "europe": {
-            "name": "Европа",
-            "popular": "Популярно",
+        "title": "Тарифы",
+        "subtitle": "Выберите подходящий объём трафика",
+        "plans": {
+          "start": {
+            "name": "Старт",
             "features": {
-              "data": "10 ГБ данных",
+              "data": "5 ГБ трафика",
               "validity": "30 дней",
               "speed": "4G/LTE скорость",
-              "countries": "Работает в 30+ странах ЕС"
+              "access": "Все сервисы без блокировок"
+            },
+            "price": "490 ₽"
+          },
+          "optimal": {
+            "name": "Оптимальный",
+            "popular": "Популярно",
+            "features": {
+              "data": "15 ГБ трафика",
+              "validity": "30 дней",
+              "speed": "4G/LTE скорость",
+              "access": "Все сервисы без блокировок"
             },
             "price": "990 ₽"
           },
-          "asia": {
-            "name": "Азия",
+          "advanced": {
+            "name": "Продвинутый",
             "features": {
-              "data": "8 ГБ данных",
+              "data": "30 ГБ трафика",
               "validity": "30 дней",
               "speed": "4G/LTE скорость",
-              "countries": "Таиланд, Япония, Корея и др."
+              "access": "Все сервисы без блокировок"
             },
-            "price": "790 ₽"
+            "price": "1 690 ₽"
           },
-          "usa": {
-            "name": "США",
+          "unlimited": {
+            "name": "Безлимит",
+            "bestValue": "Лучшая цена",
             "features": {
-              "data": "15 ГБ данных",
+              "data": "Безлимитный трафик",
               "validity": "30 дней",
               "speed": "4G/LTE скорость",
-              "countries": "США и Канада"
+              "access": "Все сервисы без блокировок"
             },
-            "price": "1190 ₽"
-          },
-          "global": {
-            "name": "Глобальный",
-            "bestValue": "Выгоднее всего",
-            "features": {
-              "data": "20 ГБ данных",
-              "validity": "30 дней",
-              "speed": "4G/LTE скорость",
-              "countries": "Работает в 120+ странах"
-            },
-            "price": "1990 ₽"
+            "price": "2 490 ₽"
           }
         },
         "button": "Выбрать тариф",
@@ -273,7 +289,7 @@ const resources = {
       },
       "promotions": {
         "title": "Специальные предложения",
-        "subtitle": "Акции и скидки для наших клиентов",
+        "subtitle": "Акции и скидки для новых пользователей",
         "items": {
           "firstPurchase": {
             "title": "Скидка 15% на первую покупку",
@@ -281,30 +297,30 @@ const resources = {
             "code": "FIRST15"
           },
           "longTrip": {
-            "title": "Глобальный тариф со скидкой 20%",
+            "title": "Безлимит со скидкой 20%",
             "description": "При покупке тарифа на 90 дней",
-            "code": "GLOBAL20"
+            "code": "UNLIM20"
           },
           "referral": {
             "title": "Приведи друга",
-            "description": "Получите 500₽ на счет за каждого приглашенного друга",
+            "description": "Получите 500₽ на счёт за каждого приглашённого друга",
             "code": "FRIEND500"
           }
         },
         "button": "Применить промокод"
       },
       "cta": {
-        "title": "Готовы путешествовать без границ?",
-        "subtitle": "Присоединяйтесь к тысячам путешественников, которые экономят на роуминге с Silk eSIM",
-        "button": "Купить eSIM сейчас",
+        "title": "Готовы забыть о блокировках?",
+        "subtitle": "Присоединяйтесь к тысячам пользователей, которые уже перешли с VPN на Silk eSIM",
+        "button": "Подключить eSIM сейчас",
         "note": "Активация занимает менее 1 минуты"
       },
       "footer": {
         "brandName": "Silk eSIM",
-        "description": "Современный способ подключения мобильной связи без физических SIM-карт",
+        "description": "Стабильный мобильный интернет без блокировок и замедлений. Альтернатива VPN на базе зарубежного оператора.",
         "quickLinks": {
           "title": "Быстрые ссылки",
-          "features": "Преимущества",
+          "features": "Почему мы",
           "howItWorks": "Как работает",
           "faq": "FAQ",
           "privacy": "Политика конфиденциальности"
