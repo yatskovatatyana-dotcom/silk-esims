@@ -35,7 +35,7 @@ const Hero = () => {
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto font-medium drop-shadow">
+          <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto font-medium drop-shadow whitespace-pre-line">
             {t('hero.description')}
           </p>
           

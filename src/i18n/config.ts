@@ -8,7 +8,7 @@ const resources = {
         "badge": "VPN Alternative",
         "title": "Tired of VPN?",
         "brandName": "Silk eSIM",
-        "description": "Forget about blocks and endless settings. Forget about content that won't load. Mobile internet like it used to be.",
+        "description": "Без блокировок и замедлений.\nБезопасный и быстрый.\nМобильный интернет как раньше.",
         "ctaButton": "Get eSIM",
         "learnMore": "How It Works",
         "stats": {
@@ -176,7 +176,7 @@ const resources = {
         "badge": "Альтернатива VPN",
         "title": "Надоел VPN?",
         "brandName": "Silk eSIM",
-        "description": "Забудь о блокировках и вечных настройках. Забудь о контенте, который не грузится. Мобильный интернет как раньше.",
+        "description": "Без блокировок и замедлений.\nБезопасный и быстрый.\nМобильный интернет как раньше.",
         "ctaButton": "Подключить eSIM",
         "learnMore": "Как это работает",
         "stats": {
