@@ -13,17 +13,20 @@ const LotusIcon = ({ className }: { className?: string }) => (
 );
 
 const SpyIcon = ({ className }: { className?: string }) => (
-  <svg viewBox="0 0 32 32" fill="currentColor" className={className}>
-    {/* Hat brim */}
-    <ellipse cx="16" cy="12" rx="14" ry="2.5" />
-    {/* Hat top */}
-    <path d="M7 12C7 12 8.5 4 16 4C23.5 4 25 12 25 12" />
-    {/* Mask band */}
-    <path d="M2 18.5C2 16 5.5 14.5 10.5 14.5C12.5 14.5 14 15.5 16 16.5C18 15.5 19.5 14.5 21.5 14.5C26.5 14.5 30 16 30 18.5C30 21 26.5 22.5 21.5 22.5C19.5 22.5 18 21.5 16 20.5C14 21.5 12.5 22.5 10.5 22.5C5.5 22.5 2 21 2 18.5Z" />
-    {/* Left eye hole */}
-    <ellipse cx="10.5" cy="18.5" rx="3.5" ry="2.5" fill="none" stroke="currentColor" strokeWidth="1.2" />
-    {/* Right eye hole */}
-    <ellipse cx="21.5" cy="18.5" rx="3.5" ry="2.5" fill="none" stroke="currentColor" strokeWidth="1.2" />
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+    {/* Head outline */}
+    <path d="M12 22C8 22 5 20 4.5 17C4 14 4.5 12 5 11C5 11 5.5 10.5 6 10.5C6 8 6.5 5 8 3.5C9.5 2 10.5 1.5 12 1.5C13.5 1.5 14.5 2 16 3.5C17.5 5 18 8 18 10.5C18.5 10.5 19 11 19 11C19.5 12 20 14 19.5 17C19 20 16 22 12 22Z" />
+    {/* Hair highlight */}
+    <path d="M7 8C7 5.5 8.5 3 12 3C15.5 3 17 5.5 17 8C17 8 15.5 7 12 7.5C8.5 8 7 8 7 8Z" fill="currentColor" />
+    {/* Mask */}
+    <rect x="4.5" y="9.5" width="15" height="5" rx="2.5" fill="currentColor" />
+    {/* Left eye */}
+    <ellipse cx="8.5" cy="12" rx="2" ry="1.5" fill="none" stroke="currentColor" strokeWidth="0" />
+    <ellipse cx="8.5" cy="12" rx="2" ry="1.5" style={{fill: 'var(--primary)'}} />
+    {/* Right eye */}
+    <ellipse cx="15.5" cy="12" rx="2" ry="1.5" style={{fill: 'var(--primary)'}} />
+    {/* Chin */}
+    <path d="M7 17C8 19.5 10 20.5 12 20.5C14 20.5 16 19.5 17 17" fill="none" stroke="currentColor" strokeWidth="0" />
   </svg>
 );
 
