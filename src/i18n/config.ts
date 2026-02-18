@@ -373,7 +373,7 @@ const resources = {
           },
           "qr": {
             "title": "Получи QR-код",
-            "description": "После покупки придёт QR-код для установки eSIM"
+            "description": "После покупки на почту и в личный кабинет придёт QR-код для установки eSIM"
           },
           "install": {
             "title": "Установи eSIM",
