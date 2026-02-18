@@ -22,9 +22,9 @@ const Hero = () => {
       </div>
       
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 py-20 text-center">
-        <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
-          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-5 py-2.5 mb-6">
+      <div className="relative z-10 container mx-auto px-4 py-12 text-center">
+        <div className="max-w-4xl mx-auto space-y-6 animate-fade-in">
+          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-5 py-2.5 mb-2">
             <span className="text-sm font-semibold text-white">Silk eSIM</span>
           </div>
           
