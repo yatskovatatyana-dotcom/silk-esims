@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
-import { Zap, Gauge, Globe, Flower } from "lucide-react";
+import { Zap, Gauge, Globe } from "lucide-react";
 import { useTranslation } from 'react-i18next';
+import lotusIcon from "@/assets/lotus-icon.png";
 
 const Features = () => {
   const { t } = useTranslation();
@@ -22,7 +23,7 @@ const Features = () => {
       description: t('features.items.flexibility.description'),
     },
     {
-      icon: Flower,
+      customIcon: lotusIcon,
       title: t('features.items.noPhysical.title'),
       description: t('features.items.noPhysical.description'),
     },
@@ -48,7 +49,11 @@ const Features = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mb-4">
-                <feature.icon className="w-6 h-6 text-primary-foreground" />
+                {'customIcon' in feature ? (
+                  <img src={feature.customIcon} alt="" className="w-6 h-6 brightness-0 invert" />
+                ) : (
+                  <feature.icon className="w-6 h-6 text-primary-foreground" />
+                )}
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-2">
                 {feature.title}
