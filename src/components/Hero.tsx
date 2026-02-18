@@ -29,10 +29,10 @@ const Hero = () => {
             <span className="text-sm font-semibold text-white">{t('hero.badge')}</span>
           </div>
           
-          <h1 className="text-6xl md:text-8xl font-bold text-white leading-tight drop-shadow-lg">
-            {t('hero.brandName')}
-            <span className="block mt-4 text-5xl md:text-7xl">
-              {t('hero.title')}
+          <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight drop-shadow-lg">
+            {t('hero.title')}
+            <span className="block mt-4 text-3xl md:text-4xl font-medium opacity-90">
+              {t('hero.brandName')} — мобильный интернет по-взрослому
             </span>
           </h1>
           

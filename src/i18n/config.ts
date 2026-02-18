@@ -5,10 +5,10 @@ const resources = {
   en: {
     translation: {
       "hero": {
-        "badge": "Stable Internet Without Blocks",
-        "title": "Internet Like It Used to Be",
+        "badge": "VPN Alternative",
+        "title": "Tired of VPN?",
         "brandName": "Silk eSIM",
-        "description": "Forget about blocks and throttling. Silk eSIM is a foreign carrier right in your phone. All websites, social media, and messengers work fast and stable.",
+        "description": "Forget about blocks and endless settings. Forget about content that won't load. Mobile internet like it used to be.",
         "ctaButton": "Get eSIM",
         "learnMore": "How It Works",
         "stats": {
@@ -173,10 +173,10 @@ const resources = {
   ru: {
     translation: {
       "hero": {
-        "badge": "Стабильный интернет без блокировок",
-        "title": "Интернет как раньше",
+        "badge": "Альтернатива VPN",
+        "title": "Надоел VPN?",
         "brandName": "Silk eSIM",
-        "description": "Забудьте о блокировках и замедлениях. Silk eSIM — это зарубежный оператор прямо в вашем телефоне. Все сайты, соцсети и мессенджеры работают стабильно и быстро.",
+        "description": "Забудь о блокировках и вечных настройках. Забудь о контенте, который не грузится. Мобильный интернет как раньше.",
         "ctaButton": "Подключить eSIM",
         "learnMore": "Как это работает",
         "stats": {
