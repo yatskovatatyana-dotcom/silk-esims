@@ -46,7 +46,7 @@ const Hero = () => {
             <Button
               variant="secondary"
               size="sm"
-              className="hidden sm:inline-flex bg-white text-primary hover:bg-white/90 rounded-full px-4 text-sm font-bold shadow-md"
+              className="bg-white text-primary hover:bg-white/90 rounded-full px-4 text-sm font-bold shadow-md"
               onClick={() => scrollTo('pricing')}
             >
               Подключить eSIM
