@@ -38,14 +38,15 @@ const Hero = () => {
       {/* Top bar */}
       <div className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${scrolled ? 'bg-[hsl(200,100%,40%)] shadow-lg' : ''}`}>
         <div className="container mx-auto px-4 flex items-center justify-between py-3">
-          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-5 py-2.5">
+          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-4 py-2">
             <span className="text-sm font-semibold text-white">Silk eSIM</span>
           </div>
           <div className="flex items-center gap-2">
+            {/* Desktop buttons */}
             <Button
               variant="secondary"
               size="sm"
-              className="bg-white text-primary hover:bg-white/90 rounded-full px-4 text-sm font-bold shadow-md"
+              className="hidden sm:inline-flex bg-white text-primary hover:bg-white/90 rounded-full px-4 text-sm font-bold shadow-md"
               onClick={() => scrollTo('pricing')}
             >
               Подключить eSIM
@@ -53,7 +54,7 @@ const Hero = () => {
             <Button
               variant="outline"
               size="sm"
-              className="bg-white/10 border-white/30 text-white hover:bg-white/20 rounded-full px-4 text-sm font-medium"
+              className="hidden sm:inline-flex bg-white/10 border-white/30 text-white hover:bg-white/20 rounded-full px-4 text-sm font-medium"
               onClick={() => {}}
             >
               Личный кабинет
@@ -63,7 +64,7 @@ const Hero = () => {
               className="text-white/80 hover:text-white transition-colors p-2"
               aria-label="Menu"
             >
-            {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
@@ -71,6 +72,21 @@ const Hero = () => {
         {/* Dropdown menu */}
         {menuOpen && (
           <div className="absolute right-4 top-[60px] w-56 bg-white/15 backdrop-blur-xl border border-white/20 rounded-2xl p-3 space-y-1 animate-fade-in">
+            {/* Mobile-only action buttons */}
+            <div className="sm:hidden space-y-1 pb-2 border-b border-white/15 mb-1">
+              <button
+                onClick={() => { scrollTo('pricing'); }}
+                className="w-full text-left text-white font-bold bg-white/15 hover:bg-white/25 rounded-xl px-4 py-2.5 text-sm transition-colors"
+              >
+                Подключить eSIM
+              </button>
+              <button
+                onClick={() => { setMenuOpen(false); }}
+                className="w-full text-left text-white/90 hover:text-white hover:bg-white/10 rounded-xl px-4 py-2.5 text-sm font-medium transition-colors"
+              >
+                Личный кабинет
+              </button>
+            </div>
             {navItems.map((item) => (
               <button
                 key={item.id}
