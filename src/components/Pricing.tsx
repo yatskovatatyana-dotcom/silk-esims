@@ -30,9 +30,6 @@ const Pricing = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-2">
             {t('pricing.title')}
           </h2>
-          <p className="text-muted-foreground">
-            {t('pricing.subtitle')}
-          </p>
         </div>
 
 
