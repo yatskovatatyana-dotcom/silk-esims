@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -9,7 +8,6 @@ import { useToast } from "@/hooks/use-toast";
 const Pricing = () => {
   const { t } = useTranslation();
   const { toast } = useToast();
-  const [activeCountry, setActiveCountry] = useState('russia');
 
   const handlePlanClick = () => {
     toast({
@@ -18,7 +16,6 @@ const Pricing = () => {
     });
   };
 
-  const countries = ['russia', 'turkey', 'uae', 'egypt'];
 
   const plans = [
     { key: 'start', popular: false },
@@ -38,22 +35,6 @@ const Pricing = () => {
           </p>
         </div>
 
-        {/* Country tabs */}
-        <div className="flex justify-center gap-2 mb-10 flex-wrap">
-          {countries.map((country) => (
-            <button
-              key={country}
-              onClick={() => setActiveCountry(country)}
-              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
-                activeCountry === country
-                  ? 'bg-primary text-primary-foreground shadow-md'
-                  : 'bg-muted text-muted-foreground hover:bg-muted/80'
-              }`}
-            >
-              {t(`pricing.countries.${country}`)}
-            </button>
-          ))}
-        </div>
 
         <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {plans.map((plan, index) => {
