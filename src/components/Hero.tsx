@@ -112,7 +112,7 @@ const Hero = () => {
       </div>
       
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 pt-14 pb-8">
+      <div className="relative z-10 container mx-auto px-4 pt-10 pb-8">
         <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-12">
           {/* Left: Text content */}
           <div className="text-center lg:text-left lg:max-w-xl space-y-4">
