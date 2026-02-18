@@ -68,7 +68,7 @@ const Hero = () => {
               <img 
                 src={heroIllustration} 
                 alt="People using mobile internet" 
-                className="w-full object-contain drop-shadow-2xl mix-blend-lighten"
+                className="w-full object-contain drop-shadow-2xl"
               
               />
             </div>
