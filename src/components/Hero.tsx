@@ -25,8 +25,7 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 py-20 text-center">
         <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
           <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-5 py-2.5 mb-6">
-            <Smartphone className="w-5 h-5 text-white" />
-            <span className="text-sm font-semibold text-white">{t('hero.badge')}</span>
+            <span className="text-sm font-semibold text-white">Silk eSIM</span>
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight drop-shadow-lg">
