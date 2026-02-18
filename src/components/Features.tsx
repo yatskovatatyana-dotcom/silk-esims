@@ -13,14 +13,17 @@ const LotusIcon = ({ className }: { className?: string }) => (
 );
 
 const SpyIcon = ({ className }: { className?: string }) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
-    {/* Hat */}
-    <ellipse cx="12" cy="9" rx="10" ry="2" />
-    <path d="M5 9C5 9 6 3 12 3C18 3 19 9 19 9" />
-    {/* Mask / eyes */}
-    <path d="M3 13C3 11.5 5 11 8 11C9.5 11 10.5 11.5 12 12C13.5 11.5 14.5 11 16 11C19 11 21 11.5 21 13C21 14.5 19 15 16 15C14.5 15 13.5 14.5 12 14C10.5 14.5 9.5 15 8 15C5 15 3 14.5 3 13Z" />
-    <ellipse cx="8" cy="13" rx="2.2" ry="1.3" fill="none" stroke="currentColor" strokeWidth="0.8" />
-    <ellipse cx="16" cy="13" rx="2.2" ry="1.3" fill="none" stroke="currentColor" strokeWidth="0.8" />
+  <svg viewBox="0 0 32 32" fill="currentColor" className={className}>
+    {/* Hat brim */}
+    <ellipse cx="16" cy="12" rx="14" ry="2.5" />
+    {/* Hat top */}
+    <path d="M7 12C7 12 8.5 4 16 4C23.5 4 25 12 25 12" />
+    {/* Mask band */}
+    <path d="M2 18.5C2 16 5.5 14.5 10.5 14.5C12.5 14.5 14 15.5 16 16.5C18 15.5 19.5 14.5 21.5 14.5C26.5 14.5 30 16 30 18.5C30 21 26.5 22.5 21.5 22.5C19.5 22.5 18 21.5 16 20.5C14 21.5 12.5 22.5 10.5 22.5C5.5 22.5 2 21 2 18.5Z" />
+    {/* Left eye hole */}
+    <ellipse cx="10.5" cy="18.5" rx="3.5" ry="2.5" fill="none" stroke="currentColor" strokeWidth="1.2" />
+    {/* Right eye hole */}
+    <ellipse cx="21.5" cy="18.5" rx="3.5" ry="2.5" fill="none" stroke="currentColor" strokeWidth="1.2" />
   </svg>
 );
 
