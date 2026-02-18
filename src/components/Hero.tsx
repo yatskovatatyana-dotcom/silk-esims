@@ -93,7 +93,7 @@ const Hero = () => {
               </Button>
             </div>
             
-            <p className="text-lg md:text-xl text-white/90 max-w-2xl font-medium drop-shadow whitespace-pre-line">
+            <p className="text-xl md:text-2xl text-white/90 max-w-2xl font-medium drop-shadow whitespace-pre-line">
               {t('hero.description')}
             </p>
 
