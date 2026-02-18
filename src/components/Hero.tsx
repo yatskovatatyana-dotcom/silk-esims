@@ -71,7 +71,14 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           {/* Left: Text content */}
           <div className="flex-1 text-center lg:text-left space-y-6 animate-fade-in">
-            <div className="flex items-center justify-center lg:justify-start mb-2">
+            <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight drop-shadow-lg">
+              {t('hero.title')}
+              <span className="block mt-4 text-3xl md:text-4xl font-medium opacity-90">
+                {t('hero.brandName')} — мобильный интернет по-взрослому
+              </span>
+            </h1>
+
+            <div className="flex justify-center lg:justify-start">
               <Button 
                 variant="secondary" 
                 size="default"
@@ -82,13 +89,6 @@ const Hero = () => {
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </div>
-            
-            <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight drop-shadow-lg">
-              {t('hero.title')}
-              <span className="block mt-4 text-3xl md:text-4xl font-medium opacity-90">
-                {t('hero.brandName')} — мобильный интернет по-взрослому
-              </span>
-            </h1>
             
             <p className="text-xl md:text-2xl text-white/90 max-w-2xl font-medium drop-shadow whitespace-pre-line">
               {t('hero.description')}
