@@ -63,7 +63,7 @@ const Hero = () => {
           </div>
 
           {/* Right: Illustration - blended into background */}
-          <div className="hidden lg:flex flex-1 justify-end items-center animate-fade-in relative">
+          <div className="flex flex-1 justify-center lg:justify-end items-center animate-fade-in relative">
             <div className="relative w-full max-w-xl">
               <img 
                 src={heroIllustration} 
