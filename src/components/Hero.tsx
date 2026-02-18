@@ -27,8 +27,19 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           {/* Left: Text content */}
           <div className="flex-1 text-center lg:text-left space-y-6 animate-fade-in">
-            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-5 py-2.5 mb-2">
-              <span className="text-sm font-semibold text-white">Silk eSIM</span>
+            <div className="flex items-center justify-between lg:justify-start gap-4 mb-2">
+              <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-5 py-2.5">
+                <span className="text-sm font-semibold text-white">Silk eSIM</span>
+              </div>
+              <Button 
+                variant="secondary" 
+                size="default"
+                className="bg-white text-primary hover:bg-white/90 hover:scale-105 shadow-xl font-bold rounded-full px-6"
+                onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                {t('hero.ctaButton')}
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
             </div>
             
             <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight drop-shadow-lg">
@@ -41,35 +52,24 @@ const Hero = () => {
             <p className="text-xl md:text-2xl text-white/90 max-w-2xl font-medium drop-shadow whitespace-pre-line">
               {t('hero.description')}
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center pt-8">
-              <Button 
-                variant="secondary" 
-                size="xl"
-                className="bg-white text-primary hover:bg-white/90 hover:scale-105 shadow-2xl font-bold"
-                onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                {t('hero.ctaButton')}
-                <ArrowRight className="ml-2" />
-              </Button>
-              <Button 
-                variant="outline" 
-                size="xl"
-                className="border-2 border-white bg-white/20 text-white hover:bg-white hover:text-primary backdrop-blur-sm font-semibold shadow-lg"
-              >
-                {t('hero.learnMore')}
-              </Button>
+
+            {/* Mobile illustration */}
+            <div className="lg:hidden flex justify-center pt-4">
+              <img 
+                src={heroIllustration} 
+                alt="People using mobile internet" 
+                className="w-full max-w-sm object-contain drop-shadow-2xl"
+              />
             </div>
           </div>
 
-          {/* Right: Illustration - blended into background */}
-          <div className="flex flex-1 justify-center lg:justify-end items-center animate-fade-in relative">
+          {/* Right: Illustration - desktop only */}
+          <div className="hidden lg:flex flex-1 justify-center lg:justify-end items-center animate-fade-in relative">
             <div className="relative w-full max-w-xl">
               <img 
                 src={heroIllustration} 
                 alt="People using mobile internet" 
                 className="w-full object-contain drop-shadow-2xl"
-              
               />
             </div>
           </div>
