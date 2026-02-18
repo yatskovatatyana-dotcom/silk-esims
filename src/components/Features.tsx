@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { Zap, Gauge, Globe, Smartphone, Users, Headphones } from "lucide-react";
+import { Zap, Gauge, Globe, Smartphone } from "lucide-react";
 import { useTranslation } from 'react-i18next';
 
 const Features = () => {
@@ -25,16 +25,6 @@ const Features = () => {
       icon: Smartphone,
       title: t('features.items.noPhysical.title'),
       description: t('features.items.noPhysical.description'),
-    },
-    {
-      icon: Users,
-      title: t('features.items.multipleProfiles.title'),
-      description: t('features.items.multipleProfiles.description'),
-    },
-    {
-      icon: Headphones,
-      title: t('features.items.support.title'),
-      description: t('features.items.support.description'),
     },
   ];
 
