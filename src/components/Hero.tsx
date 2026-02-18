@@ -84,7 +84,7 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 pt-20 pb-8">
         <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-12">
           {/* Left: Text content */}
-          <div className="text-center lg:text-left lg:max-w-xl space-y-4 animate-fade-in">
+          <div className="text-center lg:text-left lg:max-w-xl space-y-4">
             <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight drop-shadow-lg">
               {t('hero.title')}
               <span className="block mt-3 text-2xl md:text-3xl font-medium opacity-90">
@@ -115,19 +115,21 @@ const Hero = () => {
             <div className="lg:hidden flex justify-center -mt-2">
               <img 
                 src={heroIllustration} 
-                alt="People using mobile internet" 
+                alt="People using mobile internet"
+                fetchPriority="high"
                 className="w-full max-w-sm object-contain drop-shadow-2xl"
               />
             </div>
           </div>
 
           {/* Right: Illustration - desktop only */}
-          <div className="hidden lg:flex justify-center items-center animate-fade-in relative">
+          <div className="hidden lg:flex justify-center items-center relative">
             <div className="relative w-full max-w-xl">
               <img 
                 src={heroIllustration} 
                 alt="People using mobile internet" 
                 className="w-full object-contain drop-shadow-2xl"
+                fetchPriority="high"
               />
             </div>
           </div>
