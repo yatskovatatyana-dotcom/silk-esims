@@ -68,7 +68,7 @@ const Hero = () => {
       
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 pt-20 pb-8">
-        <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-8">
+        <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-0">
           {/* Left: Text content */}
           <div className="flex-1 text-center lg:text-left space-y-4 animate-fade-in">
             <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight drop-shadow-lg">
