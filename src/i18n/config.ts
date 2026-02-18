@@ -203,7 +203,7 @@ const resources = {
           },
           "flexibility": {
             "title": "Все сервисы доступны",
-            "description": "Instagram, YouTube, Twitter и любые сайты без ограничений"
+            "description": "Видеозвонки в мессенджерах без помех, соцсети без замедлений. Видео на высокой скорости."
           },
           "noPhysical": {
             "title": "Проще чем VPN",
