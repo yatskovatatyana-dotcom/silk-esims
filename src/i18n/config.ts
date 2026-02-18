@@ -43,7 +43,7 @@ const resources = {
             "description": "Instagram, YouTube, Twitter and any websites without restrictions"
           },
           "noPhysical": {
-            "title": "Easier Than VPN",
+            "title": "No Stress",
             "description": "No apps to install, no settings to change, no searching for working servers"
           },
           "multipleProfiles": {
@@ -218,7 +218,7 @@ const resources = {
             "description": "Видеозвонки в мессенджерах без помех, соцсети без замедлений. Видео на высокой скорости."
           },
           "noPhysical": {
-            "title": "Проще чем VPN",
+            "title": "Без стресса",
             "description": "Не нужно устанавливать приложения, менять настройки, искать рабочие серверы"
           },
           "multipleProfiles": {
