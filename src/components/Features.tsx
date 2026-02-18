@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { Zap, Gauge, Globe } from "lucide-react";
+import { Zap, Gauge } from "lucide-react";
 import { useTranslation } from 'react-i18next';
 
 const LotusIcon = ({ className }: { className?: string }) => (
@@ -9,6 +9,19 @@ const LotusIcon = ({ className }: { className?: string }) => (
     <path d="M16.5 8c1.5 2 2.5 4.5 2 7-.5 2-2 3.5-4 4" />
     <path d="M4 14c-1 1.5-1 3 0 4.5C5.5 20 8 20.5 10 20" />
     <path d="M20 14c1 1.5 1 3 0 4.5C18.5 20 16 20.5 14 20" />
+  </svg>
+);
+
+const MaskedFaceIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <circle cx="12" cy="10" r="7" />
+    <path d="M5.5 8.5C6.5 7 9 6 12 6s5.5 1 6.5 2.5" />
+    <rect x="5" y="8" width="14" height="5" rx="2" fill="currentColor" opacity="0.9" />
+    <circle cx="9" cy="10.5" r="1.2" fill="none" stroke="currentColor" strokeWidth="1.5" />
+    <circle cx="15" cy="10.5" r="1.2" fill="none" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M9 20c1 1.5 2 2 3 2s2-.5 3-2" />
+    <path d="M8 17l-2 3" />
+    <path d="M16 17l2 3" />
   </svg>
 );
 
@@ -27,7 +40,7 @@ const Features = () => {
       description: t('features.items.savings.description'),
     },
     {
-      icon: Globe,
+      icon: MaskedFaceIcon,
       title: t('features.items.flexibility.title'),
       description: t('features.items.flexibility.description'),
     },
