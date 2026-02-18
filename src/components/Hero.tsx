@@ -68,10 +68,10 @@ const Hero = () => {
               <img 
                 src={heroIllustration} 
                 alt="People using mobile internet" 
-                className="w-full object-contain mix-blend-luminosity opacity-90 drop-shadow-2xl"
+                className="w-full object-contain drop-shadow-2xl"
                 style={{
-                  maskImage: 'radial-gradient(ellipse 80% 80% at center, black 40%, transparent 100%)',
-                  WebkitMaskImage: 'radial-gradient(ellipse 80% 80% at center, black 40%, transparent 100%)',
+                  maskImage: 'radial-gradient(ellipse 70% 70% at center, black 20%, transparent 80%)',
+                  WebkitMaskImage: 'radial-gradient(ellipse 70% 70% at center, black 20%, transparent 80%)',
                 }}
               />
             </div>
