@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, Shield, Signal, Menu, X } from "lucide-react";
+import { ArrowRight, Zap, Shield, Gauge, Menu, X } from "lucide-react";
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
 import heroIllustration from '@/assets/hero-illustration.png';
@@ -130,7 +130,7 @@ const Hero = () => {
             <div className="text-xs md:text-sm text-white font-semibold leading-tight">Безопасность ваших данных</div>
           </div>
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-3 text-center hover:bg-white/20 transition-all duration-300">
-            <Signal className="w-6 h-6 text-white mx-auto mb-1" />
+            <Gauge className="w-6 h-6 text-white mx-auto mb-1" />
             <div className="text-xs md:text-sm text-white font-semibold leading-tight">Скорость и стабильность соединения</div>
           </div>
         </div>
