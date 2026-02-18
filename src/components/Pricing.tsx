@@ -1,13 +1,15 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Check } from "lucide-react";
+import { Check, Calendar } from "lucide-react";
 import { useTranslation } from 'react-i18next';
 import { useToast } from "@/hooks/use-toast";
 
 const Pricing = () => {
   const { t } = useTranslation();
   const { toast } = useToast();
+  const [activeCountry, setActiveCountry] = useState('russia');
 
   const handlePlanClick = () => {
     toast({
@@ -16,41 +18,50 @@ const Pricing = () => {
     });
   };
 
+  const countries = ['russia', 'turkey', 'uae', 'egypt'];
+
   const plans = [
-    {
-      key: 'start',
-      popular: false,
-    },
-    {
-      key: 'optimal',
-      popular: t('pricing.plans.optimal.popular'),
-    },
-    {
-      key: 'advanced',
-      popular: false,
-    },
-    {
-      key: 'unlimited',
-      popular: t('pricing.plans.unlimited.bestValue'),
-    },
+    { key: 'start', popular: false },
+    { key: 'optimal', popular: t('pricing.plans.optimal.popular') },
+    { key: 'max', popular: false },
   ];
 
   return (
     <section id="pricing" className="pt-8 pb-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+        <div className="text-center mb-8">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-2">
             {t('pricing.title')}
           </h2>
+          <p className="text-muted-foreground">
+            {t('pricing.subtitle')}
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        {/* Country tabs */}
+        <div className="flex justify-center gap-2 mb-10 flex-wrap">
+          {countries.map((country) => (
+            <button
+              key={country}
+              onClick={() => setActiveCountry(country)}
+              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
+                activeCountry === country
+                  ? 'bg-primary text-primary-foreground shadow-md'
+                  : 'bg-muted text-muted-foreground hover:bg-muted/80'
+              }`}
+            >
+              {t(`pricing.countries.${country}`)}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {plans.map((plan, index) => {
             const features = [
-              t(`pricing.plans.${plan.key}.features.data`),
-              t(`pricing.plans.${plan.key}.features.validity`),
-              t(`pricing.plans.${plan.key}.features.speed`),
-              t(`pricing.plans.${plan.key}.features.access`),
+              t(`pricing.plans.${plan.key}.features.f1`),
+              t(`pricing.plans.${plan.key}.features.f2`),
+              t(`pricing.plans.${plan.key}.features.f3`),
+              t(`pricing.plans.${plan.key}.features.f4`),
             ];
 
             return (
@@ -61,21 +72,29 @@ const Pricing = () => {
                 }`}
               >
                 {plan.popular && (
-                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-primary text-primary-foreground">
+                  <Badge className="absolute top-4 right-4 bg-gradient-primary text-primary-foreground">
                     {plan.popular}
                   </Badge>
                 )}
 
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-foreground mb-2">
+                <div className="mb-4">
+                  <h3 className="text-lg font-bold text-foreground">
                     {t(`pricing.plans.${plan.key}.name`)}
                   </h3>
-                  <div className="text-3xl font-bold text-primary mt-4">
-                    {t(`pricing.plans.${plan.key}.price`)}
+                  <div className="text-xl font-bold text-primary">
+                    {t(`pricing.plans.${plan.key}.data`)}
+                  </div>
+                  <div className="flex items-center gap-1.5 text-sm text-muted-foreground mt-1">
+                    <Calendar className="w-3.5 h-3.5" />
+                    {t(`pricing.plans.${plan.key}.duration`)}
                   </div>
                 </div>
 
-                <ul className="space-y-3 mb-6">
+                <div className="text-3xl font-bold text-primary mb-4">
+                  {t(`pricing.plans.${plan.key}.price`)}
+                </div>
+
+                <ul className="space-y-2.5 mb-6">
                   {features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
                       <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
