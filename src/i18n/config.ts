@@ -225,7 +225,7 @@ const resources = {
         "steps": {
           "choose": {
             "title": "Выберите тариф",
-            "description": "Выберите подходящий объём трафика"
+            "description": "Выбери тариф под себя"
           },
           "pay": {
             "title": "Оплатите картой МИР",
