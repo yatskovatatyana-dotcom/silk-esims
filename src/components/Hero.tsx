@@ -68,9 +68,9 @@ const Hero = () => {
       
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 pt-20 pb-8">
-        <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-0">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-12">
           {/* Left: Text content */}
-          <div className="flex-1 text-center lg:text-left lg:max-w-lg space-y-4 animate-fade-in">
+          <div className="text-center lg:text-left lg:max-w-xl space-y-4 animate-fade-in">
             <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight drop-shadow-lg">
               {t('hero.title')}
               <span className="block mt-3 text-2xl md:text-3xl font-medium opacity-90">
@@ -105,7 +105,7 @@ const Hero = () => {
           </div>
 
           {/* Right: Illustration - desktop only */}
-          <div className="hidden lg:flex flex-1 justify-center lg:justify-end items-center animate-fade-in relative">
+          <div className="hidden lg:flex justify-center items-center animate-fade-in relative">
             <div className="relative w-full max-w-xl">
               <img 
                 src={heroIllustration} 
@@ -117,7 +117,7 @@ const Hero = () => {
         </div>
 
         {/* Stats */}
-        <div className="pt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto lg:mx-0">
+        <div className="pt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300">
             <Zap className="w-10 h-10 text-white mx-auto mb-3" />
             <div className="text-4xl font-bold text-white">{t('hero.stats.time')}</div>
