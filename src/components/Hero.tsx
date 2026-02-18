@@ -62,18 +62,18 @@ const Hero = () => {
           <div className="pt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
             <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300">
               <Zap className="w-10 h-10 text-white mx-auto mb-3" />
-              <div className="text-4xl font-bold text-white">1 {t('hero.learnMore').includes('Learn') ? 'min' : 'мин'}</div>
-              <div className="text-sm text-white/80 mt-2 font-medium">{t('features.items.instant.title')}</div>
+              <div className="text-4xl font-bold text-white">{t('hero.stats.time')}</div>
+              <div className="text-sm text-white/80 mt-2 font-medium">{t('hero.stats.timeLabel')}</div>
             </div>
             <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300">
               <Shield className="w-10 h-10 text-white mx-auto mb-3" />
-              <div className="text-4xl font-bold text-white">100%</div>
-              <div className="text-sm text-white/80 mt-2 font-medium">{t('hero.learnMore').includes('Learn') ? 'Fully Online' : 'Полностью онлайн'}</div>
+              <div className="text-4xl font-bold text-white">{t('hero.stats.access')}</div>
+              <div className="text-sm text-white/80 mt-2 font-medium">{t('hero.stats.accessLabel')}</div>
             </div>
             <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300">
               <Smartphone className="w-10 h-10 text-white mx-auto mb-3" />
-              <div className="text-4xl font-bold text-white">24/7</div>
-              <div className="text-sm text-white/80 mt-2 font-medium">{t('features.items.support.title')}</div>
+              <div className="text-4xl font-bold text-white">{t('hero.stats.uptime')}</div>
+              <div className="text-sm text-white/80 mt-2 font-medium">{t('hero.stats.uptimeLabel')}</div>
             </div>
           </div>
         </div>
