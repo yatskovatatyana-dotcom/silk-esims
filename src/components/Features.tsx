@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { Zap, DollarSign, Globe, Smartphone, Users, Headphones } from "lucide-react";
+import { Zap, Gauge, Globe, Smartphone, Users, Headphones } from "lucide-react";
 import { useTranslation } from 'react-i18next';
 
 const Features = () => {
@@ -12,7 +12,7 @@ const Features = () => {
       description: t('features.items.instant.description'),
     },
     {
-      icon: DollarSign,
+      icon: Gauge,
       title: t('features.items.savings.title'),
       description: t('features.items.savings.description'),
     },
