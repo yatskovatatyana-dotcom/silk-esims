@@ -123,7 +123,7 @@ const Hero = () => {
         <div className="pt-6 grid grid-cols-3 gap-3 max-w-2xl mx-auto">
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-3 text-center hover:bg-white/20 transition-all duration-300">
             <Zap className="w-6 h-6 text-white mx-auto mb-1" />
-            <div className="text-xs md:text-sm text-white font-semibold leading-tight">Мгновенное подключение</div>
+            <div className="text-xs md:text-sm text-white font-semibold leading-tight">Мгновенное<br />подключение</div>
           </div>
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-3 text-center hover:bg-white/20 transition-all duration-300">
             <Shield className="w-6 h-6 text-white mx-auto mb-1" />
