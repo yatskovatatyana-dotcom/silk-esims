@@ -19,7 +19,7 @@ const CTA = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             {t('cta.title')}
           </h2>
-          <p className="text-xl mb-8 opacity-90">
+          <p className="text-xl mb-8 opacity-90 whitespace-pre-line">
             {t('cta.subtitle')}
           </p>
           
