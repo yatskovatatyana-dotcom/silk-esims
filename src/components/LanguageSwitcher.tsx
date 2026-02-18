@@ -11,15 +11,13 @@ const LanguageSwitcher = () => {
   };
 
   return (
-    <Button
-      variant="outline"
-      size="sm"
+    <button
       onClick={toggleLanguage}
-      className="gap-2"
+      className="inline-flex items-center gap-1.5 text-white/70 hover:text-white text-xs font-medium transition-colors duration-200 px-2 py-1 rounded-full"
     >
-      <Languages className="w-4 h-4" />
+      <Languages className="w-3.5 h-3.5" />
       {i18n.language === 'ru' ? 'EN' : 'RU'}
-    </Button>
+    </button>
   );
 };
 
