@@ -143,7 +143,7 @@ const Hero = () => {
             </p>
 
             {/* Mobile illustration */}
-            <div className="lg:hidden flex justify-center -mt-7">
+            <div className="lg:hidden flex justify-center -mt-12">
               <img 
                 src={heroIllustration} 
                 alt="People using mobile internet"
