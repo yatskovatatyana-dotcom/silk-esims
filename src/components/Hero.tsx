@@ -77,7 +77,7 @@ const Hero = () => {
                 {t('hero.brandName')}
                 <br className="hidden lg:block" />
                 <span className="lg:hidden"> — </span>
-                интернет совсем иного уровня
+                Интернет совсем иного уровня
               </span>
             </h1>
 
