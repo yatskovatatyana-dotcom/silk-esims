@@ -29,12 +29,20 @@ const Hero = () => {
       )}
       
       {/* Top bar */}
-      <div className="absolute top-0 left-0 right-0 z-20 container mx-auto px-4">
-        <div className="flex items-center justify-between py-5">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-primary/80 backdrop-blur-md border-b border-white/10">
+        <div className="container mx-auto px-4 flex items-center justify-between py-3">
           <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-5 py-2.5">
             <span className="text-sm font-semibold text-white">Silk eSIM</span>
           </div>
           <div className="flex items-center gap-2">
+            <Button
+              variant="secondary"
+              size="sm"
+              className="bg-white text-primary hover:bg-white/90 rounded-full px-4 text-sm font-bold shadow-md"
+              onClick={() => scrollTo('pricing')}
+            >
+              Подключить eSIM
+            </Button>
             <Button
               variant="outline"
               size="sm"
@@ -55,7 +63,7 @@ const Hero = () => {
 
         {/* Dropdown menu */}
         {menuOpen && (
-          <div className="absolute right-4 top-[72px] w-56 bg-white/15 backdrop-blur-xl border border-white/20 rounded-2xl p-3 space-y-1 animate-fade-in">
+          <div className="absolute right-4 top-[60px] w-56 bg-white/15 backdrop-blur-xl border border-white/20 rounded-2xl p-3 space-y-1 animate-fade-in">
             {navItems.map((item) => (
               <button
                 key={item.id}
