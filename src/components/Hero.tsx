@@ -96,7 +96,7 @@ const Hero = () => {
                 {item.label}
               </button>
             ))}
-            <div className={`border-t ${scrolled ? 'border-border' : 'border-white/15'} mt-2 pt-2 px-2`}>
+            <div className="border-t border-white/15 mt-2 pt-2 px-2">
               <LanguageSwitcher />
             </div>
           </div>
