@@ -42,6 +42,11 @@ const Features = () => {
     <section id="features" className="pt-8 pb-4 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
+          <div className="max-w-3xl mx-auto mb-6 px-4 py-4 bg-primary/10 border border-primary/20 rounded-xl">
+            <p className="text-lg md:text-xl font-semibold text-primary">
+              {t('features.sellingPoint')}
+            </p>
+          </div>
           <p className="text-2xl font-bold text-secondary max-w-2xl mx-auto mb-4">
             {t('features.subtitle')}
           </p>
