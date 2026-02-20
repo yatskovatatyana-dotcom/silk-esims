@@ -173,8 +173,8 @@ const resources = {
             "description": "Scan the QR code with your phone — the eSIM profile will install automatically"
           },
           "enable": {
-            "title": "Enable Mobile Data",
-            "description": "Turn on mobile data for the eSIM and enable data roaming in settings"
+            "title": "Turn on mobile data and roaming on the installed eSIM",
+            "description": "Make sure to disable mobile data on your main SIM and enable it on the eSIM + turn on data roaming."
           },
           "captcha": {
             "title": "Complete the captcha via the carrier's link",
