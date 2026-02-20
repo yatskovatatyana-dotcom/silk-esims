@@ -61,7 +61,7 @@ const Hero = () => {
             </Button>
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="text-white/80 hover:text-white transition-colors p-2"
+              className={`${scrolled ? 'text-foreground/70 hover:text-foreground' : 'text-white/80 hover:text-white'} transition-colors p-2`}
               aria-label="Menu"
             >
               {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
