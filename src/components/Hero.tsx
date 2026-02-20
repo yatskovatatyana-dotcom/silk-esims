@@ -54,7 +54,7 @@ const Hero = () => {
             <Button
               variant="outline"
               size="sm"
-              className={`hidden sm:inline-flex rounded-full px-4 text-sm font-medium ${scrolled ? 'border-primary/30 text-primary hover:bg-primary/10' : 'bg-white/10 border-white/30 text-white hover:bg-white/20'}`}
+              className="hidden sm:inline-flex bg-white/10 border-white/30 text-white hover:bg-white/20 rounded-full px-4 text-sm font-medium"
               onClick={() => {}}
             >
               Личный кабинет
