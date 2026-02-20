@@ -177,8 +177,8 @@ const resources = {
             "description": "Turn on mobile data for the eSIM and enable data roaming in settings"
           },
           "captcha": {
-            "title": "Complete Captcha",
-            "description": "You'll receive an SMS from the carrier — complete the captcha to bypass the 24-hour cooling period"
+            "title": "Complete the captcha via the carrier's link",
+            "description": "You'll receive an SMS in English from a Russian carrier about arriving in Russia and activating roaming. This means everything is set up correctly! Follow the link to complete the captcha to bypass the 24-hour cooling period."
           },
           "ready": {
             "title": "Internet is Ready!",
