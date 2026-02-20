@@ -91,7 +91,7 @@ const Hero = () => {
               <button
                 key={item.id}
                 onClick={() => scrollTo(item.id)}
-                className={`w-full text-left rounded-xl px-4 py-2.5 text-sm font-medium transition-colors ${scrolled ? 'text-foreground/80 hover:text-foreground hover:bg-muted' : 'text-white/90 hover:text-white hover:bg-white/10'}`}
+                className="w-full text-left text-white/90 hover:text-white hover:bg-white/10 rounded-xl px-4 py-2.5 text-sm font-medium transition-colors"
               >
                 {item.label}
               </button>
