@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { Zap, Gauge, ShieldAlert, Heart, Video, MessageCircle, Camera, Globe, Wifi, Phone, Send } from "lucide-react";
+import { Zap, Gauge, ShieldAlert } from "lucide-react";
 import { useTranslation } from 'react-i18next';
 
 const LotusIcon = ({ className }: { className?: string }) => (
@@ -42,18 +42,8 @@ const Features = () => {
     <section id="features" className="pt-8 pb-4 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
-          <div className="relative max-w-3xl mx-auto mb-12 mt-4 px-8 py-8 bg-primary rounded-2xl shadow-lg overflow-hidden">
-            {/* Decorative floating icons */}
-            <Heart className="absolute top-3 left-4 w-5 h-5 text-primary-foreground/20" />
-            <Video className="absolute top-4 right-6 w-5 h-5 text-primary-foreground/20" />
-            <MessageCircle className="absolute bottom-3 left-6 w-5 h-5 text-primary-foreground/20" />
-            <Camera className="absolute bottom-4 right-4 w-5 h-5 text-primary-foreground/20" />
-            <Globe className="absolute top-1/2 -translate-y-1/2 left-2 w-4 h-4 text-primary-foreground/15" />
-            <Wifi className="absolute top-1/2 -translate-y-1/2 right-2 w-4 h-4 text-primary-foreground/15" />
-            <Phone className="absolute top-2 left-1/4 w-4 h-4 text-primary-foreground/15" />
-            <Send className="absolute bottom-2 right-1/4 w-4 h-4 text-primary-foreground/15" />
-            
-            <p className="text-xl md:text-2xl font-bold text-primary-foreground leading-relaxed relative z-10">
+          <div className="relative max-w-3xl mx-auto mb-12 mt-4 px-8 py-8 bg-primary rounded-2xl shadow-lg">
+            <p className="text-xl md:text-2xl font-bold text-primary-foreground leading-relaxed">
               {t('features.sellingPoint')}
             </p>
           </div>
