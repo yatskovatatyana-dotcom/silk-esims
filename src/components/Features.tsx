@@ -43,7 +43,7 @@ const Features = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
           <div className="relative max-w-3xl mx-auto mb-12 mt-4 px-8 py-8 bg-primary rounded-2xl shadow-lg">
-            <p className="text-xl md:text-2xl font-bold text-primary-foreground leading-relaxed">
+            <p className="text-xl md:text-2xl font-bold text-primary-foreground leading-relaxed whitespace-pre-line">
               {t('features.sellingPoint')}
             </p>
           </div>
