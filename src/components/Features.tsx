@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { Zap, Gauge, ShieldAlert, Heart, Video, MessageCircle, Camera, Globe, Wifi, Phone, Send } from "lucide-react";
+import { Zap, Gauge, ShieldAlert } from "lucide-react";
 import { useTranslation } from 'react-i18next';
 
 const LotusIcon = ({ className }: { className?: string }) => (
