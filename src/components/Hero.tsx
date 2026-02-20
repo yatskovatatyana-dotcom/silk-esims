@@ -38,15 +38,15 @@ const Hero = () => {
       {/* Top bar */}
       <div className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${scrolled ? 'bg-[hsl(200,100%,40%)] shadow-lg' : ''}`}>
         <div className="container mx-auto px-4 flex items-center justify-between py-3">
-          <div className={`inline-flex items-center gap-2 ${scrolled ? 'bg-primary/10' : 'bg-white/20 backdrop-blur-sm border border-white/30'} rounded-full px-4 py-2`}>
-            <span className={`text-sm font-semibold ${scrolled ? 'text-primary' : 'text-white'}`}>Silk eSIM</span>
+          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-4 py-2">
+            <span className="text-sm font-semibold text-white">Silk eSIM</span>
           </div>
           <div className="flex items-center gap-2">
             {/* Desktop buttons */}
             <Button
               variant="secondary"
               size="sm"
-              className={`rounded-full px-4 text-sm font-bold ${scrolled ? 'bg-primary text-white hover:bg-primary/90' : ''}`}
+              className="rounded-full px-4 text-sm font-bold"
               onClick={() => scrollTo('pricing')}
             >
               Подключить eSIM
@@ -54,14 +54,14 @@ const Hero = () => {
             <Button
               variant="outline"
               size="sm"
-              className={`hidden sm:inline-flex rounded-full px-4 text-sm font-medium ${scrolled ? 'border-primary/30 text-primary hover:bg-primary/10' : 'bg-white/10 border-white/30 text-white hover:bg-white/20'}`}
+              className="hidden sm:inline-flex bg-white/10 border-white/30 text-white hover:bg-white/20 rounded-full px-4 text-sm font-medium"
               onClick={() => {}}
             >
               Личный кабинет
             </Button>
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className={`${scrolled ? 'text-foreground/70 hover:text-foreground' : 'text-white/80 hover:text-white'} transition-colors p-2`}
+              className="text-white/80 hover:text-white transition-colors p-2"
               aria-label="Menu"
             >
               {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -71,18 +71,18 @@ const Hero = () => {
 
         {/* Dropdown menu */}
         {menuOpen && (
-          <div className={`absolute right-4 top-[60px] w-56 ${scrolled ? 'bg-white border-border shadow-xl' : 'bg-white/15 backdrop-blur-xl border-white/20'} border rounded-2xl p-3 space-y-1 animate-fade-in`}>
+          <div className="absolute right-4 top-[60px] w-56 bg-white/15 backdrop-blur-xl border border-white/20 rounded-2xl p-3 space-y-1 animate-fade-in">
             {/* Mobile-only action buttons */}
-            <div className={`sm:hidden space-y-1 pb-2 border-b ${scrolled ? 'border-border' : 'border-white/15'} mb-1`}>
+            <div className="sm:hidden space-y-1 pb-2 border-b border-white/15 mb-1">
               <button
                 onClick={() => { scrollTo('pricing'); }}
-                className={`w-full text-left font-bold rounded-xl px-4 py-2.5 text-sm transition-colors ${scrolled ? 'text-primary bg-primary/10 hover:bg-primary/20' : 'text-white bg-white/15 hover:bg-white/25'}`}
+                className="w-full text-left text-white font-bold bg-white/15 hover:bg-white/25 rounded-xl px-4 py-2.5 text-sm transition-colors"
               >
                 Подключить eSIM
               </button>
               <button
                 onClick={() => { setMenuOpen(false); }}
-                className={`w-full text-left rounded-xl px-4 py-2.5 text-sm font-medium transition-colors ${scrolled ? 'text-foreground/80 hover:text-foreground hover:bg-muted' : 'text-white/90 hover:text-white hover:bg-white/10'}`}
+                className="w-full text-left text-white/90 hover:text-white hover:bg-white/10 rounded-xl px-4 py-2.5 text-sm font-medium transition-colors"
               >
                 Личный кабинет
               </button>
@@ -91,12 +91,12 @@ const Hero = () => {
               <button
                 key={item.id}
                 onClick={() => scrollTo(item.id)}
-                className={`w-full text-left rounded-xl px-4 py-2.5 text-sm font-medium transition-colors ${scrolled ? 'text-foreground/80 hover:text-foreground hover:bg-muted' : 'text-white/90 hover:text-white hover:bg-white/10'}`}
+                className="w-full text-left text-white/90 hover:text-white hover:bg-white/10 rounded-xl px-4 py-2.5 text-sm font-medium transition-colors"
               >
                 {item.label}
               </button>
             ))}
-            <div className={`border-t ${scrolled ? 'border-border' : 'border-white/15'} mt-2 pt-2 px-2`}>
+            <div className="border-t border-white/15 mt-2 pt-2 px-2">
               <LanguageSwitcher />
             </div>
           </div>
