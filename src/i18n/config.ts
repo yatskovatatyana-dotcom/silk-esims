@@ -27,7 +27,7 @@ const resources = {
         }
       },
       "features": {
-        "sellingPoint": "Silk eSIM — internet through a foreign carrier. You're roaming, so local network restrictions don't apply to you.",
+        "sellingPoint": "Silk eSIM — internet through a foreign carrier.\nYou're roaming, so local network restrictions don't apply to you.",
         "title": "Why Silk eSIM Is Better Than VPN",
         "subtitle": "A reliable alternative to VPN that gets worse every day",
         "items": {
@@ -235,7 +235,7 @@ const resources = {
         }
       },
       "features": {
-        "sellingPoint": "Silk eSIM — интернет через зарубежного оператора. Вы в роуминге и для вас нет ограничений местных сетей.",
+        "sellingPoint": "Silk eSIM — интернет через зарубежного оператора.\nВы в роуминге и для вас нет ограничений местных сетей.",
         "title": "Почему Silk eSIM лучше VPN",
         "subtitle": "VPN активно теряет актуальность",
         "items": {
