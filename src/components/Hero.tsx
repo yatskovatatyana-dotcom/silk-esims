@@ -71,7 +71,7 @@ const Hero = () => {
 
         {/* Dropdown menu */}
         {menuOpen && (
-          <div className="absolute right-4 top-[60px] w-56 bg-white/15 backdrop-blur-xl border border-white/20 rounded-2xl p-3 space-y-1 animate-fade-in">
+          <div className="absolute right-4 top-[60px] w-56 bg-[hsl(200,100%,40%)] backdrop-blur-xl border border-white/20 rounded-2xl p-3 space-y-1 animate-fade-in">
             {/* Mobile-only action buttons */}
             <div className="sm:hidden space-y-1 pb-2 border-b border-white/15 mb-1">
               <button
