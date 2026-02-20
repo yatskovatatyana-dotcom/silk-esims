@@ -42,8 +42,8 @@ const Features = () => {
     <section id="features" className="pt-8 pb-4 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
-          <div className="max-w-3xl mx-auto mb-6 px-4 py-4 bg-primary/10 border border-primary/20 rounded-xl">
-            <p className="text-lg md:text-xl font-semibold text-primary">
+          <div className="max-w-3xl mx-auto mb-8 px-6 py-5 bg-primary rounded-2xl shadow-lg">
+            <p className="text-xl md:text-2xl font-bold text-primary-foreground leading-relaxed">
               {t('features.sellingPoint')}
             </p>
           </div>
