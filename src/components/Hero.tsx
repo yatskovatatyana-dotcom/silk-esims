@@ -73,16 +73,16 @@ const Hero = () => {
         {menuOpen && (
           <div className={`absolute right-4 top-[60px] w-56 ${scrolled ? 'bg-white border-border shadow-xl' : 'bg-white/15 backdrop-blur-xl border-white/20'} border rounded-2xl p-3 space-y-1 animate-fade-in`}>
             {/* Mobile-only action buttons */}
-            <div className="sm:hidden space-y-1 pb-2 border-b border-white/15 mb-1">
+            <div className={`sm:hidden space-y-1 pb-2 border-b ${scrolled ? 'border-border' : 'border-white/15'} mb-1`}>
               <button
                 onClick={() => { scrollTo('pricing'); }}
-                className="w-full text-left text-white font-bold bg-white/15 hover:bg-white/25 rounded-xl px-4 py-2.5 text-sm transition-colors"
+                className={`w-full text-left font-bold rounded-xl px-4 py-2.5 text-sm transition-colors ${scrolled ? 'text-primary bg-primary/10 hover:bg-primary/20' : 'text-white bg-white/15 hover:bg-white/25'}`}
               >
                 Подключить eSIM
               </button>
               <button
                 onClick={() => { setMenuOpen(false); }}
-                className="w-full text-left text-white/90 hover:text-white hover:bg-white/10 rounded-xl px-4 py-2.5 text-sm font-medium transition-colors"
+                className={`w-full text-left rounded-xl px-4 py-2.5 text-sm font-medium transition-colors ${scrolled ? 'text-foreground/80 hover:text-foreground hover:bg-muted' : 'text-white/90 hover:text-white hover:bg-white/10'}`}
               >
                 Личный кабинет
               </button>
