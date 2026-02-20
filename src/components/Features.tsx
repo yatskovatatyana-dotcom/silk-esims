@@ -47,9 +47,6 @@ const Features = () => {
               {t('features.sellingPoint')}
             </p>
           </div>
-          <p className="text-2xl font-bold text-secondary max-w-2xl mx-auto mb-4">
-            {t('features.subtitle')}
-          </p>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground">
             {t('features.title')}
           </h2>
