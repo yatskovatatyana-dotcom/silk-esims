@@ -174,7 +174,7 @@ const Hero = () => {
           </div>
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-3 text-center hover:bg-white/20 transition-all duration-300">
             <Shield className="w-6 h-6 text-white mx-auto mb-1" />
-            <div className="text-xs md:text-sm text-white font-semibold leading-tight">{t('hero.stats.dataSecurity')}</div>
+            <div className="text-xs md:text-sm text-white font-semibold leading-tight whitespace-pre-line">{t('hero.stats.dataSecurity')}</div>
           </div>
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-3 text-center hover:bg-white/20 transition-all duration-300">
             <Gauge className="w-6 h-6 text-white mx-auto mb-1" />
