@@ -14,16 +14,16 @@ const resources = {
         "badge": "VPN Alternative",
         "title": "Tired of VPN?",
         "brandName": "Silk eSIM",
+        "subtitle": "internet on a whole new level",
         "description": "No blocks or throttling\nSecure and fast\nMobile internet as it should be",
         "ctaButton": "Choose Plan",
         "learnMore": "How It Works",
+        "connectEsim": "Get eSIM",
+        "personalAccount": "My Account",
         "stats": {
-          "time": "1 min",
-          "timeLabel": "Instant activation",
-          "access": "100%",
-          "accessLabel": "No blocks",
-          "uptime": "24/7",
-          "uptimeLabel": "Stable connection"
+          "instantConnection": "Instant\nconnection",
+          "dataSecurity": "Your data\nis secure",
+          "speedStability": "Speed and\nconnection stability"
         }
       },
       "features": {
@@ -222,16 +222,16 @@ const resources = {
         "badge": "Альтернатива VPN",
         "title": "Надоел VPN?",
         "brandName": "Silk eSIM",
+        "subtitle": "интернет совсем иного уровня",
         "description": "Без блокировок и замедлений\nБезопасный и быстрый\nМобильный интернет каким он должен быть",
         "ctaButton": "Выбрать тариф",
         "learnMore": "Как это работает",
+        "connectEsim": "Подключить eSIM",
+        "personalAccount": "Личный кабинет",
         "stats": {
-          "time": "1 мин",
-          "timeLabel": "Мгновенное подключение",
-          "access": "100%",
-          "accessLabel": "Без блокировок",
-          "uptime": "24/7",
-          "uptimeLabel": "Стабильное соединение"
+          "instantConnection": "Мгновенное\nподключение",
+          "dataSecurity": "Безопасность ваших данных",
+          "speedStability": "Скорость и стабильность соединения"
         }
       },
       "features": {
