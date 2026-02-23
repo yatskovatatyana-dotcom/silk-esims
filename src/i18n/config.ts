@@ -8,6 +8,7 @@ const resources = {
         "features": "Benefits",
         "pricing": "Plans",
         "howItWorks": "Get Started",
+        "connectionGuide": "Connection",
         "promotions": "Deals"
       },
       "hero": {
@@ -216,6 +217,7 @@ const resources = {
         "features": "Преимущества",
         "pricing": "Тарифы",
         "howItWorks": "Как начать",
+        "connectionGuide": "Подключение",
         "promotions": "Акции"
       },
       "hero": {
