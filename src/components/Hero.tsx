@@ -49,7 +49,7 @@ const Hero = () => {
               className="rounded-full px-4 text-sm font-bold"
               onClick={() => scrollTo('pricing')}
             >
-              Подключить eSIM
+              {t('hero.connectEsim')}
             </Button>
             <Button
               variant="outline"
@@ -57,7 +57,7 @@ const Hero = () => {
               className="hidden sm:inline-flex bg-white/10 border-white/30 text-white hover:bg-white/20 rounded-full px-4 text-sm font-medium"
               onClick={() => {}}
             >
-              Личный кабинет
+              {t('hero.personalAccount')}
             </Button>
             <button
               onClick={() => setMenuOpen(!menuOpen)}
@@ -78,13 +78,13 @@ const Hero = () => {
                 onClick={() => { scrollTo('pricing'); }}
                 className="w-full text-left text-white font-bold bg-white/15 hover:bg-white/25 rounded-xl px-4 py-2.5 text-sm transition-colors"
               >
-                Подключить eSIM
+                {t('hero.connectEsim')}
               </button>
               <button
                 onClick={() => { setMenuOpen(false); }}
                 className="w-full text-left text-white/90 hover:text-white hover:bg-white/10 rounded-xl px-4 py-2.5 text-sm font-medium transition-colors"
               >
-                Личный кабинет
+                {t('hero.personalAccount')}
               </button>
             </div>
             {navItems.map((item) => (
@@ -122,7 +122,7 @@ const Hero = () => {
                 {t('hero.brandName')}
                 <br className="hidden lg:block" />
                 <span className="lg:hidden"> — </span>
-                интернет совсем иного уровня
+                {t('hero.subtitle')}
               </span>
             </h1>
 
@@ -170,15 +170,15 @@ const Hero = () => {
         <div className="pt-0 -mt-2 grid grid-cols-3 gap-3 max-w-2xl mx-auto">
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-3 text-center hover:bg-white/20 transition-all duration-300">
             <Zap className="w-6 h-6 text-white mx-auto mb-1" />
-            <div className="text-xs md:text-sm text-white font-semibold leading-tight">Мгновенное<br />подключение</div>
+            <div className="text-xs md:text-sm text-white font-semibold leading-tight whitespace-pre-line">{t('hero.stats.instantConnection')}</div>
           </div>
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-3 text-center hover:bg-white/20 transition-all duration-300">
             <Shield className="w-6 h-6 text-white mx-auto mb-1" />
-            <div className="text-xs md:text-sm text-white font-semibold leading-tight">Безопасность ваших данных</div>
+            <div className="text-xs md:text-sm text-white font-semibold leading-tight">{t('hero.stats.dataSecurity')}</div>
           </div>
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-3 text-center hover:bg-white/20 transition-all duration-300">
             <Gauge className="w-6 h-6 text-white mx-auto mb-1" />
-            <div className="text-xs md:text-sm text-white font-semibold leading-tight">Скорость и стабильность соединения</div>
+            <div className="text-xs md:text-sm text-white font-semibold leading-tight">{t('hero.stats.speedStability')}</div>
           </div>
         </div>
       </div>
