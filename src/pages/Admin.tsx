@@ -5,12 +5,18 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Progress } from "@/components/ui/progress";
 import {
   ArrowLeft, Users, ShoppingCart, DollarSign, TrendingUp, Globe, Smartphone,
-  BarChart3, Activity, Repeat, ArrowUpDown, ArrowUp, ArrowDown, Wifi, Clock
+  BarChart3, Activity, Repeat, ArrowUpDown, ArrowUp, ArrowDown, Wifi, Clock, CalendarIcon
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { format } from "date-fns";
+import { ru } from "date-fns/locale";
+import { cn } from "@/lib/utils";
+import type { DateRange } from "react-day-picker";
 
 type Period = "day" | "week" | "month" | "quarter" | "year";
 type AdminTab = "dashboard" | "users" | "consumption" | "purchases";
@@ -927,6 +933,10 @@ function PurchasesTab({ period, setPeriod }: { period: Period; setPeriod: (p: Pe
 const Admin = () => {
   const [activeTab, setActiveTab] = useState<AdminTab>("dashboard");
   const [period, setPeriod] = useState<Period>("month");
+  const [dateRange, setDateRange] = useState<DateRange | undefined>({
+    from: new Date(2026, 1, 1),
+    to: new Date(),
+  });
 
   return (
     <div className="min-h-screen bg-background">
@@ -941,9 +951,47 @@ const Admin = () => {
               <p className="text-xs text-muted-foreground">Управление и аналитика</p>
             </div>
           </div>
-          <div className="flex items-center gap-2">
-            <Activity className="h-4 w-4 text-primary" />
-            <span className="text-sm text-muted-foreground">Система работает</span>
+          <div className="flex items-center gap-3">
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button
+                  variant="outline"
+                  className={cn(
+                    "justify-start text-left font-normal h-9 text-xs sm:text-sm",
+                    !dateRange && "text-muted-foreground"
+                  )}
+                >
+                  <CalendarIcon className="mr-2 h-4 w-4" />
+                  {dateRange?.from ? (
+                    dateRange.to ? (
+                      <>
+                        {format(dateRange.from, "dd.MM.yyyy", { locale: ru })} —{" "}
+                        {format(dateRange.to, "dd.MM.yyyy", { locale: ru })}
+                      </>
+                    ) : (
+                      format(dateRange.from, "dd.MM.yyyy", { locale: ru })
+                    )
+                  ) : (
+                    <span>Выберите период</span>
+                  )}
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-auto p-0" align="end">
+                <Calendar
+                  initialFocus
+                  mode="range"
+                  defaultMonth={dateRange?.from}
+                  selected={dateRange}
+                  onSelect={setDateRange}
+                  numberOfMonths={2}
+                  className="p-3 pointer-events-auto"
+                />
+              </PopoverContent>
+            </Popover>
+            <div className="flex items-center gap-2">
+              <Activity className="h-4 w-4 text-primary" />
+              <span className="text-sm text-muted-foreground hidden sm:inline">Система работает</span>
+            </div>
           </div>
         </div>
       </header>
