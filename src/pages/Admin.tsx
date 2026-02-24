@@ -385,15 +385,55 @@ function useSortable<T>(data: T[], defaultSort: string) {
   return { sorted, sortCol, sortDir, toggle };
 }
 
-function PeriodSelector({ period, setPeriod }: { period: Period; setPeriod: (p: Period) => void }) {
+function PeriodSelector({ period, setPeriod, dateRange, setDateRange }: { period: Period; setPeriod: (p: Period) => void; dateRange?: DateRange; setDateRange?: (d: DateRange | undefined) => void }) {
   return (
-    <Tabs value={period} onValueChange={(v) => setPeriod(v as Period)}>
-      <TabsList className="grid grid-cols-5 w-full max-w-lg">
-        {(Object.keys(periodLabels) as Period[]).map((p) => (
-          <TabsTrigger key={p} value={p}>{periodLabels[p]}</TabsTrigger>
-        ))}
-      </TabsList>
-    </Tabs>
+    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+      <Tabs value={period} onValueChange={(v) => setPeriod(v as Period)}>
+        <TabsList className="grid grid-cols-5 w-full max-w-lg">
+          {(Object.keys(periodLabels) as Period[]).map((p) => (
+            <TabsTrigger key={p} value={p}>{periodLabels[p]}</TabsTrigger>
+          ))}
+        </TabsList>
+      </Tabs>
+      {setDateRange && (
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button
+              variant="outline"
+              className={cn(
+                "justify-start text-left font-normal h-9 text-xs sm:text-sm",
+                !dateRange && "text-muted-foreground"
+              )}
+            >
+              <CalendarIcon className="mr-2 h-4 w-4" />
+              {dateRange?.from ? (
+                dateRange.to ? (
+                  <>
+                    {format(dateRange.from, "dd.MM.yyyy", { locale: ru })} —{" "}
+                    {format(dateRange.to, "dd.MM.yyyy", { locale: ru })}
+                  </>
+                ) : (
+                  format(dateRange.from, "dd.MM.yyyy", { locale: ru })
+                )
+              ) : (
+                <span>Выберите период</span>
+              )}
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent className="w-auto p-0" align="start">
+            <Calendar
+              initialFocus
+              mode="range"
+              defaultMonth={dateRange?.from}
+              selected={dateRange}
+              onSelect={setDateRange}
+              numberOfMonths={2}
+              className="p-3 pointer-events-auto"
+            />
+          </PopoverContent>
+        </Popover>
+      )}
+    </div>
   );
 }
 
