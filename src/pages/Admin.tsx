@@ -742,12 +742,21 @@ function DashboardTab({ period, setPeriod, dateRange, setDateRange }: { period: 
 // ===== Users Tab =====
 function UsersTab({ period, setPeriod, dateRange, setDateRange }: { period: Period; setPeriod: (p: Period) => void; dateRange?: DateRange; setDateRange?: (d: DateRange | undefined) => void }) {
   const [search, setSearch] = useState("");
-  const data = mockUsers[period];
+  
+  // Use flat data filtered by dateRange, or period-based data
+  const baseData = useMemo(() => {
+    if (dateRange?.from) {
+      const filtered = filterByDateRange(allUsersFlat, dateRange);
+      return filtered as UserData[];
+    }
+    return mockUsers[period];
+  }, [period, dateRange]);
+
   const filtered = useMemo(() => {
-    if (!search.trim()) return data;
+    if (!search.trim()) return baseData;
     const q = search.toLowerCase();
-    return data.filter(u => u.name.toLowerCase().includes(q) || u.email.toLowerCase().includes(q) || u.country.toLowerCase().includes(q));
-  }, [data, search]);
+    return baseData.filter(u => u.name.toLowerCase().includes(q) || u.email.toLowerCase().includes(q) || u.country.toLowerCase().includes(q));
+  }, [baseData, search]);
   const { sorted, sortCol, sortDir, toggle } = useSortable(filtered, "totalSpent");
 
   const totalUsers = filtered.length;
