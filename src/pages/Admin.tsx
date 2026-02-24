@@ -911,12 +911,21 @@ function ConsumptionTab({ period, setPeriod, dateRange, setDateRange }: { period
 // ===== Purchases Tab =====
 function PurchasesTab({ period, setPeriod, dateRange, setDateRange }: { period: Period; setPeriod: (p: Period) => void; dateRange?: DateRange; setDateRange?: (d: DateRange | undefined) => void }) {
   const [search, setSearch] = useState("");
-  const data = mockPurchases[period];
+  
+  // Use flat data filtered by dateRange, or period-based data
+  const baseData = useMemo(() => {
+    if (dateRange?.from) {
+      const filtered = filterByDateRange(allPurchasesFlat, dateRange);
+      return filtered as PurchaseData[];
+    }
+    return mockPurchases[period];
+  }, [period, dateRange]);
+
   const filtered = useMemo(() => {
-    if (!search.trim()) return data;
+    if (!search.trim()) return baseData;
     const q = search.toLowerCase();
-    return data.filter(d => d.user.toLowerCase().includes(q) || d.orderId.toLowerCase().includes(q) || d.country.toLowerCase().includes(q) || d.plan.toLowerCase().includes(q));
-  }, [data, search]);
+    return baseData.filter(d => d.user.toLowerCase().includes(q) || d.orderId.toLowerCase().includes(q) || d.country.toLowerCase().includes(q) || d.plan.toLowerCase().includes(q));
+  }, [baseData, search]);
 
   const totalRevenue = filtered.reduce((s, p) => s + (p.status === "completed" ? p.amount : 0), 0);
   const completedOrders = filtered.filter(p => p.status === "completed").length;
