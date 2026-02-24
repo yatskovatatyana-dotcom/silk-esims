@@ -438,13 +438,13 @@ function PeriodSelector({ period, setPeriod, dateRange, setDateRange }: { period
 }
 
 // ===== Dashboard Tab =====
-function DashboardTab({ period, setPeriod }: { period: Period; setPeriod: (p: Period) => void }) {
+function DashboardTab({ period, setPeriod, dateRange, setDateRange }: { period: Period; setPeriod: (p: Period) => void; dateRange?: DateRange; setDateRange?: (d: DateRange | undefined) => void }) {
   const data = dashboardData[period];
   const maxRevenue = Math.max(...data.dailyRevenue.map((d) => d.value));
 
   return (
     <div className="space-y-6">
-      <PeriodSelector period={period} setPeriod={setPeriod} />
+      <PeriodSelector period={period} setPeriod={setPeriod} dateRange={dateRange} setDateRange={setDateRange} />
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
@@ -669,7 +669,7 @@ function DashboardTab({ period, setPeriod }: { period: Period; setPeriod: (p: Pe
 }
 
 // ===== Users Tab =====
-function UsersTab({ period, setPeriod }: { period: Period; setPeriod: (p: Period) => void }) {
+function UsersTab({ period, setPeriod, dateRange, setDateRange }: { period: Period; setPeriod: (p: Period) => void; dateRange?: DateRange; setDateRange?: (d: DateRange | undefined) => void }) {
   const [search, setSearch] = useState("");
   const data = mockUsers[period];
   const filtered = useMemo(() => {
@@ -686,7 +686,7 @@ function UsersTab({ period, setPeriod }: { period: Period; setPeriod: (p: Period
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
-        <PeriodSelector period={period} setPeriod={setPeriod} />
+        <PeriodSelector period={period} setPeriod={setPeriod} dateRange={dateRange} setDateRange={setDateRange} />
         <div className="relative w-full sm:w-72">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input placeholder="Поиск по имени, email, стране…" value={search} onChange={e => setSearch(e.target.value)} className="pl-9" maxLength={100} />
@@ -752,7 +752,7 @@ function UsersTab({ period, setPeriod }: { period: Period; setPeriod: (p: Period
 }
 
 // ===== Consumption Tab =====
-function ConsumptionTab({ period, setPeriod }: { period: Period; setPeriod: (p: Period) => void }) {
+function ConsumptionTab({ period, setPeriod, dateRange, setDateRange }: { period: Period; setPeriod: (p: Period) => void; dateRange?: DateRange; setDateRange?: (d: DateRange | undefined) => void }) {
   const [search, setSearch] = useState("");
   const data = mockConsumption[period];
   const filtered = useMemo(() => {
@@ -768,7 +768,7 @@ function ConsumptionTab({ period, setPeriod }: { period: Period; setPeriod: (p: 
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
-        <PeriodSelector period={period} setPeriod={setPeriod} />
+        <PeriodSelector period={period} setPeriod={setPeriod} dateRange={dateRange} setDateRange={setDateRange} />
         <div className="relative w-full sm:w-72">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input placeholder="Поиск по пользователю, тарифу, стране…" value={search} onChange={e => setSearch(e.target.value)} className="pl-9" maxLength={100} />
@@ -838,22 +838,20 @@ function ConsumptionTab({ period, setPeriod }: { period: Period; setPeriod: (p: 
 }
 
 // ===== Purchases Tab =====
-function PurchasesTab({ period, setPeriod }: { period: Period; setPeriod: (p: Period) => void }) {
+function PurchasesTab({ period, setPeriod, dateRange, setDateRange }: { period: Period; setPeriod: (p: Period) => void; dateRange?: DateRange; setDateRange?: (d: DateRange | undefined) => void }) {
   const [search, setSearch] = useState("");
   const data = mockPurchases[period];
   const filtered = useMemo(() => {
     if (!search.trim()) return data;
     const q = search.toLowerCase();
-    return data.filter(d => d.user.toLowerCase().includes(q) || d.orderId.toLowerCase().includes(q) || d.plan.toLowerCase().includes(q) || d.country.toLowerCase().includes(q));
+    return data.filter(d => d.user.toLowerCase().includes(q) || d.orderId.toLowerCase().includes(q) || d.country.toLowerCase().includes(q) || d.plan.toLowerCase().includes(q));
   }, [data, search]);
-  const { sorted, sortCol, sortDir, toggle } = useSortable(filtered, "amount");
 
-  const totalRevenue = filtered.filter(d => d.status === "completed").reduce((s, d) => s + d.amount, 0);
-  const totalOrders = filtered.length;
-  const refunds = filtered.filter(d => d.status === "refunded").length;
+  const totalRevenue = filtered.reduce((s, p) => s + (p.status === "completed" ? p.amount : 0), 0);
+  const completedOrders = filtered.filter(p => p.status === "completed").length;
+  const refundedOrders = filtered.filter(p => p.status === "refunded").length;
 
-  // Group by user for summary
-  const userSummary = useMemo(() => {
+  const userStats = useMemo(() => {
     const map = new Map<string, { orders: number; spent: number }>();
     filtered.forEach(d => {
       const cur = map.get(d.user) || { orders: 0, spent: 0 };
@@ -867,7 +865,7 @@ function PurchasesTab({ period, setPeriod }: { period: Period; setPeriod: (p: Pe
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
-        <PeriodSelector period={period} setPeriod={setPeriod} />
+        <PeriodSelector period={period} setPeriod={setPeriod} dateRange={dateRange} setDateRange={setDateRange} />
         <div className="relative w-full sm:w-72">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input placeholder="Поиск по пользователю, заказу, стране…" value={search} onChange={e => setSearch(e.target.value)} className="pl-9" maxLength={100} />
@@ -1014,16 +1012,16 @@ const Admin = () => {
           </TabsList>
 
           <TabsContent value="dashboard" className="mt-6">
-            <DashboardTab period={period} setPeriod={setPeriod} />
+            <DashboardTab period={period} setPeriod={setPeriod} dateRange={dateRange} setDateRange={setDateRange} />
           </TabsContent>
           <TabsContent value="users" className="mt-6">
-            <UsersTab period={period} setPeriod={setPeriod} />
+            <UsersTab period={period} setPeriod={setPeriod} dateRange={dateRange} setDateRange={setDateRange} />
           </TabsContent>
           <TabsContent value="consumption" className="mt-6">
-            <ConsumptionTab period={period} setPeriod={setPeriod} />
+            <ConsumptionTab period={period} setPeriod={setPeriod} dateRange={dateRange} setDateRange={setDateRange} />
           </TabsContent>
           <TabsContent value="purchases" className="mt-6">
-            <PurchasesTab period={period} setPeriod={setPeriod} />
+            <PurchasesTab period={period} setPeriod={setPeriod} dateRange={dateRange} setDateRange={setDateRange} />
           </TabsContent>
         </Tabs>
       </main>
