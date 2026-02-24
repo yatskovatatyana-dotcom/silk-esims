@@ -862,6 +862,11 @@ function PurchasesTab({ period, setPeriod, dateRange, setDateRange }: { period: 
     return Array.from(map.entries()).sort((a, b) => b[1].spent - a[1].spent);
   }, [filtered]);
 
+  const totalOrders = filtered.length;
+  const refunds = refundedOrders;
+  const userSummary = userStats;
+  const { sorted, sortCol, sortDir, toggle } = useSortable(filtered, "amount");
+
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
