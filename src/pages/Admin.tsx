@@ -498,7 +498,7 @@ function PeriodSelector({ period, setPeriod, dateRange, setDateRange }: { period
             />
             <div className="p-3 pt-0 flex justify-end">
               <Button size="sm" onClick={handleApply} disabled={!tempRange?.from}>
-                Выбрать
+                Filter
               </Button>
             </div>
           </PopoverContent>
