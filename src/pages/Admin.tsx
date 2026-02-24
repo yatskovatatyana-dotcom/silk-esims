@@ -386,6 +386,21 @@ function useSortable<T>(data: T[], defaultSort: string) {
 }
 
 function PeriodSelector({ period, setPeriod, dateRange, setDateRange }: { period: Period; setPeriod: (p: Period) => void; dateRange?: DateRange; setDateRange?: (d: DateRange | undefined) => void }) {
+  const [tempRange, setTempRange] = useState<DateRange | undefined>(dateRange);
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = (isOpen: boolean) => {
+    if (isOpen) {
+      setTempRange(dateRange);
+    }
+    setOpen(isOpen);
+  };
+
+  const handleApply = () => {
+    setDateRange?.(tempRange);
+    setOpen(false);
+  };
+
   return (
     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
       <Tabs value={period} onValueChange={(v) => setPeriod(v as Period)}>
@@ -396,7 +411,7 @@ function PeriodSelector({ period, setPeriod, dateRange, setDateRange }: { period
         </TabsList>
       </Tabs>
       {setDateRange && (
-        <Popover>
+        <Popover open={open} onOpenChange={handleOpen}>
           <PopoverTrigger asChild>
             <Button
               variant="outline"
@@ -420,16 +435,21 @@ function PeriodSelector({ period, setPeriod, dateRange, setDateRange }: { period
               )}
             </Button>
           </PopoverTrigger>
-          <PopoverContent className="w-auto p-0" align="start">
+          <PopoverContent className="w-auto p-0 flex flex-col" align="start">
             <Calendar
               initialFocus
               mode="range"
-              defaultMonth={dateRange?.from}
-              selected={dateRange}
-              onSelect={setDateRange}
+              defaultMonth={tempRange?.from}
+              selected={tempRange}
+              onSelect={setTempRange}
               numberOfMonths={2}
               className="p-3 pointer-events-auto"
             />
+            <div className="p-3 pt-0 flex justify-end">
+              <Button size="sm" onClick={handleApply} disabled={!tempRange?.from}>
+                Выбрать
+              </Button>
+            </div>
           </PopoverContent>
         </Popover>
       )}
