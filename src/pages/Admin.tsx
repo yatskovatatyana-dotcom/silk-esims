@@ -5,12 +5,18 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Progress } from "@/components/ui/progress";
 import {
   ArrowLeft, Users, ShoppingCart, DollarSign, TrendingUp, Globe, Smartphone,
-  BarChart3, Activity, Repeat, ArrowUpDown, ArrowUp, ArrowDown, Wifi, Clock
+  BarChart3, Activity, Repeat, ArrowUpDown, ArrowUp, ArrowDown, Wifi, Clock, CalendarIcon
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { format } from "date-fns";
+import { ru } from "date-fns/locale";
+import { cn } from "@/lib/utils";
+import type { DateRange } from "react-day-picker";
 
 type Period = "day" | "week" | "month" | "quarter" | "year";
 type AdminTab = "dashboard" | "users" | "consumption" | "purchases";
