@@ -333,6 +333,57 @@ const formatCurrency = (value: number) =>
 const formatNumber = (value: number) =>
   new Intl.NumberFormat("ru-RU").format(value);
 
+// Parse Russian date strings like "17.02.2026 14:30", "15.01.2026", "01.12.2025"
+function parseRuDate(dateStr: string): Date | null {
+  // Match dd.MM.yyyy or dd.MM.yyyy HH:mm
+  const match = dateStr.match(/^(\d{2})\.(\d{2})\.(\d{4})(?:\s+(\d{2}):(\d{2}))?$/);
+  if (!match) return null;
+  const [, day, month, year, hours, minutes] = match;
+  return new Date(parseInt(year), parseInt(month) - 1, parseInt(day), parseInt(hours || "0"), parseInt(minutes || "0"));
+}
+
+// Flat list of ALL purchases across all periods (deduplicated by orderId)
+const allPurchasesFlat: (PurchaseData & { parsedDate: Date })[] = (() => {
+  const seen = new Set<string>();
+  const result: (PurchaseData & { parsedDate: Date })[] = [];
+  for (const period of Object.values(mockPurchases)) {
+    for (const p of period) {
+      if (seen.has(p.orderId)) continue;
+      seen.add(p.orderId);
+      const parsed = parseRuDate(p.date);
+      if (parsed) result.push({ ...p, parsedDate: parsed });
+    }
+  }
+  return result.sort((a, b) => b.parsedDate.getTime() - a.parsedDate.getTime());
+})();
+
+// Flat list of ALL users across all periods (deduplicated by email, take the richest record)
+const allUsersFlat: (UserData & { parsedDate: Date | null })[] = (() => {
+  const map = new Map<string, UserData>();
+  // Later periods have more complete data, so overwrite
+  for (const period of ["day", "week", "month", "quarter", "year"] as Period[]) {
+    for (const u of mockUsers[period]) {
+      map.set(u.email, u);
+    }
+  }
+  return Array.from(map.values()).map(u => ({
+    ...u,
+    parsedDate: parseRuDate(u.registeredAt),
+  }));
+})();
+
+function filterByDateRange<T extends { parsedDate: Date | null }>(items: T[], range: DateRange | undefined): T[] {
+  if (!range?.from) return items;
+  const from = new Date(range.from);
+  from.setHours(0, 0, 0, 0);
+  const to = range.to ? new Date(range.to) : new Date(range.from);
+  to.setHours(23, 59, 59, 999);
+  return items.filter(item => {
+    if (!item.parsedDate) return true;
+    return item.parsedDate >= from && item.parsedDate <= to;
+  });
+}
+
 const statusLabels: Record<string, { label: string; className: string }> = {
   active: { label: "Активна", className: "bg-green-500/10 text-green-600" },
   expired: { label: "Истекла", className: "bg-muted text-muted-foreground" },
