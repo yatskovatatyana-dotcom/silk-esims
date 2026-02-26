@@ -100,3 +100,33 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+/* Print styles for PDF export */
+@media print {
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  #connection-guide {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  #connection-guide .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  #connection-guide .text-center.mb-12 {
+    margin-bottom: 1rem !important;
+  }
+
+  #connection-guide .space-y-3 > * {
+    break-inside: avoid;
+  }
+}
