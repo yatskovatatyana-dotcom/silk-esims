@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Admin from "./pages/Admin";
+import ConnectionGuidePage from "./pages/ConnectionGuidePage";
 
 const queryClient = new QueryClient();
 
