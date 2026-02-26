@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { ShoppingCart, QrCode, Smartphone, Signal, ShieldCheck, Wifi, MonitorSmartphone, Play, AlertTriangle } from "lucide-react";
+import { ShoppingCart, QrCode, Smartphone, ShieldCheck, Wifi, MonitorSmartphone, Play, AlertTriangle } from "lucide-react";
 import { useTranslation } from 'react-i18next';
 
 type Step = {
@@ -37,7 +37,7 @@ const steps: Step[] = [
     hasPlatformTabs: true,
   },
   {
-    icon: Signal,
+    icon: AlertTriangle,
     titleKey: 'connectionGuide.steps.enable.title',
     hasWarning: true,
   },
@@ -98,7 +98,7 @@ const ConnectionGuide = () => {
                     )}
 
                     {step.hasWarning && (
-                      <div className="mt-3 bg-destructive/10 border border-destructive/30 rounded-lg p-4 space-y-2">
+                      <div className="mt-3 space-y-2">
                         <div className="flex gap-2 items-start">
                           <AlertTriangle className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
                           <p className="text-foreground text-sm font-bold">
