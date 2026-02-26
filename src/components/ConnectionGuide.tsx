@@ -37,7 +37,7 @@ const steps: Step[] = [
     hasPlatformTabs: true,
   },
   {
-    icon: Signal,
+    icon: AlertTriangle,
     titleKey: 'connectionGuide.steps.enable.title',
     hasWarning: true,
   },
