@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, QrCode, Smartphone, Signal, ShieldCheck, Wifi, MonitorSmartphone, Apple, TabletSmartphone } from "lucide-react";
+import { ShoppingCart, QrCode, Smartphone, Signal, ShieldCheck, Wifi, MonitorSmartphone, Apple, TabletSmartphone, Play } from "lucide-react";
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 
@@ -25,7 +25,7 @@ const steps: Step[] = [
     descKey: 'connectionGuide.steps.buy.description',
   },
   {
-    icon: Signal,
+    icon: Play,
     titleKey: 'connectionGuide.steps.activate.title',
     descKey: 'connectionGuide.steps.activate.description',
   },
