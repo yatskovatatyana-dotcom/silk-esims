@@ -25,6 +25,11 @@ const steps: Step[] = [
     descKey: 'connectionGuide.steps.buy.description',
   },
   {
+    icon: Signal,
+    titleKey: 'connectionGuide.steps.activate.title',
+    descKey: 'connectionGuide.steps.activate.description',
+  },
+  {
     icon: QrCode,
     titleKey: 'connectionGuide.steps.qr.title',
     descKey: 'connectionGuide.steps.qr.description',
