@@ -97,8 +97,22 @@ const ConnectionGuide = () => {
                       </p>
                     )}
 
-
-
+                    {step.hasWarning && (
+                      <div className="mt-3 bg-destructive/10 border border-destructive/30 rounded-lg p-4 space-y-2">
+                        <div className="flex gap-2 items-start">
+                          <AlertTriangle className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
+                          <p className="text-foreground text-sm font-bold">
+                            {t('connectionGuide.steps.enable.warning1')}
+                          </p>
+                        </div>
+                        <div className="flex gap-2 items-start">
+                          <AlertTriangle className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
+                          <p className="text-foreground text-sm font-bold">
+                            {t('connectionGuide.steps.enable.warning2')}
+                          </p>
+                        </div>
+                      </div>
+                    )}
 
                     {step.hasPlatformTabs && (
                       <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
