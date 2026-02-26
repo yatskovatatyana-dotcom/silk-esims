@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { ShoppingCart, QrCode, Smartphone, Signal, ShieldCheck, Wifi, MonitorSmartphone, Play } from "lucide-react";
+import { ShoppingCart, QrCode, Smartphone, Signal, ShieldCheck, Wifi, MonitorSmartphone, Play, AlertTriangle } from "lucide-react";
 import { useTranslation } from 'react-i18next';
 
 type Step = {
@@ -7,6 +7,7 @@ type Step = {
   titleKey: string;
   descKey?: string;
   hasPlatformTabs?: boolean;
+  hasWarning?: boolean;
 };
 
 const steps: Step[] = [
@@ -38,7 +39,7 @@ const steps: Step[] = [
   {
     icon: Signal,
     titleKey: 'connectionGuide.steps.enable.title',
-    descKey: 'connectionGuide.steps.enable.description',
+    hasWarning: true,
   },
   {
     icon: ShieldCheck,
