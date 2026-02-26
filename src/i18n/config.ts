@@ -159,12 +159,16 @@ const resources = {
       "connectionGuide": {
         "title": "How to Connect",
         "subtitle": "Step-by-step guide from purchase to working internet",
-        "buyOnSite": "Buy on website",
         "buyTelegram": "Connect via Telegram",
+        "compatibilityLink": "Check device list",
         "steps": {
+          "compatibility": {
+            "title": "Check eSIM compatibility",
+            "description": "Make sure your phone supports eSIM. Most iPhones from XS and newer, Samsung Galaxy S20+ and newer, Google Pixel 3+ support eSIM."
+          },
           "buy": {
             "title": "Purchase eSIM",
-            "description": "Buy on our website or through the Telegram bot"
+            "description": "Purchase through our Telegram bot — fast, convenient, and secure"
           },
           "qr": {
             "title": "Get QR Code",
@@ -172,7 +176,20 @@ const resources = {
           },
           "install": {
             "title": "Install eSIM",
-            "description": "Scan the QR code with your phone — the eSIM profile will install automatically"
+            "ios": {
+              "title": "iPhone (iOS)",
+              "step1": "Settings → Cellular → Add eSIM",
+              "step2": "Select «Use QR Code»",
+              "step3": "Scan the QR code from the bot",
+              "step4": "Confirm installation and label the plan"
+            },
+            "android": {
+              "title": "Android",
+              "step1": "Settings → Network → SIM cards → Add eSIM",
+              "step2": "Select «Scan QR Code»",
+              "step3": "Scan the QR code from the bot",
+              "step4": "Confirm and activate the profile"
+            }
           },
           "enable": {
             "title": "Turn on mobile data and roaming on the installed eSIM",
@@ -368,20 +385,37 @@ const resources = {
       "connectionGuide": {
         "title": "Схема подключения",
         "subtitle": "Пошаговая инструкция от покупки до работающего интернета",
-        "buyOnSite": "Купить на сайте",
         "buyTelegram": "Подключить через Telegram",
+        "compatibilityLink": "Список устройств",
         "steps": {
+          "compatibility": {
+            "title": "Проверь совместимость устройства",
+            "description": "Убедись, что твой телефон поддерживает eSIM. Поддерживаются: iPhone XS и новее, Samsung Galaxy S20+ и новее, Google Pixel 3+ и другие."
+          },
           "buy": {
             "title": "Купи eSIM",
-            "description": "Оформи покупку на сайте или через Telegram-бота"
+            "description": "Оформи покупку через нашего Telegram-бота — быстро, удобно и безопасно"
           },
           "qr": {
             "title": "Получи QR-код",
-            "description": "После покупки на почту и в личный кабинет придёт QR-код для установки eSIM"
+            "description": "После покупки в бот придёт QR-код для установки eSIM"
           },
           "install": {
             "title": "Установи eSIM",
-            "description": "Отсканируй QR-код телефоном — профиль eSIM установится автоматически"
+            "ios": {
+              "title": "iPhone (iOS)",
+              "step1": "Настройки → Сотовая связь → Добавить eSIM",
+              "step2": "Выбери «Использовать QR-код»",
+              "step3": "Отсканируй QR-код из бота",
+              "step4": "Подтверди установку и назови тарифный план"
+            },
+            "android": {
+              "title": "Android",
+              "step1": "Настройки → Сеть → SIM-карты → Добавить eSIM",
+              "step2": "Выбери «Сканировать QR-код»",
+              "step3": "Отсканируй QR-код из бота",
+              "step4": "Подтверди и активируй профиль"
+            }
           },
           "enable": {
             "title": "Включи мобильные данные и роуминг на установленной eSIM",
