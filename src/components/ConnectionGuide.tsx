@@ -23,7 +23,6 @@ const steps: Step[] = [
     icon: ShoppingCart,
     titleKey: 'connectionGuide.steps.buy.title',
     descKey: 'connectionGuide.steps.buy.description',
-    hasTelegramButton: true,
   },
   {
     icon: QrCode,
