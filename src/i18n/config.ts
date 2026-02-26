@@ -167,8 +167,8 @@ const resources = {
             "description": "Make sure your phone supports eSIM. Most iPhones from XS and newer, Samsung Galaxy S20+ and newer, Google Pixel 3+ support eSIM."
           },
           "buy": {
-            "title": "Purchase eSIM",
-            "description": "Purchase through our Telegram bot — fast, convenient, and secure"
+            "title": "Buy eSIM right in this bot",
+            "description": ""
           },
           "qr": {
             "title": "Get QR Code",
@@ -393,8 +393,8 @@ const resources = {
             "description": "Убедись, что твой телефон поддерживает eSIM. Поддерживаются: iPhone XS и новее, Samsung Galaxy S20+ и новее, Google Pixel 3+ и другие."
           },
           "buy": {
-            "title": "Купи eSIM",
-            "description": "Оформи покупку через нашего Telegram-бота — быстро, удобно и безопасно"
+            "title": "Купи eSIM прямо в этом боте",
+            "description": ""
           },
           "qr": {
             "title": "Получи QR-код",
