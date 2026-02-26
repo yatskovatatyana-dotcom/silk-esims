@@ -100,13 +100,13 @@ const ConnectionGuide = () => {
                     {step.hasWarning && (
                       <div className="mt-3 space-y-2">
                         <div className="flex gap-2 items-start">
-                          <span className="text-primary font-bold text-sm mt-0.5">1.</span>
+                          <span className="text-primary font-bold text-sm leading-5">1.</span>
                           <p className="text-foreground text-sm font-bold">
                             {t('connectionGuide.steps.enable.warning1')}
                           </p>
                         </div>
                         <div className="flex gap-2 items-start">
-                          <span className="text-primary font-bold text-sm mt-0.5">2.</span>
+                          <span className="text-primary font-bold text-sm leading-5">2.</span>
                           <p className="text-foreground text-sm font-bold">
                             {t('connectionGuide.steps.enable.warning2')}
                           </p>
@@ -123,7 +123,7 @@ const ConnectionGuide = () => {
                           </h4>
                           {[1, 2, 3, 4].map((stepNum) => (
                             <div key={stepNum} className="flex gap-2 items-start">
-                              <span className="text-primary font-bold text-sm mt-0.5">{stepNum}.</span>
+                              <span className="text-primary font-bold text-sm leading-5">{stepNum}.</span>
                               <p className="text-muted-foreground text-sm">
                                 {t(`connectionGuide.steps.install.ios.step${stepNum}`)}
                               </p>
@@ -137,7 +137,7 @@ const ConnectionGuide = () => {
                           </h4>
                           {[1, 2, 3, 4].map((stepNum) => (
                             <div key={stepNum} className="flex gap-2 items-start">
-                              <span className="text-primary font-bold text-sm mt-0.5">{stepNum}.</span>
+                              <span className="text-primary font-bold text-sm leading-5">{stepNum}.</span>
                               <p className="text-muted-foreground text-sm">
                                 {t(`connectionGuide.steps.install.android.step${stepNum}`)}
                               </p>
