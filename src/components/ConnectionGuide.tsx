@@ -46,11 +46,6 @@ const steps: Step[] = [
     titleKey: 'connectionGuide.steps.captcha.title',
     descKey: 'connectionGuide.steps.captcha.description',
   },
-  {
-    icon: Wifi,
-    titleKey: 'connectionGuide.steps.ready.title',
-    descKey: 'connectionGuide.steps.ready.description',
-  },
 ];
 
 const ConnectionGuide = () => {
