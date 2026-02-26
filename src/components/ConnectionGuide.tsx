@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { ShoppingCart, QrCode, Smartphone, Signal, ShieldCheck, Wifi, MonitorSmartphone, Play } from "lucide-react";
+import { ShoppingCart, QrCode, Smartphone, Signal, ShieldCheck, Wifi, MonitorSmartphone, Play, AlertTriangle } from "lucide-react";
 import { useTranslation } from 'react-i18next';
 
 type Step = {
@@ -7,6 +7,7 @@ type Step = {
   titleKey: string;
   descKey?: string;
   hasPlatformTabs?: boolean;
+  hasWarning?: boolean;
 };
 
 const steps: Step[] = [
@@ -38,7 +39,7 @@ const steps: Step[] = [
   {
     icon: Signal,
     titleKey: 'connectionGuide.steps.enable.title',
-    descKey: 'connectionGuide.steps.enable.description',
+    hasWarning: true,
   },
   {
     icon: ShieldCheck,
@@ -96,8 +97,22 @@ const ConnectionGuide = () => {
                       </p>
                     )}
 
-
-
+                    {step.hasWarning && (
+                      <div className="mt-3 bg-destructive/10 border border-destructive/30 rounded-lg p-4 space-y-2">
+                        <div className="flex gap-2 items-start">
+                          <AlertTriangle className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
+                          <p className="text-foreground text-sm font-bold">
+                            {t('connectionGuide.steps.enable.warning1')}
+                          </p>
+                        </div>
+                        <div className="flex gap-2 items-start">
+                          <AlertTriangle className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
+                          <p className="text-foreground text-sm font-bold">
+                            {t('connectionGuide.steps.enable.warning2')}
+                          </p>
+                        </div>
+                      </div>
+                    )}
 
                     {step.hasPlatformTabs && (
                       <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
