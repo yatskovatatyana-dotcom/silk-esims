@@ -100,13 +100,13 @@ const ConnectionGuide = () => {
                     {step.hasWarning && (
                       <div className="mt-3 space-y-2">
                         <div className="flex gap-2 items-start">
-                          <AlertTriangle className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
+                          <span className="text-destructive font-bold text-sm mt-0.5">1.</span>
                           <p className="text-foreground text-sm font-bold">
                             {t('connectionGuide.steps.enable.warning1')}
                           </p>
                         </div>
                         <div className="flex gap-2 items-start">
-                          <AlertTriangle className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
+                          <span className="text-destructive font-bold text-sm mt-0.5">2.</span>
                           <p className="text-foreground text-sm font-bold">
                             {t('connectionGuide.steps.enable.warning2')}
                           </p>
