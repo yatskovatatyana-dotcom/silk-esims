@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Shield, Gauge, Menu, X } from "lucide-react";
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import LanguageSwitcher from './LanguageSwitcher';
 import heroIllustration from '@/assets/hero-illustration.png';
 
@@ -16,11 +17,13 @@ const Hero = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const navigate = useNavigate();
+
   const navItems = [
     { label: t('nav.features', 'Преимущества'), id: 'features' },
     { label: t('nav.pricing', 'Тарифы'), id: 'pricing' },
     { label: t('nav.howItWorks', 'Как начать'), id: 'how-it-works' },
-    { label: t('nav.connectionGuide', 'Подключение'), id: 'connection-guide' },
+    { label: t('nav.connectionGuide', 'Подключение'), id: 'connection-guide', route: '/connection-guide' },
   ];
 
   const scrollTo = (id: string) => {
@@ -90,7 +93,14 @@ const Hero = () => {
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollTo(item.id)}
+                onClick={() => {
+                  if (item.route) {
+                    navigate(item.route);
+                    setMenuOpen(false);
+                  } else {
+                    scrollTo(item.id);
+                  }
+                }}
                 className="w-full text-left text-white/90 hover:text-white hover:bg-white/10 rounded-xl px-4 py-2.5 text-sm font-medium transition-colors"
               >
                 {item.label}
