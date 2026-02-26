@@ -123,36 +123,31 @@ const ConnectionGuide = () => {
                     )}
 
                     {step.hasPlatformTabs && (
-                      <div className="mt-3 space-y-3">
-                        {/* Platform tabs */}
-                        <div className="flex gap-2">
-                          <Button
-                            variant={platform === 'ios' ? 'default' : 'outline'}
-                            size="sm"
-                            className="gap-2"
-                            onClick={() => setPlatform('ios')}
-                          >
-                            <Apple className="w-4 h-4" />
-                            {t('connectionGuide.steps.install.ios.title')}
-                          </Button>
-                          <Button
-                            variant={platform === 'android' ? 'default' : 'outline'}
-                            size="sm"
-                            className="gap-2"
-                            onClick={() => setPlatform('android')}
-                          >
-                            <Smartphone className="w-4 h-4" />
-                            {t('connectionGuide.steps.install.android.title')}
-                          </Button>
-                        </div>
-
-                        {/* Steps list */}
+                      <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        {/* iOS */}
                         <div className="bg-muted/50 rounded-lg p-4 space-y-2">
+                          <h4 className="font-semibold text-foreground text-sm mb-2">
+                            {t('connectionGuide.steps.install.ios.title')}
+                          </h4>
                           {[1, 2, 3, 4].map((stepNum) => (
                             <div key={stepNum} className="flex gap-2 items-start">
                               <span className="text-primary font-bold text-sm mt-0.5">{stepNum}.</span>
                               <p className="text-muted-foreground text-sm">
-                                {t(`connectionGuide.steps.install.${platform}.step${stepNum}`)}
+                                {t(`connectionGuide.steps.install.ios.step${stepNum}`)}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                        {/* Android */}
+                        <div className="bg-muted/50 rounded-lg p-4 space-y-2">
+                          <h4 className="font-semibold text-foreground text-sm mb-2">
+                            {t('connectionGuide.steps.install.android.title')}
+                          </h4>
+                          {[1, 2, 3, 4].map((stepNum) => (
+                            <div key={stepNum} className="flex gap-2 items-start">
+                              <span className="text-primary font-bold text-sm mt-0.5">{stepNum}.</span>
+                              <p className="text-muted-foreground text-sm">
+                                {t(`connectionGuide.steps.install.android.step${stepNum}`)}
                               </p>
                             </div>
                           ))}
