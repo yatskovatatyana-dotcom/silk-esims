@@ -69,7 +69,7 @@ const ConnectionGuide = () => {
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto space-y-6">
+        <div className="max-w-3xl mx-auto space-y-3">
           {steps.map((step, index) => (
             <div key={index} className="flex gap-4 items-start">
               {/* Step number + line */}
