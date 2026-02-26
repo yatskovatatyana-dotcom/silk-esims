@@ -172,7 +172,7 @@ const resources = {
           },
           "qr": {
             "title": "Get QR Code",
-            "description": "After purchase you'll receive a QR code to install the eSIM"
+            "description": "After purchase, you'll receive a QR code in the bot and by email. Open it on another device so you can scan it with your phone. Or use manual configuration."
           },
           "install": {
             "title": "Install eSIM",
@@ -398,7 +398,7 @@ const resources = {
           },
           "qr": {
             "title": "Получи QR-код",
-            "description": "После покупки в бот придёт QR-код для установки eSIM"
+            "description": "После покупки в бот и на почту придёт QR-код для установки eSIM. Открой его с другого устройства, чтобы можно было отсканировать телефоном. Либо используй ручную конфигурацию."
           },
           "install": {
             "title": "Установи eSIM",
