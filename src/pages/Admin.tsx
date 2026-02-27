@@ -1065,6 +1065,172 @@ function PurchasesTab({ period, setPeriod, dateRange, setDateRange }: { period: 
   );
 }
 
+// ===== Support Tab =====
+interface SupportTicket {
+  id: string;
+  user: string;
+  email: string;
+  subject: string;
+  status: "open" | "in_progress" | "resolved";
+  priority: "low" | "medium" | "high";
+  createdAt: string;
+  messages: { sender: "user" | "admin"; text: string; time: string }[];
+}
+
+const mockTickets: SupportTicket[] = [
+  {
+    id: "T-001", user: "Алексей Иванов", email: "user_a1@mail.ru",
+    subject: "Не могу установить eSIM на iPhone",
+    status: "open", priority: "high", createdAt: "27.02.2026, 10:15",
+    messages: [
+      { sender: "user", text: "Здравствуйте! Купил eSIM для Турции, но при сканировании QR-кода телефон пишет «Невозможно активировать». iPhone 13 Pro, iOS 17. Что делать?", time: "10:15" },
+    ],
+  },
+  {
+    id: "T-002", user: "Мария Петрова", email: "travel_fan@gmail.com",
+    subject: "Интернет очень медленный в Таиланде",
+    status: "in_progress", priority: "medium", createdAt: "26.02.2026, 18:30",
+    messages: [
+      { sender: "user", text: "Купила пакет Азия 8 ГБ, нахожусь в Бангкоке. Скорость меньше 1 Мбит/с, невозможно пользоваться.", time: "18:30" },
+      { sender: "admin", text: "Здравствуйте, Мария! Попробуйте перезагрузить телефон и убедитесь, что роуминг данных включён. Какой у вас оператор?", time: "19:05" },
+      { sender: "user", text: "Перезагрузила, роуминг включён. Подключилась к AIS. Скорость чуть улучшилась, но всё ещё медленно.", time: "19:20" },
+    ],
+  },
+  {
+    id: "T-003", user: "Дмитрий Сидоров", email: "new_user@ya.ru",
+    subject: "Как получить возврат?",
+    status: "resolved", priority: "low", createdAt: "25.02.2026, 14:00",
+    messages: [
+      { sender: "user", text: "Купил не тот пакет по ошибке. Можно вернуть деньги?", time: "14:00" },
+      { sender: "admin", text: "Здравствуйте! Если пакет не был активирован, мы можем сделать возврат. Пришлите, пожалуйста, номер заказа.", time: "14:30" },
+      { sender: "user", text: "Заказ #ORD-2026-0045. Пакет не активировал.", time: "14:35" },
+      { sender: "admin", text: "Возврат оформлен. Средства поступят в течение 3-5 рабочих дней. Спасибо за обращение!", time: "15:00" },
+    ],
+  },
+  {
+    id: "T-004", user: "Елена Козлова", email: "nomad_life@ya.ru",
+    subject: "Можно ли продлить пакет?",
+    status: "open", priority: "low", createdAt: "27.02.2026, 09:45",
+    messages: [
+      { sender: "user", text: "У меня заканчивается пакет через 2 дня, но я ещё буду в Европе неделю. Можно продлить или нужно покупать новый?", time: "09:45" },
+    ],
+  },
+];
+
+function SupportTab() {
+  const [selectedTicket, setSelectedTicket] = useState<string | null>(mockTickets[0].id);
+  const [replyText, setReplyText] = useState("");
+  const ticket = mockTickets.find((t) => t.id === selectedTicket);
+
+  const statusConfig = {
+    open: { label: "Открыт", className: "bg-destructive/10 text-destructive border-destructive/20" },
+    in_progress: { label: "В работе", className: "bg-[hsl(35,100%,50%)]/10 text-[hsl(35,100%,40%)] border-[hsl(35,100%,50%)]/20" },
+    resolved: { label: "Решён", className: "bg-[hsl(150,60%,45%)]/10 text-[hsl(150,60%,35%)] border-[hsl(150,60%,45%)]/20" },
+  };
+
+  const priorityConfig = {
+    low: { label: "Низкий", variant: "outline" as const },
+    medium: { label: "Средний", variant: "secondary" as const },
+    high: { label: "Высокий", variant: "destructive" as const },
+  };
+
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 min-h-[600px]">
+      {/* Ticket List */}
+      <Card className="lg:col-span-1">
+        <CardHeader className="pb-3">
+          <CardTitle className="flex items-center gap-2 text-foreground text-base">
+            <MessageSquare className="h-4 w-4 text-primary" />
+            Обращения
+            <Badge variant="secondary" className="ml-auto">{mockTickets.filter(t => t.status !== "resolved").length}</Badge>
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="p-0">
+          <div className="divide-y divide-border">
+            {mockTickets.map((t) => (
+              <button
+                key={t.id}
+                onClick={() => setSelectedTicket(t.id)}
+                className={cn(
+                  "w-full text-left p-4 hover:bg-muted/50 transition-colors",
+                  selectedTicket === t.id && "bg-muted"
+                )}
+              >
+                <div className="flex items-start justify-between gap-2 mb-1">
+                  <span className="font-medium text-sm text-foreground line-clamp-1">{t.subject}</span>
+                  <Circle className={cn("h-2 w-2 mt-1.5 shrink-0 fill-current", {
+                    "text-destructive": t.status === "open",
+                    "text-[hsl(35,100%,50%)]": t.status === "in_progress",
+                    "text-[hsl(150,60%,45%)]": t.status === "resolved",
+                  })} />
+                </div>
+                <p className="text-xs text-muted-foreground">{t.user} · {t.createdAt}</p>
+                <p className="text-xs text-muted-foreground mt-1 line-clamp-1">{t.messages[t.messages.length - 1].text}</p>
+              </button>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Chat View */}
+      <Card className="lg:col-span-2 flex flex-col">
+        {ticket ? (
+          <>
+            <CardHeader className="border-b border-border pb-4">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <CardTitle className="text-foreground text-base">{ticket.subject}</CardTitle>
+                  <p className="text-sm text-muted-foreground mt-1">{ticket.user} ({ticket.email}) · {ticket.id}</p>
+                </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  <Badge variant={priorityConfig[ticket.priority].variant}>
+                    {priorityConfig[ticket.priority].label}
+                  </Badge>
+                  <span className={cn("text-xs px-2 py-1 rounded-full font-medium border", statusConfig[ticket.status].className)}>
+                    {statusConfig[ticket.status].label}
+                  </span>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent className="flex-1 overflow-y-auto p-4 space-y-4">
+              {ticket.messages.map((msg, i) => (
+                <div key={i} className={cn("flex", msg.sender === "admin" ? "justify-end" : "justify-start")}>
+                  <div className={cn(
+                    "max-w-[75%] rounded-2xl px-4 py-2.5 text-sm",
+                    msg.sender === "admin"
+                      ? "bg-primary text-primary-foreground rounded-br-md"
+                      : "bg-muted text-foreground rounded-bl-md"
+                  )}>
+                    <p>{msg.text}</p>
+                    <p className={cn("text-xs mt-1", msg.sender === "admin" ? "text-primary-foreground/70" : "text-muted-foreground")}>{msg.time}</p>
+                  </div>
+                </div>
+              ))}
+            </CardContent>
+            <div className="border-t border-border p-4">
+              <div className="flex gap-2">
+                <Textarea
+                  value={replyText}
+                  onChange={(e) => setReplyText(e.target.value)}
+                  placeholder="Введите ответ..."
+                  className="min-h-[60px] resize-none"
+                />
+                <Button size="icon" className="shrink-0 self-end h-10 w-10" disabled={!replyText.trim()}>
+                  <Send className="h-4 w-4" />
+                </Button>
+              </div>
+            </div>
+          </>
+        ) : (
+          <CardContent className="flex-1 flex items-center justify-center">
+            <p className="text-muted-foreground">Выберите обращение из списка</p>
+          </CardContent>
+        )}
+      </Card>
+    </div>
+  );
+}
+
 // ===== Main Admin Component =====
 const Admin = () => {
   const [activeTab, setActiveTab] = useState<AdminTab>("dashboard");
