@@ -5,11 +5,14 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Progress } from "@/components/ui/progress";
 import {
   ArrowLeft, Users, ShoppingCart, DollarSign, TrendingUp, Globe, Smartphone,
-  BarChart3, Activity, Repeat, ArrowUpDown, ArrowUp, ArrowDown, Wifi, Clock, CalendarIcon
+  BarChart3, Activity, Repeat, ArrowUpDown, ArrowUp, ArrowDown, Wifi, Clock, CalendarIcon,
+  MessageSquare, Send, Circle
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Badge } from "@/components/ui/badge";
 import { Search } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -19,7 +22,7 @@ import { cn } from "@/lib/utils";
 import type { DateRange } from "react-day-picker";
 
 type Period = "day" | "week" | "month" | "quarter" | "year";
-type AdminTab = "dashboard" | "users" | "consumption" | "purchases";
+type AdminTab = "dashboard" | "users" | "consumption" | "purchases" | "support";
 type SortDir = "asc" | "desc";
 
 interface UserData {
@@ -67,6 +70,7 @@ const tabLabels: Record<AdminTab, { label: string; icon: typeof Users }> = {
   users: { label: "Пользователи", icon: Users },
   consumption: { label: "Потребление", icon: Wifi },
   purchases: { label: "Покупки", icon: ShoppingCart },
+  support: { label: "Поддержка", icon: MessageSquare },
 };
 
 // Dashboard mock data
@@ -1093,7 +1097,7 @@ const Admin = () => {
       <main className="container mx-auto px-4 py-8 space-y-6">
         {/* Main Tabs */}
         <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as AdminTab)}>
-          <TabsList className="grid grid-cols-4 w-full max-w-2xl">
+          <TabsList className="grid grid-cols-5 w-full max-w-3xl">
             {(Object.keys(tabLabels) as AdminTab[]).map((tab) => {
               const Icon = tabLabels[tab].icon;
               return (
@@ -1116,6 +1120,9 @@ const Admin = () => {
           </TabsContent>
           <TabsContent value="purchases" className="mt-6">
             <PurchasesTab period={period} setPeriod={setPeriod} dateRange={dateRange} setDateRange={setDateRange} />
+          </TabsContent>
+          <TabsContent value="support" className="mt-6">
+            <SupportTab />
           </TabsContent>
         </Tabs>
       </main>
