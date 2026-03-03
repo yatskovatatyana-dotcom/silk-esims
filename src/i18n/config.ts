@@ -163,8 +163,8 @@ const resources = {
         "compatibilityLink": "Check device list",
         "steps": {
           "compatibility": {
-            "title": "Check eSIM compatibility",
-            "description": "Make sure your phone supports eSIM. Most iPhones from XS and newer, Samsung Galaxy S20+ and newer, Google Pixel 3+ support eSIM."
+            "title": "Before installing, it's important to check that your phone supports eSIM",
+            "description": "Go to Settings → Cellular (iOS) or Settings → Network → SIM cards (Android). If you see an option to add eSIM, your device is compatible."
           },
           "buy": {
             "title": "Buy eSIM right in this bot",
@@ -389,8 +389,8 @@ const resources = {
         "compatibilityLink": "Список устройств",
         "steps": {
           "compatibility": {
-            "title": "Проверь совместимость устройства",
-            "description": "Убедись, что твой телефон поддерживает eSIM. Поддерживаются: iPhone XS и новее, Samsung Galaxy S20+ и новее, Google Pixel 3+ и другие."
+            "title": "Перед установкой важно проверить что ваш телефон поддерживает eSIM",
+            "description": "Зайди в Настройки → Сотовая связь (iOS) или Настройки → Сеть → SIM-карты (Android). Если видишь опцию добавить eSIM — твоё устройство совместимо."
           },
           "buy": {
             "title": "Купи eSIM прямо в этом боте",
