@@ -163,7 +163,7 @@ const resources = {
         "compatibilityLink": "Check device list",
         "steps": {
           "compatibility": {
-            "title": "Before installing, it's important to check that your phone supports eSIM",
+            "title": "It's important to check that your phone supports eSIM",
             "description": "Go to Settings → Cellular (iOS) or Settings → Network → SIM cards (Android). If you see an option to add eSIM, your device is compatible."
           },
           "buy": {
@@ -389,7 +389,7 @@ const resources = {
         "compatibilityLink": "Список устройств",
         "steps": {
           "compatibility": {
-            "title": "Перед установкой важно проверить что ваш телефон поддерживает eSIM",
+            "title": "Важно проверить что ваш телефон поддерживает eSIM",
             "description": "Зайди в Настройки → Сотовая связь (iOS) или Настройки → Сеть → SIM-карты (Android). Если видишь опцию добавить eSIM — твоё устройство совместимо."
           },
           "buy": {
