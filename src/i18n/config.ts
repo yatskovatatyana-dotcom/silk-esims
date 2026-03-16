@@ -194,7 +194,6 @@ const resources = {
               "step1": "Settings → Network → SIM cards → Add eSIM",
               "step2": "Select «Scan QR Code»",
               "step3": "Scan the QR code and confirm"
-              "step4": "Confirm and activate the profile"
             }
           },
           "enable": {
