@@ -164,7 +164,9 @@ const resources = {
         "steps": {
           "compatibility": {
             "title": "It's important to check that your phone supports eSIM",
-            "description": "Go to Settings → Cellular (iOS) or Settings → Network → SIM cards (Android). If you see an option to add eSIM, your device is compatible."
+            "iosPath": "Settings → Cellular",
+            "androidPath": "Settings → Network → SIM cards",
+            "descSuffix": "If you see an option to add eSIM, your device is compatible."
           },
           "buy": {
             "title": "Buy eSIM in Telegram bot",
