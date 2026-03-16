@@ -173,6 +173,10 @@ const resources = {
             "botLink": "@silk_esim",
             "description": ""
           },
+          "activate": {
+            "title": "Activate the package",
+            "description": "After payment, the purchased package will appear in the bot menu. Activate it by pressing the «Start» button."
+          },
           "qr": {
             "title": "Get QR Code",
             "description": "After purchase, you'll receive a QR code in the bot and by email. Open it on another device so you can scan it with your phone. Or use manual configuration."
