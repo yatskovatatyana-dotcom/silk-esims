@@ -187,8 +187,7 @@ const resources = {
               "title": "iPhone (iOS)",
               "step1": "Settings → Cellular → Add eSIM",
               "step2": "Select «Use QR Code»",
-              "step3": "Scan the QR code from the bot",
-              "step4": "Confirm installation and label the plan"
+              "step3": "Scan the QR code and confirm"
             },
             "android": {
               "title": "Android",
@@ -421,8 +420,7 @@ const resources = {
               "title": "iPhone (iOS)",
               "step1": "Настройки → Сотовая связь → Добавить eSIM",
               "step2": "Выбери «Использовать QR-код»",
-              "step3": "Отсканируй QR-код из бота",
-              "step4": "Подтверди установку и назови тарифный план"
+              "step3": "Отсканируй QR-код и подтверди"
             },
             "android": {
               "title": "Android",
