@@ -11,13 +11,14 @@ type Step = {
   hasWarning?: boolean;
   hasLinks?: boolean;
   hasBotLink?: boolean;
+  hasCompatibilityPaths?: boolean;
 };
 
 const steps: Step[] = [
   {
     icon: MonitorSmartphone,
     titleKey: 'connectionGuide.steps.compatibility.title',
-    descKey: 'connectionGuide.steps.compatibility.description',
+    hasCompatibilityPaths: true,
   },
   {
     icon: ShoppingCart,
@@ -104,6 +105,22 @@ const ConnectionGuide = () => {
                       <p className="text-sm text-muted-foreground mb-1">
                         {t(step.subtitleKey)}
                       </p>
+                    )}
+
+                    {step.hasCompatibilityPaths && (
+                      <div className="text-sm space-y-1 mt-1">
+                        <p className="text-muted-foreground">
+                          <span className="font-semibold text-foreground">iOS: </span>
+                          {t('connectionGuide.steps.compatibility.iosPath')}
+                        </p>
+                        <p className="text-muted-foreground">
+                          <span className="font-semibold text-foreground">Android: </span>
+                          {t('connectionGuide.steps.compatibility.androidPath')}
+                        </p>
+                        <p className="text-muted-foreground mt-1">
+                          {t('connectionGuide.steps.compatibility.descSuffix')}
+                        </p>
+                      </div>
                     )}
 
                     {step.descKey && (
