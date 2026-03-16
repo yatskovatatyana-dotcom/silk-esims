@@ -178,7 +178,7 @@ const ConnectionGuide = () => {
                           <h4 className="font-semibold text-foreground text-sm mb-2">
                             {t('connectionGuide.steps.install.android.title')}
                           </h4>
-                          {[1, 2, 3, 4].map((stepNum) => (
+                          {[1, 2, 3].map((stepNum) => (
                             <div key={stepNum} className="flex gap-2 items-start">
                               <span className="text-primary font-bold text-sm leading-5">{stepNum}.</span>
                               <p className="text-muted-foreground text-sm">
