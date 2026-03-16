@@ -93,7 +93,7 @@ const ConnectionGuide = () => {
                       {step.hasBotLink && (
                         <>
                           {' '}
-                          <a href="https://t.me/silk_esim" target="_blank" rel="noopener noreferrer" className="text-primary underline">
+                          <a href="https://t.me/silk_esim" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                             {t('connectionGuide.steps.buy.botLink')}
                           </a>
                         </>
