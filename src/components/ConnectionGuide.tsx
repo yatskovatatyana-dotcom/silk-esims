@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 type Step = {
   icon: typeof ShoppingCart;
   titleKey: string;
+  subtitleKey?: string;
   descKey?: string;
   hasPlatformTabs?: boolean;
   hasWarning?: boolean;
