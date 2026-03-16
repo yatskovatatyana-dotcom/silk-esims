@@ -9,6 +9,7 @@ type Step = {
   descKey?: string;
   hasPlatformTabs?: boolean;
   hasWarning?: boolean;
+  hasLinks?: boolean;
 };
 
 const steps: Step[] = [
