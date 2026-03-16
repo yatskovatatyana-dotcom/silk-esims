@@ -10,6 +10,7 @@ type Step = {
   hasPlatformTabs?: boolean;
   hasWarning?: boolean;
   hasLinks?: boolean;
+  hasBotLink?: boolean;
 };
 
 const steps: Step[] = [
