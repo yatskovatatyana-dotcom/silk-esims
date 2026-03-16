@@ -193,8 +193,7 @@ const resources = {
               "title": "Android",
               "step1": "Settings → Network → SIM cards → Add eSIM",
               "step2": "Select «Scan QR Code»",
-              "step3": "Scan the QR code from the bot",
-              "step4": "Confirm and activate the profile"
+              "step3": "Scan the QR code and confirm"
             }
           },
           "enable": {
@@ -426,8 +425,7 @@ const resources = {
               "title": "Android",
               "step1": "Настройки → Сеть → SIM-карты → Добавить eSIM",
               "step2": "Выбери «Сканировать QR-код»",
-              "step3": "Отсканируй QR-код из бота",
-              "step4": "Подтверди и активируй профиль"
+              "step3": "Отсканируй QR-код и подтверди"
             }
           },
           "enable": {
