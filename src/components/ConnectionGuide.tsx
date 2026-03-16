@@ -17,7 +17,7 @@ const steps: Step[] = [
   {
     icon: MonitorSmartphone,
     titleKey: 'connectionGuide.steps.compatibility.title',
-    descKey: 'connectionGuide.steps.compatibility.description',
+    hasCompatibilityPaths: true,
   },
   {
     icon: ShoppingCart,
