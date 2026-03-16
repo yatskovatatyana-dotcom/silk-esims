@@ -23,6 +23,7 @@ const steps: Step[] = [
     icon: ShoppingCart,
     titleKey: 'connectionGuide.steps.buy.title',
     descKey: 'connectionGuide.steps.buy.description',
+    hasBotLink: true,
   },
   {
     icon: Play,
