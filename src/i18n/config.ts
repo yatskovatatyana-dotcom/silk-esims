@@ -393,7 +393,8 @@ const resources = {
             "description": "Зайди в Настройки → Сотовая связь (iOS) или Настройки → Сеть → SIM-карты (Android). Если видишь опцию добавить eSIM — твоё устройство совместимо."
           },
           "buy": {
-            "title": "Купи eSIM прямо в Телеграм боте @silk_esim",
+            "title": "Купи eSIM прямо в Телеграм боте",
+            "botLink": "@silk_esim",
             "description": ""
           },
           "activate": {
