@@ -35,6 +35,7 @@ const steps: Step[] = [
   {
     icon: Smartphone,
     titleKey: 'connectionGuide.steps.install.title',
+    subtitleKey: 'connectionGuide.steps.install.subtitle',
     hasPlatformTabs: true,
   },
   {
