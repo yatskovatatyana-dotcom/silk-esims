@@ -88,6 +88,12 @@ const ConnectionGuide = () => {
                       {t(step.titleKey)}
                     </h3>
 
+                    {step.subtitleKey && (
+                      <p className="text-xs text-muted-foreground mb-1">
+                        {t(step.subtitleKey)}
+                      </p>
+                    )}
+
                     {step.descKey && (
                       <p className="text-muted-foreground text-sm">
                         {t(step.descKey)}
