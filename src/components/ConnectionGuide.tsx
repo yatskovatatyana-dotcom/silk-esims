@@ -9,6 +9,7 @@ type Step = {
   descKey?: string;
   hasPlatformTabs?: boolean;
   hasWarning?: boolean;
+  hasLinks?: boolean;
 };
 
 const steps: Step[] = [
@@ -47,6 +48,7 @@ const steps: Step[] = [
     icon: ShieldCheck,
     titleKey: 'connectionGuide.steps.captcha.title',
     descKey: 'connectionGuide.steps.captcha.description',
+    hasLinks: true,
   },
 ];
 
@@ -98,6 +100,17 @@ const ConnectionGuide = () => {
                       <p className="text-muted-foreground text-sm">
                         {t(step.descKey)}
                       </p>
+                    )}
+
+                    {step.hasLinks && (
+                      <div className="mt-2 text-sm text-muted-foreground">
+                        <p>{t('connectionGuide.steps.captcha.links')}</p>
+                        <div className="flex flex-wrap gap-2 mt-1">
+                          <a href="https://balance.beeline.ru/guest/" target="_blank" rel="noopener noreferrer" className="text-primary underline">balance.beeline.ru/guest/</a>
+                          <span>или</span>
+                          <a href="https://t2.ru/dostup" target="_blank" rel="noopener noreferrer" className="text-primary underline">t2.ru/dostup</a>
+                        </div>
+                      </div>
                     )}
 
                     {step.hasWarning && (
