@@ -107,6 +107,22 @@ const ConnectionGuide = () => {
                       </p>
                     )}
 
+                    {step.hasCompatibilityPaths && (
+                      <div className="text-sm space-y-1 mt-1">
+                        <p className="text-muted-foreground">
+                          <span className="font-semibold text-foreground">iOS: </span>
+                          {t('connectionGuide.steps.compatibility.iosPath')}
+                        </p>
+                        <p className="text-muted-foreground">
+                          <span className="font-semibold text-foreground">Android: </span>
+                          {t('connectionGuide.steps.compatibility.androidPath')}
+                        </p>
+                        <p className="text-muted-foreground mt-1">
+                          {t('connectionGuide.steps.compatibility.descSuffix')}
+                        </p>
+                      </div>
+                    )}
+
                     {step.descKey && (
                       <p className="text-muted-foreground text-sm">
                         {t(step.descKey)}
