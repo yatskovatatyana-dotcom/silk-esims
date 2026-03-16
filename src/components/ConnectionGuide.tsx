@@ -10,6 +10,7 @@ type Step = {
   hasPlatformTabs?: boolean;
   hasWarning?: boolean;
   hasLinks?: boolean;
+  hasBotLink?: boolean;
 };
 
 const steps: Step[] = [
@@ -22,6 +23,7 @@ const steps: Step[] = [
     icon: ShoppingCart,
     titleKey: 'connectionGuide.steps.buy.title',
     descKey: 'connectionGuide.steps.buy.description',
+    hasBotLink: true,
   },
   {
     icon: Play,
@@ -88,6 +90,14 @@ const ConnectionGuide = () => {
                   <div className="flex-1">
                     <h3 className="text-lg font-semibold text-foreground mb-1">
                       {t(step.titleKey)}
+                      {step.hasBotLink && (
+                        <>
+                          {' '}
+                          <a href="https://t.me/silk_esim" target="_blank" rel="noopener noreferrer" className="text-primary underline">
+                            {t('connectionGuide.steps.buy.botLink')}
+                          </a>
+                        </>
+                      )}
                     </h3>
 
                     {step.subtitleKey && (

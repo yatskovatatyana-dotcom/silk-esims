@@ -167,7 +167,8 @@ const resources = {
             "description": "Go to Settings → Cellular (iOS) or Settings → Network → SIM cards (Android). If you see an option to add eSIM, your device is compatible."
           },
           "buy": {
-            "title": "Buy eSIM right in this bot",
+            "title": "Buy eSIM in Telegram bot",
+            "botLink": "@silk_esim",
             "description": ""
           },
           "qr": {
@@ -393,7 +394,8 @@ const resources = {
             "description": "Зайди в Настройки → Сотовая связь (iOS) или Настройки → Сеть → SIM-карты (Android). Если видишь опцию добавить eSIM — твоё устройство совместимо."
           },
           "buy": {
-            "title": "Купи eSIM прямо в Телеграм боте @silk_esim",
+            "title": "Купи eSIM прямо в Телеграм боте",
+            "botLink": "@silk_esim",
             "description": ""
           },
           "activate": {
