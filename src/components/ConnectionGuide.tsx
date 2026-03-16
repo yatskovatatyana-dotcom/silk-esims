@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 type Step = {
   icon: typeof ShoppingCart;
   titleKey: string;
+  subtitleKey?: string;
   descKey?: string;
   hasPlatformTabs?: boolean;
   hasWarning?: boolean;
@@ -34,6 +35,7 @@ const steps: Step[] = [
   {
     icon: Smartphone,
     titleKey: 'connectionGuide.steps.install.title',
+    subtitleKey: 'connectionGuide.steps.install.subtitle',
     hasPlatformTabs: true,
   },
   {
@@ -85,6 +87,12 @@ const ConnectionGuide = () => {
                     <h3 className="text-lg font-semibold text-foreground mb-1">
                       {t(step.titleKey)}
                     </h3>
+
+                    {step.subtitleKey && (
+                      <p className="text-xs text-muted-foreground mb-1">
+                        {t(step.subtitleKey)}
+                      </p>
+                    )}
 
                     {step.descKey && (
                       <p className="text-muted-foreground text-sm">
