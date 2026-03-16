@@ -47,6 +47,7 @@ const steps: Step[] = [
     icon: ShieldCheck,
     titleKey: 'connectionGuide.steps.captcha.title',
     descKey: 'connectionGuide.steps.captcha.description',
+    hasLinks: true,
   },
 ];
 
