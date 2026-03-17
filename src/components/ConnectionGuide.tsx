@@ -12,6 +12,7 @@ type Step = {
   hasLinks?: boolean;
   hasBotLink?: boolean;
   hasCompatibilityPaths?: boolean;
+  hasStartButton?: boolean;
 };
 
 const steps: Step[] = [
