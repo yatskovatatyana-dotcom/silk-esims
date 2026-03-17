@@ -388,7 +388,7 @@ const resources = {
         "note": ""
       },
       "connectionGuide": {
-        "title": "Схема подключения",
+        "title": "Пошаговая инструкция",
         "subtitle": "Пошаговая инструкция от покупки до работающего интернета",
         "buyTelegram": "Подключить через Telegram",
         "compatibilityLink": "Список устройств",
