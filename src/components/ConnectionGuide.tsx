@@ -1,9 +1,11 @@
 import { Card } from "@/components/ui/card";
-import { ShoppingCart, QrCode, ScanQrCode, ShieldCheck, Wifi, MonitorSmartphone, Play, Settings } from "lucide-react";
+import { ShoppingCart, QrCode, ShieldCheck, Wifi, MonitorSmartphone, Play, Settings } from "lucide-react";
 import { useTranslation } from 'react-i18next';
+import scanQrIcon from "@/assets/scan-qr-icon.png";
 
 type Step = {
-  icon: typeof ShoppingCart;
+  icon?: typeof ShoppingCart;
+  customIcon?: string;
   titleKey: string;
   subtitleKey?: string;
   descKey?: string;
