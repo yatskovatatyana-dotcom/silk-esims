@@ -21,14 +21,14 @@ const steps: Step[] = [
     hasCompatibilityPaths: true,
   },
   {
-    icon: Play,
-    titleKey: 'connectionGuide.steps.activate.title',
-    descKey: 'connectionGuide.steps.activate.description',
-  },
-  {
     icon: QrCode,
     titleKey: 'connectionGuide.steps.qr.title',
     descKey: 'connectionGuide.steps.qr.description',
+  },
+  {
+    icon: Play,
+    titleKey: 'connectionGuide.steps.activate.title',
+    descKey: 'connectionGuide.steps.activate.description',
   },
   {
     icon: Smartphone,
