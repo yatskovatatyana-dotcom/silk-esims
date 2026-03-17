@@ -41,6 +41,7 @@ const steps: Step[] = [
     icon: Play,
     titleKey: 'connectionGuide.steps.activate.title',
     descKey: 'connectionGuide.steps.activate.description',
+    hasStartButton: true,
   },
   {
     icon: ShieldCheck,
