@@ -80,7 +80,7 @@ const ConnectionGuide = () => {
                 <div className="flex items-start gap-3">
                   <step.icon className="w-6 h-6 text-primary shrink-0 mt-0.5" />
                   <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-foreground mb-1">
+                    <h3 className="text-lg font-semibold text-foreground mb-1 whitespace-pre-line">
                       {t(step.titleKey)}
                       {step.hasBotLink && (
                         <>
