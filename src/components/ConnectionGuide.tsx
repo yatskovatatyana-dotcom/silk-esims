@@ -59,8 +59,19 @@ const ConnectionGuide = () => {
   return (
     <section id="connection-guide" className="py-16 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+        <div className="text-center mb-4">
+          <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground mb-2">
+            <a href="https://app.silk-esim.ru/" target="_blank" rel="noopener noreferrer" className="font-semibold text-foreground hover:text-primary transition-colors">
+              Silk eSIM
+            </a>
+            <span className="text-border">|</span>
+            <a href="https://app.silk-esim.ru/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+              app.silk-esim.ru
+            </a>
+            <span className="text-border">|</span>
+            <span>Telegram <a href="https://t.me/silk_esim" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">@silk_esim</a></span>
+          </div>
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground">
             {t('connectionGuide.title')}
           </h2>
         </div>
