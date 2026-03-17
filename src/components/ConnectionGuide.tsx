@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { ShoppingCart, QrCode, ScanLine, ShieldCheck, Wifi, MonitorSmartphone, Play, Settings } from "lucide-react";
+import { ShoppingCart, QrCode, ScanQrCode, ShieldCheck, Wifi, MonitorSmartphone, Play, Settings } from "lucide-react";
 import { useTranslation } from 'react-i18next';
 
 type Step = {
@@ -27,7 +27,7 @@ const steps: Step[] = [
     descKey: 'connectionGuide.steps.qr.description',
   },
   {
-    icon: ScanLine,
+    icon: ScanQrCode,
     titleKey: 'connectionGuide.steps.install.title',
     subtitleKey: 'connectionGuide.steps.install.subtitle',
     hasPlatformTabs: true,
