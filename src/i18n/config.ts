@@ -431,7 +431,7 @@ const resources = {
           "enable": {
             "title": "Зайди в настройки сети телефона",
             "sim_label": "Ваша SIM-карта",
-            "sim_data": "Сотовые данные",
+            "sim_data": "Выключи передачу сотовых данных на личной SIM-карте",
             "esim_label": "Silk eSIM",
             "esim_data": "Сотовые данные",
             "esim_roaming": "Роуминг данных"
