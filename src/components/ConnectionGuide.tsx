@@ -1,9 +1,11 @@
 import { Card } from "@/components/ui/card";
-import { ShoppingCart, QrCode, ScanQrCode, ShieldCheck, Wifi, MonitorSmartphone, Play, Settings } from "lucide-react";
+import { ShoppingCart, QrCode, ShieldCheck, Wifi, MonitorSmartphone, Play, Settings } from "lucide-react";
 import { useTranslation } from 'react-i18next';
+import scanQrIcon from "@/assets/scan-qr-icon.png";
 
 type Step = {
-  icon: typeof ShoppingCart;
+  icon?: typeof ShoppingCart;
+  customIcon?: string;
   titleKey: string;
   subtitleKey?: string;
   descKey?: string;
@@ -27,7 +29,7 @@ const steps: Step[] = [
     descKey: 'connectionGuide.steps.qr.description',
   },
   {
-    icon: ScanQrCode,
+    customIcon: scanQrIcon,
     titleKey: 'connectionGuide.steps.install.title',
     subtitleKey: 'connectionGuide.steps.install.subtitle',
     hasPlatformTabs: true,
@@ -81,7 +83,11 @@ const ConnectionGuide = () => {
               {/* Content */}
               <Card className="flex-1 p-5 bg-card border-border">
                 <div className="flex items-start gap-3">
-                  <step.icon className="w-6 h-6 text-primary shrink-0 mt-0.5" />
+                  {step.customIcon ? (
+                    <img src={step.customIcon} alt="" className="w-6 h-6 shrink-0 mt-0.5 dark:invert" />
+                  ) : step.icon ? (
+                    <step.icon className="w-6 h-6 text-primary shrink-0 mt-0.5" />
+                  ) : null}
                   <div className="flex-1">
                     <h3 className="text-lg font-semibold text-foreground mb-1 whitespace-pre-line">
                       {t(step.titleKey)}
