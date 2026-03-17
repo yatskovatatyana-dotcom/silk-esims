@@ -145,7 +145,7 @@ const ConnectionGuide = () => {
                           <div className="flex items-center justify-between">
                             <span className="text-sm text-muted-foreground">{t('connectionGuide.steps.enable.sim_data')}</span>
                             <div className="inline-flex h-6 w-11 shrink-0 items-center rounded-full bg-red-500/80">
-                              <span className="block h-5 w-5 rounded-full bg-white shadow-lg translate-x-[1px]" />
+                              <span className="block h-5 w-5 rounded-full bg-white shadow-lg translate-x-[2px]" />
                             </div>
                           </div>
                         </div>
