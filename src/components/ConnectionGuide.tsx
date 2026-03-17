@@ -118,13 +118,16 @@ const ConnectionGuide = () => {
                     )}
 
                     {step.descKey && (
-                      <div className="text-muted-foreground text-sm whitespace-pre-line">
-                        <span>{t(step.descKey)}</span>
-                        {step.hasStartButton && (
-                          <span className="inline-block ml-2 px-5 py-1.5 bg-red-500 text-white text-sm font-semibold rounded-full align-middle">
-                            Start
-                          </span>
-                        )}
+                      <p className="text-muted-foreground text-sm whitespace-pre-line">
+                        {t(step.descKey)}
+                      </p>
+                    )}
+
+                    {step.hasStartButton && (
+                      <div className="mt-3 flex justify-center">
+                        <span className="px-8 py-2 bg-red-500 text-white text-sm font-semibold rounded-full shadow-md">
+                          Start
+                        </span>
                       </div>
                     )}
 
