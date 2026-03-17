@@ -35,6 +35,7 @@ const steps: Step[] = [
   {
     icon: Settings,
     titleKey: 'connectionGuide.steps.enable.title',
+    subtitleKey: 'connectionGuide.steps.enable.subtitle',
     hasWarning: true,
   },
   {
