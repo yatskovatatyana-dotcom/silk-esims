@@ -27,7 +27,7 @@ const steps: Step[] = [
     descKey: 'connectionGuide.steps.qr.description',
   },
   {
-    icon: Smartphone,
+    icon: ScanLine,
     titleKey: 'connectionGuide.steps.install.title',
     subtitleKey: 'connectionGuide.steps.install.subtitle',
     hasPlatformTabs: true,
