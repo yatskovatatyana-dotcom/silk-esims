@@ -132,7 +132,7 @@ const ConnectionGuide = () => {
                     )}
 
                     {step.hasWarning && (
-                      <div className="mt-3 space-y-3">
+                      <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
                         {/* SIM card - data OFF */}
                         <div className="bg-muted/50 rounded-lg p-3 space-y-2">
                           <p className="text-sm font-semibold text-foreground">{t('connectionGuide.steps.enable.sim_label')}</p>
