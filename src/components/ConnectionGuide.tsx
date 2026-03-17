@@ -12,6 +12,7 @@ type Step = {
   hasLinks?: boolean;
   hasBotLink?: boolean;
   hasCompatibilityPaths?: boolean;
+  hasStartButton?: boolean;
 };
 
 const steps: Step[] = [
@@ -40,6 +41,7 @@ const steps: Step[] = [
     icon: Play,
     titleKey: 'connectionGuide.steps.activate.title',
     descKey: 'connectionGuide.steps.activate.description',
+    hasStartButton: true,
   },
   {
     icon: ShieldCheck,
@@ -115,9 +117,14 @@ const ConnectionGuide = () => {
                     )}
 
                     {step.descKey && (
-                      <p className="text-muted-foreground text-sm whitespace-pre-line">
-                        {t(step.descKey)}
-                      </p>
+                      <div className="text-muted-foreground text-sm whitespace-pre-line">
+                        <span>{t(step.descKey)}</span>
+                        {step.hasStartButton && (
+                          <span className="inline-block ml-2 px-5 py-1.5 bg-red-500 text-white text-sm font-semibold rounded-full align-middle">
+                            Start
+                          </span>
+                        )}
+                      </div>
                     )}
 
                     {step.hasLinks && (
