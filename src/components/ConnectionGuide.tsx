@@ -115,7 +115,7 @@ const ConnectionGuide = () => {
                     )}
 
                     {step.descKey && (
-                      <p className="text-muted-foreground text-sm">
+                      <p className="text-muted-foreground text-sm whitespace-pre-line">
                         {t(step.descKey)}
                       </p>
                     )}
