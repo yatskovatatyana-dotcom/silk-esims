@@ -59,7 +59,7 @@ const ConnectionGuide = () => {
   return (
     <section id="connection-guide" className="py-16 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-4">
+        <div className="max-w-3xl mx-auto text-center mb-4">
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm text-muted-foreground mb-2">
             <a href="https://app.silk-esim.ru/" target="_blank" rel="noopener noreferrer" className="font-semibold text-foreground hover:text-primary transition-colors">
               Silk eSIM
