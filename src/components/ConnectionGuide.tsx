@@ -65,7 +65,7 @@ const ConnectionGuide = () => {
               Silk eSIM
             </a>
             <span className="text-border">|</span>
-            <a href="https://app.silk-esim.ru/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+            <a href="https://app.silk-esim.ru/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline transition-colors">
               app.silk-esim.ru
             </a>
             <span className="text-border">|</span>
