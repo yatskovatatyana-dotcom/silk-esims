@@ -108,7 +108,7 @@ const ConnectionGuide = () => {
                           <span className="font-semibold text-foreground">Android: </span>
                           {t('connectionGuide.steps.compatibility.androidPath')}
                         </p>
-                        <p className="text-muted-foreground mt-1">
+                        <p className="text-green-500 font-medium mt-1">
                           {t('connectionGuide.steps.compatibility.descSuffix')}
                         </p>
                       </div>
