@@ -70,6 +70,8 @@ const ConnectionGuide = () => {
             </a>
             <span className="text-border">|</span>
             <span>Telegram <a href="https://t.me/silk_esim" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">@silk_esim</a></span>
+            <span className="text-border">|</span>
+            <span>Поддержка <a href="https://t.me/Silk_eSIM_support_bot" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">@Silk_eSIM_support_bot</a></span>
           </div>
           <h2 className="text-2xl md:text-3xl font-bold text-foreground">
             {t('connectionGuide.title')}
