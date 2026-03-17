@@ -26,11 +26,6 @@ const steps: Step[] = [
     descKey: 'connectionGuide.steps.qr.description',
   },
   {
-    icon: Play,
-    titleKey: 'connectionGuide.steps.activate.title',
-    descKey: 'connectionGuide.steps.activate.description',
-  },
-  {
     icon: Smartphone,
     titleKey: 'connectionGuide.steps.install.title',
     subtitleKey: 'connectionGuide.steps.install.subtitle',
@@ -40,6 +35,11 @@ const steps: Step[] = [
     icon: AlertTriangle,
     titleKey: 'connectionGuide.steps.enable.title',
     hasWarning: true,
+  },
+  {
+    icon: Play,
+    titleKey: 'connectionGuide.steps.activate.title',
+    descKey: 'connectionGuide.steps.activate.description',
   },
   {
     icon: ShieldCheck,
