@@ -59,23 +59,25 @@ const ConnectionGuide = () => {
   return (
     <section id="connection-guide" className="py-16 bg-background">
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-4">
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm text-muted-foreground mb-2">
-            <a href="https://app.silk-esim.ru/" target="_blank" rel="noopener noreferrer" className="font-semibold text-foreground hover:text-primary transition-colors">
-              Silk eSIM
-            </a>
-            <span className="text-border">|</span>
-            <a href="https://app.silk-esim.ru/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline transition-colors">
-              app.silk-esim.ru
-            </a>
-            <span className="text-border">|</span>
-            <span>Telegram <a href="https://t.me/silk_esim" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">@silk_esim</a></span>
-            <span className="text-border">|</span>
-            <span>Поддержка <a href="https://t.me/Silk_eSIM_support_bot" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">@Silk_eSIM_support</a></span>
+        <div className="max-w-3xl mx-auto mb-4">
+          <div className="pl-16 text-center">
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm text-muted-foreground mb-2">
+              <a href="https://app.silk-esim.ru/" target="_blank" rel="noopener noreferrer" className="font-semibold text-foreground hover:text-primary transition-colors">
+                Silk eSIM
+              </a>
+              <span className="text-border">|</span>
+              <a href="https://app.silk-esim.ru/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline transition-colors">
+                app.silk-esim.ru
+              </a>
+              <span className="text-border">|</span>
+              <span>Telegram <a href="https://t.me/silk_esim" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">@silk_esim</a></span>
+              <span className="text-border">|</span>
+              <span>Поддержка <a href="https://t.me/Silk_eSIM_support_bot" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">@Silk_eSIM_support</a></span>
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+              {t('connectionGuide.title')}
+            </h2>
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-            {t('connectionGuide.title')}
-          </h2>
         </div>
 
         <div className="max-w-3xl mx-auto space-y-3">
