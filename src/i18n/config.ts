@@ -183,6 +183,7 @@ const resources = {
           },
           "install": {
             "title": "Install eSIM",
+            "subtitle": "Done once, then just buy packages for different countries. Name the profile clearly (e.g. «Silk eSIM») so you don't confuse it with your main SIM.",
             "ios": {
               "title": "iPhone (iOS)",
               "step1": "Settings → Cellular → Add eSIM",
@@ -414,7 +415,7 @@ const resources = {
           },
           "install": {
             "title": "Установи eSIM",
-            "subtitle": "Делается 1 раз, далее просто докупаются пакеты для разных стран",
+            "subtitle": "Делается 1 раз, далее просто докупаются пакеты для разных стран. Назови профиль понятно (например, «Silk eSIM»), чтобы не путать с основной SIM.",
             "ios": {
               "title": "iPhone (iOS)",
               "step1": "Настройки → Сотовая связь → Добавить eSIM",
