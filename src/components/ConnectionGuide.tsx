@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { ShoppingCart, QrCode, Smartphone, ShieldCheck, Wifi, MonitorSmartphone, Play, AlertTriangle } from "lucide-react";
+import { ShoppingCart, QrCode, Smartphone, ShieldCheck, Wifi, MonitorSmartphone, Play, Settings } from "lucide-react";
 import { useTranslation } from 'react-i18next';
 
 type Step = {
