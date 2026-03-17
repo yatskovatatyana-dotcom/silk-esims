@@ -21,12 +21,6 @@ const steps: Step[] = [
     hasCompatibilityPaths: true,
   },
   {
-    icon: ShoppingCart,
-    titleKey: 'connectionGuide.steps.buy.title',
-    descKey: 'connectionGuide.steps.buy.description',
-    hasBotLink: true,
-  },
-  {
     icon: Play,
     titleKey: 'connectionGuide.steps.activate.title',
     descKey: 'connectionGuide.steps.activate.description',
