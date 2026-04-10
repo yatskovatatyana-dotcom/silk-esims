@@ -58,7 +58,7 @@ const Hero = () => {
               variant="outline"
               size="sm"
               className="hidden sm:inline-flex bg-white/10 border-white/30 text-white hover:bg-white/20 rounded-full px-4 text-sm font-medium"
-              onClick={() => {}}
+              onClick={() => navigate('/login')}
             >
               {t('hero.personalAccount')}
             </Button>
@@ -84,7 +84,7 @@ const Hero = () => {
                 {t('hero.connectEsim')}
               </button>
               <button
-                onClick={() => { setMenuOpen(false); }}
+                onClick={() => { setMenuOpen(false); navigate('/login'); }}
                 className="w-full text-left text-white/90 hover:text-white hover:bg-white/10 rounded-xl px-4 py-2.5 text-sm font-medium transition-colors"
               >
                 {t('hero.personalAccount')}

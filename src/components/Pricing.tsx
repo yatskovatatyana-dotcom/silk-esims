@@ -3,17 +3,14 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Check, Calendar } from "lucide-react";
 import { useTranslation } from 'react-i18next';
-import { useToast } from "@/hooks/use-toast";
+import { useNavigate } from 'react-router-dom';
 
 const Pricing = () => {
   const { t } = useTranslation();
-  const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handlePlanClick = () => {
-    toast({
-      title: t('pricing.inDevelopment'),
-      description: t('pricing.comingSoon'),
-    });
+    navigate('/login');
   };
 
 

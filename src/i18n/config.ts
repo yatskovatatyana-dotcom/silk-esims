@@ -128,6 +128,25 @@ const resources = {
         "inDevelopment": "We're glad you're interested!",
         "comingSoon": "Our service is currently in development. We'll be launching very soon!"
       },
+      "login": {
+        "back": "Back to home",
+        "titleLogin": "Sign In",
+        "titleRegister": "Sign Up",
+        "subtitleLogin": "Log in to your account",
+        "subtitleRegister": "Create a new account",
+        "name": "Name",
+        "namePlaceholder": "Your name",
+        "email": "Email",
+        "emailPlaceholder": "your@email.com",
+        "password": "Password",
+        "loginButton": "Sign In",
+        "registerButton": "Sign Up",
+        "switchToRegister": "Don't have an account? Sign up",
+        "switchToLogin": "Already have an account? Sign in",
+        "devNotice": "Account system is under development. Coming soon!",
+        "inDevelopment": "We're glad you're interested!",
+        "comingSoon": "Our service is currently in development. We'll be launching very soon!"
+      },
       "promotions": {
         "title": "Special Offers",
         "subtitle": "Promotions and discounts for new users",
@@ -356,6 +375,25 @@ const resources = {
           }
         },
         "button": "Купить",
+        "inDevelopment": "Рады, что ты заинтересовался!",
+        "comingSoon": "Сейчас сервис находится в разработке. В ближайшее время мы запустимся!"
+      },
+      "login": {
+        "back": "На главную",
+        "titleLogin": "Вход",
+        "titleRegister": "Регистрация",
+        "subtitleLogin": "Войдите в личный кабинет",
+        "subtitleRegister": "Создайте новый аккаунт",
+        "name": "Имя",
+        "namePlaceholder": "Ваше имя",
+        "email": "Email",
+        "emailPlaceholder": "ваш@email.com",
+        "password": "Пароль",
+        "loginButton": "Войти",
+        "registerButton": "Зарегистрироваться",
+        "switchToRegister": "Нет аккаунта? Зарегистрируйтесь",
+        "switchToLogin": "Уже есть аккаунт? Войдите",
+        "devNotice": "Система аккаунтов находится в разработке. Скоро будет доступна!",
         "inDevelopment": "Рады, что ты заинтересовался!",
         "comingSoon": "Сейчас сервис находится в разработке. В ближайшее время мы запустимся!"
       },
