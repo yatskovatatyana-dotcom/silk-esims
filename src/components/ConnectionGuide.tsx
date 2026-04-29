@@ -63,7 +63,7 @@ const ConnectionGuide = () => {
       title: "Включите eSIM как основную",
       items: [
         { text: "Основная SIM — выключите мобильные данные", bold: true },
-        { text: "eSIM — включите 2 опции: «Мобильные данные» + «Роуминг данных»", bold: true },
+        { text: "eSIM — включите данные и роуминг", bold: true },
         "Выключите Wi-Fi и VPN",
       ],
     },
