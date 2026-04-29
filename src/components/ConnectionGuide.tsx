@@ -198,8 +198,8 @@ const ConnectionGuide = () => {
                           const isObj = typeof item === "object";
                           const text = isObj ? item.text : item;
                           return (
-                            <li key={i} className="flex gap-3 items-center">
-                              <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold shrink-0">
+                            <li key={i} className={`flex gap-3 ${isObj && item.toggles ? "items-start" : "items-center"}`}>
+                              <span className={`flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold shrink-0`}>
                                 {i + 1}
                               </span>
                               <div className="flex-1">
