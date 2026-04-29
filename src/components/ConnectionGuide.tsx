@@ -212,10 +212,10 @@ const ConnectionGuide = () => {
                                   {text}
                                 </p>
                                 {isObj && item.toggles && (
-                                  <ol className="mt-2 space-y-1.5">
+                                  <ul className="mt-2 space-y-1.5">
                                     {item.toggles.map((tg, ti) => (
                                       <li key={ti} className="flex items-center justify-between gap-3 text-sm text-foreground bg-muted/40 rounded-md px-3 py-1.5">
-                                        <span>{ti + 1}. {tg.label}</span>
+                                        <span>{tg.label}</span>
                                         <span
                                           className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors ${
                                             tg.on ? "bg-[hsl(142,71%,45%)]" : "bg-muted-foreground/40"
@@ -230,7 +230,7 @@ const ConnectionGuide = () => {
                                         </span>
                                       </li>
                                     ))}
-                                  </ol>
+                                  </ul>
                                 )}
                               </div>
                             </li>
