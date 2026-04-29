@@ -93,7 +93,7 @@ const ConnectionGuide = () => {
         "Откройте любой сайт",
         "Не работает — вкл/выкл авиарежим, тип сети LTE/4G",
       ],
-      note: "eSIM ставится 1 раз — дальше просто докупайте пакеты на РФ или для путешествий в другие страны",
+      note: "eSIM устанавливается всего 1 раз\nДалее просто докупайте пакеты на РФ или для путешествий в другие страны",
       noteType: "info",
       hasSupportLink: true,
     },
@@ -268,7 +268,7 @@ const ConnectionGuide = () => {
 
                     {step.note && (
                       <div
-                        className={`mt-3 rounded-lg p-3 text-sm ${
+                        className={`mt-3 rounded-lg p-3 text-sm whitespace-pre-line ${
                           step.noteType === "warning"
                             ? "bg-destructive/10 text-destructive border border-destructive/20"
                             : "bg-primary/5 text-primary border border-primary/20"
