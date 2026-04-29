@@ -113,9 +113,6 @@ const Pricing = () => {
                   <div className="text-3xl font-bold text-primary leading-none">
                     {t(`pricing.plans.${plan.key}.price`)}
                   </div>
-                  <div className="text-xs text-muted-foreground mt-1.5">
-                    ≈ {pricePerGb} ₽ за ГБ
-                  </div>
                 </div>
 
                 <Button
@@ -129,9 +126,6 @@ const Pricing = () => {
                   {t('pricing.button')}
                   <ArrowRight className="w-4 h-4 ml-1" />
                 </Button>
-                <p className="text-center text-xs text-muted-foreground mt-2">
-                  Выбрать и активировать
-                </p>
               </Card>
             );
           })}
