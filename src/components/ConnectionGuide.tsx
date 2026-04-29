@@ -262,6 +262,7 @@ const ConnectionGuide = () => {
                             t2.ru/dostup
                           </a>
                         </div>
+                        <p className="mt-2 text-xs italic">*Снятие 24-часового охлаждающего периода</p>
                       </div>
                     )}
 
