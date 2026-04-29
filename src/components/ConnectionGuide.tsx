@@ -63,7 +63,7 @@ const ConnectionGuide = () => {
       title: "Включите eSIM как основную",
       items: [
         { text: "Основная SIM — выключите мобильные данные", bold: true },
-        { text: "eSIM — включите данные и роуминг", bold: true },
+        { text: "eSIM:\n  1. Включите мобильные данные\n  2. Включите роуминг", bold: true },
         "Выключите Wi-Fi и VPN",
       ],
     },
@@ -194,7 +194,7 @@ const ConnectionGuide = () => {
                                 {i + 1}
                               </span>
                               <p
-                                className={`text-sm text-muted-foreground ${
+                                className={`text-sm text-muted-foreground whitespace-pre-line ${
                                   isObj && item.bold ? "font-medium text-foreground" : ""
                                 }`}
                               >
