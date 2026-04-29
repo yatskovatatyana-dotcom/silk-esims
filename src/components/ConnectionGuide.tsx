@@ -154,20 +154,20 @@ const ConnectionGuide = () => {
 
         <div className="max-w-3xl mx-auto space-y-3">
           {steps.map((step, index) => (
-            <div key={index} className="flex gap-4 items-start">
+            <div key={index} className="flex gap-2 sm:gap-4 items-start">
               <div className="flex flex-col items-center">
-                <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center shrink-0">
-                  <span className="text-primary-foreground font-bold text-lg">{index + 1}</span>
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-primary rounded-full flex items-center justify-center shrink-0">
+                  <span className="text-primary-foreground font-bold text-base sm:text-lg">{index + 1}</span>
                 </div>
                 {index < steps.length - 1 && (
                   <div className="w-0.5 h-full min-h-[40px] bg-border mt-2" />
                 )}
               </div>
 
-              <Card className="flex-1 p-5 bg-card border-border">
-                <div className="flex items-start gap-3">
-                  <step.icon className="w-6 h-6 text-primary shrink-0 mt-0.5" />
-                  <div className="flex-1">
+              <Card className="flex-1 min-w-0 p-3 sm:p-5 bg-card border-border">
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <step.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary shrink-0 mt-0.5" />
+                  <div className="flex-1 min-w-0">
                     <h3 className="text-lg font-semibold text-foreground mb-1">
                       {step.title}
                     </h3>
