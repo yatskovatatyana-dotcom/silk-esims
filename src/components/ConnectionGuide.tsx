@@ -230,7 +230,7 @@ const ConnectionGuide = () => {
                                         </span>
                                       </li>
                                     ))}
-                                  </ul>
+                                  </ol>
                                 )}
                               </div>
                             </li>
