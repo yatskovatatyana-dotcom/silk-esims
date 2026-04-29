@@ -243,12 +243,12 @@ const ConnectionGuide = () => {
                         <p className="mb-1">
                           Прямые ссылки на авторизацию, если SMS не пришла:
                         </p>
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
                           <a
                             href="https://balance.beeline.ru/guest/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-primary underline"
+                            className="text-primary underline break-all"
                           >
                             balance.beeline.ru/guest/
                           </a>
@@ -257,12 +257,12 @@ const ConnectionGuide = () => {
                             href="https://t2.ru/dostup"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-primary underline"
+                            className="text-primary underline break-all"
                           >
                             t2.ru/dostup
                           </a>
                         </div>
-                        <p className="mt-2 text-xs italic">*Снятие 24-часового охлаждающего периода</p>
+                        <p className="mt-2 text-xs italic break-words">*Снятие 24-часового охлаждающего периода</p>
                       </div>
                     )}
 
