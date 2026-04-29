@@ -74,7 +74,7 @@ const ConnectionGuide = () => {
             { label: "Включите роуминг данных", on: true },
           ],
         },
-        { text: "Выключите Wi-Fi и VPN", bold: true },
+        "Выключите Wi-Fi и VPN",
       ],
     },
     {
