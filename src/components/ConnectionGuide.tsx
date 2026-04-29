@@ -70,8 +70,8 @@ const ConnectionGuide = () => {
           text: "eSIM:",
           bold: true,
           toggles: [
-            { label: "Мобильные данные", on: true },
-            { label: "Роуминг данных", on: true },
+            { label: "Включите мобильные данные", on: true },
+            { label: "Включите роуминг данных", on: true },
           ],
         },
         "Выключите Wi-Fi и VPN",
