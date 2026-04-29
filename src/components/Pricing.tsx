@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Check, Calendar, Sparkles, Zap, TrendingDown, Shield } from "lucide-react";
+import { Check, Calendar, Sparkles, Zap, TrendingDown, Shield, ArrowRight } from "lucide-react";
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
