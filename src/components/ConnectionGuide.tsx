@@ -102,8 +102,8 @@ const ConnectionGuide = () => {
     <section id="connection-guide" className="py-16 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto mb-6">
-          <div className="pl-16 text-center">
-            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm text-muted-foreground mb-2">
+          <div className="sm:pl-16 text-center">
+            <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs sm:text-sm text-muted-foreground mb-2 break-words">
               <a
                 href="https://app.silk-esim.ru/"
                 target="_blank"
@@ -154,20 +154,20 @@ const ConnectionGuide = () => {
 
         <div className="max-w-3xl mx-auto space-y-3">
           {steps.map((step, index) => (
-            <div key={index} className="flex gap-4 items-start">
+            <div key={index} className="flex gap-2 sm:gap-4 items-start">
               <div className="flex flex-col items-center">
-                <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center shrink-0">
-                  <span className="text-primary-foreground font-bold text-lg">{index + 1}</span>
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-primary rounded-full flex items-center justify-center shrink-0">
+                  <span className="text-primary-foreground font-bold text-base sm:text-lg">{index + 1}</span>
                 </div>
                 {index < steps.length - 1 && (
                   <div className="w-0.5 h-full min-h-[40px] bg-border mt-2" />
                 )}
               </div>
 
-              <Card className="flex-1 p-5 bg-card border-border">
-                <div className="flex items-start gap-3">
-                  <step.icon className="w-6 h-6 text-primary shrink-0 mt-0.5" />
-                  <div className="flex-1">
+              <Card className="flex-1 min-w-0 p-3 sm:p-5 bg-card border-border">
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <step.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary shrink-0 mt-0.5" />
+                  <div className="flex-1 min-w-0">
                     <h3 className="text-lg font-semibold text-foreground mb-1">
                       {step.title}
                     </h3>
@@ -202,9 +202,9 @@ const ConnectionGuide = () => {
                               <span className={`flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold shrink-0`}>
                                 {i + 1}
                               </span>
-                              <div className="flex-1">
+                              <div className="flex-1 min-w-0">
                                 <p
-                                  className={`text-sm text-muted-foreground whitespace-pre-line ${
+                                  className={`text-sm text-muted-foreground whitespace-pre-line break-words ${
                                     isObj && item.bold ? "font-medium text-foreground" : ""
                                   }`}
                                 >
@@ -243,12 +243,12 @@ const ConnectionGuide = () => {
                         <p className="mb-1">
                           Прямые ссылки на авторизацию, если SMS не пришла:
                         </p>
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
                           <a
                             href="https://balance.beeline.ru/guest/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-primary underline"
+                            className="text-primary underline break-all"
                           >
                             balance.beeline.ru/guest/
                           </a>
@@ -257,12 +257,12 @@ const ConnectionGuide = () => {
                             href="https://t2.ru/dostup"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-primary underline"
+                            className="text-primary underline break-all"
                           >
                             t2.ru/dostup
                           </a>
                         </div>
-                        <p className="mt-2 text-xs italic">*Снятие 24-часового охлаждающего периода</p>
+                        <p className="mt-2 text-xs italic break-words">*Снятие 24-часового охлаждающего периода</p>
                       </div>
                     )}
 
@@ -279,13 +279,13 @@ const ConnectionGuide = () => {
                     )}
 
                     {step.hasSupportLink && (
-                      <p className="mt-3 text-sm text-muted-foreground">
+                      <p className="mt-3 text-sm text-muted-foreground break-words">
                         При проблемах — напишите в поддержку{" "}
                         <a
                           href="https://t.me/Silk_eSIM_support_bot"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-primary hover:underline font-medium"
+                          className="text-primary hover:underline font-medium break-all"
                         >
                           @Silk_eSIM_support_bot
                         </a>
