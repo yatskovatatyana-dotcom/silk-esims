@@ -11,9 +11,12 @@ import {
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
+type Toggle = { label: string; on: boolean };
+
 type SubItem = {
   text: string;
   bold?: boolean;
+  toggles?: Toggle[];
 };
 
 type Step = {
@@ -63,7 +66,14 @@ const ConnectionGuide = () => {
       title: "Включите eSIM как основную",
       items: [
         { text: "Основная SIM — выключите мобильные данные", bold: true },
-        { text: "eSIM:\n  1. Включите мобильные данные\n  2. Включите роуминг", bold: true },
+        {
+          text: "eSIM:",
+          bold: true,
+          toggles: [
+            { label: "Мобильные данные", on: true },
+            { label: "Роуминг данных", on: true },
+          ],
+        },
         "Выключите Wi-Fi и VPN",
       ],
     },
@@ -193,13 +203,36 @@ const ConnectionGuide = () => {
                               <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold shrink-0 mt-0.5">
                                 {i + 1}
                               </span>
-                              <p
-                                className={`text-sm text-muted-foreground whitespace-pre-line ${
-                                  isObj && item.bold ? "font-medium text-foreground" : ""
-                                }`}
-                              >
-                                {text}
-                              </p>
+                              <div className="flex-1">
+                                <p
+                                  className={`text-sm text-muted-foreground whitespace-pre-line ${
+                                    isObj && item.bold ? "font-medium text-foreground" : ""
+                                  }`}
+                                >
+                                  {text}
+                                </p>
+                                {isObj && item.toggles && (
+                                  <ul className="mt-2 space-y-1.5">
+                                    {item.toggles.map((tg, ti) => (
+                                      <li key={ti} className="flex items-center justify-between gap-3 text-sm text-foreground bg-muted/40 rounded-md px-3 py-1.5">
+                                        <span>{tg.label}</span>
+                                        <span
+                                          className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors ${
+                                            tg.on ? "bg-[hsl(142,71%,45%)]" : "bg-muted-foreground/40"
+                                          }`}
+                                          aria-hidden
+                                        >
+                                          <span
+                                            className={`inline-block h-4 w-4 transform rounded-full bg-white shadow transition-transform ${
+                                              tg.on ? "translate-x-[18px]" : "translate-x-0.5"
+                                            }`}
+                                          />
+                                        </span>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                )}
+                              </div>
                             </li>
                           );
                         })}
