@@ -279,13 +279,13 @@ const ConnectionGuide = () => {
                     )}
 
                     {step.hasSupportLink && (
-                      <p className="mt-3 text-sm text-muted-foreground">
+                      <p className="mt-3 text-sm text-muted-foreground break-words">
                         При проблемах — напишите в поддержку{" "}
                         <a
                           href="https://t.me/Silk_eSIM_support_bot"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-primary hover:underline font-medium"
+                          className="text-primary hover:underline font-medium break-all"
                         >
                           @Silk_eSIM_support_bot
                         </a>
