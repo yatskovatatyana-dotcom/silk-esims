@@ -59,7 +59,7 @@ const ConnectionGuide = () => {
     },
     {
       icon: Smartphone,
-      title: "Шаг 3. Включите eSIM как основную",
+      title: "Шаг 2. Включите eSIM как основную",
       items: [
         { text: "Основная SIM — выключите мобильные данные", bold: true },
         { text: "eSIM — включите данные и роуминг", bold: true },
