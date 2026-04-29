@@ -102,8 +102,8 @@ const ConnectionGuide = () => {
     <section id="connection-guide" className="py-16 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto mb-6">
-          <div className="pl-16 text-center">
-            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm text-muted-foreground mb-2">
+          <div className="sm:pl-16 text-center">
+            <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs sm:text-sm text-muted-foreground mb-2 break-words">
               <a
                 href="https://app.silk-esim.ru/"
                 target="_blank"
