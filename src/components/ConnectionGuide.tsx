@@ -202,9 +202,9 @@ const ConnectionGuide = () => {
                               <span className={`flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold shrink-0`}>
                                 {i + 1}
                               </span>
-                              <div className="flex-1">
+                              <div className="flex-1 min-w-0">
                                 <p
-                                  className={`text-sm text-muted-foreground whitespace-pre-line ${
+                                  className={`text-sm text-muted-foreground whitespace-pre-line break-words ${
                                     isObj && item.bold ? "font-medium text-foreground" : ""
                                   }`}
                                 >
