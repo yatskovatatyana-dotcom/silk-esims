@@ -57,7 +57,7 @@ const Pricing = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-5 max-w-3xl mx-auto items-stretch">
+        <div className="flex flex-col gap-4 max-w-sm mx-auto">
           {plans.map((plan, index) => {
             const Icon = plan.icon;
             const pricePerGb = Math.round(plan.priceNum / plan.gb);
@@ -67,7 +67,7 @@ const Pricing = () => {
                 key={index}
                 className={`relative p-5 flex flex-col transition-all duration-300 hover:-translate-y-1 ${
                   plan.accent
-                    ? "border-primary border-2 shadow-elegant md:scale-[1.03] bg-gradient-to-b from-primary/5 to-background"
+                    ? "border-primary border-2 shadow-elegant bg-gradient-to-b from-primary/5 to-background"
                     : "border-border hover:border-primary/40 hover:shadow-card"
                 }`}
               >
