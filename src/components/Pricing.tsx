@@ -106,7 +106,7 @@ const Pricing = () => {
                   <Icon className="w-5 h-5" />
                 </div>
 
-                {/* Центр: название, объём, срок */}
+                {/* Центр: название, объём, срок, цена */}
                 <div className="flex-1 min-w-0">
                   <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide truncate">
                     {t(`pricing.plans.${plan.key}.name`)}
@@ -120,13 +120,13 @@ const Pricing = () => {
                       <span className="truncate">{t(`pricing.plans.${plan.key}.duration`)}</span>
                     </span>
                   </div>
-                </div>
-
-                {/* Право: цена + кнопка */}
-                <div className="flex flex-col items-end gap-1.5 shrink-0">
-                  <div className="text-lg font-extrabold leading-none whitespace-nowrap text-primary">
+                  <div className="text-xs text-muted-foreground mt-1 leading-none whitespace-nowrap">
                     {t(`pricing.plans.${plan.key}.price`)}
                   </div>
+                </div>
+
+                {/* Право: кнопка */}
+                <div className="shrink-0">
                   <Button
                     className={`font-bold text-xs px-3 ${
                       plan.accent ? "shadow-elegant" : "bg-gradient-primary text-primary-foreground hover:scale-[1.02] shadow-md hover:shadow-lg"
