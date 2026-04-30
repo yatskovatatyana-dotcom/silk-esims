@@ -128,15 +128,15 @@ const Pricing = () => {
                 </div>
 
                 <Button
-                  className={`w-full font-bold ${
+                  className={`w-full font-bold text-xs px-2 ${
                     plan.accent ? "shadow-elegant" : "bg-gradient-primary text-primary-foreground hover:scale-[1.02] shadow-md hover:shadow-lg"
                   }`}
-                  size="default"
+                  size="sm"
                   variant={plan.accent ? "gradient" : "default"}
                   onClick={handlePlanClick}
                 >
                   {t('pricing.button')}
-                  <ArrowRight className="w-4 h-4 ml-1" />
+                  <ArrowRight className="w-3 h-3 ml-1" />
                 </Button>
 
               </Card>
