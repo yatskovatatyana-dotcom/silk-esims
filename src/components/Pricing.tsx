@@ -54,7 +54,7 @@ const Pricing = () => {
       badge: 'Лучшая цена за ГБ',
       accent: false,
       tone: {
-        ring: 'border-l-4 border-l-[hsl(28_90%_55%)]',
+        ring: '',
         chip: 'bg-[hsl(28_90%_55%/0.12)] text-[hsl(28_90%_40%)]',
         price: 'text-[hsl(28_90%_45%)]',
         iconBg: 'bg-[hsl(28_90%_55%/0.15)] text-[hsl(28_90%_45%)]',
