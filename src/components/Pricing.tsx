@@ -75,7 +75,7 @@ const Pricing = () => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-3 max-w-xs mx-auto">
+        <div className="flex flex-col gap-3 w-44 mx-auto">
           {plans.map((plan, index) => {
             const Icon = plan.icon;
             const pricePerGb = Math.round(plan.priceNum / plan.gb);
@@ -83,48 +83,48 @@ const Pricing = () => {
             return (
               <Card
                 key={index}
-                className={`relative p-4 flex flex-col transition-all duration-300 hover:-translate-y-1 ${plan.tone.ring} ${
+                className={`relative p-3 flex flex-col transition-all duration-300 hover:-translate-y-1 ${plan.tone.ring} ${
                   plan.accent
                     ? "border-primary border-2 shadow-elegant bg-gradient-to-b from-primary/5 to-background"
                     : "border-border hover:border-primary/40 hover:shadow-card"
                 }`}
               >
                 {plan.popular && (
-                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-primary text-primary-foreground px-4 py-1 shadow-lg uppercase tracking-wider text-xs">
+                  <Badge className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-gradient-primary text-primary-foreground px-2 py-0.5 shadow-lg uppercase tracking-wider text-[10px] whitespace-nowrap">
                     ⭐ {plan.popular}
                   </Badge>
                 )}
 
                 {plan.badge && !plan.popular && (
-                  <Badge variant="secondary" className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 text-xs whitespace-nowrap">
+                  <Badge variant="secondary" className="absolute -top-2.5 left-1/2 -translate-x-1/2 px-2 py-0.5 text-[10px] whitespace-nowrap">
                     {plan.badge}
                   </Badge>
                 )}
 
-                {/* Верх: название слева, цена справа */}
-                <div className="flex items-center justify-between mb-3 gap-2">
-                  <div className="flex items-center gap-2 min-w-0">
-                    <div className={`w-7 h-7 rounded-md flex items-center justify-center shrink-0 ${plan.tone.iconBg}`}>
-                      <Icon className="w-3.5 h-3.5" />
-                    </div>
-                    <h3 className="text-sm font-bold text-foreground truncate">
-                      {t(`pricing.plans.${plan.key}.name`)}
-                    </h3>
+                {/* Верх: иконка + название по центру */}
+                <div className="flex items-center justify-center gap-1.5 mb-2">
+                  <div className={`w-6 h-6 rounded-md flex items-center justify-center shrink-0 ${plan.tone.iconBg}`}>
+                    <Icon className="w-3 h-3" />
                   </div>
-                  <div className={`text-xl font-extrabold leading-none whitespace-nowrap ${plan.tone.price}`}>
-                    {t(`pricing.plans.${plan.key}.price`)}
+                  <h3 className="text-xs font-bold text-foreground truncate">
+                    {t(`pricing.plans.${plan.key}.name`)}
+                  </h3>
+                </div>
+
+                {/* Центр: крупный объём */}
+                <div className="text-center mb-2">
+                  <div className="text-2xl font-extrabold text-foreground leading-none tracking-tight">
+                    {t(`pricing.plans.${plan.key}.data`)}
+                  </div>
+                  <div className="inline-flex items-center gap-1 mt-1.5 px-2 py-0.5 rounded-full text-[10px] font-medium bg-muted text-muted-foreground">
+                    <Calendar className="w-2.5 h-2.5 shrink-0" />
+                    <span>{t(`pricing.plans.${plan.key}.duration`)}</span>
                   </div>
                 </div>
 
-                {/* Центр: крупный объём по центру */}
-                <div className="text-center my-3">
-                  <div className="text-3xl font-extrabold text-foreground leading-none tracking-tight">
-                    {t(`pricing.plans.${plan.key}.data`)}
-                  </div>
-                  <div className={`inline-flex items-center gap-1 mt-2 px-2.5 py-1 rounded-full text-xs font-medium ${plan.tone.chip}`}>
-                    <Calendar className="w-3 h-3 shrink-0" />
-                    <span>{t(`pricing.plans.${plan.key}.duration`)}</span>
-                  </div>
+                {/* Цена — единый цвет (primary) для всех тарифов */}
+                <div className="text-center text-lg font-extrabold leading-none whitespace-nowrap text-primary mb-3">
+                  {t(`pricing.plans.${plan.key}.price`)}
                 </div>
 
                 <Button
