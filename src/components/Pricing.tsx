@@ -65,7 +65,7 @@ const Pricing = () => {
             return (
               <Card
                 key={index}
-                className={`relative p-5 flex flex-col transition-all duration-300 hover:-translate-y-1 ${
+                className={`relative p-4 flex flex-col transition-all duration-300 hover:-translate-y-1 ${
                   plan.accent
                     ? "border-primary border-2 shadow-elegant bg-gradient-to-b from-primary/5 to-background"
                     : "border-border hover:border-primary/40 hover:shadow-card"
