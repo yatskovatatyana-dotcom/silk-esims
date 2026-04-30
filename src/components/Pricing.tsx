@@ -83,7 +83,7 @@ const Pricing = () => {
             return (
               <Card
                 key={index}
-                className={`relative p-4 flex flex-col transition-all duration-300 hover:-translate-y-1 ${
+                className={`relative p-4 flex flex-col transition-all duration-300 hover:-translate-y-1 ${plan.tone.ring} ${
                   plan.accent
                     ? "border-primary border-2 shadow-elegant bg-gradient-to-b from-primary/5 to-background"
                     : "border-border hover:border-primary/40 hover:shadow-card"
@@ -101,35 +101,29 @@ const Pricing = () => {
                   </Badge>
                 )}
 
-                {/* Заголовок */}
-                <div className="flex items-center gap-2 mb-3">
-                  <div className={`w-7 h-7 rounded-md flex items-center justify-center shrink-0 ${
-                    plan.accent ? "bg-gradient-primary text-primary-foreground" : "bg-primary/10 text-primary"
-                  }`}>
-                    <Icon className="w-3.5 h-3.5" />
+                {/* Верх: название слева, цена справа */}
+                <div className="flex items-center justify-between mb-3 gap-2">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <div className={`w-7 h-7 rounded-md flex items-center justify-center shrink-0 ${plan.tone.iconBg}`}>
+                      <Icon className="w-3.5 h-3.5" />
+                    </div>
+                    <h3 className="text-sm font-bold text-foreground truncate">
+                      {t(`pricing.plans.${plan.key}.name`)}
+                    </h3>
                   </div>
-                  <h3 className="text-sm font-bold text-foreground">
-                    {t(`pricing.plans.${plan.key}.name`)}
-                  </h3>
+                  <div className={`text-xl font-extrabold leading-none whitespace-nowrap ${plan.tone.price}`}>
+                    {t(`pricing.plans.${plan.key}.price`)}
+                  </div>
                 </div>
 
-                {/* Объём · срок — слева, цена — справа крупным текстом */}
-                <div className="flex items-center justify-between mb-3 gap-2">
-                  <div className="flex flex-col gap-1 min-w-0">
-                    <span className="text-base font-extrabold text-foreground leading-none">
-                      {t(`pricing.plans.${plan.key}.data`)}
-                    </span>
-                    <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                      <Calendar className="w-3 h-3 text-primary shrink-0" />
-                      <span className="truncate">
-                        {t(`pricing.plans.${plan.key}.duration`)}
-                      </span>
-                    </span>
+                {/* Центр: крупный объём по центру */}
+                <div className="text-center my-3">
+                  <div className="text-3xl font-extrabold text-foreground leading-none tracking-tight">
+                    {t(`pricing.plans.${plan.key}.data`)}
                   </div>
-                  <div className={`text-xl font-extrabold leading-none whitespace-nowrap ${
-                    plan.accent ? "text-primary" : "text-foreground"
-                  }`}>
-                    {t(`pricing.plans.${plan.key}.price`)}
+                  <div className={`inline-flex items-center gap-1 mt-2 px-2.5 py-1 rounded-full text-xs font-medium ${plan.tone.chip}`}>
+                    <Calendar className="w-3 h-3 shrink-0" />
+                    <span>{t(`pricing.plans.${plan.key}.duration`)}</span>
                   </div>
                 </div>
 
