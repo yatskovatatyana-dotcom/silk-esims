@@ -124,7 +124,7 @@ const resources = {
             "price": "999 ₽"
           }
         },
-        "button": "Order",
+        "button": "Add to Cart",
         "inDevelopment": "We're glad you're interested!",
         "comingSoon": "Our service is currently in development. We'll be launching very soon!"
       },
@@ -374,7 +374,7 @@ const resources = {
             "price": "999 ₽"
           }
         },
-        "button": "Оформить",
+        "button": "В корзину",
         "inDevelopment": "Рады, что ты заинтересовался!",
         "comingSoon": "Сейчас сервис находится в разработке. В ближайшее время мы запустимся!"
       },
