@@ -57,7 +57,7 @@ const Pricing = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-5 max-w-3xl mx-auto items-stretch">
+        <div className="flex flex-col gap-4 max-w-sm mx-auto">
           {plans.map((plan, index) => {
             const Icon = plan.icon;
             const pricePerGb = Math.round(plan.priceNum / plan.gb);
