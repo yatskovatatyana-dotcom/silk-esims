@@ -13,7 +13,7 @@ const Pricing = () => {
     navigate('/login');
   };
 
-  // Метаданные для каждого тарифа: иконка, расчёт цены за ГБ, бейдж выгоды
+  // Метаданные для каждого тарифа: иконка, цветовая тема, бейдж выгоды
   const plans = [
     {
       key: 'start',
@@ -23,6 +23,12 @@ const Pricing = () => {
       priceNum: 199,
       badge: null as string | null,
       accent: false,
+      tone: {
+        ring: 'border-l-4 border-l-[hsl(180_70%_45%)]',
+        chip: 'bg-[hsl(180_70%_45%/0.12)] text-[hsl(180_70%_32%)]',
+        price: 'text-[hsl(180_70%_35%)]',
+        iconBg: 'bg-[hsl(180_70%_45%/0.15)] text-[hsl(180_70%_35%)]',
+      },
     },
     {
       key: 'optimal',
@@ -32,6 +38,12 @@ const Pricing = () => {
       priceNum: 499,
       badge: null,
       accent: true,
+      tone: {
+        ring: '',
+        chip: 'bg-primary/10 text-primary',
+        price: 'text-primary',
+        iconBg: 'bg-gradient-primary text-primary-foreground',
+      },
     },
     {
       key: 'max',
@@ -41,6 +53,12 @@ const Pricing = () => {
       priceNum: 999,
       badge: 'Лучшая цена за ГБ',
       accent: false,
+      tone: {
+        ring: 'border-l-4 border-l-[hsl(28_90%_55%)]',
+        chip: 'bg-[hsl(28_90%_55%/0.12)] text-[hsl(28_90%_40%)]',
+        price: 'text-[hsl(28_90%_45%)]',
+        iconBg: 'bg-[hsl(28_90%_55%/0.15)] text-[hsl(28_90%_45%)]',
+      },
     },
   ];
 
