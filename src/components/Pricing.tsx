@@ -120,7 +120,7 @@ const Pricing = () => {
                       <span className="truncate">{t(`pricing.plans.${plan.key}.duration`)}</span>
                     </span>
                   </div>
-                  <div className="text-xs text-muted-foreground mt-1 leading-none whitespace-nowrap">
+                  <div className="text-xs font-bold text-muted-foreground mt-1 leading-none whitespace-nowrap">
                     {t(`pricing.plans.${plan.key}.price`)}
                   </div>
                 </div>
