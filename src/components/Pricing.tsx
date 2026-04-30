@@ -83,34 +83,36 @@ const Pricing = () => {
                   </Badge>
                 )}
 
-                {/* Header: иконка + название */}
-                <div className="flex items-center gap-2.5 mb-4">
-                  <div className={`w-9 h-9 rounded-lg flex items-center justify-center ${
+                {/* Заголовок */}
+                <div className="flex items-center gap-2 mb-3">
+                  <div className={`w-7 h-7 rounded-md flex items-center justify-center shrink-0 ${
                     plan.accent ? "bg-gradient-primary text-primary-foreground" : "bg-primary/10 text-primary"
                   }`}>
-                    <Icon className="w-4 h-4" />
+                    <Icon className="w-3.5 h-3.5" />
                   </div>
-                  <h3 className="text-base font-bold text-foreground">
+                  <h3 className="text-sm font-bold text-foreground">
                     {t(`pricing.plans.${plan.key}.name`)}
                   </h3>
                 </div>
 
-                {/* Объём */}
-                <div className={`rounded-xl p-3 mb-3 text-center ${
-                  plan.accent ? "bg-primary/10" : "bg-muted/50"
-                }`}>
-                  <div className="text-3xl font-extrabold text-foreground leading-none">
-                    {t(`pricing.plans.${plan.key}.data`)}
+                {/* Три пилюли в ряд: объём · срок · цена */}
+                <div className="grid grid-cols-3 gap-1.5 mb-3">
+                  <div className="rounded-lg bg-muted/60 px-1 py-2 flex items-baseline justify-center gap-0.5">
+                    <span className="text-base font-extrabold text-foreground leading-none">
+                      {t(`pricing.plans.${plan.key}.data`)}
+                    </span>
                   </div>
-                  <div className="flex items-center justify-center gap-1.5 text-xs text-muted-foreground mt-1.5">
-                    <Calendar className="w-3 h-3" />
-                    {t(`pricing.plans.${plan.key}.duration`)}
+                  <div className="rounded-lg bg-primary/5 px-1 py-2 flex items-center justify-center gap-1 text-xs text-foreground/80">
+                    <Calendar className="w-3 h-3 text-primary shrink-0" />
+                    <span className="font-medium truncate">
+                      {t(`pricing.plans.${plan.key}.duration`)}
+                    </span>
                   </div>
-                </div>
-
-                {/* Цена */}
-                <div className="mb-5 text-center flex-1 flex flex-col justify-center">
-                  <div className="text-3xl font-bold text-primary leading-none">
+                  <div className={`rounded-lg px-1 py-2 flex items-center justify-center text-sm font-bold ${
+                    plan.accent
+                      ? "bg-gradient-primary text-primary-foreground"
+                      : "bg-primary text-primary-foreground"
+                  }`}>
                     {t(`pricing.plans.${plan.key}.price`)}
                   </div>
                 </div>
@@ -119,13 +121,14 @@ const Pricing = () => {
                   className={`w-full font-bold ${
                     plan.accent ? "shadow-elegant" : "bg-gradient-primary text-primary-foreground hover:scale-[1.02] shadow-md hover:shadow-lg"
                   }`}
-                  size="lg"
+                  size="default"
                   variant={plan.accent ? "gradient" : "default"}
                   onClick={handlePlanClick}
                 >
                   {t('pricing.button')}
                   <ArrowRight className="w-4 h-4 ml-1" />
                 </Button>
+
               </Card>
             );
           })}
