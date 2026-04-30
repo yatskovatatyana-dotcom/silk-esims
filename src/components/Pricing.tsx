@@ -24,7 +24,7 @@ const Pricing = () => {
       badge: null as string | null,
       accent: false,
       tone: {
-        ring: 'border-l-4 border-l-[hsl(180_70%_45%)]',
+        ring: '',
         chip: 'bg-[hsl(180_70%_45%/0.12)] text-[hsl(180_70%_32%)]',
         price: 'text-[hsl(180_70%_35%)]',
         iconBg: 'bg-[hsl(180_70%_45%/0.15)] text-[hsl(180_70%_35%)]',
@@ -54,7 +54,7 @@ const Pricing = () => {
       badge: 'Лучшая цена за ГБ',
       accent: false,
       tone: {
-        ring: 'border-l-4 border-l-[hsl(28_90%_55%)]',
+        ring: '',
         chip: 'bg-[hsl(28_90%_55%/0.12)] text-[hsl(28_90%_40%)]',
         price: 'text-[hsl(28_90%_45%)]',
         iconBg: 'bg-[hsl(28_90%_55%/0.15)] text-[hsl(28_90%_45%)]',
