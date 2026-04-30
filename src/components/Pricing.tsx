@@ -95,23 +95,21 @@ const Pricing = () => {
                   </h3>
                 </div>
 
-                {/* Три пилюли в ряд: объём · срок · цена */}
-                <div className="grid grid-cols-3 gap-1.5 mb-3">
-                  <div className="rounded-lg bg-muted/60 px-1 py-2 flex items-baseline justify-center gap-0.5">
+                {/* Объём · срок — слева, цена — справа крупным текстом */}
+                <div className="flex items-center justify-between mb-3 gap-2">
+                  <div className="flex flex-col gap-1 min-w-0">
                     <span className="text-base font-extrabold text-foreground leading-none">
                       {t(`pricing.plans.${plan.key}.data`)}
                     </span>
-                  </div>
-                  <div className="rounded-lg bg-primary/5 px-1 py-2 flex items-center justify-center gap-1 text-xs text-foreground/80">
-                    <Calendar className="w-3 h-3 text-primary shrink-0" />
-                    <span className="font-medium truncate">
-                      {t(`pricing.plans.${plan.key}.duration`)}
+                    <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                      <Calendar className="w-3 h-3 text-primary shrink-0" />
+                      <span className="truncate">
+                        {t(`pricing.plans.${plan.key}.duration`)}
+                      </span>
                     </span>
                   </div>
-                  <div className={`rounded-lg px-1 py-2 flex items-center justify-center text-sm font-bold ${
-                    plan.accent
-                      ? "bg-gradient-primary text-primary-foreground"
-                      : "bg-primary text-primary-foreground"
+                  <div className={`text-xl font-extrabold leading-none whitespace-nowrap ${
+                    plan.accent ? "text-primary" : "text-foreground"
                   }`}>
                     {t(`pricing.plans.${plan.key}.price`)}
                   </div>
