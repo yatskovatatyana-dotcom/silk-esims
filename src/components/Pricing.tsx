@@ -69,9 +69,9 @@ const Pricing = () => {
       bonus: '+ 3 ГБ бесплатно',
       duration: '1 месяц',
       price: '1 990 ₽',
-      note: '2× трафика за ту же цену',
+      note: null,
       popular: null,
-      badge: '+3 ГБ в подарок',
+      badge: '2× трафика за ту же цену',
       icon: Gift,
       accent: false,
       tone: {
