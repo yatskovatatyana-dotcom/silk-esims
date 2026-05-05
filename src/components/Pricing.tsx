@@ -140,9 +140,11 @@ const Pricing = () => {
                 </div>
 
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide truncate">
-                    {plan.name}
-                  </h3>
+                  {plan.name && (
+                    <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide truncate">
+                      {plan.name}
+                    </h3>
+                  )}
                   <div className="flex items-baseline gap-2 mt-0.5">
                     <span className="text-xl font-extrabold text-foreground leading-none">
                       {plan.data}
