@@ -62,7 +62,8 @@ const Pricing = () => {
     {
       key: 'double',
       name: '',
-      data: '20 ГБ + 3 ГБ бесплатно',
+      data: '20 ГБ',
+      bonus: '+ 3 ГБ бесплатно',
       duration: '1 месяц',
       price: '1 990 ₽',
       note: '2× трафика за ту же цену',
@@ -77,7 +78,8 @@ const Pricing = () => {
     {
       key: 'maxSave',
       name: '',
-      data: '30 ГБ + 5 ГБ бесплатно',
+      data: '30 ГБ',
+      bonus: '+ 5 ГБ бесплатно',
       duration: '1 месяц',
       price: '2 899 ₽',
       note: null,
@@ -154,6 +156,11 @@ const Pricing = () => {
                       <span className="truncate">{plan.duration}</span>
                     </span>
                   </div>
+                  {plan.bonus && (
+                    <div className="text-[11px] font-semibold text-primary mt-0.5 leading-none">
+                      {plan.bonus}
+                    </div>
+                  )}
                   <div className="text-xs font-bold text-muted-foreground mt-1 leading-none whitespace-nowrap">
                     {plan.price}
                     {plan.note && (
