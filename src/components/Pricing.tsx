@@ -120,7 +120,7 @@ const Pricing = () => {
                 key={index}
                 className={`relative p-3 flex items-center gap-3 transition-all duration-300 hover:-translate-y-0.5 ${
                   plan.accent
-                    ? "border-primary border-2 shadow-elegant bg-gradient-to-r from-primary/5 to-background"
+                    ? "border-border bg-gradient-to-r from-[hsl(280_70%_55%/0.10)] via-[hsl(280_70%_55%/0.04)] to-background hover:border-[hsl(280_70%_55%/0.5)] hover:shadow-card"
                     : "border-border hover:border-primary/40 hover:shadow-card"
                 }`}
               >
