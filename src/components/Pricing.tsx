@@ -46,7 +46,7 @@ const Pricing = () => {
     },
     {
       key: 'hit',
-      name: 'Хит',
+      name: '',
       data: '10 ГБ',
       duration: '1 месяц',
       price: '999 ₽',
