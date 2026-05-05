@@ -118,9 +118,9 @@ const Pricing = () => {
             return (
               <Card
                 key={index}
-                className={`relative p-3 flex items-center gap-3 transition-all duration-300 hover:-translate-y-0.5 ${
+                className={`relative p-3 flex items-center gap-3 transition-all duration-300 hover:-translate-y-0.5 overflow-hidden ${
                   plan.accent
-                    ? "border-border bg-gradient-to-r from-[hsl(280_70%_55%/0.10)] via-[hsl(280_70%_55%/0.04)] to-background hover:border-[hsl(280_70%_55%/0.5)] hover:shadow-card"
+                    ? "border-border hover:shadow-card before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-[hsl(280_70%_55%)]"
                     : "border-border hover:border-primary/40 hover:shadow-card"
                 }`}
               >
