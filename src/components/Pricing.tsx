@@ -67,6 +67,7 @@ const Pricing = () => {
       name: '',
       data: '20 ГБ',
       bonus: '+ 3 ГБ бесплатно',
+      totalData: '23 ГБ',
       duration: '1 месяц',
       price: '1 990 ₽',
       note: null,
@@ -83,6 +84,7 @@ const Pricing = () => {
       name: '',
       data: '30 ГБ',
       bonus: '+ 5 ГБ бесплатно',
+      totalData: '35 ГБ',
       duration: '1 месяц',
       price: '2 899 ₽',
       note: null,
@@ -181,7 +183,7 @@ const Pricing = () => {
                     variant={plan.accent ? "gradient" : "default"}
                     onClick={handlePlanClick}
                   >
-                    {t('pricing.button')} {plan.data}
+                    {t('pricing.button')} {plan.totalData ?? plan.data}
                     <ArrowRight className="w-3 h-3 ml-1" />
                   </Button>
                 </div>
