@@ -51,7 +51,7 @@ const Pricing = () => {
       duration: '1 месяц',
       price: '999 ₽',
       note: 'всего 99 ₽ за 1 ГБ',
-      popular: 'Хит',
+      popular: null,
       badge: 'Экономия ~990 ₽',
       icon: Rocket,
       accent: true,
