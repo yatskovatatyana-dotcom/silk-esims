@@ -56,7 +56,7 @@ const Pricing = () => {
       icon: Rocket,
       accent: true,
       tone: {
-        iconBg: 'bg-gradient-primary text-primary-foreground',
+        iconBg: 'bg-primary/15 text-primary',
       },
     },
     {
