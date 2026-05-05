@@ -57,7 +57,7 @@ const Pricing = () => {
       popular: null,
       badge: 'Экономия ~990 ₽',
       icon: Rocket,
-      accent: true,
+      accent: false,
       tone: {
         iconBg: 'bg-primary/15 text-primary',
       },
@@ -73,7 +73,7 @@ const Pricing = () => {
       popular: null,
       badge: '2× трафика за ту же цену',
       icon: Gift,
-      accent: false,
+      accent: true,
       tone: {
         iconBg: 'bg-[hsl(280_70%_55%/0.15)] text-[hsl(280_70%_50%)]',
       },
