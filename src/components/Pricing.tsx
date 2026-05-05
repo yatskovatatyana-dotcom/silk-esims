@@ -181,7 +181,7 @@ const Pricing = () => {
                     variant={plan.accent ? "gradient" : "default"}
                     onClick={handlePlanClick}
                   >
-                    {t('pricing.button')}
+                    {t('pricing.button')} {plan.data}
                     <ArrowRight className="w-3 h-3 ml-1" />
                   </Button>
                 </div>
