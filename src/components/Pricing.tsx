@@ -61,7 +61,7 @@ const Pricing = () => {
     },
     {
       key: 'double',
-      name: 'Двойной',
+      name: '',
       data: '20 ГБ + 3 ГБ бесплатно',
       duration: '1 месяц',
       price: '1 990 ₽',
@@ -76,7 +76,7 @@ const Pricing = () => {
     },
     {
       key: 'maxSave',
-      name: 'Максимальная выгода',
+      name: '',
       data: '30 ГБ + 5 ГБ бесплатно',
       duration: '1 месяц',
       price: '2 899 ₽',
