@@ -87,7 +87,7 @@ const Pricing = () => {
       price: '2 899 ₽',
       note: null,
       popular: null,
-      badge: 'Экономия ~4 000 ₽',
+      badge: 'Максимальная выгода · Экономия ~4 000 ₽',
       icon: Crown,
       accent: false,
       tone: {
