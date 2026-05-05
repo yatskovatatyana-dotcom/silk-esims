@@ -21,6 +21,7 @@ const Pricing = () => {
       duration: '5 дней',
       price: '199 ₽',
       note: null as string | null,
+      bonus: null as string | null,
       popular: null as string | null,
       badge: null as string | null,
       icon: Zap,
@@ -36,6 +37,7 @@ const Pricing = () => {
       duration: '2 недели',
       price: '599 ₽',
       note: null,
+      bonus: null,
       popular: null,
       badge: null,
       icon: Package,
@@ -51,6 +53,7 @@ const Pricing = () => {
       duration: '1 месяц',
       price: '999 ₽',
       note: 'всего 99 ₽ за 1 ГБ',
+      bonus: null,
       popular: null,
       badge: 'Экономия ~990 ₽',
       icon: Rocket,
@@ -62,7 +65,8 @@ const Pricing = () => {
     {
       key: 'double',
       name: '',
-      data: '20 ГБ + 3 ГБ бесплатно',
+      data: '20 ГБ',
+      bonus: '+ 3 ГБ бесплатно',
       duration: '1 месяц',
       price: '1 990 ₽',
       note: '2× трафика за ту же цену',
@@ -77,7 +81,8 @@ const Pricing = () => {
     {
       key: 'maxSave',
       name: '',
-      data: '30 ГБ + 5 ГБ бесплатно',
+      data: '30 ГБ',
+      bonus: '+ 5 ГБ бесплатно',
       duration: '1 месяц',
       price: '2 899 ₽',
       note: null,
@@ -154,6 +159,11 @@ const Pricing = () => {
                       <span className="truncate">{plan.duration}</span>
                     </span>
                   </div>
+                  {plan.bonus && (
+                    <div className="text-[11px] font-semibold text-primary mt-0.5 leading-none">
+                      {plan.bonus}
+                    </div>
+                  )}
                   <div className="text-xs font-bold text-muted-foreground mt-1 leading-none whitespace-nowrap">
                     {plan.price}
                     {plan.note && (
