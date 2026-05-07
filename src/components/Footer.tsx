@@ -35,13 +35,8 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <Link to="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors">
-                  {t('footer.quickLinks.privacy')}
-                </Link>
-              </li>
-              <li>
-                <Link to="/terms-of-service" className="text-muted-foreground hover:text-primary transition-colors">
-                  Пользовательское соглашение
+                <Link to="/legal" className="text-muted-foreground hover:text-primary transition-colors">
+                  Legal
                 </Link>
               </li>
             </ul>

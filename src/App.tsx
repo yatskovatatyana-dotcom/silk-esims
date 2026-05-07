@@ -2,11 +2,10 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import TermsOfService from "./pages/TermsOfService";
+import Legal from "./pages/Legal";
 import Admin from "./pages/Admin";
 import ConnectionGuidePage from "./pages/ConnectionGuidePage";
 import Login from "./pages/Login";
@@ -21,8 +20,9 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/legal" element={<Legal />} />
+          <Route path="/privacy-policy" element={<Navigate to="/legal" replace />} />
+          <Route path="/terms-of-service" element={<Navigate to="/legal" replace />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/connection-guide" element={<ConnectionGuidePage />} />
           <Route path="/login" element={<Login />} />
