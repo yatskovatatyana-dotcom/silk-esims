@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 import Admin from "./pages/Admin";
 import ConnectionGuidePage from "./pages/ConnectionGuidePage";
 import Login from "./pages/Login";
@@ -21,6 +22,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/connection-guide" element={<ConnectionGuidePage />} />
           <Route path="/login" element={<Login />} />
