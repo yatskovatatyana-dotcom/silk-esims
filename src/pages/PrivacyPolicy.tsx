@@ -106,8 +106,8 @@ const PrivacyPolicy = () => {
               По вопросам, связанным с обработкой персональных данных, вы можете обратиться к нам:
             </p>
             <ul className="list-none space-y-2">
-              <li>Email: <a href="mailto:support@esim.ru" className="text-primary hover:underline">support@esim.ru</a></li>
-              <li>Telegram: <a href="https://t.me/your_support" className="text-primary hover:underline">@your_support</a></li>
+              <li>Email: <a href="mailto:silk-esim@srsignal.com" className="text-primary hover:underline">silk-esim@srsignal.com</a></li>
+              <li>Telegram: <a href="https://t.me/Silk_eSIM_support_bot" className="text-primary hover:underline">@Silk_eSIM_support_bot</a></li>
             </ul>
           </section>
 
