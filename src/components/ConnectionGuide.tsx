@@ -80,7 +80,7 @@ const ConnectionGuide = () => {
       icon: ShieldCheck,
       title: "Верификация (только РФ)*",
       items: [
-        "Придёт SMS от Билайн или Tele2",
+        "Придёт SMS от оператора",
         "Перейдите по ссылке и пройдите авторизацию",
       ],
       hasRfLinks: true,
