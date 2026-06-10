@@ -252,15 +252,6 @@ const ConnectionGuide = () => {
                           >
                             balance.beeline.ru/guest/
                           </a>
-                          <span>или</span>
-                          <a
-                            href="https://t2.ru/dostup"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-primary underline break-all"
-                          >
-                            t2.ru/dostup
-                          </a>
                         </div>
                         <p className="mt-2 text-xs italic break-words">*Снятие 24-часового охлаждающего периода</p>
                       </div>
