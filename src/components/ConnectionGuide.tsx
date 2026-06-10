@@ -241,7 +241,7 @@ const ConnectionGuide = () => {
                     {step.hasRfLinks && (
                       <div className="mt-3 text-sm text-muted-foreground bg-muted/50 rounded-lg p-3">
                         <p className="mb-1">
-                          Прямые ссылки на авторизацию, если SMS не пришла:
+                          Прямая ссылка на авторизацию, если SMS не пришла:
                         </p>
                         <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
                           <a
