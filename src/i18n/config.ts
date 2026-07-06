@@ -103,7 +103,7 @@ const resources = {
         },
       },
       howItWorks: {
-        title: 'How it works',
+        title: 'Get connected in just 3 steps',
         subtitle: 'Three steps. That\'s it.',
         steps: {
           install: { title: 'Install Silk once', description: 'A one-time setup on your phone in under a minute.' },
@@ -281,7 +281,7 @@ const resources = {
         },
       },
       howItWorks: {
-        title: 'Как это работает',
+        title: 'Подключись всего за 3 шага',
         subtitle: 'Три шага. И всё.',
         steps: {
           install: { title: 'Установи Silk один раз', description: 'Настройка на телефоне занимает меньше минуты.' },
