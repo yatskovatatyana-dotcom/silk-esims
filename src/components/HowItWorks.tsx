@@ -4,12 +4,12 @@ import { ShoppingCart, Download, ToggleRight, RefreshCcw, type LucideIcon } from
 type Step = { key: 'choose' | 'install' | 'travel' | 'reuse'; icon: LucideIcon };
 
 const PhoneFrame = ({ icon: Icon }: { icon: LucideIcon }) => (
-  <div className="relative w-16 h-24 md:w-[72px] md:h-28 rounded-[14px] bg-white shadow-soft ring-1 ring-foreground/10 flex items-center justify-center">
+  <div className="relative w-14 h-20 rounded-[12px] bg-white shadow-soft ring-1 ring-foreground/10 flex items-center justify-center">
     {/* Notch */}
-    <span className="absolute top-1.5 left-1/2 -translate-x-1/2 w-6 h-1 rounded-full bg-foreground/15" />
+    <span className="absolute top-1.5 left-1/2 -translate-x-1/2 w-5 h-[3px] rounded-full bg-foreground/15" />
     {/* Side button */}
-    <span className="absolute -right-[3px] top-6 w-[3px] h-5 rounded-r bg-foreground/15" />
-    <Icon className="w-7 h-7 md:w-8 md:h-8 text-primary" strokeWidth={1.9} />
+    <span className="absolute -right-[3px] top-5 w-[3px] h-4 rounded-r bg-foreground/15" />
+    <Icon className="w-6 h-6 text-primary" strokeWidth={1.9} />
   </div>
 );
 
@@ -73,26 +73,24 @@ const HowItWorks = () => {
             </svg>
           </div>
 
-          <div className="relative grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+          <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
             {steps.map(({ key, icon }, i) => (
               <div
                 key={key}
-                className="group flex items-start gap-4 md:gap-5 rounded-2xl bg-background/5 backdrop-blur-sm border border-background/10 p-6 md:p-7 hover:bg-background/10 hover:-translate-y-0.5 transition-all duration-300"
+                className="group flex flex-col rounded-2xl bg-background/5 backdrop-blur-sm border border-background/10 p-5 hover:bg-background/10 hover:-translate-y-0.5 transition-all duration-300"
               >
-                <div className="flex flex-col items-center shrink-0">
-                  <span className="text-secondary font-bold text-sm md:text-base tracking-tight mb-2">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-secondary font-bold text-sm tracking-tight">
                     {String(i + 1).padStart(2, '0')}.
                   </span>
                   <PhoneFrame icon={icon} />
                 </div>
-                <div className="pt-1">
-                  <h3 className="text-base md:text-lg font-semibold text-background leading-snug">
-                    {t(`howItWorks.steps.${key}.title`)}
-                  </h3>
-                  <p className="mt-2 text-sm md:text-[15px] text-background/70 leading-relaxed">
-                    {t(`howItWorks.steps.${key}.description`)}
-                  </p>
-                </div>
+                <h3 className="text-base font-semibold text-background leading-snug">
+                  {t(`howItWorks.steps.${key}.title`)}
+                </h3>
+                <p className="mt-2 text-sm text-background/70 leading-relaxed">
+                  {t(`howItWorks.steps.${key}.description`)}
+                </p>
               </div>
             ))}
           </div>
