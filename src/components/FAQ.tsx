@@ -6,7 +6,7 @@ const FAQ = () => {
   const items = ['whatsapp', 'calls', 'start', 'hotspot', 'more', 'devices'] as const;
 
   return (
-    <section id="faq" className="py-24 md:py-32 bg-muted/40 scroll-mt-20">
+    <section id="faq" className="py-14 md:py-20 bg-muted/40 scroll-mt-20">
       <div className="container mx-auto max-w-3xl">
         <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-12 text-center">
           {t('faq.title')}

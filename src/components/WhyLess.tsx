@@ -5,7 +5,7 @@ const WhyLess = () => {
   const keys = ['marketing', 'lean', 'direct', 'automation', 'clean'] as const;
 
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-14 md:py-20">
       <div className="container mx-auto max-w-6xl px-4">
         <div className="max-w-2xl mb-14 md:mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
