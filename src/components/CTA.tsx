@@ -1,41 +1,36 @@
-import { Button } from "@/components/ui/button";
-import { Send } from "lucide-react";
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 const CTA = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   return (
-    <section className="py-20 bg-gradient-primary relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white rounded-full" />
-        <div className="absolute bottom-10 right-10 w-48 h-48 border-2 border-white rounded-full" />
-        <div className="absolute top-1/2 left-1/3 w-24 h-24 border-2 border-white rounded-full" />
-      </div>
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-3xl mx-auto text-center text-primary-foreground">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            {t('cta.title')}
-          </h2>
-          <p className="text-xl mb-8 opacity-90 whitespace-pre-line">
-            {t('cta.subtitle')}
-          </p>
-          
-          <Button 
-            variant="secondary" 
-            size="xl"
-            onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
-            className="shadow-lg hover:shadow-xl"
-          >
-            <Send className="mr-2" />
-            {t('cta.button')}
-          </Button>
-          
-          <p className="mt-6 text-sm opacity-75">
-            {t('cta.note')}
-          </p>
+    <section className="py-24 md:py-32">
+      <div className="container mx-auto max-w-5xl">
+        <div className="relative rounded-[2.5rem] overflow-hidden bg-foreground p-10 md:p-20 text-center">
+          {/* decorative blobs */}
+          <div aria-hidden className="absolute -top-24 -left-24 w-80 h-80 rounded-full bg-primary/40 blur-3xl" />
+          <div aria-hidden className="absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-secondary/40 blur-3xl" />
+
+          <div className="relative">
+            <h2 className="text-3xl md:text-5xl font-bold text-background mb-5 max-w-2xl mx-auto leading-tight">
+              {t('cta.title')}
+            </h2>
+            <p className="text-lg text-background/70 mb-10 max-w-xl mx-auto">
+              {t('cta.subtitle')}
+            </p>
+            <Button
+              size="lg"
+              onClick={() => navigate('/login')}
+              className="rounded-full font-semibold px-8 h-12 bg-background text-foreground hover:bg-background/90"
+            >
+              {t('cta.button')}
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+          </div>
         </div>
       </div>
     </section>

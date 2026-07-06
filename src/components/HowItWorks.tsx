@@ -1,66 +1,31 @@
-import { Card } from "@/components/ui/card";
-import { MessageSquare, CreditCard, Smartphone } from "lucide-react";
 import { useTranslation } from 'react-i18next';
 
 const HowItWorks = () => {
   const { t } = useTranslation();
-
-  const steps = [
-    {
-      icon: MessageSquare,
-      title: t('howItWorks.steps.choose.title'),
-      description: t('howItWorks.steps.choose.description'),
-      step: "01",
-    },
-    {
-      icon: CreditCard,
-      title: t('howItWorks.steps.pay.title'),
-      description: t('howItWorks.steps.pay.description'),
-      step: "02",
-    },
-    {
-      icon: Smartphone,
-      title: t('howItWorks.steps.activate.title'),
-      description: t('howItWorks.steps.activate.description'),
-      step: "03",
-    },
-  ];
+  const steps = ['install', 'choose', 'travel'] as const;
 
   return (
-    <section className="py-20 bg-secondary/30" id="how-it-works">
-      <div className="container mx-auto px-4">
+    <section id="how-it-works" className="py-24 md:py-32 bg-muted/40 scroll-mt-20">
+      <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
             {t('howItWorks.title')}
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            {t('howItWorks.subtitle')}
-          </p>
+          <p className="text-lg text-foreground/60">{t('howItWorks.subtitle')}</p>
         </div>
-        
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {steps.map((step, index) => (
-            <div key={index} className="relative">
-               <Card className="p-8 text-center hover:shadow-card transition-all duration-300 bg-card border-border h-full flex flex-col">
-                <div className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-primary-foreground font-bold text-lg shadow-primary">
-                  {step.step}
-                </div>
-                
-                <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                  <step.icon className="w-8 h-8 text-primary-foreground" />
-                </div>
-                
-                <h3 className="text-2xl font-semibold text-foreground mb-3">
-                  {step.title}
-                </h3>
-                <p className="text-muted-foreground mt-auto">
-                  {step.description}
-                </p>
-              </Card>
-              
-              {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-primary z-0" />
-              )}
+
+        <div className="grid md:grid-cols-3 gap-8 md:gap-4">
+          {steps.map((key, i) => (
+            <div key={key} className="relative text-center px-2">
+              <div className="mx-auto mb-6 w-14 h-14 rounded-2xl bg-gradient-warm text-primary-foreground flex items-center justify-center text-xl font-bold shadow-soft">
+                {String(i + 1).padStart(2, '0')}
+              </div>
+              <h3 className="text-xl font-bold text-foreground mb-3">
+                {t(`howItWorks.steps.${key}.title`)}
+              </h3>
+              <p className="text-foreground/60 max-w-xs mx-auto leading-relaxed">
+                {t(`howItWorks.steps.${key}.description`)}
+              </p>
             </div>
           ))}
         </div>

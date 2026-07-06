@@ -1,201 +1,108 @@
-import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, Shield, Gauge, Menu, X } from "lucide-react";
+import { Button } from '@/components/ui/button';
+import { ArrowRight, Plane } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
-import LanguageSwitcher from './LanguageSwitcher';
-import heroIllustration from '@/assets/hero-illustration.png';
+import silkLogo from '@/assets/silk-logo.png.asset.json';
+
+const destinationChips = [
+  { flag: '🇮🇹', name: 'Barcelona' },
+  { flag: '🇯🇵', name: 'Tokyo' },
+  { flag: '🇺🇸', name: 'New York' },
+  { flag: '🇹🇭', name: 'Bangkok' },
+  { flag: '🇦🇪', name: 'Dubai' },
+];
 
 const Hero = () => {
   const { t } = useTranslation();
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  const navigate = useNavigate();
-
-  const navItems = [
-    { label: t('nav.features', 'Преимущества'), id: 'features' },
-    { label: t('nav.pricing', 'Тарифы'), id: 'pricing' },
-    { label: t('nav.howItWorks', 'Как начать'), id: 'how-it-works' },
-    { label: t('nav.connectionGuide', 'Подключение'), id: 'connection-guide', route: '/connection-guide' },
-  ];
-
-  const scrollTo = (id: string) => {
+  const scrollTo = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-    setMenuOpen(false);
-  };
-  
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary to-secondary">
-      {/* Overlay to close menu */}
-      {menuOpen && (
-        <div className="fixed inset-0 z-40" onClick={() => setMenuOpen(false)} />
-      )}
-      
-      {/* Top bar */}
-      <div className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${scrolled ? 'bg-[hsl(200,100%,40%)] shadow-lg' : ''}`}>
-        <div className="container mx-auto px-4 flex items-center justify-between py-3">
-          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-4 py-2">
-            <span className="text-sm font-semibold text-white">Silk eSIM</span>
-          </div>
-          <div className="flex items-center gap-2">
-            {/* Desktop buttons */}
-            <Button
-              variant="secondary"
-              size="sm"
-              className="rounded-full px-4 text-sm font-bold"
-              onClick={() => scrollTo('pricing')}
-            >
-              {t('hero.connectEsim')}
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              className="hidden sm:inline-flex bg-white/10 border-white/30 text-white hover:bg-white/20 rounded-full px-4 text-sm font-medium"
-              onClick={() => navigate('/login')}
-            >
-              {t('hero.personalAccount')}
-            </Button>
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="text-white/80 hover:text-white transition-colors p-2"
-              aria-label="Menu"
-            >
-              {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
+    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-hero">
+      {/* Soft floating brand blobs */}
+      <div aria-hidden className="absolute top-24 -left-20 w-72 h-72 rounded-full bg-secondary/40 blur-3xl animate-float-slow" />
+      <div aria-hidden className="absolute bottom-0 -right-24 w-96 h-96 rounded-full bg-primary/20 blur-3xl animate-float-slow" style={{ animationDelay: '2s' }} />
+
+      <div className="container relative mx-auto max-w-5xl text-center">
+        <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/60 backdrop-blur px-4 py-1.5 text-xs font-semibold text-foreground/70 mb-8 shadow-soft">
+          <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+          {t('hero.badge')}
         </div>
 
-        {/* Dropdown menu */}
-        {menuOpen && (
-          <div className="absolute right-4 top-[60px] w-56 bg-[hsl(200,100%,40%)] backdrop-blur-xl border border-white/20 rounded-2xl p-3 space-y-1 animate-fade-in">
-            {/* Mobile-only action buttons */}
-            <div className="sm:hidden space-y-1 pb-2 border-b border-white/15 mb-1">
-              <button
-                onClick={() => { scrollTo('pricing'); }}
-                className="w-full text-left text-white font-bold bg-white/15 hover:bg-white/25 rounded-xl px-4 py-2.5 text-sm transition-colors"
-              >
-                {t('hero.connectEsim')}
-              </button>
-              <button
-                onClick={() => { setMenuOpen(false); navigate('/login'); }}
-                className="w-full text-left text-white/90 hover:text-white hover:bg-white/10 rounded-xl px-4 py-2.5 text-sm font-medium transition-colors"
-              >
-                {t('hero.personalAccount')}
-              </button>
-            </div>
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => {
-                  if (item.route) {
-                    navigate(item.route);
-                    setMenuOpen(false);
-                  } else {
-                    scrollTo(item.id);
-                  }
-                }}
-                className="w-full text-left text-white/90 hover:text-white hover:bg-white/10 rounded-xl px-4 py-2.5 text-sm font-medium transition-colors"
-              >
-                {item.label}
-              </button>
-            ))}
-            <div className="border-t border-white/15 mt-2 pt-2 px-2">
-              <LanguageSwitcher />
-            </div>
-          </div>
-        )}
-      </div>
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-foreground leading-[0.95] whitespace-pre-line mb-8">
+          {t('hero.title')}
+        </h1>
 
-      {/* Animated background pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-          backgroundSize: '40px 40px'
-        }} />
-      </div>
-      
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 pt-16 sm:pt-12 pb-8">
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-12">
-          {/* Left: Text content */}
-          <div className="text-center lg:text-left lg:max-w-xl space-y-4">
-            <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight drop-shadow-lg">
-              {t('hero.title')}
-              <span className="block mt-3 text-2xl md:text-3xl font-medium opacity-90">
-                {t('hero.brandName')}
-                <br className="hidden lg:block" />
-                <span className="lg:hidden"> — </span>
-                {t('hero.subtitle')}
-              </span>
-            </h1>
+        <p className="text-xl md:text-2xl text-foreground/70 max-w-2xl mx-auto mb-4">
+          {t('hero.subtitle')}
+        </p>
+        <p className="text-sm md:text-base text-foreground/50 max-w-xl mx-auto mb-10">
+          {t('hero.supporting')}
+        </p>
 
-            <div className="flex justify-center lg:justify-start">
-              <Button 
-                variant="secondary" 
-                size="default"
-                className="bg-white text-primary hover:bg-white/90 hover:scale-105 shadow-xl font-bold rounded-full px-6"
-                onClick={() => scrollTo('pricing')}
-              >
-                {t('hero.ctaButton')}
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-16">
+          <Button
+            size="lg"
+            onClick={() => scrollTo('destinations')}
+            className="rounded-full font-semibold px-8 h-12 bg-foreground text-background hover:bg-foreground/90 shadow-elegant"
+          >
+            {t('hero.ctaPrimary')}
+            <ArrowRight className="ml-2 w-4 h-4" />
+          </Button>
+          <Button
+            size="lg"
+            variant="ghost"
+            onClick={() => scrollTo('how-it-works')}
+            className="rounded-full font-semibold px-8 h-12 text-foreground hover:bg-foreground/5"
+          >
+            {t('hero.ctaSecondary')}
+          </Button>
+        </div>
+
+        {/* Illustration: one Silk card traveling between destinations */}
+        <div className="relative max-w-3xl mx-auto">
+          <div className="relative rounded-3xl bg-card border border-border/60 shadow-elegant p-8 md:p-12">
+            <div className="flex items-center justify-between gap-4">
+              {destinationChips.map((d, i) => (
+                <div key={d.name} className="flex flex-col items-center gap-2 flex-1 min-w-0">
+                  <div
+                    className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-muted flex items-center justify-center text-2xl md:text-3xl shadow-soft"
+                    style={{ animationDelay: `${i * 0.2}s` }}
+                  >
+                    {d.flag}
+                  </div>
+                  <span className="text-[10px] md:text-xs font-medium text-foreground/60 truncate max-w-full">
+                    {d.name}
+                  </span>
+                </div>
+              ))}
             </div>
-            
-            <p className="text-xl md:text-2xl text-white/90 max-w-2xl font-medium drop-shadow whitespace-pre-line">
-              {t('hero.description')}
+
+            {/* The traveling eSIM card */}
+            <div className="relative mt-8 h-24 md:h-28 flex items-center">
+              <div className="absolute inset-x-0 top-1/2 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+              <div className="mx-auto">
+                <div className="relative animate-float">
+                  <div className="w-32 md:w-40 aspect-[8/5] rounded-2xl bg-gradient-warm shadow-elegant p-3 md:p-4 flex flex-col justify-between">
+                    <div className="flex items-center justify-between">
+                      <img src={silkLogo.url} alt="" className="w-6 h-6 md:w-7 md:h-7 rounded-full ring-2 ring-white/60" />
+                      <Plane className="w-4 h-4 text-white/90" />
+                    </div>
+                    <div className="text-white">
+                      <div className="text-[10px] md:text-xs uppercase tracking-widest opacity-80">eSIM</div>
+                      <div className="text-sm md:text-base font-bold">Silk</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p className="mt-6 text-center text-sm text-foreground/60 font-medium">
+              One eSIM · Multiple trips
             </p>
-
-            {/* Mobile illustration */}
-            <div className="lg:hidden flex justify-center !mt-1">
-              <img 
-                src={heroIllustration} 
-                alt="People using mobile internet"
-                fetchPriority="high"
-                className="w-full max-w-sm object-contain drop-shadow-2xl"
-              />
-            </div>
-          </div>
-
-          {/* Right: Illustration - desktop only */}
-          <div className="hidden lg:flex justify-center items-center relative">
-            <div className="relative w-full max-w-xl">
-              <img 
-                src={heroIllustration} 
-                alt="People using mobile internet" 
-                className="w-full object-contain drop-shadow-2xl"
-                fetchPriority="high"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Stats */}
-        <div className="pt-0 -mt-2 grid grid-cols-3 gap-3 max-w-2xl mx-auto">
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-3 text-center hover:bg-white/20 transition-all duration-300">
-            <Zap className="w-6 h-6 text-white mx-auto mb-1" />
-            <div className="text-xs md:text-sm text-white font-semibold leading-tight whitespace-pre-line">{t('hero.stats.instantConnection')}</div>
-          </div>
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-3 text-center hover:bg-white/20 transition-all duration-300">
-            <Shield className="w-6 h-6 text-white mx-auto mb-1" />
-            <div className="text-xs md:text-sm text-white font-semibold leading-tight whitespace-pre-line">{t('hero.stats.dataSecurity')}</div>
-          </div>
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-3 text-center hover:bg-white/20 transition-all duration-300">
-            <Gauge className="w-6 h-6 text-white mx-auto mb-1" />
-            <div className="text-xs md:text-sm text-white font-semibold leading-tight">{t('hero.stats.speedStability')}</div>
           </div>
         </div>
       </div>
-      
-      {/* Decorative gradient orbs */}
-      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />
     </section>
   );
 };
