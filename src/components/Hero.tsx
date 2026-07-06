@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { Search, ChevronRight, Wifi, Tag, Plane, Smartphone, Globe, Zap, ShieldCheck } from 'lucide-react';
+import { Search, ChevronRight, Wifi, Tag, Plane, Smartphone, Globe, Zap, ShieldCheck, X } from 'lucide-react';
 import heroBeach from '@/assets/hero-beach.jpg';
 import { heroCountries, heroChipSlugs, type HeroCountry } from '@/data/heroCountries';
 
@@ -159,14 +159,43 @@ const Hero = () => {
               </button>
             </div>
 
-            {/* Expanded plans for selected tile */}
-            {activeSlug && active && (
-              <div className="mt-4 rounded-2xl bg-muted/40 border border-border p-3">
-                <div className="flex items-center gap-2 mb-3 px-1">
-                  <span className="text-xl">{active.flag}</span>
-                  <span className="text-base font-bold text-foreground">{active.name[lang]}</span>
+          </div>
+
+          {/* MOBILE: bottom sheet with plans */}
+          {activeSlug && active && (
+            <div className="md:hidden fixed inset-0 z-50 flex items-end">
+              {/* Backdrop */}
+              <button
+                aria-label="Close"
+                onClick={() => setActiveSlug('')}
+                className="absolute inset-0 bg-black/50 animate-fade-in"
+              />
+              {/* Sheet */}
+              <div
+                className="relative w-full rounded-t-3xl bg-background shadow-elegant px-5 pb-8 pt-3"
+                style={{ animation: 'slide-up-sheet 0.28s cubic-bezier(0.32, 0.72, 0, 1)' }}
+              >
+                <div className="mx-auto h-1.5 w-10 rounded-full bg-foreground/15 mb-4" />
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <span className="text-3xl leading-none">{active.flag}</span>
+                    <div className="min-w-0">
+                      <div className="text-lg font-bold text-foreground truncate">{active.name[lang]}</div>
+                      <div className="text-xs text-foreground/60">
+                        {t('heroSearch.fromPrice')} {active.plans[0]?.price}
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => setActiveSlug('')}
+                    aria-label="Close"
+                    className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-foreground/70 hover:text-foreground shrink-0"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
                 </div>
-                <div className="space-y-2">
+
+                <div className="space-y-2.5">
                   {[0, 1, 3].map((idx, i) => {
                     const p = active.plans[idx];
                     if (!p) return null;
@@ -181,15 +210,15 @@ const Hero = () => {
                       <button
                         key={idx}
                         onClick={() => navigate('/login')}
-                        className={`w-full flex items-center justify-between gap-3 rounded-xl bg-white px-4 py-3 transition-all ${
+                        className={`w-full flex items-center justify-between gap-3 rounded-2xl bg-card px-4 py-3.5 transition-all active:scale-[0.98] ${
                           isOptimal
-                            ? 'border-2 border-secondary'
+                            ? 'border-2 border-secondary shadow-soft'
                             : 'border border-border'
                         }`}
                       >
                         <div className="flex items-center gap-3 min-w-0">
                           <div className="text-left">
-                            <div className="text-lg font-extrabold text-foreground leading-tight">{p.data}</div>
+                            <div className="text-xl font-extrabold text-foreground leading-tight">{p.data}</div>
                             <div className="text-[11px] text-foreground/60 mt-0.5">
                               {p.days} {t('heroSearch.daysShort')}
                             </div>
@@ -201,16 +230,24 @@ const Hero = () => {
                           )}
                         </div>
                         <div className="flex items-center gap-1 shrink-0">
-                          <span className="text-base font-extrabold text-foreground">{p.price}</span>
+                          <span className="text-lg font-extrabold text-foreground">{p.price}</span>
                           <ChevronRight className="w-4 h-4 text-foreground/40" />
                         </div>
                       </button>
                     );
                   })}
                 </div>
+
+                <button
+                  onClick={() => navigate('/login')}
+                  className="mt-4 w-full inline-flex items-center justify-center gap-1.5 text-sm font-semibold text-foreground/70 py-2"
+                >
+                  {t('heroSearch.allPlans')} {active.name[lang]}
+                  <ChevronRight className="w-4 h-4" />
+                </button>
               </div>
-            )}
-          </div>
+            </div>
+          )}
 
           {/* DESKTOP: chips + plans */}
           <div className="hidden md:block">
