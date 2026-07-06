@@ -11,7 +11,7 @@ const Hero = () => {
   const lang = (i18n.language === 'ru' ? 'ru' : 'en') as 'ru' | 'en';
 
   const [query, setQuery] = useState('');
-  const [activeSlug, setActiveSlug] = useState<string>('turkey');
+  const [activeSlug, setActiveSlug] = useState<string>('');
 
   const chips = useMemo(
     () => heroChipSlugs.map((s) => heroCountries.find((c) => c.slug === s)!).filter(Boolean),
