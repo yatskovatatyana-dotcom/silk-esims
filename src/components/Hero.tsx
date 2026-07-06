@@ -77,7 +77,7 @@ const Hero = () => {
                 <div className="mt-3 text-white font-semibold text-base leading-snug">
                   {f.title}
                 </div>
-                <p className="mt-2 text-sm text-white/70 leading-relaxed">
+                <p className="mt-2 text-sm text-white/70 leading-relaxed hidden md:block">
                   {f.body}
                 </p>
               </div>
