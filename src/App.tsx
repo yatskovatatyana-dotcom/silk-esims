@@ -6,8 +6,6 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Legal from "./pages/Legal";
-import Admin from "./pages/Admin";
-import ConnectionGuidePage from "./pages/ConnectionGuidePage";
 import Login from "./pages/Login";
 
 const queryClient = new QueryClient();
@@ -21,12 +19,11 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/legal" element={<Legal />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/privacy-policy" element={<Navigate to="/legal" replace />} />
           <Route path="/terms-of-service" element={<Navigate to="/legal" replace />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/connection-guide" element={<ConnectionGuidePage />} />
-          <Route path="/login" element={<Login />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/admin" element={<Navigate to="/" replace />} />
+          <Route path="/connection-guide" element={<Navigate to="/" replace />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
