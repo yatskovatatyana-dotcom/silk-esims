@@ -12,6 +12,7 @@ const Hero = () => {
 
   const [query, setQuery] = useState('');
   const [activeSlug, setActiveSlug] = useState<string>('');
+  const tariffUrl = `https://app.silk-esim.ru/app?lang=${lang}&utm_source=tanya_landing&utm_medium=referral&utm_content=tariff`;
 
   const chips = useMemo(
     () => heroChipSlugs.map((s) => heroCountries.find((c) => c.slug === s)!).filter(Boolean),
@@ -108,7 +109,7 @@ const Hero = () => {
               )}
             </div>
             <button
-              onClick={() => navigate('/login')}
+              onClick={() => window.location.href = tariffUrl}
               className="hidden sm:inline-flex items-center h-12 md:h-14 px-5 md:px-7 rounded-full bg-secondary text-secondary-foreground font-semibold text-sm md:text-base hover:bg-secondary/90 transition-colors whitespace-nowrap"
             >
               {t('heroSearch.cta')}
@@ -144,7 +145,7 @@ const Hero = () => {
                 );
               })}
               <button
-                onClick={() => navigate('/login')}
+                onClick={() => window.location.href = tariffUrl}
                 className="col-span-2 md:col-span-3 flex items-center justify-center gap-2 p-3 md:p-4 rounded-2xl border border-border bg-white text-sm md:text-base font-semibold text-foreground/80 hover:border-foreground/30 transition-colors"
               >
                 <span className="text-base md:text-lg">🌍</span>
@@ -205,7 +206,7 @@ const Hero = () => {
                     return (
                       <div key={idx}>
                         <button
-                          onClick={() => navigate('/login')}
+                          onClick={() => window.location.href = tariffUrl}
                           className={`w-full flex items-center justify-between gap-3 rounded-2xl bg-card px-4 py-3.5 transition-all active:scale-[0.98] hover:-translate-y-0.5 ${
                             isOptimal
                               ? 'border-2 border-secondary shadow-soft'
