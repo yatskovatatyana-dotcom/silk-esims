@@ -71,12 +71,12 @@ const Header = () => {
           >
             {t('navNew.signIn')}
           </a>
-          <button
-            onClick={() => scrollTo('destinations')}
+          <a
+            href={`https://app.silk-esim.ru/app?lang=${i18n.language === 'ru' ? 'ru' : 'en'}&utm_source=tanya_landing&utm_medium=referral&utm_content=tariff`}
             className="inline-flex items-center h-10 md:h-11 px-4 md:px-5 rounded-full bg-secondary text-secondary-foreground font-semibold text-sm hover:bg-secondary/90 transition-colors"
           >
             {t('navNew.buy')}
-          </button>
+          </a>
         </div>
       </div>
     </header>
