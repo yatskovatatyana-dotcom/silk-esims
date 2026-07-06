@@ -16,7 +16,7 @@ const Index = () => (
       <Hero />
       <WhyLess />
       <HowItWorks />
-      <WhyChoose />
+      
       <Comparison />
       <FAQ />
       <CTA />
