@@ -40,6 +40,7 @@ const resources = {
         optimalBadge: 'OPTIMAL',
         bestBadge: 'BEST VALUE',
         optimalNote: 'Best for 2 weeks',
+        checkoutNote: 'Complete purchase in your account',
         fromPrice: 'from',
         moreDestinations: 'More destinations',
       },
