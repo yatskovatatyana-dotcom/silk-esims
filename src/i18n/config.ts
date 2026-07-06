@@ -281,7 +281,7 @@ const resources = {
         },
       },
       howItWorks: {
-        title: 'Как это работает',
+        title: 'Подключись всего за 3 шага',
         subtitle: 'Три шага. И всё.',
         steps: {
           install: { title: 'Установи Silk один раз', description: 'Настройка на телефоне занимает меньше минуты.' },
