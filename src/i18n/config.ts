@@ -17,6 +17,7 @@ const resources = {
         support: 'Support',
         signIn: 'Sign in',
         install: 'Install eSIM',
+        buy: 'Buy eSIM',
       },
       heroNew: {
         line1: 'One eSIM',
