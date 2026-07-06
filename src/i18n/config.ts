@@ -103,7 +103,7 @@ const resources = {
         },
       },
       howItWorks: {
-        title: 'How it works',
+        title: 'Get connected in just 3 steps',
         subtitle: 'Three steps. That\'s it.',
         steps: {
           install: { title: 'Install Silk once', description: 'A one-time setup on your phone in under a minute.' },
