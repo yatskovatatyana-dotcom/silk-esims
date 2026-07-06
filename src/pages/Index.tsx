@@ -17,8 +17,8 @@ const Index = () => (
       <WhyLess />
       <HowItWorks />
       
-      <FAQ />
       <CTA />
+      <FAQ />
     </main>
     <Footer />
     <StickyMobileCTA />
