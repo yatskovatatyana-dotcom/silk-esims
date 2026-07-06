@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { Search, ChevronRight, Wifi, Tag, Plane, Smartphone, Globe, Zap, ShieldCheck, X } from 'lucide-react';
+import { Search, ChevronRight, Tag, Plane, Smartphone, X } from 'lucide-react';
 import heroBeach from '@/assets/hero-beach.jpg';
 import { heroCountries, heroChipSlugs, type HeroCountry } from '@/data/heroCountries';
 
@@ -34,12 +34,6 @@ const Hero = () => {
     { icon: Smartphone, title: t('heroFeatures.keep.title'),    body: t('heroFeatures.keep.body') },
   ];
 
-  const stripFeatures = [
-    { icon: Globe,       title: t('heroStrip.countries.title'), body: t('heroStrip.countries.body') },
-    { icon: Smartphone,  title: t('heroStrip.forever.title'),   body: t('heroStrip.forever.body') },
-    { icon: Zap,         title: t('heroStrip.instant.title'),   body: t('heroStrip.instant.body') },
-    { icon: ShieldCheck, title: t('heroStrip.noFees.title'),    body: t('heroStrip.noFees.body') },
-  ];
 
   return (
     <section className="relative min-h-screen overflow-hidden pt-24 md:pt-28 pb-8">
@@ -244,22 +238,8 @@ const Hero = () => {
             </div>
           )}
         </div>
-
-        {/* Bottom dark feature strip */}
-        <div className="mt-4 rounded-3xl bg-foreground/95 backdrop-blur px-6 py-6 md:py-7">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stripFeatures.map((f) => (
-              <div key={f.title} className="flex items-start gap-3">
-                <f.icon className="w-6 h-6 text-secondary shrink-0" strokeWidth={1.75} />
-                <div>
-                  <div className="text-background font-semibold text-sm">{f.title}</div>
-                  <p className="text-background/60 text-xs mt-1 leading-relaxed">{f.body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
+
     </section>
   );
 };
