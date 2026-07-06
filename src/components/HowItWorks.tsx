@@ -4,12 +4,12 @@ import { ShoppingCart, Download, ToggleRight, RefreshCcw, type LucideIcon } from
 type Step = { key: 'choose' | 'install' | 'travel' | 'reuse'; icon: LucideIcon };
 
 const PhoneFrame = ({ icon: Icon }: { icon: LucideIcon }) => (
-  <div className="relative w-16 h-24 md:w-[72px] md:h-28 rounded-[14px] bg-white shadow-soft ring-1 ring-foreground/10 flex items-center justify-center">
+  <div className="relative w-14 h-20 rounded-[12px] bg-white shadow-soft ring-1 ring-foreground/10 flex items-center justify-center">
     {/* Notch */}
-    <span className="absolute top-1.5 left-1/2 -translate-x-1/2 w-6 h-1 rounded-full bg-foreground/15" />
+    <span className="absolute top-1.5 left-1/2 -translate-x-1/2 w-5 h-[3px] rounded-full bg-foreground/15" />
     {/* Side button */}
-    <span className="absolute -right-[3px] top-6 w-[3px] h-5 rounded-r bg-foreground/15" />
-    <Icon className="w-7 h-7 md:w-8 md:h-8 text-primary" strokeWidth={1.9} />
+    <span className="absolute -right-[3px] top-5 w-[3px] h-4 rounded-r bg-foreground/15" />
+    <Icon className="w-6 h-6 text-primary" strokeWidth={1.9} />
   </div>
 );
 
