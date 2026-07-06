@@ -8,7 +8,7 @@ import HowItWorks from '@/components/HowItWorks';
 import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
-import StickyMobileCTA from '@/components/StickyMobileCTA';
+
 
 const Index = () => (
   <div className="min-h-screen bg-background">
@@ -23,7 +23,7 @@ const Index = () => (
       <FAQ />
     </main>
     <Footer />
-    <StickyMobileCTA />
+    
   </div>
 );
 
