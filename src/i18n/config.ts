@@ -210,6 +210,9 @@ const resources = {
         popularBadge: 'Популярно',
         allPlans: 'Все тарифы в',
         daysShort: 'дней',
+        optimalBadge: 'ОПТИМАЛЬНО',
+        bestBadge: 'САМЫЙ ВЫГОДНЫЙ',
+        optimalNote: 'Оптимально на 2 недели',
       },
       heroStrip: {
         countries: { title: '180+ стран', body: 'Путешествуйте в 180+ странах и регионах мира.' },
