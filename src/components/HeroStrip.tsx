@@ -11,7 +11,7 @@ const HeroStrip = () => {
   ] as const;
 
   return (
-    <section className="pt-16 md:pt-20">
+    <section className="pt-8 md:pt-10 pb-2">
       <div className="container mx-auto max-w-6xl px-4">
         <div className="rounded-3xl bg-foreground shadow-elegant px-6 py-6 md:py-7">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
