@@ -31,12 +31,9 @@ const CTA = () => {
             <div aria-hidden className="absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-secondary/40 blur-3xl" />
 
             <div className="relative">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-background mb-4 leading-[1.15]">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-background mb-8 leading-[1.15]">
                 {t('cta.title')}
               </h2>
-              <p className="text-base md:text-lg text-background/70 mb-8 max-w-lg">
-                {t('cta.subtitle')}
-              </p>
               <Button
                 size="lg"
                 onClick={scrollToPlans}
