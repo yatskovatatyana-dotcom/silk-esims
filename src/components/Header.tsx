@@ -63,13 +63,13 @@ const Header = () => {
           </button>
           <button
             onClick={() => i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')}
-            className={`inline-flex items-center gap-1.5 text-sm font-medium transition-colors ${
+            className={`inline-flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wide transition-colors ${
               scrolled ? 'text-foreground/70 hover:text-foreground' : 'text-white/80 hover:text-white'
             }`}
             aria-label="Toggle language"
           >
             <Globe className="w-4 h-4" />
-            {t('navNew.signIn')}
+            {i18n.language === 'ru' ? 'EN' : 'RU'}
           </button>
           <button
             onClick={() => navigate('/login')}
