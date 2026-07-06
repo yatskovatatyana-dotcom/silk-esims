@@ -17,7 +17,6 @@ const Index = () => (
       <WhyLess />
       <HowItWorks />
       
-      <Comparison />
       <FAQ />
       <CTA />
     </main>
