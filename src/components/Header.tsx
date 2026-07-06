@@ -19,10 +19,7 @@ const Header = () => {
   };
 
   const nav = [
-    { id: 'destinations',  label: t('navNew.destinations') },
     { id: 'how-it-works',  label: t('navNew.howItWorks') },
-    { id: 'coverage',      label: t('navNew.coverage') },
-    { id: 'about',         label: t('navNew.about') },
   ];
 
   return (
