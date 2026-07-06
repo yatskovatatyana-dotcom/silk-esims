@@ -175,13 +175,16 @@ const Hero = () => {
                 style={{ animation: 'slide-up-sheet 0.28s cubic-bezier(0.32, 0.72, 0, 1)' }}
               >
                 <div className="md:hidden mx-auto h-1.5 w-10 rounded-full bg-foreground/15 mb-4" />
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-3 min-w-0">
                     <span className="text-3xl leading-none">{active.flag}</span>
                     <div className="min-w-0">
                       <div className="text-lg font-bold text-foreground truncate">{active.name[lang]}</div>
                       <div className="text-xs text-foreground/60">
                         {t('heroSearch.fromPrice')} {active.plans[0]?.price}
+                      </div>
+                      <div className="text-[11px] text-foreground/50 mt-1">
+                        {t('heroSearch.checkoutNote')}
                       </div>
                     </div>
                   </div>
