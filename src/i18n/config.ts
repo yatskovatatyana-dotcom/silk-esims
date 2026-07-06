@@ -10,28 +10,29 @@ const resources = {
         faq: 'FAQ',
       },
       hero: {
-        badge: 'One eSIM · Every trip',
+        badge: 'Install once · Travel forever',
         title: 'One eSIM.\nEvery trip.',
-        subtitle: 'Install once. Buy affordable data whenever you travel.',
-        supporting: 'Lower prices than many leading travel eSIM providers.',
-        ctaPrimary: 'Browse destinations',
-        ctaSecondary: 'How it works',
+        subtitle: 'Set up Silk once. Land anywhere with internet already on — no Wi-Fi hunting, no roaming, no swapping SIMs. Your number stays active.',
         getEsim: 'Get eSIM',
       },
       problems: {
-        title: 'Travel without worrying about...',
+        title: 'Everything travel data should be.',
         items: {
-          roaming: {
-            title: 'Expensive roaming',
-            description: 'Save compared with roaming and many travel eSIM offers.',
+          once: {
+            title: 'Install once. Forever.',
+            description: 'A single eSIM setup on your phone — reuse it in every country you visit, for years.',
           },
-          newSim: {
-            title: 'Buying a new SIM every trip',
-            description: 'Install Silk once and keep using the same eSIM anywhere.',
+          ready: {
+            title: 'Arrive online',
+            description: 'Land, unlock your phone, you\'re connected. No SIM shops, no airport Wi-Fi queues.',
           },
-          wifi: {
-            title: 'Searching for Wi-Fi after landing',
-            description: 'Have your data plan ready before your plane touches down.',
+          noRoaming: {
+            title: 'No roaming, no SIM piles',
+            description: 'One clean tariff per trip — no shock bills, no drawer full of plastic cards.',
+          },
+          keepNumber: {
+            title: 'Keep your number',
+            description: 'Your primary line stays active. Calls, SMS, WhatsApp, iMessage — untouched.',
           },
         },
       },
@@ -39,8 +40,8 @@ const resources = {
         title: 'Where are you travelling?',
         placeholder: 'Search a country or region',
         empty: 'No destination found. Try another name.',
-        popular: 'Popular right now',
-        showing: 'Showing plans for',
+        popular: 'Popular',
+        showing: 'Plans for',
         clear: 'Clear',
         results: 'results',
       },
