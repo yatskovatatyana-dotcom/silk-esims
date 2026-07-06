@@ -1,26 +1,10 @@
 import { useTranslation } from 'react-i18next';
-import { ShoppingCart, Download, ToggleRight, RefreshCcw, type LucideIcon } from 'lucide-react';
 
-type Step = { key: 'choose' | 'install' | 'travel' | 'reuse'; icon: LucideIcon };
-
-const PhoneFrame = ({ icon: Icon }: { icon: LucideIcon }) => (
-  <div className="relative w-14 h-20 rounded-[12px] bg-white shadow-soft ring-1 ring-foreground/10 flex items-center justify-center">
-    {/* Notch */}
-    <span className="absolute top-1.5 left-1/2 -translate-x-1/2 w-5 h-[3px] rounded-full bg-foreground/15" />
-    {/* Side button */}
-    <span className="absolute -right-[3px] top-5 w-[3px] h-4 rounded-r bg-foreground/15" />
-    <Icon className="w-6 h-6 text-primary" strokeWidth={1.9} />
-  </div>
-);
+type StepKey = 'choose' | 'install' | 'travel' | 'reuse';
 
 const HowItWorks = () => {
   const { t } = useTranslation();
-  const steps: Step[] = [
-    { key: 'choose', icon: ShoppingCart },
-    { key: 'install', icon: Download },
-    { key: 'travel', icon: ToggleRight },
-    { key: 'reuse', icon: RefreshCcw },
-  ];
+  const steps: StepKey[] = ['choose', 'install', 'travel', 'reuse'];
 
   return (
     <section id="how-it-works" className="py-24 md:py-32 scroll-mt-20">
@@ -74,17 +58,14 @@ const HowItWorks = () => {
           </div>
 
           <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-            {steps.map(({ key, icon }, i) => (
+            {steps.map((key, i) => (
               <div
                 key={key}
                 className="group flex flex-col rounded-2xl bg-background/5 backdrop-blur-sm border border-background/10 p-5 hover:bg-background/10 hover:-translate-y-0.5 transition-all duration-300"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-secondary font-bold text-sm tracking-tight">
-                    {String(i + 1).padStart(2, '0')}.
-                  </span>
-                  <PhoneFrame icon={icon} />
-                </div>
+                <span className="text-secondary font-bold text-2xl tracking-tight mb-3">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
                 <h3 className="text-base font-semibold text-background leading-snug">
                   {t(`howItWorks.steps.${key}.title`)}
                 </h3>
