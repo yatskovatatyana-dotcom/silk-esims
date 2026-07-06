@@ -45,39 +45,47 @@ const CTA = () => {
             </div>
           </div>
 
-          {/* Right: Testimonials */}
-          <div className="lg:col-span-2 flex flex-col gap-4">
+          {/* Right: Instagram-story-style testimonial circles */}
+          <div className="lg:col-span-2 flex flex-col justify-center gap-6 md:gap-7">
             {REVIEW_KEYS.map((k) => (
-              <article
-                key={k}
-                className="flex-1 rounded-2xl bg-card border border-border/60 p-5 md:p-6 shadow-card"
-              >
-                <div className="flex items-center gap-3 mb-3">
-                  <img
-                    src={AVATARS[k]}
-                    alt=""
-                    className="w-11 h-11 rounded-full object-cover shrink-0"
-                    loading="lazy"
-                    width={44}
-                    height={44}
-                  />
-                  <div className="min-w-0">
-                    <div className="font-semibold text-foreground text-sm truncate">
-                      {t(`cta.reviews.${k}.name`)}
+              <article key={k} className="flex items-center gap-4">
+                {/* Gradient story ring */}
+                <div className="relative shrink-0">
+                  <div
+                    className="p-[3px] rounded-full"
+                    style={{
+                      background:
+                        'conic-gradient(from 210deg, #f58529, #dd2a7b, #8134af, #515bd4, #f58529)',
+                    }}
+                  >
+                    <div className="p-[2px] rounded-full bg-background">
+                      <img
+                        src={AVATARS[k]}
+                        alt=""
+                        className="w-16 h-16 md:w-[72px] md:h-[72px] rounded-full object-cover block"
+                        loading="lazy"
+                        width={72}
+                        height={72}
+                      />
                     </div>
-                    <div className="text-xs text-foreground/50 truncate">
-                      {t(`cta.reviews.${k}.role`)}
-                    </div>
-                  </div>
-                  <div className="ml-auto flex items-center gap-0.5 shrink-0" aria-label="5 out of 5 stars">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-secondary text-secondary" />
-                    ))}
                   </div>
                 </div>
-                <p className="text-sm text-foreground/75 leading-relaxed">
-                  “{t(`cta.reviews.${k}.text`)}”
-                </p>
+                {/* Text */}
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="font-semibold text-foreground text-sm truncate">
+                      {t(`cta.reviews.${k}.name`)}
+                    </span>
+                    <span className="flex items-center gap-0.5 shrink-0" aria-label="5 out of 5">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <Star key={i} className="w-3 h-3 fill-secondary text-secondary" />
+                      ))}
+                    </span>
+                  </div>
+                  <p className="text-sm text-foreground/75 leading-snug line-clamp-3">
+                    “{t(`cta.reviews.${k}.text`)}”
+                  </p>
+                </div>
               </article>
             ))}
           </div>
