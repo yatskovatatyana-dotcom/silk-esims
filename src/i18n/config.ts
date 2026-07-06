@@ -36,6 +36,9 @@ const resources = {
         popularBadge: 'Popular',
         allPlans: 'All plans in',
         daysShort: 'days',
+        optimalBadge: 'OPTIMAL',
+        bestBadge: 'BEST VALUE',
+        optimalNote: 'Best for 2 weeks',
       },
       heroStrip: {
         countries: { title: '180+ countries', body: 'Travel across 180+ countries and regions worldwide.' },
