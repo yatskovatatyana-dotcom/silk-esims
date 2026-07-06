@@ -183,7 +183,7 @@ const Hero = () => {
                       <div className="text-xs text-foreground/60">
                         {t('heroSearch.fromPrice')} {active.plans[0]?.price}
                       </div>
-                      <div className="text-[11px] text-foreground/50 mt-1">
+                      <div className="text-sm font-medium text-foreground/80 mt-1.5">
                         {t('heroSearch.checkoutNote')}
                       </div>
                     </div>
