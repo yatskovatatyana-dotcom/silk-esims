@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { ShoppingCart, Download, ToggleRight, RefreshCcw, type LucideIcon } from 'lucide-react';
 
-type Step = { key: 'install' | 'choose' | 'travel'; icon: LucideIcon };
+type Step = { key: 'choose' | 'install' | 'travel' | 'reuse'; icon: LucideIcon };
 
 const PhoneFrame = ({ icon: Icon }: { icon: LucideIcon }) => (
   <div className="relative w-16 h-24 md:w-[72px] md:h-28 rounded-[14px] bg-white shadow-soft ring-1 ring-foreground/10 flex items-center justify-center">
