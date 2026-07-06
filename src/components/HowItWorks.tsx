@@ -73,26 +73,24 @@ const HowItWorks = () => {
             </svg>
           </div>
 
-          <div className="relative grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+          <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
             {steps.map(({ key, icon }, i) => (
               <div
                 key={key}
-                className="group flex items-start gap-4 md:gap-5 rounded-2xl bg-background/5 backdrop-blur-sm border border-background/10 p-6 md:p-7 hover:bg-background/10 hover:-translate-y-0.5 transition-all duration-300"
+                className="group flex flex-col rounded-2xl bg-background/5 backdrop-blur-sm border border-background/10 p-5 hover:bg-background/10 hover:-translate-y-0.5 transition-all duration-300"
               >
-                <div className="flex flex-col items-center shrink-0">
-                  <span className="text-secondary font-bold text-sm md:text-base tracking-tight mb-2">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-secondary font-bold text-sm tracking-tight">
                     {String(i + 1).padStart(2, '0')}.
                   </span>
                   <PhoneFrame icon={icon} />
                 </div>
-                <div className="pt-1">
-                  <h3 className="text-base md:text-lg font-semibold text-background leading-snug">
-                    {t(`howItWorks.steps.${key}.title`)}
-                  </h3>
-                  <p className="mt-2 text-sm md:text-[15px] text-background/70 leading-relaxed">
-                    {t(`howItWorks.steps.${key}.description`)}
-                  </p>
-                </div>
+                <h3 className="text-base font-semibold text-background leading-snug">
+                  {t(`howItWorks.steps.${key}.title`)}
+                </h3>
+                <p className="mt-2 text-sm text-background/70 leading-relaxed">
+                  {t(`howItWorks.steps.${key}.description`)}
+                </p>
               </div>
             ))}
           </div>
