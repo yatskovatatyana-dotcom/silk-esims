@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { Search, ChevronRight, Wifi, Tag, Plane, Smartphone, Globe, Zap, ShieldCheck } from 'lucide-react';
+import { Search, ChevronRight, Wifi, Tag, Plane, Smartphone, Globe, Zap, ShieldCheck, X } from 'lucide-react';
 import heroBeach from '@/assets/hero-beach.jpg';
 import { heroCountries, heroChipSlugs, type HeroCountry } from '@/data/heroCountries';
 
