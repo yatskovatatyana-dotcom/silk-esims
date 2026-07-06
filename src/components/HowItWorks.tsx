@@ -1,26 +1,10 @@
 import { useTranslation } from 'react-i18next';
-import { ShoppingCart, Download, ToggleRight, RefreshCcw, type LucideIcon } from 'lucide-react';
 
-type Step = { key: 'choose' | 'install' | 'travel' | 'reuse'; icon: LucideIcon };
-
-const PhoneFrame = ({ icon: Icon }: { icon: LucideIcon }) => (
-  <div className="relative w-14 h-20 rounded-[12px] bg-white shadow-soft ring-1 ring-foreground/10 flex items-center justify-center">
-    {/* Notch */}
-    <span className="absolute top-1.5 left-1/2 -translate-x-1/2 w-5 h-[3px] rounded-full bg-foreground/15" />
-    {/* Side button */}
-    <span className="absolute -right-[3px] top-5 w-[3px] h-4 rounded-r bg-foreground/15" />
-    <Icon className="w-6 h-6 text-primary" strokeWidth={1.9} />
-  </div>
-);
+type StepKey = 'choose' | 'install' | 'travel' | 'reuse';
 
 const HowItWorks = () => {
   const { t } = useTranslation();
-  const steps: Step[] = [
-    { key: 'choose', icon: ShoppingCart },
-    { key: 'install', icon: Download },
-    { key: 'travel', icon: ToggleRight },
-    { key: 'reuse', icon: RefreshCcw },
-  ];
+  const steps: StepKey[] = ['choose', 'install', 'travel', 'reuse'];
 
   return (
     <section id="how-it-works" className="py-24 md:py-32 scroll-mt-20">
