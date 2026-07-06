@@ -93,13 +93,14 @@ const resources = {
         perGb: 'per GB',
       },
       whyLess: {
-        title: 'Why are our prices lower?',
-        subtitle: 'A leaner model — passed on to travelers.',
+        title: 'Why our prices are lower',
+        subtitle: 'A leaner model — savings passed on to you.',
         items: {
-          digital: { title: 'Digital delivery', description: 'Everything arrives instantly in your inbox — no shipping, no waiting.' },
-          noSim: { title: 'No physical SIM', description: 'One reusable eSIM replaces a drawer full of plastic cards.' },
-          noRetail: { title: 'No retail stores', description: 'No airport kiosks, no rent, no middlemen taking a cut.' },
-          pricing: { title: 'Competitive data pricing', description: 'We negotiate wholesale rates and keep margins honest.' },
+          marketing: { title: 'Low marketing spend', description: 'We don\'t burn budget on expensive ads — so you save money.' },
+          lean: { title: 'Lean digital service', description: 'A minimal product without bloated features or development overhead.' },
+          direct: { title: 'Direct carrier deals', description: 'We work directly with local operators — no middlemen in between.' },
+          automation: { title: 'Optimized operations', description: 'Smart tech and automation keep our running costs down.' },
+          clean: { title: 'Clean service, no extras', description: 'You pay for internet only — nothing you don\'t need.' },
         },
       },
       howItWorks: {
