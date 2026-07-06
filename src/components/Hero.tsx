@@ -236,9 +236,6 @@ const Hero = () => {
                             <ChevronRight className="w-4 h-4 text-foreground/40" />
                           </div>
                         </button>
-                        <div className="mt-1.5 px-4 text-[11px] text-foreground/50">
-                          {t('heroSearch.checkoutNote')}
-                        </div>
                       </div>
                     );
                   })}
