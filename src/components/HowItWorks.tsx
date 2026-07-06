@@ -16,9 +16,10 @@ const PhoneFrame = ({ icon: Icon }: { icon: LucideIcon }) => (
 const HowItWorks = () => {
   const { t } = useTranslation();
   const steps: Step[] = [
-    { key: 'install', icon: ShoppingCart },
-    { key: 'choose', icon: Globe },
+    { key: 'choose', icon: ShoppingCart },
+    { key: 'install', icon: Download },
     { key: 'travel', icon: ToggleRight },
+    { key: 'reuse', icon: RefreshCcw },
   ];
 
   return (
