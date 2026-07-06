@@ -244,22 +244,8 @@ const Hero = () => {
             </div>
           )}
         </div>
-
-        {/* Bottom dark feature strip */}
-        <div className="mt-4 rounded-3xl bg-foreground/95 backdrop-blur px-6 py-6 md:py-7">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stripFeatures.map((f) => (
-              <div key={f.title} className="flex items-start gap-3">
-                <f.icon className="w-6 h-6 text-secondary shrink-0" strokeWidth={1.75} />
-                <div>
-                  <div className="text-background font-semibold text-sm">{f.title}</div>
-                  <p className="text-background/60 text-xs mt-1 leading-relaxed">{f.body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
+
     </section>
   );
 };
