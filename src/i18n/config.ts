@@ -39,6 +39,8 @@ const resources = {
         optimalBadge: 'OPTIMAL',
         bestBadge: 'BEST VALUE',
         optimalNote: 'Best for 2 weeks',
+        fromPrice: 'from',
+        moreDestinations: 'More destinations',
       },
       heroStrip: {
         countries: { title: '180+ countries', body: 'Travel across 180+ countries and regions worldwide.' },
@@ -213,6 +215,8 @@ const resources = {
         optimalBadge: 'ОПТИМАЛЬНО',
         bestBadge: 'САМЫЙ ВЫГОДНЫЙ',
         optimalNote: 'Оптимально на 2 недели',
+        fromPrice: 'от',
+        moreDestinations: 'Больше стран',
       },
       heroStrip: {
         countries: { title: '180+ стран', body: 'Путешествуйте в 180+ странах и регионах мира.' },
