@@ -352,12 +352,24 @@ const resources = {
   },
 };
 
+const stored = typeof window !== 'undefined' ? window.localStorage.getItem('silk-lang') : null;
+const browser = typeof navigator !== 'undefined' && navigator.language?.toLowerCase().startsWith('ru') ? 'ru' : 'en';
+const initialLang = stored === 'ru' || stored === 'en' ? stored : browser;
+
 i18n.use(initReactI18next).init({
   resources,
-  lng: 'en',
+  lng: initialLang,
   fallbackLng: 'en',
   interpolation: { escapeValue: false },
   react: { useSuspense: false },
 });
+
+if (typeof window !== 'undefined') {
+  i18n.on('languageChanged', (lng) => {
+    window.localStorage.setItem('silk-lang', lng);
+    document.documentElement.lang = lng;
+  });
+  document.documentElement.lang = initialLang;
+}
 
 export default i18n;
