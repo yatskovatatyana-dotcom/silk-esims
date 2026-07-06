@@ -286,7 +286,7 @@ const Hero = () => {
                 </button>
               </div>
 
-              <div className="flex flex-col gap-3">
+              <div className="space-y-2.5">
                 {[0, 1, 3].map((idx, i) => {
                   const p = active.plans[idx];
                   if (!p) return null;
@@ -301,35 +301,28 @@ const Hero = () => {
                     <button
                       key={idx}
                       onClick={() => navigate('/login')}
-                      className={`w-full flex items-center justify-between gap-6 rounded-2xl bg-white px-6 py-5 transition-all hover:-translate-y-0.5 ${
+                      className={`w-full flex items-center justify-between gap-3 rounded-2xl bg-card px-4 py-3.5 transition-all active:scale-[0.98] ${
                         isOptimal
-                          ? 'border-2 border-secondary shadow-elegant'
-                          : 'border border-border hover:border-foreground/20'
+                          ? 'border-2 border-secondary shadow-soft'
+                          : 'border border-border'
                       }`}
                     >
-                      <div className="flex items-center gap-5 min-w-0">
+                      <div className="flex items-center gap-3 min-w-0">
                         <div className="text-left">
-                          <div className="text-3xl font-extrabold text-foreground tracking-tight leading-none">
-                            {p.data}
-                          </div>
-                          <div className="mt-1.5 text-sm text-foreground/60">
+                          <div className="text-xl font-extrabold text-foreground leading-tight">{p.data}</div>
+                          <div className="text-[11px] text-foreground/60 mt-0.5">
                             {p.days} {t('heroSearch.daysShort')}
-                            {isOptimal && (
-                              <span className="ml-2 text-foreground/40">· {t('heroSearch.optimalNote')}</span>
-                            )}
                           </div>
                         </div>
                         {badge && (
-                          <span className="inline-flex items-center px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-[11px] font-bold tracking-wider whitespace-nowrap">
+                          <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary text-secondary-foreground text-[9px] font-bold tracking-wider whitespace-nowrap">
                             {badge}
                           </span>
                         )}
                       </div>
-                      <div className="flex items-center gap-3 shrink-0">
-                        <span className="text-2xl font-extrabold text-foreground">
-                          {p.price}
-                        </span>
-                        <ChevronRight className="w-5 h-5 text-foreground/40" />
+                      <div className="flex items-center gap-1 shrink-0">
+                        <span className="text-lg font-extrabold text-foreground">{p.price}</span>
+                        <ChevronRight className="w-4 h-4 text-foreground/40" />
                       </div>
                     </button>
                   );
