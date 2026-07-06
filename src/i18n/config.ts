@@ -103,12 +103,13 @@ const resources = {
         },
       },
       howItWorks: {
-        title: 'Get connected in just 3 steps',
-        subtitle: 'Three steps. That\'s it.',
+        title: 'Get connected in just 4 steps',
+        subtitle: 'Four steps. That\'s it.',
         steps: {
-          install: { title: 'Install Silk once', description: 'A one-time setup on your phone in under a minute.' },
-          choose: { title: 'Choose your destination', description: 'Pick a plan for wherever you\'re headed next.' },
+          choose: { title: 'Choose a country & buy a plan', description: 'Pick your destination and the data plan that fits your trip.' },
+          install: { title: 'Install your eSIM', description: 'A one-time setup on your phone in under a minute.' },
           travel: { title: 'Travel connected', description: 'Land, unlock your phone, browse. Nothing else to do.' },
+          reuse: { title: 'Top up for the next trip', description: 'Buy more plans for future trips — no need to reinstall the eSIM.' },
         },
       },
       whyChoose: {
