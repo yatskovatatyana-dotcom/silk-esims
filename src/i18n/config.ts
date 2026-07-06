@@ -151,9 +151,15 @@ const resources = {
         },
       },
       cta: {
-        title: 'One install. Every trip from now on.',
-        subtitle: 'Join travelers who never think about SIM cards anymore.',
-        button: 'Get Silk eSIM',
+        title: 'Join travelers who never think about SIM cards anymore.',
+        subtitle: 'One install. Every trip from now on.',
+        button: 'Get connected',
+        reviewsTitle: 'What travelers say',
+        reviews: {
+          one: { name: 'Anna K.', role: 'Traveler', text: 'Landed in Bali, unlocked my phone, was online in seconds. Never buying an airport SIM again.' },
+          two: { name: 'Michael R.', role: 'Digital nomad', text: 'One eSIM, twelve countries this year. Setup once and forget — exactly what I needed.' },
+          three: { name: 'Sofia P.', role: 'Frequent flyer', text: 'Way cheaper than roaming and simpler than the eSIM apps I used before. Just works.' },
+        },
       },
       footer: {
         tagline: 'One eSIM. Every trip.',
