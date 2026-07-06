@@ -1,22 +1,34 @@
 import { useTranslation } from 'react-i18next';
-import { ShoppingCart, SmartphoneNfc, ToggleRight } from 'lucide-react';
+import { ShoppingCart, Globe, ToggleRight, type LucideIcon } from 'lucide-react';
+
+type Step = { key: 'install' | 'choose' | 'travel'; icon: LucideIcon };
+
+const PhoneFrame = ({ icon: Icon }: { icon: LucideIcon }) => (
+  <div className="relative w-16 h-24 md:w-[72px] md:h-28 rounded-[14px] bg-white shadow-soft ring-1 ring-foreground/10 flex items-center justify-center">
+    {/* Notch */}
+    <span className="absolute top-1.5 left-1/2 -translate-x-1/2 w-6 h-1 rounded-full bg-foreground/15" />
+    {/* Side button */}
+    <span className="absolute -right-[3px] top-6 w-[3px] h-5 rounded-r bg-foreground/15" />
+    <Icon className="w-7 h-7 md:w-8 md:h-8 text-primary" strokeWidth={1.9} />
+  </div>
+);
 
 const HowItWorks = () => {
   const { t } = useTranslation();
-  const steps = [
+  const steps: Step[] = [
     { key: 'install', icon: ShoppingCart },
-    { key: 'choose', icon: SmartphoneNfc },
+    { key: 'choose', icon: Globe },
     { key: 'travel', icon: ToggleRight },
-  ] as const;
+  ];
 
   return (
     <section id="how-it-works" className="py-24 md:py-32 scroll-mt-20">
       <div className="container mx-auto max-w-6xl px-4">
-        <div className="relative rounded-[2.5rem] bg-secondary/15 px-4 sm:px-8 md:px-12 py-14 md:py-20 overflow-hidden">
+        <div className="relative rounded-[2.5rem] bg-foreground text-background px-4 sm:px-8 md:px-12 py-14 md:py-20 overflow-hidden">
           {/* Decorative squiggle */}
           <svg
             aria-hidden
-            className="pointer-events-none absolute -right-8 top-8 hidden md:block text-primary/10"
+            className="pointer-events-none absolute -right-8 top-8 hidden md:block text-secondary/20"
             width="260"
             height="260"
             viewBox="0 0 200 200"
@@ -39,12 +51,12 @@ const HowItWorks = () => {
           </svg>
 
           <div className="relative text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground">
+            <h2 className="text-3xl md:text-5xl font-bold text-background">
               {t('howItWorks.title')}
             </h2>
             <svg
               aria-hidden
-              className="mx-auto mt-4 text-foreground/70"
+              className="mx-auto mt-4 text-secondary"
               width="70"
               height="14"
               viewBox="0 0 70 14"
@@ -61,24 +73,22 @@ const HowItWorks = () => {
           </div>
 
           <div className="relative grid md:grid-cols-3 gap-5 md:gap-6">
-            {steps.map(({ key, icon: Icon }, i) => (
+            {steps.map(({ key, icon }, i) => (
               <div
                 key={key}
-                className="group flex items-start gap-4 md:gap-5 rounded-2xl bg-white p-6 md:p-7 shadow-soft hover:shadow-elegant hover:-translate-y-0.5 transition-all duration-300"
+                className="group flex items-start gap-4 md:gap-5 rounded-2xl bg-background/5 backdrop-blur-sm border border-background/10 p-6 md:p-7 hover:bg-background/10 hover:-translate-y-0.5 transition-all duration-300"
               >
                 <div className="flex flex-col items-center shrink-0">
-                  <span className="text-primary font-bold text-sm md:text-base tracking-tight">
+                  <span className="text-secondary font-bold text-sm md:text-base tracking-tight mb-2">
                     {String(i + 1).padStart(2, '0')}.
                   </span>
-                  <div className="mt-2 w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-secondary/20 flex items-center justify-center">
-                    <Icon className="w-7 h-7 md:w-8 md:h-8 text-foreground" strokeWidth={1.75} />
-                  </div>
+                  <PhoneFrame icon={icon} />
                 </div>
                 <div className="pt-1">
-                  <h3 className="text-base md:text-lg font-semibold text-foreground leading-snug">
+                  <h3 className="text-base md:text-lg font-semibold text-background leading-snug">
                     {t(`howItWorks.steps.${key}.title`)}
                   </h3>
-                  <p className="mt-2 text-sm md:text-[15px] text-foreground/70 leading-relaxed">
+                  <p className="mt-2 text-sm md:text-[15px] text-background/70 leading-relaxed">
                     {t(`howItWorks.steps.${key}.description`)}
                   </p>
                 </div>
