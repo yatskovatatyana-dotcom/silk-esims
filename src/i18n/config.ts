@@ -218,6 +218,7 @@ const resources = {
         optimalBadge: 'ОПТИМАЛЬНО',
         bestBadge: 'САМЫЙ ВЫГОДНЫЙ',
         optimalNote: 'Оптимально на 2 недели',
+        checkoutNote: 'Оформи в личном кабинете',
         fromPrice: 'от',
         moreDestinations: 'Больше стран',
       },
