@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { ShoppingCart, Globe, ToggleRight, type LucideIcon } from 'lucide-react';
+import { ShoppingCart, Download, ToggleRight, RefreshCcw, type LucideIcon } from 'lucide-react';
 
 type Step = { key: 'install' | 'choose' | 'travel'; icon: LucideIcon };
 
