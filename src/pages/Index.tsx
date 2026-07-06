@@ -1,6 +1,8 @@
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Problems from '@/components/Problems';
+import Destinations from '@/components/Destinations';
+import WhyLess from '@/components/WhyLess';
 import HowItWorks from '@/components/HowItWorks';
 import WhyChoose from '@/components/WhyChoose';
 import Comparison from '@/components/Comparison';
@@ -15,6 +17,8 @@ const Index = () => (
     <main>
       <Hero />
       <Problems />
+      <Destinations />
+      <WhyLess />
       <HowItWorks />
       <WhyChoose />
       <Comparison />
