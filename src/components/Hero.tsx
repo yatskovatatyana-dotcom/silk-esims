@@ -34,12 +34,6 @@ const Hero = () => {
     { icon: Smartphone, title: t('heroFeatures.keep.title'),    body: t('heroFeatures.keep.body') },
   ];
 
-  const stripFeatures = [
-    { icon: Globe,       title: t('heroStrip.countries.title'), body: t('heroStrip.countries.body') },
-    { icon: Smartphone,  title: t('heroStrip.forever.title'),   body: t('heroStrip.forever.body') },
-    { icon: Zap,         title: t('heroStrip.instant.title'),   body: t('heroStrip.instant.body') },
-    { icon: ShieldCheck, title: t('heroStrip.noFees.title'),    body: t('heroStrip.noFees.body') },
-  ];
 
   return (
     <section className="relative min-h-screen overflow-hidden pt-24 md:pt-28 pb-8">
