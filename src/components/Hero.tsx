@@ -48,7 +48,7 @@ const Hero = () => {
         <img
           src={heroBeach}
           alt=""
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-[center_75%]"
           width={1920}
           height={1280}
         />
