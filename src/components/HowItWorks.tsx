@@ -7,9 +7,9 @@ const HowItWorks = () => {
   const steps: StepKey[] = ['choose', 'install', 'travel', 'reuse'];
 
   return (
-    <section id="how-it-works" className="py-14 md:py-20 scroll-mt-20">
+    <section id="how-it-works" className="py-14 md:py-16 scroll-mt-20">
       <div className="container mx-auto max-w-6xl px-4">
-        <div className="relative rounded-[2.5rem] bg-foreground text-background px-4 sm:px-8 md:px-12 py-14 md:py-20 overflow-hidden">
+        <div className="relative rounded-[2.5rem] bg-foreground text-background px-4 sm:px-8 md:px-12 py-14 md:py-16 overflow-hidden">
           {/* Decorative squiggle */}
           <svg
             aria-hidden
@@ -35,7 +35,7 @@ const HowItWorks = () => {
             />
           </svg>
 
-          <div className="relative text-center mb-12 md:mb-16">
+          <div className="relative text-center mb-10 md:mb-12">
             <h2 className="text-3xl md:text-5xl font-bold text-background">
               {t('howItWorks.title')}
             </h2>
