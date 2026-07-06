@@ -73,7 +73,7 @@ const HowItWorks = () => {
             </svg>
           </div>
 
-          <div className="relative grid md:grid-cols-3 gap-5 md:gap-6">
+          <div className="relative grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
             {steps.map(({ key, icon }, i) => (
               <div
                 key={key}
