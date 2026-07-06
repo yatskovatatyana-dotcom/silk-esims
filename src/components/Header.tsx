@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Button } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import silkLogo from '@/assets/silk-logo.png.asset.json';
+import { Globe } from 'lucide-react';
 
 const Header = () => {
   const { t, i18n } = useTranslation();
@@ -20,50 +19,64 @@ const Header = () => {
   };
 
   const nav = [
-    { id: 'destinations', label: t('nav.destinations') },
-    { id: 'how-it-works', label: t('nav.howItWorks') },
-    { id: 'faq', label: t('nav.faq') },
+    { id: 'destinations',  label: t('navNew.destinations') },
+    { id: 'how-it-works',  label: t('navNew.howItWorks') },
+    { id: 'coverage',      label: t('navNew.coverage') },
+    { id: 'about',         label: t('navNew.about') },
   ];
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-background/80 backdrop-blur-xl border-b border-border/60' : 'bg-transparent'
+        scrolled ? 'bg-background/90 backdrop-blur-xl border-b border-border/60' : 'bg-transparent'
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between h-16">
-        <a href="/" className="flex items-center gap-2.5 group">
-          <img src={silkLogo.url} alt="Silk eSIM" className="w-9 h-9 rounded-full" />
-          <span className="text-lg font-bold tracking-tight text-foreground">Silk</span>
+      <div className="container mx-auto flex items-center justify-between h-20">
+        <a href="/" className="flex items-center gap-2">
+          <span className={`text-xl font-bold tracking-tight ${scrolled ? 'text-foreground' : 'text-white'}`}>
+            Silk eSIM
+          </span>
         </a>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
           {nav.map((n) => (
             <button
               key={n.id}
               onClick={() => scrollTo(n.id)}
-              className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors"
+              className={`text-sm font-medium transition-colors ${
+                scrolled ? 'text-foreground/70 hover:text-foreground' : 'text-white/80 hover:text-white'
+              }`}
             >
               {n.label}
             </button>
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3 md:gap-5">
+          <button
+            onClick={() => scrollTo('faq')}
+            className={`hidden md:inline text-sm font-medium transition-colors ${
+              scrolled ? 'text-foreground/70 hover:text-foreground' : 'text-white/80 hover:text-white'
+            }`}
+          >
+            {t('navNew.support')}
+          </button>
           <button
             onClick={() => i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')}
-            className="text-xs font-semibold text-foreground/60 hover:text-foreground transition-colors px-2 py-1 uppercase tracking-wider"
+            className={`inline-flex items-center gap-1.5 text-sm font-medium transition-colors ${
+              scrolled ? 'text-foreground/70 hover:text-foreground' : 'text-white/80 hover:text-white'
+            }`}
             aria-label="Toggle language"
           >
-            {i18n.language === 'ru' ? 'EN' : 'RU'}
+            <Globe className="w-4 h-4" />
+            {t('navNew.signIn')}
           </button>
-          <Button
-            size="sm"
+          <button
             onClick={() => navigate('/login')}
-            className="bg-foreground text-background hover:bg-foreground/90 rounded-full font-semibold px-5"
+            className="inline-flex items-center h-10 md:h-11 px-4 md:px-5 rounded-full bg-secondary text-secondary-foreground font-semibold text-sm hover:bg-secondary/90 transition-colors"
           >
-            {t('hero.getEsim')}
-          </Button>
+            {t('navNew.install')}
+          </button>
         </div>
       </div>
     </header>
