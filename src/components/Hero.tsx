@@ -163,28 +163,52 @@ const Hero = () => {
               </button>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-              {active.plans.map((p, i) => (
-                <button
-                  key={i}
-                  onClick={() => navigate('/login')}
-                  className="group text-left rounded-2xl bg-muted/50 hover:bg-muted p-4 transition-colors"
-                >
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <div className="text-xl font-bold text-foreground">{p.data}</div>
-                      <div className="text-xs text-foreground/60 mt-0.5">
-                        {p.days} {t('heroSearch.daysShort')}
-                      </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+              {[0, 1, 3].map((idx, i) => {
+                const p = active.plans[idx];
+                if (!p) return null;
+                const isOptimal = i === 1;
+                const isBest = i === 2;
+                const badge = isOptimal
+                  ? t('heroSearch.optimalBadge')
+                  : isBest
+                  ? t('heroSearch.bestBadge')
+                  : null;
+                return (
+                  <button
+                    key={idx}
+                    onClick={() => navigate('/login')}
+                    className={`relative text-center rounded-2xl bg-white p-6 md:p-7 transition-all hover:-translate-y-0.5 ${
+                      isOptimal
+                        ? 'border-2 border-secondary shadow-elegant'
+                        : 'border border-border hover:border-foreground/20'
+                    }`}
+                  >
+                    {badge && (
+                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-[11px] font-bold tracking-wider whitespace-nowrap">
+                        {badge}
+                      </span>
+                    )}
+                    <div className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight">
+                      {p.data}
                     </div>
-                    <Wifi className="w-4 h-4 text-secondary" />
-                  </div>
-                  <div className="mt-6 flex items-center justify-between">
-                    <div className="text-lg font-bold text-foreground">{p.price}</div>
-                    <ChevronRight className="w-4 h-4 text-foreground/40 group-hover:text-foreground transition-colors" />
-                  </div>
-                </button>
-              ))}
+                    <div className="mt-2 text-sm text-foreground/60">
+                      {p.days} {t('heroSearch.daysShort')}
+                    </div>
+                    {isOptimal && (
+                      <div className="mt-1 text-xs text-foreground/50">
+                        {t('heroSearch.optimalNote')}
+                      </div>
+                    )}
+                    <div className="mt-6 flex items-center justify-center gap-2">
+                      <span className="text-2xl md:text-3xl font-extrabold text-foreground">
+                        {p.price}
+                      </span>
+                      <ChevronRight className="w-5 h-5 text-foreground/40" />
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>
