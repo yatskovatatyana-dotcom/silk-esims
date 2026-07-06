@@ -1,107 +1,184 @@
-import { Button } from '@/components/ui/button';
-import { ArrowRight, Plane } from 'lucide-react';
+import { useMemo, useState } from 'react';
+import { Search, X, ArrowRight, Sparkles } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import silkLogo from '@/assets/silk-logo.png.asset.json';
-
-const destinationChips = [
-  { flag: '🇮🇹', name: 'Barcelona' },
-  { flag: '🇯🇵', name: 'Tokyo' },
-  { flag: '🇺🇸', name: 'New York' },
-  { flag: '🇹🇭', name: 'Bangkok' },
-  { flag: '🇦🇪', name: 'Dubai' },
-];
+import { useNavigate } from 'react-router-dom';
+import { destinations, popularSlugs, type Destination } from '@/data/destinations';
+import { Button } from '@/components/ui/button';
 
 const Hero = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
+  const [query, setQuery] = useState('');
+  const [selected, setSelected] = useState<Destination | null>(null);
+  const lang = (i18n.language === 'ru' ? 'ru' : 'en') as 'ru' | 'en';
 
-  const scrollTo = (id: string) =>
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  const filtered = useMemo(() => {
+    if (!query.trim()) return [];
+    const q = query.trim().toLowerCase();
+    return destinations
+      .filter((d) => d.name.en.toLowerCase().includes(q) || d.name.ru.toLowerCase().includes(q))
+      .slice(0, 6);
+  }, [query]);
+
+  const popular = useMemo(
+    () => popularSlugs.map((s) => destinations.find((d) => d.slug === s)!).filter(Boolean),
+    []
+  );
+
+  const pickDestination = (d: Destination) => {
+    setSelected(d);
+    setQuery(d.name[lang]);
+    // scroll plans into view on mobile
+    setTimeout(() => {
+      document.getElementById('plans')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 60);
+  };
 
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-hero">
+    <section className="relative pt-28 pb-16 md:pt-36 md:pb-20 overflow-hidden bg-gradient-hero">
       {/* Soft floating brand blobs */}
-      <div aria-hidden className="absolute top-24 -left-20 w-72 h-72 rounded-full bg-secondary/40 blur-3xl animate-float-slow" />
-      <div aria-hidden className="absolute bottom-0 -right-24 w-96 h-96 rounded-full bg-primary/20 blur-3xl animate-float-slow" style={{ animationDelay: '2s' }} />
+      <div aria-hidden className="absolute top-20 -left-24 w-72 h-72 rounded-full bg-secondary/40 blur-3xl animate-float-slow" />
+      <div aria-hidden className="absolute bottom-0 -right-24 w-96 h-96 rounded-full bg-primary/25 blur-3xl animate-float-slow" style={{ animationDelay: '2s' }} />
 
-      <div className="container relative mx-auto max-w-5xl text-center">
-        <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/60 backdrop-blur px-4 py-1.5 text-xs font-semibold text-foreground/70 mb-8 shadow-soft">
+      <div className="container relative mx-auto max-w-4xl text-center">
+        <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/70 backdrop-blur px-4 py-1.5 text-xs font-semibold text-foreground/70 mb-8 shadow-soft">
           <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
           {t('hero.badge')}
         </div>
 
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-foreground leading-[0.95] whitespace-pre-line mb-8">
+        <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold text-foreground leading-[0.95] whitespace-pre-line mb-6">
           {t('hero.title')}
         </h1>
 
-        <p className="text-xl md:text-2xl text-foreground/70 max-w-2xl mx-auto mb-4">
+        <p className="text-lg md:text-xl text-foreground/65 max-w-2xl mx-auto mb-10">
           {t('hero.subtitle')}
         </p>
-        <p className="text-sm md:text-base text-foreground/50 max-w-xl mx-auto mb-10">
-          {t('hero.supporting')}
-        </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-16">
-          <Button
-            size="lg"
-            onClick={() => scrollTo('destinations')}
-            className="rounded-full font-semibold px-8 h-12 bg-foreground text-background hover:bg-foreground/90 shadow-elegant"
-          >
-            {t('hero.ctaPrimary')}
-            <ArrowRight className="ml-2 w-4 h-4" />
-          </Button>
-          <Button
-            size="lg"
-            variant="ghost"
-            onClick={() => scrollTo('how-it-works')}
-            className="rounded-full font-semibold px-8 h-12 text-foreground hover:bg-foreground/5"
-          >
-            {t('hero.ctaSecondary')}
-          </Button>
-        </div>
+        {/* Destination search — the primary hero action */}
+        <div className="relative max-w-xl mx-auto">
+          <div className="relative">
+            <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/40" />
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => { setQuery(e.target.value); setSelected(null); }}
+              placeholder={t('search.placeholder')}
+              className="w-full h-16 pl-14 pr-14 rounded-2xl border border-border bg-card text-lg font-medium text-foreground placeholder:text-foreground/40 shadow-elegant focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all"
+            />
+            {query && (
+              <button
+                onClick={() => { setQuery(''); setSelected(null); }}
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center text-foreground/50 hover:bg-muted transition-colors"
+                aria-label="Clear"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
+          </div>
 
-        {/* Illustration: one Silk card traveling between destinations */}
-        <div className="relative max-w-3xl mx-auto">
-          <div className="relative rounded-3xl bg-card border border-border/60 shadow-elegant p-8 md:p-12">
-            <div className="flex items-center justify-between gap-4">
-              {destinationChips.map((d, i) => (
-                <div key={d.name} className="flex flex-col items-center gap-2 flex-1 min-w-0">
-                  <div
-                    className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-muted flex items-center justify-center text-2xl md:text-3xl shadow-soft"
-                    style={{ animationDelay: `${i * 0.2}s` }}
-                  >
-                    {d.flag}
-                  </div>
-                  <span className="text-[10px] md:text-xs font-medium text-foreground/60 truncate max-w-full">
-                    {d.name}
+          {query && filtered.length > 0 && !selected && (
+            <div className="absolute left-0 right-0 top-full mt-2 rounded-2xl bg-card border border-border shadow-elegant overflow-hidden z-20 animate-fade-in text-left">
+              {filtered.map((d) => (
+                <button
+                  key={d.slug}
+                  onClick={() => pickDestination(d)}
+                  className="w-full flex items-center justify-between px-5 py-3.5 hover:bg-muted transition-colors"
+                >
+                  <span className="flex items-center gap-3">
+                    <span className="text-2xl">{d.flag}</span>
+                    <span className="font-semibold text-foreground">{d.name[lang]}</span>
                   </span>
-                </div>
+                  <span className="text-xs text-foreground/50">{d.region}</span>
+                </button>
               ))}
             </div>
+          )}
 
-            {/* The traveling eSIM card */}
-            <div className="relative mt-8 h-24 md:h-28 flex items-center">
-              <div className="absolute inset-x-0 top-1/2 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-              <div className="mx-auto">
-                <div className="relative animate-float">
-                  <div className="w-32 md:w-40 aspect-[8/5] rounded-2xl bg-gradient-warm shadow-elegant p-3 md:p-4 flex flex-col justify-between">
-                    <div className="flex items-center justify-between">
-                      <img src={silkLogo.url} alt="" className="w-6 h-6 md:w-7 md:h-7 rounded-full ring-2 ring-white/60" />
-                      <Plane className="w-4 h-4 text-white/90" />
-                    </div>
-                    <div className="text-white">
-                      <div className="text-[10px] md:text-xs uppercase tracking-widest opacity-80">eSIM</div>
-                      <div className="text-sm md:text-base font-bold">Silk</div>
-                    </div>
-                  </div>
+          {query && filtered.length === 0 && (
+            <div className="absolute left-0 right-0 top-full mt-2 rounded-2xl bg-card border border-border shadow-elegant p-6 text-center text-foreground/60 z-20">
+              {t('search.empty')}
+            </div>
+          )}
+        </div>
+
+        {/* Popular chips */}
+        <div className="mt-6 flex items-center justify-center gap-2 flex-wrap">
+          <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-foreground/50 uppercase tracking-wider mr-1">
+            <Sparkles className="w-3.5 h-3.5" />
+            {t('search.popular')}
+          </span>
+          {popular.map((d) => (
+            <button
+              key={d.slug}
+              onClick={() => pickDestination(d)}
+              className="inline-flex items-center gap-2 rounded-full bg-card/80 backdrop-blur border border-border px-3.5 py-1.5 text-sm font-medium text-foreground hover:border-primary hover:shadow-soft transition-all"
+            >
+              <span>{d.flag}</span>
+              <span>{d.name[lang]}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Plans for selected destination */}
+        {selected && (
+          <div id="plans" className="mt-14 scroll-mt-24 animate-fade-in">
+            <div className="flex items-center justify-center gap-3 mb-8">
+              <span className="text-3xl">{selected.flag}</span>
+              <div className="text-left">
+                <div className="text-[11px] uppercase tracking-widest text-foreground/50 font-semibold">
+                  {t('search.showing')}
+                </div>
+                <div className="text-2xl font-bold text-foreground leading-tight">
+                  {selected.name[lang]}
                 </div>
               </div>
             </div>
 
-            <p className="mt-6 text-center text-sm text-foreground/60 font-medium">
-              One eSIM · Multiple trips
-            </p>
+            <div className="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto text-left">
+              {selected.plans.map((plan, i) => {
+                const highlight = plan.badge === 'popular';
+                return (
+                  <div
+                    key={i}
+                    className={`relative rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1 ${
+                      highlight
+                        ? 'bg-foreground text-background shadow-elegant'
+                        : 'bg-card border border-border hover:shadow-elegant'
+                    }`}
+                  >
+                    {plan.badge && (
+                      <div className={`absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider whitespace-nowrap ${
+                        highlight ? 'bg-secondary text-secondary-foreground' : 'bg-primary text-primary-foreground'
+                      }`}>
+                        {plan.badge === 'popular' ? t('plans.popular') : t('plans.bestValue')}
+                      </div>
+                    )}
+                    <div className={`text-4xl font-bold mb-1 ${highlight ? '' : 'text-foreground'}`}>
+                      {plan.data}
+                    </div>
+                    <div className={`text-sm mb-6 ${highlight ? 'text-background/70' : 'text-foreground/60'}`}>
+                      {plan.days} {t('plans.days')}
+                    </div>
+                    <div className={`text-3xl font-bold mb-6 ${highlight ? '' : 'text-foreground'}`}>
+                      {plan.price}
+                    </div>
+                    <Button
+                      onClick={() => navigate('/login')}
+                      className={`w-full rounded-full font-semibold h-11 ${
+                        highlight
+                          ? 'bg-background text-foreground hover:bg-background/90'
+                          : 'bg-foreground text-background hover:bg-foreground/90'
+                      }`}
+                    >
+                      {t('plans.buy')}
+                      <ArrowRight className="ml-2 w-4 h-4" />
+                    </Button>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

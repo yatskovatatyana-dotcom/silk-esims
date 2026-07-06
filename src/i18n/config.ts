@@ -10,28 +10,29 @@ const resources = {
         faq: 'FAQ',
       },
       hero: {
-        badge: 'One eSIM · Every trip',
+        badge: 'Install once · Travel forever',
         title: 'One eSIM.\nEvery trip.',
-        subtitle: 'Install once. Buy affordable data whenever you travel.',
-        supporting: 'Lower prices than many leading travel eSIM providers.',
-        ctaPrimary: 'Browse destinations',
-        ctaSecondary: 'How it works',
+        subtitle: 'Set up Silk once. Land anywhere with internet already on — no Wi-Fi hunting, no roaming, no swapping SIMs. Your number stays active.',
         getEsim: 'Get eSIM',
       },
       problems: {
-        title: 'Travel without worrying about...',
+        title: 'Everything travel data should be.',
         items: {
-          roaming: {
-            title: 'Expensive roaming',
-            description: 'Save compared with roaming and many travel eSIM offers.',
+          once: {
+            title: 'Install once. Forever.',
+            description: 'A single eSIM setup on your phone — reuse it in every country you visit, for years.',
           },
-          newSim: {
-            title: 'Buying a new SIM every trip',
-            description: 'Install Silk once and keep using the same eSIM anywhere.',
+          ready: {
+            title: 'Arrive online',
+            description: 'Land, unlock your phone, you\'re connected. No SIM shops, no airport Wi-Fi queues.',
           },
-          wifi: {
-            title: 'Searching for Wi-Fi after landing',
-            description: 'Have your data plan ready before your plane touches down.',
+          noRoaming: {
+            title: 'No roaming, no SIM piles',
+            description: 'One clean tariff per trip — no shock bills, no drawer full of plastic cards.',
+          },
+          keepNumber: {
+            title: 'Keep your number',
+            description: 'Your primary line stays active. Calls, SMS, WhatsApp, iMessage — untouched.',
           },
         },
       },
@@ -39,8 +40,8 @@ const resources = {
         title: 'Where are you travelling?',
         placeholder: 'Search a country or region',
         empty: 'No destination found. Try another name.',
-        popular: 'Popular right now',
-        showing: 'Showing plans for',
+        popular: 'Popular',
+        showing: 'Plans for',
         clear: 'Clear',
         results: 'results',
       },
@@ -147,28 +148,29 @@ const resources = {
         faq: 'Вопросы',
       },
       hero: {
-        badge: 'Одна eSIM · Каждая поездка',
+        badge: 'Установи один раз · Путешествуй всю жизнь',
         title: 'Одна eSIM.\nВсе поездки.',
-        subtitle: 'Установи один раз. Покупай выгодный трафик в любой поездке.',
-        supporting: 'Цены ниже, чем у большинства известных travel-eSIM.',
-        ctaPrimary: 'Посмотреть страны',
-        ctaSecondary: 'Как это работает',
+        subtitle: 'Настрой Silk один раз. Прилетай в любую страну — интернет уже работает. Никакого поиска Wi-Fi, никакого роуминга, никаких новых SIM. Твой номер остаётся активным.',
         getEsim: 'Получить eSIM',
       },
       problems: {
-        title: 'Путешествуй, не думая про...',
+        title: 'Мобильный интернет в путешествии — как надо.',
         items: {
-          roaming: {
-            title: 'Дорогой роуминг',
-            description: 'Экономь по сравнению с роумингом и многими travel-eSIM.',
+          once: {
+            title: 'Установка один раз. Навсегда.',
+            description: 'Одна eSIM на телефоне — используешь её во всех странах, годами.',
           },
-          newSim: {
-            title: 'Новую SIM в каждой стране',
-            description: 'Установи Silk один раз и пользуйся той же eSIM везде.',
+          ready: {
+            title: 'Прилетел — уже онлайн',
+            description: 'Приземлился, разблокировал телефон, есть интернет. Без SIM-салонов и очередей за Wi-Fi.',
           },
-          wifi: {
-            title: 'Поиск Wi-Fi после посадки',
-            description: 'Пусть тариф уже работает, когда самолёт коснётся земли.',
+          noRoaming: {
+            title: 'Без роуминга и стопки SIM',
+            description: 'Один понятный тариф на поездку — без счётов-шоков и ящика пластиковых карт.',
+          },
+          keepNumber: {
+            title: 'Свой номер остаётся',
+            description: 'Основная линия активна: звонки, SMS, WhatsApp, iMessage — как обычно.',
           },
         },
       },
@@ -176,7 +178,7 @@ const resources = {
         title: 'Куда летишь?',
         placeholder: 'Введи страну или регион',
         empty: 'Такой страны не нашлось. Попробуй другое название.',
-        popular: 'Популярные сейчас',
+        popular: 'Популярные',
         showing: 'Тарифы для',
         clear: 'Сбросить',
         results: 'результатов',
