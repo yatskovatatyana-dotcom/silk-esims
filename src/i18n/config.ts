@@ -151,9 +151,15 @@ const resources = {
         },
       },
       cta: {
-        title: 'One install. Every trip from now on.',
-        subtitle: 'Join travelers who never think about SIM cards anymore.',
-        button: 'Get Silk eSIM',
+        title: 'Join travelers who never think about SIM cards anymore.',
+        subtitle: 'One install. Every trip from now on.',
+        button: 'Get connected',
+        reviewsTitle: 'What travelers say',
+        reviews: {
+          one: { name: 'Anna K.', role: 'Traveler', text: 'Landed in Bali, unlocked my phone, was online in seconds. Never buying an airport SIM again.' },
+          two: { name: 'Michael R.', role: 'Digital nomad', text: 'One eSIM, twelve countries this year. Setup once and forget — exactly what I needed.' },
+          three: { name: 'Sofia P.', role: 'Frequent flyer', text: 'Way cheaper than roaming and simpler than the eSIM apps I used before. Just works.' },
+        },
       },
       footer: {
         tagline: 'One eSIM. Every trip.',
@@ -331,9 +337,15 @@ const resources = {
         },
       },
       cta: {
-        title: 'Одна установка. И все поездки — на связи.',
-        subtitle: 'Присоединяйся к тем, кто больше не думает о SIM-картах.',
-        button: 'Получить Silk eSIM',
+        title: 'Присоединяйся к тем, кто больше не думает о SIM-картах.',
+        subtitle: 'Одна установка. И все поездки — на связи.',
+        button: 'Подключить',
+        reviewsTitle: 'Что говорят путешественники',
+        reviews: {
+          one: { name: 'Анна К.', role: 'Путешественница', text: 'Приземлилась на Бали, разблокировала телефон — интернет уже работал. Больше не покупаю симки в аэропортах.' },
+          two: { name: 'Михаил Р.', role: 'Диджитал-номад', text: 'Одна eSIM, двенадцать стран за год. Настроил один раз и забыл — то, что нужно.' },
+          three: { name: 'София П.', role: 'Часто летает', text: 'Дешевле роуминга и проще, чем eSIM-приложения, которыми пользовалась раньше. Просто работает.' },
+        },
       },
       footer: {
         tagline: 'Одна eSIM. Все поездки.',
