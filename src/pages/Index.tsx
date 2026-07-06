@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import HeroStrip from '@/components/HeroStrip';
 import WhyLess from '@/components/WhyLess';
 import HowItWorks from '@/components/HowItWorks';
 
