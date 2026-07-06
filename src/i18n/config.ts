@@ -103,12 +103,13 @@ const resources = {
         },
       },
       howItWorks: {
-        title: 'Get connected in just 3 steps',
-        subtitle: 'Three steps. That\'s it.',
+        title: 'Get connected in just 4 steps',
+        subtitle: 'Four steps. That\'s it.',
         steps: {
-          install: { title: 'Install Silk once', description: 'A one-time setup on your phone in under a minute.' },
-          choose: { title: 'Choose your destination', description: 'Pick a plan for wherever you\'re headed next.' },
+          choose: { title: 'Choose a country & buy a plan', description: 'Pick your destination and the data plan that fits your trip.' },
+          install: { title: 'Install your eSIM', description: 'A one-time setup on your phone in under a minute.' },
           travel: { title: 'Travel connected', description: 'Land, unlock your phone, browse. Nothing else to do.' },
+          reuse: { title: 'Top up for the next trip', description: 'Buy more plans for future trips — no need to reinstall the eSIM.' },
         },
       },
       whyChoose: {
@@ -281,12 +282,13 @@ const resources = {
         },
       },
       howItWorks: {
-        title: 'Подключись всего за 3 шага',
-        subtitle: 'Три шага. И всё.',
+        title: 'Подключись всего за 4 шага',
+        subtitle: 'Четыре шага. И всё.',
         steps: {
-          install: { title: 'Установи Silk один раз', description: 'Настройка на телефоне занимает меньше минуты.' },
-          choose: { title: 'Выбери страну', description: 'Выбери тариф для той страны, куда летишь.' },
-          travel: { title: 'Путешествуй на связи', description: 'Приземлился, разблокировал телефон, работает интернет.' },
+          choose: { title: 'Выбери страну и купи пакет', description: 'Выбери направление и тариф под свою поездку.' },
+          install: { title: 'Установи eSIM', description: 'Разовая настройка на телефоне занимает меньше минуты.' },
+          travel: { title: 'Путешествуй на связи', description: 'Приземлился, разблокировал телефон — интернет уже работает.' },
+          reuse: { title: 'Докупай пакеты', description: 'Покупай новые пакеты для следующих поездок без повторной установки eSIM.' },
         },
       },
       whyChoose: {

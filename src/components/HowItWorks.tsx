@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
-import { ShoppingCart, Globe, ToggleRight, type LucideIcon } from 'lucide-react';
+import { ShoppingCart, Download, ToggleRight, RefreshCcw, type LucideIcon } from 'lucide-react';
 
-type Step = { key: 'install' | 'choose' | 'travel'; icon: LucideIcon };
+type Step = { key: 'choose' | 'install' | 'travel' | 'reuse'; icon: LucideIcon };
 
 const PhoneFrame = ({ icon: Icon }: { icon: LucideIcon }) => (
   <div className="relative w-16 h-24 md:w-[72px] md:h-28 rounded-[14px] bg-white shadow-soft ring-1 ring-foreground/10 flex items-center justify-center">
@@ -16,9 +16,10 @@ const PhoneFrame = ({ icon: Icon }: { icon: LucideIcon }) => (
 const HowItWorks = () => {
   const { t } = useTranslation();
   const steps: Step[] = [
-    { key: 'install', icon: ShoppingCart },
-    { key: 'choose', icon: Globe },
+    { key: 'choose', icon: ShoppingCart },
+    { key: 'install', icon: Download },
     { key: 'travel', icon: ToggleRight },
+    { key: 'reuse', icon: RefreshCcw },
   ];
 
   return (
@@ -72,7 +73,7 @@ const HowItWorks = () => {
             </svg>
           </div>
 
-          <div className="relative grid md:grid-cols-3 gap-5 md:gap-6">
+          <div className="relative grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
             {steps.map(({ key, icon }, i) => (
               <div
                 key={key}
