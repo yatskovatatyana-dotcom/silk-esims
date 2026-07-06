@@ -238,13 +238,6 @@ const Hero = () => {
                   })}
                 </div>
 
-                <button
-                  onClick={() => navigate('/login')}
-                  className="mt-4 w-full inline-flex items-center justify-center gap-1.5 text-sm font-semibold text-foreground/70 py-2"
-                >
-                  {t('heroSearch.allPlans')} {active.name[lang]}
-                  <ChevronRight className="w-4 h-4" />
-                </button>
               </div>
             </div>
           )}
