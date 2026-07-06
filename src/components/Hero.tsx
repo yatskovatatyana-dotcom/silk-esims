@@ -12,6 +12,7 @@ const Hero = () => {
 
   const [query, setQuery] = useState('');
   const [activeSlug, setActiveSlug] = useState<string>('');
+  const tariffUrl = `https://app.silk-esim.ru/app?lang=${lang}&utm_source=tanya_landing&utm_medium=referral&utm_content=tariff`;
 
   const chips = useMemo(
     () => heroChipSlugs.map((s) => heroCountries.find((c) => c.slug === s)!).filter(Boolean),
