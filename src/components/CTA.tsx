@@ -22,7 +22,7 @@ const CTA = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-14 md:py-20">
       <div className="container mx-auto max-w-5xl px-4">
         {/* Reviews — Instagram-story-style circles with compact text below */}
         <div className="mb-10 md:mb-14">
