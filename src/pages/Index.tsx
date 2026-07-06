@@ -15,6 +15,7 @@ const Index = () => (
     <Header />
     <main>
       <Hero />
+      <HeroStrip />
       <WhyLess />
       <HowItWorks />
       
