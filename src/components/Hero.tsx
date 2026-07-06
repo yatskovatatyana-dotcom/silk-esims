@@ -70,11 +70,11 @@ const Hero = () => {
             <span className="text-secondary font-semibold">{t('heroNew.subtitleB')}</span>
           </p>
 
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
+          <div className="mt-8 md:mt-10 grid grid-cols-3 gap-3 md:gap-6 max-w-2xl">
             {features.map((f) => (
               <div key={f.title}>
-                <f.icon className="w-8 h-8 text-secondary" strokeWidth={1.75} />
-                <div className="mt-3 text-white font-semibold text-base leading-snug">
+                <f.icon className="w-6 h-6 md:w-8 md:h-8 text-secondary" strokeWidth={1.75} />
+                <div className="mt-2 md:mt-3 text-white font-semibold text-xs md:text-base leading-snug">
                   {f.title}
                 </div>
                 <p className="mt-2 text-sm text-white/70 leading-relaxed hidden md:block">
