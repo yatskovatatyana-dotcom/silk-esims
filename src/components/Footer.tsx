@@ -25,8 +25,6 @@ const Footer = () => {
             <ul className="space-y-2.5 text-sm">
               <li><a href="#how-it-works" className="text-foreground/70 hover:text-primary transition-colors">{t('nav.howItWorks')}</a></li>
               <li><a href="#faq" className="text-foreground/70 hover:text-primary transition-colors">{t('nav.faq')}</a></li>
-              <li><a href="#how-it-works" className="text-foreground/70 hover:text-primary transition-colors">{t('nav.howItWorks')}</a></li>
-              <li><a href="#faq" className="text-foreground/70 hover:text-primary transition-colors">{t('nav.faq')}</a></li>
             </ul>
           </div>
 
