@@ -286,7 +286,7 @@ const Hero = () => {
                 </button>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+              <div className="flex flex-col gap-3">
                 {[0, 1, 3].map((idx, i) => {
                   const p = active.plans[idx];
                   if (!p) return null;
@@ -301,30 +301,32 @@ const Hero = () => {
                     <button
                       key={idx}
                       onClick={() => navigate('/login')}
-                      className={`relative text-center rounded-2xl bg-white p-6 md:p-7 transition-all hover:-translate-y-0.5 ${
+                      className={`w-full flex items-center justify-between gap-6 rounded-2xl bg-white px-6 py-5 transition-all hover:-translate-y-0.5 ${
                         isOptimal
                           ? 'border-2 border-secondary shadow-elegant'
                           : 'border border-border hover:border-foreground/20'
                       }`}
                     >
-                      {badge && (
-                        <span className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-[11px] font-bold tracking-wider whitespace-nowrap">
-                          {badge}
-                        </span>
-                      )}
-                      <div className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight">
-                        {p.data}
-                      </div>
-                      <div className="mt-2 text-sm text-foreground/60">
-                        {p.days} {t('heroSearch.daysShort')}
-                      </div>
-                      {isOptimal && (
-                        <div className="mt-1 text-xs text-foreground/50">
-                          {t('heroSearch.optimalNote')}
+                      <div className="flex items-center gap-5 min-w-0">
+                        <div className="text-left">
+                          <div className="text-3xl font-extrabold text-foreground tracking-tight leading-none">
+                            {p.data}
+                          </div>
+                          <div className="mt-1.5 text-sm text-foreground/60">
+                            {p.days} {t('heroSearch.daysShort')}
+                            {isOptimal && (
+                              <span className="ml-2 text-foreground/40">· {t('heroSearch.optimalNote')}</span>
+                            )}
+                          </div>
                         </div>
-                      )}
-                      <div className="mt-6 flex items-center justify-center gap-2">
-                        <span className="text-2xl md:text-3xl font-extrabold text-foreground">
+                        {badge && (
+                          <span className="inline-flex items-center px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-[11px] font-bold tracking-wider whitespace-nowrap">
+                            {badge}
+                          </span>
+                        )}
+                      </div>
+                      <div className="flex items-center gap-3 shrink-0">
+                        <span className="text-2xl font-extrabold text-foreground">
                           {p.price}
                         </span>
                         <ChevronRight className="w-5 h-5 text-foreground/40" />
