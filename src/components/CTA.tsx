@@ -65,7 +65,7 @@ const CTA = () => {
         </div>
 
         {/* CTA card */}
-        <div className="relative rounded-[2.5rem] overflow-hidden bg-foreground p-10 md:p-16 text-center">
+        <div className="relative overflow-hidden bg-foreground p-10 md:p-16 text-center">
           <div aria-hidden className="absolute -top-24 -left-24 w-80 h-80 rounded-full bg-primary/40 blur-3xl" />
           <div aria-hidden className="absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-secondary/40 blur-3xl" />
 
