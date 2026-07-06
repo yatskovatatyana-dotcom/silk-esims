@@ -19,7 +19,8 @@ const Header = () => {
   };
 
   const nav = [
-    { id: 'how-it-works',  label: t('navNew.howItWorks') },
+    { id: 'how-it-works', label: t('navNew.howItWorks') },
+    { id: 'faq',          label: t('navNew.support') },
   ];
 
   return (
@@ -49,15 +50,7 @@ const Header = () => {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3 md:gap-5">
-          <button
-            onClick={() => scrollTo('faq')}
-            className={`hidden md:inline text-sm font-medium transition-colors ${
-              scrolled ? 'text-foreground/70 hover:text-foreground' : 'text-white/80 hover:text-white'
-            }`}
-          >
-            {t('navNew.support')}
-          </button>
+        <div className="flex items-center gap-2 md:gap-3">
           <button
             onClick={() => i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')}
             className={`inline-flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wide transition-colors ${
@@ -70,9 +63,19 @@ const Header = () => {
           </button>
           <button
             onClick={() => navigate('/login')}
+            className={`hidden sm:inline-flex items-center h-10 md:h-11 px-4 md:px-5 rounded-full border font-semibold text-sm transition-colors ${
+              scrolled
+                ? 'border-border text-foreground hover:bg-muted'
+                : 'border-white/40 text-white hover:bg-white/10'
+            }`}
+          >
+            {t('navNew.signIn')}
+          </button>
+          <button
+            onClick={() => scrollTo('destinations')}
             className="inline-flex items-center h-10 md:h-11 px-4 md:px-5 rounded-full bg-secondary text-secondary-foreground font-semibold text-sm hover:bg-secondary/90 transition-colors"
           >
-            {t('navNew.install')}
+            {t('navNew.buy')}
           </button>
         </div>
       </div>

@@ -17,6 +17,7 @@ const resources = {
         support: 'Support',
         signIn: 'Sign in',
         install: 'Install eSIM',
+        buy: 'Buy eSIM',
       },
       heroNew: {
         line1: 'One eSIM',
@@ -193,6 +194,7 @@ const resources = {
         support: 'Поддержка',
         signIn: 'Войти',
         install: 'Установить eSIM',
+        buy: 'Купить eSIM',
       },
       heroNew: {
         line1: 'Одна eSIM',
