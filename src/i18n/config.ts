@@ -11,7 +11,7 @@ const resources = {
       },
       hero: {
         badge: 'One eSIM · Every trip',
-        title: 'One eSIM.\nEvery trip.',
+        title: 'One eSIM\nEvery trip',
         subtitle: 'Install once. Buy affordable data whenever you travel.',
         supporting: 'Lower prices than many leading travel eSIM providers.',
         ctaPrimary: 'Browse destinations',
@@ -148,7 +148,7 @@ const resources = {
       },
       hero: {
         badge: 'Одна eSIM · Каждая поездка',
-        title: 'Одна eSIM.\nВсе поездки.',
+        title: 'Одна eSIM\nВсе поездки',
         subtitle: 'Установи один раз. Покупай выгодный трафик в любой поездке.',
         supporting: 'Цены ниже, чем у большинства известных travel-eSIM.',
         ctaPrimary: 'Посмотреть страны',
