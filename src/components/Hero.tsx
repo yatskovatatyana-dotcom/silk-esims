@@ -206,33 +206,37 @@ const Hero = () => {
                       ? t('heroSearch.bestBadge')
                       : null;
                     return (
-                      <button
-                        key={idx}
-                        onClick={() => navigate('/login')}
-                        className={`w-full flex items-center justify-between gap-3 rounded-2xl bg-card px-4 py-3.5 transition-all active:scale-[0.98] hover:-translate-y-0.5 ${
-                          isOptimal
-                            ? 'border-2 border-secondary shadow-soft'
-                            : 'border border-border'
-                        }`}
-                      >
-                        <div className="flex items-center gap-3 min-w-0">
-                          <div className="text-left">
-                            <div className="text-xl font-extrabold text-foreground leading-tight">{p.data}</div>
-                            <div className="text-[11px] text-foreground/60 mt-0.5">
-                              {p.days} {t('heroSearch.daysShort')}
+                      <div key={idx}>
+                        <button
+                          onClick={() => navigate('/login')}
+                          className={`w-full flex items-center justify-between gap-3 rounded-2xl bg-card px-4 py-3.5 transition-all active:scale-[0.98] hover:-translate-y-0.5 ${
+                            isOptimal
+                              ? 'border-2 border-secondary shadow-soft'
+                              : 'border border-border'
+                          }`}
+                        >
+                          <div className="flex items-center gap-3 min-w-0">
+                            <div className="text-left">
+                              <div className="text-xl font-extrabold text-foreground leading-tight">{p.data}</div>
+                              <div className="text-[11px] text-foreground/60 mt-0.5">
+                                {p.days} {t('heroSearch.daysShort')}
+                              </div>
                             </div>
+                            {badge && (
+                              <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary text-secondary-foreground text-[9px] font-bold tracking-wider whitespace-nowrap">
+                                {badge}
+                              </span>
+                            )}
                           </div>
-                          {badge && (
-                            <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary text-secondary-foreground text-[9px] font-bold tracking-wider whitespace-nowrap">
-                              {badge}
-                            </span>
-                          )}
+                          <div className="flex items-center gap-1 shrink-0">
+                            <span className="text-lg font-extrabold text-foreground">{p.price}</span>
+                            <ChevronRight className="w-4 h-4 text-foreground/40" />
+                          </div>
+                        </button>
+                        <div className="mt-1.5 px-4 text-[11px] text-foreground/50">
+                          {t('heroSearch.checkoutNote')}
                         </div>
-                        <div className="flex items-center gap-1 shrink-0">
-                          <span className="text-lg font-extrabold text-foreground">{p.price}</span>
-                          <ChevronRight className="w-4 h-4 text-foreground/40" />
-                        </div>
-                      </button>
+                      </div>
                     );
                   })}
                 </div>
