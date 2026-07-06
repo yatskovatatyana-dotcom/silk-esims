@@ -121,9 +121,9 @@ const Hero = () => {
             </button>
           </div>
 
-          {/* MOBILE: tile grid picker */}
-          <div className="md:hidden px-4 pt-4 pb-4">
-            <div className="grid grid-cols-2 gap-2.5">
+          {/* Country tile grid — mobile & desktop */}
+          <div className="px-4 md:px-6 pt-4 pb-5">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-2.5 md:gap-3">
               {chips.slice(0, 6).map((c) => {
                 const isActive = c.slug === activeSlug;
                 const from = c.plans[0]?.price;
@@ -131,18 +131,18 @@ const Hero = () => {
                   <button
                     key={c.slug}
                     onClick={() => setActiveSlug(isActive ? '' : c.slug)}
-                    className={`flex items-center gap-3 p-3 rounded-2xl border transition-all text-left ${
+                    className={`flex items-center gap-3 p-3 md:p-4 rounded-2xl border transition-all text-left hover:border-foreground/30 ${
                       isActive
                         ? 'border-secondary bg-secondary/10'
                         : 'border-border bg-white'
                     }`}
                   >
-                    <span className="text-2xl leading-none">{c.flag}</span>
+                    <span className="text-2xl md:text-3xl leading-none">{c.flag}</span>
                     <div className="min-w-0 flex-1">
-                      <div className="text-sm font-bold text-foreground truncate">
+                      <div className="text-sm md:text-base font-bold text-foreground truncate">
                         {c.name[lang]}
                       </div>
-                      <div className="text-[11px] text-foreground/60 font-medium mt-0.5">
+                      <div className="text-[11px] md:text-xs text-foreground/60 font-medium mt-0.5">
                         {t('heroSearch.fromPrice')} {from}
                       </div>
                     </div>
@@ -151,31 +151,30 @@ const Hero = () => {
               })}
               <button
                 onClick={() => navigate('/login')}
-                className="col-span-2 flex items-center justify-center gap-2 p-3 rounded-2xl border border-border bg-white text-sm font-semibold text-foreground/80"
+                className="col-span-2 md:col-span-3 flex items-center justify-center gap-2 p-3 md:p-4 rounded-2xl border border-border bg-white text-sm md:text-base font-semibold text-foreground/80 hover:border-foreground/30 transition-colors"
               >
-                <span className="text-base">🌍</span>
+                <span className="text-base md:text-lg">🌍</span>
                 {t('heroSearch.moreDestinations')}
                 <ChevronRight className="w-4 h-4 text-foreground/40" />
               </button>
             </div>
-
           </div>
 
-          {/* MOBILE: bottom sheet with plans */}
+          {/* Plans overlay — bottom sheet on mobile, centered modal on desktop */}
           {activeSlug && active && (
-            <div className="md:hidden fixed inset-0 z-50 flex items-end">
+            <div className="fixed inset-0 z-50 flex items-end md:items-center md:justify-center">
               {/* Backdrop */}
               <button
                 aria-label="Close"
                 onClick={() => setActiveSlug('')}
                 className="absolute inset-0 bg-black/50 animate-fade-in"
               />
-              {/* Sheet */}
+              {/* Sheet / modal */}
               <div
-                className="relative w-full rounded-t-3xl bg-background shadow-elegant px-5 pb-8 pt-3"
+                className="relative w-full md:w-[440px] md:max-w-[92vw] rounded-t-3xl md:rounded-3xl bg-background shadow-elegant px-5 md:px-6 pb-8 md:pb-6 pt-3 md:pt-6"
                 style={{ animation: 'slide-up-sheet 0.28s cubic-bezier(0.32, 0.72, 0, 1)' }}
               >
-                <div className="mx-auto h-1.5 w-10 rounded-full bg-foreground/15 mb-4" />
+                <div className="md:hidden mx-auto h-1.5 w-10 rounded-full bg-foreground/15 mb-4" />
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-3 min-w-0">
                     <span className="text-3xl leading-none">{active.flag}</span>
@@ -210,7 +209,7 @@ const Hero = () => {
                       <button
                         key={idx}
                         onClick={() => navigate('/login')}
-                        className={`w-full flex items-center justify-between gap-3 rounded-2xl bg-card px-4 py-3.5 transition-all active:scale-[0.98] ${
+                        className={`w-full flex items-center justify-between gap-3 rounded-2xl bg-card px-4 py-3.5 transition-all active:scale-[0.98] hover:-translate-y-0.5 ${
                           isOptimal
                             ? 'border-2 border-secondary shadow-soft'
                             : 'border border-border'
@@ -237,99 +236,9 @@ const Hero = () => {
                     );
                   })}
                 </div>
-
               </div>
             </div>
           )}
-
-          {/* DESKTOP: chips + plans */}
-          <div className="hidden md:block">
-            {/* Country chips */}
-            <div className="px-4 md:px-6 pt-4 pb-2 flex items-center gap-2 overflow-x-auto no-scrollbar">
-              {chips.map((c) => {
-                const isActive = c.slug === activeSlug;
-                return (
-                  <button
-                    key={c.slug}
-                    onClick={() => setActiveSlug(c.slug)}
-                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap border transition-all ${
-                      isActive
-                        ? 'bg-secondary/15 border-secondary text-foreground'
-                        : 'bg-white border-border text-foreground/70 hover:border-foreground/30'
-                    }`}
-                  >
-                    <span className="text-base">{c.flag}</span>
-                    {c.name[lang]}
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Selected country + plans */}
-            <div className="p-4 md:p-6 pt-4">
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <span className="text-2xl">{active.flag}</span>
-                  <span className="text-lg font-bold text-foreground">{active.name[lang]}</span>
-                  {active.popular && (
-                    <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-secondary/20 text-secondary-foreground text-xs font-semibold">
-                      {t('heroSearch.popularBadge')}
-                    </span>
-                  )}
-                </div>
-                <button
-                  onClick={() => navigate('/login')}
-                  className="inline-flex items-center gap-1 text-sm font-semibold text-foreground/70 hover:text-foreground transition-colors"
-                >
-                  {t('heroSearch.allPlans')} {active.name[lang]}
-                  <ChevronRight className="w-4 h-4" />
-                </button>
-              </div>
-
-              <div className="space-y-2.5">
-                {[0, 1, 3].map((idx, i) => {
-                  const p = active.plans[idx];
-                  if (!p) return null;
-                  const isOptimal = i === 1;
-                  const isBest = i === 2;
-                  const badge = isOptimal
-                    ? t('heroSearch.optimalBadge')
-                    : isBest
-                    ? t('heroSearch.bestBadge')
-                    : null;
-                  return (
-                    <button
-                      key={idx}
-                      onClick={() => navigate('/login')}
-                      className={`w-full flex items-center justify-between gap-3 rounded-2xl bg-card px-4 py-3.5 transition-all active:scale-[0.98] ${
-                        isOptimal
-                          ? 'border-2 border-secondary shadow-soft'
-                          : 'border border-border'
-                      }`}
-                    >
-                      <div className="flex items-center gap-3 min-w-0">
-                        <div className="text-left">
-                          <div className="text-xl font-extrabold text-foreground leading-tight">{p.data}</div>
-                          <div className="text-[11px] text-foreground/60 mt-0.5">
-                            {p.days} {t('heroSearch.daysShort')}
-                          </div>
-                        </div>
-                        {badge && (
-                          <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary text-secondary-foreground text-[9px] font-bold tracking-wider whitespace-nowrap">
-                            {badge}
-                          </span>
-                        )}
-                      </div>
-                      <div className="flex items-center gap-1 shrink-0">
-                        <span className="text-lg font-extrabold text-foreground">{p.price}</span>
-                        <ChevronRight className="w-4 h-4 text-foreground/40" />
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Bottom dark feature strip */}
