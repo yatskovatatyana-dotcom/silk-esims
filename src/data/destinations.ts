@@ -9,21 +9,21 @@ export type Destination = {
 
 // Prices are illustrative and follow the PRD's example pricing shape.
 const standardPlans: Plan[] = [
-  { data: '1 GB', days: 7, price: '€1.99' },
-  { data: '5 GB', days: 30, price: '€6.99', badge: 'popular' },
-  { data: '10 GB', days: 30, price: '€11.99', badge: 'best' },
+  { data: '1 GB', days: 7, price: '₽199' },
+  { data: '5 GB', days: 30, price: '₽799', badge: 'popular' },
+  { data: '10 GB', days: 30, price: '₽1 299', badge: 'best' },
 ];
 
 const asiaPlans: Plan[] = [
-  { data: '1 GB', days: 7, price: '€2.49' },
-  { data: '5 GB', days: 30, price: '€7.99', badge: 'popular' },
-  { data: '10 GB', days: 30, price: '€13.49', badge: 'best' },
+  { data: '1 GB', days: 7, price: '₽249' },
+  { data: '5 GB', days: 30, price: '₽899', badge: 'popular' },
+  { data: '10 GB', days: 30, price: '₽1 499', badge: 'best' },
 ];
 
 const usaPlans: Plan[] = [
-  { data: '1 GB', days: 7, price: '€3.49' },
-  { data: '5 GB', days: 30, price: '€9.99', badge: 'popular' },
-  { data: '10 GB', days: 30, price: '€16.99', badge: 'best' },
+  { data: '1 GB', days: 7, price: '₽349' },
+  { data: '5 GB', days: 30, price: '₽1 099', badge: 'popular' },
+  { data: '10 GB', days: 30, price: '₽1 799', badge: 'best' },
 ];
 
 export const destinations: Destination[] = [
