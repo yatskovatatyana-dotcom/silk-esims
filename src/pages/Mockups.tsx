@@ -3,30 +3,43 @@ import { Link } from 'react-router-dom';
 import { Upload } from 'lucide-react';
 import mockupV1 from '@/assets/mockup-v1.png.asset.json';
 import mockupV2 from '@/assets/mockup-v2.png.asset.json';
+import s01 from '@/assets/screens/01-splash.png.asset.json';
+import s02 from '@/assets/screens/02-home.png.asset.json';
+import s03 from '@/assets/screens/03-all-countries.png.asset.json';
+import s04 from '@/assets/screens/04-plans.png.asset.json';
+import s05 from '@/assets/screens/05-checkout.png.asset.json';
+import s06 from '@/assets/screens/06-install.png.asset.json';
+import s07 from '@/assets/screens/07-my-esim.png.asset.json';
+import s08 from '@/assets/screens/08-profile.png.asset.json';
+import s09 from '@/assets/screens/09-login.png.asset.json';
+import s10 from '@/assets/screens/10-code.png.asset.json';
+import s11 from '@/assets/screens/11-register.png.asset.json';
+import s12 from '@/assets/screens/12-support.png.asset.json';
+import s13 from '@/assets/screens/13-chat.png.asset.json';
 
 type Screen = {
   n: number;
   title: string;
-  image?: string; // asset url or empty
+  image?: string;
   note?: string;
 };
 
-// Порядок экранов приложения. Изображения будем добавлять по одному по мере согласования.
 const screens: Screen[] = [
-  { n: 1,  title: 'Загрузка / Сплэш', note: 'Логотип Silk eSIM при запуске приложения.' },
-  { n: 2,  title: 'Главная', note: 'Поиск страны, промо, популярные направления.' },
-  { n: 3,  title: 'Все страны', note: 'Каталог направлений с ценой «от…».' },
-  { n: 4,  title: 'Тарифы страны', note: 'Список пакетов, бейдж «Популярно».' },
-  { n: 5,  title: 'Оформление / Оплата', note: 'Итог заказа и способ оплаты.' },
-  { n: 6,  title: 'Установка eSIM', note: 'Пошаговая инструкция установки.' },
-  { n: 7,  title: 'Мой eSIM', note: 'Активный пакет и остаток трафика.' },
-  { n: 8,  title: 'Профиль', note: 'Аккаунт, история покупок, настройки.' },
-  { n: 9,  title: 'Вход', note: 'Ввод email.' },
-  { n: 10, title: 'Код подтверждения', note: '4-значный код на email.' },
-  { n: 11, title: 'Регистрация', note: 'Создание аккаунта.' },
-  { n: 12, title: 'Поддержка', note: 'Частые вопросы и вход в чат.' },
-  { n: 13, title: 'Чат с поддержкой', note: 'Онлайн-переписка с агентом.' },
+  { n: 1,  title: 'Загрузка / Сплэш',    image: s01.url, note: 'Заставка при запуске. Кнопка «Начать», ссылка «Уже есть аккаунт? Войти».' },
+  { n: 2,  title: 'Главная',              image: s02.url, note: 'Поиск страны, промо «Попробуйте бесплатно», популярные направления.' },
+  { n: 3,  title: 'Все страны',           image: s03.url, note: 'Полный каталог с ценой «от…».' },
+  { n: 4,  title: 'Тарифы страны',        image: s04.url, note: 'Пакеты 1/3/5/10/20 ГБ, бейдж «Популярно».' },
+  { n: 5,  title: 'Оформление / Оплата',  image: s05.url, note: 'Итог заказа и способы оплаты: карта, СБП, крипто.' },
+  { n: 6,  title: 'Установка eSIM',       image: s06.url, note: 'Пошаговая инструкция и вход в чат поддержки.' },
+  { n: 7,  title: 'Мой eSIM',             image: s07.url, note: 'Активный пакет, прогресс трафика, «Добавить пакет».' },
+  { n: 8,  title: 'Профиль',              image: s08.url, note: 'Email, история покупок, язык, удаление профиля.' },
+  { n: 9,  title: 'Вход',                 image: s09.url, note: 'Ввод email, ссылка на регистрацию.' },
+  { n: 10, title: 'Код подтверждения',    image: s10.url, note: '4-значный код на email, повторная отправка через 00:45.' },
+  { n: 11, title: 'Регистрация',          image: s11.url, note: 'Ввод email нового пользователя.' },
+  { n: 12, title: 'Поддержка',            image: s12.url, note: 'Чат с поддержкой и частые вопросы.' },
+  { n: 13, title: 'Чат с поддержкой',     image: s13.url, note: 'Онлайн-переписка с агентом.' },
 ];
+
 
 export default function Mockups() {
   // Локальный превью-стор для загрузки изображений (только для просмотра в браузере).
