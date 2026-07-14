@@ -11,6 +11,7 @@ import s05 from '@/assets/screens/05-checkout.png';
 import s06 from '@/assets/screens/06-install.png';
 import s07 from '@/assets/screens/07-my-esim.png';
 import s08 from '@/assets/screens/08-profile.png';
+import s08b from '@/assets/screens/08b-profile-empty.png';
 import s09 from '@/assets/screens/09-login.png';
 import s10 from '@/assets/screens/10-code.png';
 import s11 from '@/assets/screens/11-register.png';
@@ -33,6 +34,7 @@ const screens: Screen[] = [
   { n: 6, title: 'Установка eSIM', image: s06, note: 'Пошаговая инструкция и вход в чат поддержки.' },
   { n: 7, title: 'Мой eSIM', image: s07, note: 'Активный пакет, прогресс трафика, «Добавить пакет».' },
   { n: 8, title: 'Профиль', image: s08, note: 'Email, история покупок, язык, удаление профиля.' },
+  { n: 8.1, title: 'Профиль (пусто)', image: s08b, note: 'Состояние до входа: приглашение войти и подобрать страну.' },
   { n: 9, title: 'Вход', image: s09, note: 'Ввод email, ссылка на регистрацию.' },
   { n: 10, title: 'Код подтверждения', image: s10, note: '4-значный код на email, повторная отправка через 00:45.' },
   { n: 11, title: 'Регистрация', image: s11, note: 'Ввод email нового пользователя.' },
