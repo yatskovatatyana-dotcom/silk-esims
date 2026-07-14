@@ -11,6 +11,7 @@ import s05 from '@/assets/screens/05-checkout.png';
 import s06 from '@/assets/screens/06-install.png';
 import s07 from '@/assets/screens/07-my-esim.png';
 import s08 from '@/assets/screens/08-profile.png';
+import s08b from '@/assets/screens/08b-profile-empty.png';
 import s09 from '@/assets/screens/09-login.png';
 import s10 from '@/assets/screens/10-code.png';
 import s11 from '@/assets/screens/11-register.png';
