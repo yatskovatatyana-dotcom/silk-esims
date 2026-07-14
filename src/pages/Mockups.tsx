@@ -1,220 +1,124 @@
-import { ArrowRight, ArrowDown } from 'lucide-react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Upload } from 'lucide-react';
 import mockupV1 from '@/assets/mockup-v1.png.asset.json';
 import mockupV2 from '@/assets/mockup-v2.png.asset.json';
 
 type Screen = {
   n: number;
   title: string;
-  desc: string;
-  transitions: string[];
+  image?: string; // asset url or empty
+  note?: string;
 };
 
+// Порядок экранов приложения. Изображения будем добавлять по одному по мере согласования.
 const screens: Screen[] = [
-  {
-    n: 1,
-    title: 'Онбординг / Стартовый экран',
-    desc: 'Приветствие «Одна eSIM на все поездки». Иллюстрация, краткий оффер «Мобильный интернет в 180+ странах». Кнопка «Начать» и ссылка «Уже есть аккаунт? Войти».',
-    transitions: ['«Начать» → экран 2 (Главная / поиск страны)', '«Войти» → экран 8 (Вход)'],
-  },
-  {
-    n: 2,
-    title: 'Главная — поиск направления',
-    desc: 'Логотип Silk eSIM, поисковая строка «Куда вам нужен интернет?», промо-баннер «Попробуйте бесплатно», карточка «Уже есть аккаунт? Войти», список популярных направлений с ценами «от €…».',
-    transitions: [
-      'Поиск/тап по стране → экран 4 (Страна → тарифы)',
-      '«Все страны» → экран 3 (Каталог стран)',
-      '«Войти» → экран 8 (Вход)',
-      'Таб «Поддержка» → экран 12 (Поддержка)',
-      'Таб «Профиль» → экран 7 (Профиль)',
-    ],
-  },
-  {
-    n: 3,
-    title: 'Все страны',
-    desc: 'Полный каталог направлений с поиском и ценами «от…». Флаг, название, минимальная цена, шеврон.',
-    transitions: ['Тап по стране → экран 4 (Тарифы страны)'],
-  },
-  {
-    n: 4,
-    title: 'Тарифы страны (Таиланд)',
-    desc: 'Список пакетов: 1 ГБ / 3 ГБ / 5 ГБ (Популярно) / 10 ГБ / 20 ГБ. Цена, срок действия, бейдж «Популярно» на среднем. Нижняя подпись «Тарифы действуют в сетях лучших операторов».',
-    transitions: ['Выбор тарифа → экран 5 (Оформление)'],
-  },
-  {
-    n: 5,
-    title: 'Оформление — способ оплаты',
-    desc: 'Итог заказа (страна, объём, срок, цена). Выбор оплаты: Карта (Visa/Mastercard/Мир), СБП по QR-коду, Криптовалюта. Кнопка «Оплатить», плашка «Безопасная оплата».',
-    transitions: ['«Оплатить» (успех) → экран 6 (Установка eSIM)'],
-  },
-  {
-    n: 6,
-    title: 'Установка eSIM',
-    desc: 'Пошаговая инструкция: 1) Установите eSIM (QR-код и профиль), 2) Включите мобильные данные и роуминг, 3) Подключитесь к сети. Плашка «Нужна помощь? Чат с поддержкой».',
-    transitions: [
-      '«Чат с поддержкой» → экран 13 (Чат)',
-      'После установки → экран 2 (Главная) с активным пакетом → экран 7a (Мой eSIM)',
-    ],
-  },
-  {
-    n: 7,
-    title: 'Профиль',
-    desc: 'Аватар, email, история покупок (страна, объём, дата, цена), настройка «Язык», кнопка «Удалить профиль».',
-    transitions: ['«Язык» → выбор языка', '«Удалить профиль» → подтверждение'],
-  },
-  {
-    n: 8,
-    title: 'Вход',
-    desc: 'Иллюстрация, поле Email, кнопка «Продолжить», ссылка «У меня нет аккаунта».',
-    transitions: [
-      '«Продолжить» → экран 9 (Код подтверждения)',
-      '«У меня нет аккаунта» → экран 11 (Регистрация)',
-    ],
-  },
-  {
-    n: 9,
-    title: 'Код подтверждения',
-    desc: '4-значный код на email, таймер повторной отправки 00:45, ссылка «Изменить email», числовая клавиатура.',
-    transitions: ['Ввод корректного кода → экран 2 (Главная, авторизован)', '«Изменить email» → экран 8'],
-  },
-  {
-    n: 10,
-    title: 'Мой eSIM (активный пакет)',
-    desc: 'Активный пакет: страна, статус «Активен», прогресс «5 ГБ из 10 ГБ», срок действия. Кнопка «+ Добавить пакет», поиск стран, популярные направления.',
-    transitions: ['«+ Добавить пакет» → экран 4 (Тарифы страны)'],
-  },
-  {
-    n: 11,
-    title: 'Регистрация',
-    desc: 'Ввод email, кнопка «Продолжить», ссылка «Уже есть аккаунт? Войти».',
-    transitions: ['«Продолжить» → экран 9 (Код подтверждения)', '«Войти» → экран 8'],
-  },
-  {
-    n: 12,
-    title: 'Поддержка',
-    desc: 'Большая карточка «Чат с поддержкой — мы онлайн и готовы помочь». Список частых вопросов: установка eSIM, активация, отсутствие интернета, остаток трафика, использование в другой стране.',
-    transitions: ['«Чат с поддержкой» → экран 13', 'Тап по вопросу → раскрытие ответа'],
-  },
-  {
-    n: 13,
-    title: 'Поддержка — чат',
-    desc: 'Плашка «Онлайн — мы рядом и готовы помочь». Переписка пользователя и агента, поле ввода сообщения.',
-    transitions: ['Отправка сообщения → ответ агента'],
-  },
+  { n: 1,  title: 'Загрузка / Сплэш', note: 'Логотип Silk eSIM при запуске приложения.' },
+  { n: 2,  title: 'Главная', note: 'Поиск страны, промо, популярные направления.' },
+  { n: 3,  title: 'Все страны', note: 'Каталог направлений с ценой «от…».' },
+  { n: 4,  title: 'Тарифы страны', note: 'Список пакетов, бейдж «Популярно».' },
+  { n: 5,  title: 'Оформление / Оплата', note: 'Итог заказа и способ оплаты.' },
+  { n: 6,  title: 'Установка eSIM', note: 'Пошаговая инструкция установки.' },
+  { n: 7,  title: 'Мой eSIM', note: 'Активный пакет и остаток трафика.' },
+  { n: 8,  title: 'Профиль', note: 'Аккаунт, история покупок, настройки.' },
+  { n: 9,  title: 'Вход', note: 'Ввод email.' },
+  { n: 10, title: 'Код подтверждения', note: '4-значный код на email.' },
+  { n: 11, title: 'Регистрация', note: 'Создание аккаунта.' },
+  { n: 12, title: 'Поддержка', note: 'Частые вопросы и вход в чат.' },
+  { n: 13, title: 'Чат с поддержкой', note: 'Онлайн-переписка с агентом.' },
 ];
 
 export default function Mockups() {
+  // Локальный превью-стор для загрузки изображений (только для просмотра в браузере).
+  const [uploads, setUploads] = useState<Record<number, string>>({});
+
+  const handleUpload = (n: number, file: File) => {
+    const url = URL.createObjectURL(file);
+    setUploads((prev) => ({ ...prev, [n]: url }));
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="border-b border-border/60 bg-white/80 backdrop-blur sticky top-0 z-30">
-        <div className="container mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
+        <div className="container mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
           <div>
             <div className="text-xs uppercase tracking-widest text-foreground/50">Silk eSIM</div>
-            <h1 className="text-xl font-bold">Макет мобильного приложения</h1>
+            <h1 className="text-xl font-bold">Экраны мобильного приложения</h1>
           </div>
-          <Link
-            to="/"
-            className="text-sm font-semibold text-primary hover:underline"
-          >
+          <Link to="/" className="text-sm font-semibold text-primary hover:underline">
             ← На сайт
           </Link>
         </div>
       </header>
 
-      <main className="container mx-auto max-w-7xl px-4 py-10 space-y-16">
-        {/* Reference boards */}
-        <section>
-          <h2 className="text-2xl font-bold mb-2">Референс дизайна</h2>
-          <p className="text-foreground/70 mb-6 max-w-3xl">
-            Два варианта общего вида экранов. Ниже пошагово разобраны все экраны и переходы между ними.
+      <main className="container mx-auto max-w-6xl px-4 py-10 space-y-10">
+        <section className="rounded-2xl bg-white border border-border p-5 md:p-6">
+          <h2 className="text-lg font-bold mb-1">Как работаем</h2>
+          <p className="text-foreground/70 text-sm leading-relaxed">
+            Ниже — пронумерованный список экранов. Согласуем по одному: пришли картинку нужного экрана,
+            и я вставлю её в соответствующий шаг. Когда всё готово — выгрузим финальный набор для разработчика.
           </p>
-          <div className="grid md:grid-cols-2 gap-6">
-            <figure className="rounded-2xl overflow-hidden border border-border bg-white shadow-soft">
-              <img src={mockupV1.url} alt="Вариант 1 макета" className="w-full h-auto" />
-              <figcaption className="p-3 text-sm text-foreground/70">Вариант 1</figcaption>
-            </figure>
-            <figure className="rounded-2xl overflow-hidden border border-border bg-white shadow-soft">
-              <img src={mockupV2.url} alt="Вариант 2 макета" className="w-full h-auto" />
-              <figcaption className="p-3 text-sm text-foreground/70">Вариант 2</figcaption>
-            </figure>
-          </div>
-        </section>
-
-        {/* Flow overview */}
-        <section>
-          <h2 className="text-2xl font-bold mb-4">Основной путь пользователя</h2>
-          <div className="rounded-2xl bg-white border border-border p-5 md:p-6">
-            <ol className="flex flex-wrap items-center gap-x-3 gap-y-3 text-sm md:text-base font-semibold">
-              {[
-                'Онбординг',
-                'Главная / поиск',
-                'Каталог стран',
-                'Тарифы страны',
-                'Оформление',
-                'Установка eSIM',
-                'Мой eSIM',
-              ].map((step, i, arr) => (
-                <li key={step} className="flex items-center gap-3">
-                  <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-secondary/15 text-foreground border border-secondary/40">
-                    {i + 1}. {step}
-                  </span>
-                  {i < arr.length - 1 && <ArrowRight className="w-4 h-4 text-foreground/40" />}
-                </li>
-              ))}
-            </ol>
-            <div className="mt-4 text-sm text-foreground/70">
-              Параллельные ветки: <span className="font-semibold">Вход / Регистрация → Код</span>,{' '}
-              <span className="font-semibold">Поддержка → Чат</span>,{' '}
-              <span className="font-semibold">Профиль</span>.
+          <details className="mt-4">
+            <summary className="cursor-pointer text-sm font-semibold text-primary">
+              Показать исходные листы с макетом
+            </summary>
+            <div className="grid md:grid-cols-2 gap-4 mt-4">
+              <img src={mockupV1.url} alt="Лист 1" className="rounded-xl border border-border w-full h-auto" />
+              <img src={mockupV2.url} alt="Лист 2" className="rounded-xl border border-border w-full h-auto" />
             </div>
-          </div>
+          </details>
         </section>
 
-        {/* Screens */}
-        <section>
-          <h2 className="text-2xl font-bold mb-6">Экраны и переходы</h2>
-          <div className="space-y-4">
-            {screens.map((s, idx) => (
-              <div key={s.n}>
-                <article className="rounded-2xl bg-white border border-border p-5 md:p-6 shadow-soft">
-                  <div className="flex items-start gap-4">
-                    <div className="shrink-0 w-12 h-12 rounded-xl bg-primary text-primary-foreground flex items-center justify-center text-xl font-extrabold">
-                      {s.n}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-lg md:text-xl font-bold">{s.title}</h3>
-                      <p className="mt-2 text-foreground/75 leading-relaxed">{s.desc}</p>
-                      <div className="mt-4">
-                        <div className="text-xs uppercase tracking-widest text-foreground/50 mb-2">
-                          Переходы
-                        </div>
-                        <ul className="space-y-1.5">
-                          {s.transitions.map((t) => (
-                            <li key={t} className="flex items-start gap-2 text-sm">
-                              <ArrowRight className="w-4 h-4 mt-0.5 text-secondary shrink-0" />
-                              <span>{t}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                {idx < screens.length - 1 && (
-                  <div className="flex justify-center py-2">
-                    <ArrowDown className="w-5 h-5 text-foreground/30" />
+        <section className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {screens.map((s) => {
+            const img = s.image || uploads[s.n];
+            return (
+              <article
+                key={s.n}
+                className="rounded-2xl bg-white border border-border overflow-hidden shadow-soft flex flex-col"
+              >
+                <div className="flex items-center gap-3 px-4 py-3 border-b border-border">
+                  <span className="w-9 h-9 rounded-lg bg-primary text-primary-foreground flex items-center justify-center text-base font-extrabold">
+                    {s.n}
+                  </span>
+                  <h3 className="font-bold text-base leading-tight">{s.title}</h3>
+                </div>
+
+                <div className="aspect-[9/16] bg-muted/50 flex items-center justify-center relative">
+                  {img ? (
+                    <img src={img} alt={s.title} className="w-full h-full object-contain" />
+                  ) : (
+                    <label className="flex flex-col items-center gap-2 text-foreground/50 text-sm cursor-pointer hover:text-foreground/80 transition-colors p-6 text-center">
+                      <Upload className="w-6 h-6" />
+                      <span>Загрузить изображение экрана</span>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={(e) => {
+                          const f = e.target.files?.[0];
+                          if (f) handleUpload(s.n, f);
+                        }}
+                      />
+                    </label>
+                  )}
+                </div>
+
+                {s.note && (
+                  <div className="px-4 py-3 text-sm text-foreground/70 border-t border-border">
+                    {s.note}
                   </div>
                 )}
-              </div>
-            ))}
-          </div>
+              </article>
+            );
+          })}
         </section>
 
         <section className="rounded-2xl bg-foreground text-background p-6 md:p-8">
-          <h2 className="text-xl md:text-2xl font-bold mb-2">Комментарии по макету</h2>
-          <p className="text-background/70 max-w-3xl">
-            Этот экран — рабочая площадка для согласования. Оставляй правки: какие экраны добавить/убрать,
-            какие переходы поменять, где нужны отдельные состояния (ошибка оплаты, пустой профиль, истёкший пакет и т.д.).
+          <h2 className="text-lg md:text-xl font-bold mb-1">Дальше</h2>
+          <p className="text-background/70 text-sm max-w-3xl">
+            Пришли картинку первого экрана — «Загрузка / Сплэш». Дальше по порядку: главная, каталог стран и т.д.
+            Когда все экраны на месте, соберу их в один архив для передачи разработчику.
           </p>
         </section>
       </main>
