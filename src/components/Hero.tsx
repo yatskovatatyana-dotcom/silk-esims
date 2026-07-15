@@ -162,7 +162,7 @@ const Hero = () => {
                 onClick={() => window.location.href = tariffUrl}
                 className="flex items-center gap-2 px-4 py-2 md:px-5 md:py-2.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white font-semibold text-sm md:text-base hover:bg-white/20 transition-all shrink-0"
               >
-                <span>🌍</span>
+                <Flag country="global" className="w-5 h-5 md:w-6 md:h-6" />
                 {t('heroSearch.moreDestinations')}
                 <ChevronRight className="w-4 h-4 text-white/70" />
               </button>
