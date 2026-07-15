@@ -44,9 +44,7 @@ const Hero = () => {
         onClick={() => setActiveSlug(isActive ? '' : c.slug)}
         className="group flex flex-col items-center text-center transition-transform hover:-translate-y-0.5"
       >
-        <div className={`rounded-full p-1 transition-colors ${isActive ? 'bg-secondary/30' : 'bg-white/10 group-hover:bg-white/20'}`}>
-          <Flag country={flagKey} className="w-12 h-12 md:w-16 md:h-16" />
-        </div>
+        <Flag country={flagKey} className="w-12 h-12 md:w-16 md:h-16 shadow-lg" />
         <div className="mt-2 text-sm md:text-base font-bold text-white">
           {c.name[lang]}
         </div>
