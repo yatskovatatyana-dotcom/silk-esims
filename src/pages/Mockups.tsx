@@ -99,7 +99,7 @@ export default function Mockups() {
                   <h3 className="font-bold text-base leading-tight">{s.title}</h3>
                 </div>
 
-                <div className="aspect-[9/16] bg-muted/50 flex items-center justify-center relative">
+                <div className="aspect-[9/19.5] bg-muted/50 flex items-center justify-center relative">
                   {img ? (
                     <img src={img} alt={s.title} className="w-full h-full object-contain" />
                   ) : (
