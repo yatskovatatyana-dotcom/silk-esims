@@ -40,6 +40,7 @@ const Hero = () => {
   const CountryTile = ({ c }: { c: HeroCountry }) => {
     const isActive = c.slug === activeSlug;
     const from = c.plans[0]?.price;
+    const flagKey = (c.slug === 'global' ? 'global' : c.slug) as Parameters<typeof Flag>[0]['country'];
     return (
       <button
         key={c.slug}
@@ -50,7 +51,7 @@ const Hero = () => {
             : 'border-white/20 bg-white/10 backdrop-blur-md hover:bg-white/20'
         }`}
       >
-        <span className="text-2xl md:text-3xl leading-none">{c.flag}</span>
+        <Flag country={flagKey} />
         <div className="min-w-0">
           <div className="text-sm md:text-base font-bold text-white truncate">
             {c.name[lang]}
