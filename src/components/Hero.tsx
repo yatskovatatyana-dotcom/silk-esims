@@ -56,12 +56,12 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen overflow-hidden pt-24 md:pt-28 pb-8">
-      {/* Full-bleed background image */}
-      <div aria-hidden className="absolute inset-0">
+      {/* Full-bleed background image — scaled down so the illustration is smaller and more background shows on the sides */}
+      <div aria-hidden className="absolute inset-0 overflow-hidden">
         <img
           src={heroBeach.url}
           alt=""
-          className="w-full h-full object-cover object-[center_75%]"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[115%] h-[115%] object-cover object-center scale-[0.9]"
           width={1920}
           height={1280}
         />
@@ -146,11 +146,18 @@ const Hero = () => {
             <ChevronRight className="w-4 h-4" />
           </button>
 
-          {/* Circular flag grid */}
-          <div className="mt-4 md:mt-5 grid grid-cols-3 gap-4 md:gap-6 max-w-md">
-            {chips.map((c) => (
-              <CountryTile key={c.slug} c={c} />
-            ))}
+          {/* Horizontal country rows */}
+          <div className="mt-5 md:mt-6 space-y-3">
+            <div className="flex gap-3 overflow-x-auto no-scrollbar pb-1">
+              {chips.slice(0, 3).map((c) => (
+                <CountryRowTile key={c.slug} c={c} />
+              ))}
+            </div>
+            <div className="flex gap-3 overflow-x-auto no-scrollbar pb-1">
+              {chips.slice(3, 6).map((c) => (
+                <CountryRowTile key={c.slug} c={c} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
