@@ -108,20 +108,19 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Search + visible flag rows */}
-        <div className="mt-10 md:mt-14 max-w-4xl">
+        {/* White search + tiles card */}
+        <div className="mt-10 md:mt-14 max-w-4xl rounded-3xl bg-white shadow-elegant p-4 md:p-6">
           {/* Search bar */}
-          <div className="relative flex items-center gap-3">
-            <div className="relative flex-1">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/40" />
-              <input
-                type="text"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder={t('heroSearch.placeholder')}
-                className="w-full h-12 md:h-14 pl-12 pr-4 rounded-full bg-white text-foreground text-base md:text-lg font-medium placeholder:text-foreground/40 focus:outline-none focus:ring-2 focus:ring-secondary/40 shadow-elegant"
-              />
-              {query && suggestions.length > 0 && (
+          <div className="relative">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/40" />
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder={t('heroSearch.placeholder')}
+              className="w-full h-12 md:h-14 pl-12 pr-4 rounded-full bg-muted text-foreground text-base md:text-lg font-medium placeholder:text-foreground/40 focus:outline-none focus:ring-2 focus:ring-secondary/40"
+            />
+            {query && suggestions.length > 0 && (
               <div className="absolute left-0 right-0 top-full mt-2 rounded-2xl bg-white border border-border shadow-elegant overflow-hidden z-20">
                 {suggestions.map((s) => {
                   const flagKey = (s.slug === 'global' ? 'global' : s.slug) as Parameters<typeof Flag>[0]['country'];
@@ -137,37 +136,44 @@ const Hero = () => {
                   );
                 })}
               </div>
-              )}
-            </div>
-            <button
-              onClick={() => window.location.href = tariffUrl}
-              className="hidden sm:inline-flex items-center h-12 md:h-14 px-5 md:px-7 rounded-full bg-secondary text-secondary-foreground font-semibold text-sm md:text-base hover:bg-secondary/90 transition-colors whitespace-nowrap shadow-elegant"
-            >
-              {t('heroSearch.cta')}
-            </button>
+            )}
           </div>
 
-          {/* Visible flag rows */}
-          <div className="mt-4 md:mt-5 space-y-2.5 md:space-y-3">
-            <div className="flex gap-2.5 md:gap-3 overflow-x-auto no-scrollbar pb-1">
-              {row1.map((c) => (
-                <CountryTile key={c.slug} c={c} />
-              ))}
-            </div>
-            <div className="flex gap-2.5 md:gap-3 overflow-x-auto no-scrollbar pb-1 md:pl-8">
-              {row2.map((c) => (
-                <CountryTile key={c.slug} c={c} />
-              ))}
-              <button
-                onClick={() => window.location.href = tariffUrl}
-                className="flex items-center gap-2 px-4 py-2 md:px-5 md:py-2.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white font-semibold text-sm md:text-base hover:bg-white/20 transition-all shrink-0"
-              >
-                <Flag country="global" className="w-5 h-5 md:w-6 md:h-6" />
-                {t('heroSearch.moreDestinations')}
-                <ChevronRight className="w-4 h-4 text-white/70" />
-              </button>
-            </div>
+          {/* Country tile grid */}
+          <div className="mt-4 md:mt-5 grid grid-cols-2 md:grid-cols-3 gap-2.5 md:gap-3">
+            {chips.map((c) => {
+              const isActive = c.slug === activeSlug;
+              const from = c.plans[0]?.price;
+              const flagKey = (c.slug === 'global' ? 'global' : c.slug) as Parameters<typeof Flag>[0]['country'];
+              return (
+                <button
+                  key={c.slug}
+                  onClick={() => setActiveSlug(isActive ? '' : c.slug)}
+                  className={`flex items-center gap-3 rounded-2xl border px-3 py-3 md:px-4 md:py-3.5 text-left transition-all hover:-translate-y-0.5 hover:shadow-soft ${
+                    isActive ? 'border-secondary bg-secondary/5' : 'border-border bg-card'
+                  }`}
+                >
+                  <Flag country={flagKey} className="w-8 h-8 md:w-9 md:h-9" />
+                  <div className="min-w-0">
+                    <div className="text-sm md:text-base font-bold text-foreground truncate">
+                      {c.name[lang]}
+                    </div>
+                    <div className="text-[11px] md:text-xs text-foreground/60 font-medium">
+                      {t('heroSearch.fromPrice')} {from}
+                    </div>
+                  </div>
+                </button>
+              );
+            })}
           </div>
+
+          <button
+            onClick={() => window.location.href = tariffUrl}
+            className="mt-4 md:mt-5 w-full inline-flex items-center justify-center gap-2 h-12 md:h-14 rounded-full bg-secondary text-secondary-foreground font-semibold text-sm md:text-base hover:bg-secondary/90 transition-colors"
+          >
+            {t('heroSearch.moreDestinations')}
+            <ChevronRight className="w-4 h-4" />
+          </button>
         </div>
       </div>
 
