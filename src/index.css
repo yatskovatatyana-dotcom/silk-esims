@@ -12,48 +12,49 @@
 
 @layer base {
   :root {
-    /* Surfaces — cool light paper, no beige */
-    --background: 210 25% 97%;               /* cool off-white */
-    --foreground: 220 45% 12%;               /* deep navy text */
+    /* Surfaces — cool light paper */
+    --background: 220 30% 97%;
+    --foreground: 235 45% 14%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 45% 12%;
+    --card-foreground: 235 45% 14%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 45% 12%;
+    --popover-foreground: 235 45% 14%;
 
-    /* Brand */
-    --primary: 18 95% 58%;                   /* warm coral-orange */
+    /* Brand — indigo → violet like the app */
+    --primary: 235 82% 58%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 28 100% 65%;
+    --primary-glow: 262 82% 66%;
 
-    --secondary: 43 100% 62%;                /* sunny yellow */
-    --secondary-foreground: 220 45% 12%;
+    --secondary: 262 82% 66%;                /* violet accent */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 25% 93%;
-    --muted-foreground: 220 15% 42%;
+    --muted: 220 25% 94%;
+    --muted-foreground: 235 15% 42%;
 
-    --accent: 43 100% 62%;                   /* yellow accent */
-    --accent-foreground: 220 45% 12%;
+    --accent: 262 82% 66%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 20% 88%;
-    --input: 210 20% 88%;
-    --ring: 18 95% 58%;
+    --border: 220 20% 88%;
+    --input: 220 20% 88%;
+    --ring: 235 82% 58%;
 
     --radius: 1.25rem;
 
     /* Gradients */
-    --gradient-warm: linear-gradient(135deg, hsl(18 95% 58%), hsl(43 100% 62%));
-    --gradient-hero: radial-gradient(ellipse at top, hsl(210 30% 94%) 0%, hsl(210 25% 97%) 55%);
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 25% 97%));
+    --gradient-warm: linear-gradient(135deg, hsl(235 82% 58%), hsl(262 82% 66%));
+    --gradient-hero: radial-gradient(ellipse at top, hsl(220 30% 94%) 0%, hsl(220 30% 97%) 55%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 30% 97%));
 
-    /* Shadows — soft, cool-tinted */
-    --shadow-soft: 0 4px 24px -8px hsl(220 40% 20% / 0.10);
-    --shadow-elegant: 0 20px 60px -20px hsl(220 40% 20% / 0.18);
-    --shadow-card: 0 2px 12px -4px hsl(220 30% 20% / 0.06);
+    /* Shadows */
+    --shadow-soft: 0 4px 24px -8px hsl(235 40% 25% / 0.12);
+    --shadow-elegant: 0 20px 60px -20px hsl(235 50% 25% / 0.22);
+    --shadow-card: 0 2px 12px -4px hsl(235 30% 20% / 0.08);
+
 
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
