@@ -228,7 +228,7 @@ const resources = {
         optimalNote: 'Оптимально на 2 недели',
         checkoutNote: 'Оформи в личном кабинете',
         fromPrice: 'от',
-        moreDestinations: 'Все странны',
+        moreDestinations: 'Все страны',
       },
       heroStrip: {
         countries: { title: '180+ стран', body: 'Путешествуйте в 180+ странах и регионах мира.' },
