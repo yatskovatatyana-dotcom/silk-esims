@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { Search, ChevronRight, Tag, Plane, Smartphone, X } from 'lucide-react';
-import heroBeach from '@/assets/hero-travelers.jpg';
+import heroBeach from '@/assets/hero-splash.png.asset.json';
 import { heroCountries, heroChipSlugs, type HeroCountry } from '@/data/heroCountries';
 
 const Hero = () => {
