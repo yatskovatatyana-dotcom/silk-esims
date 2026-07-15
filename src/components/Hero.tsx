@@ -14,7 +14,10 @@ const Hero = () => {
   const tariffUrl = `https://app.silk-esim.ru/app?lang=${lang}&utm_source=tanya_landing&utm_medium=referral&utm_content=tariff`;
 
   const chips = useMemo(
-    () => heroChipSlugs.map((s) => heroCountries.find((c) => c.slug === s)!).filter(Boolean),
+    () => heroChipSlugs
+      .filter((s) => s !== 'global')
+      .map((s) => heroCountries.find((c) => c.slug === s)!)
+      .filter(Boolean),
     []
   );
 
@@ -167,6 +170,13 @@ const Hero = () => {
             })}
           </div>
 
+          <button
+            onClick={() => window.location.href = tariffUrl}
+            className="mt-4 md:mt-5 w-full inline-flex items-center justify-center gap-2 h-12 md:h-14 rounded-full bg-secondary text-secondary-foreground font-semibold text-sm md:text-base hover:bg-secondary/90 transition-colors"
+          >
+            {t('heroSearch.moreDestinations')}
+            <ChevronRight className="w-4 h-4" />
+          </button>
         </div>
       </div>
 
