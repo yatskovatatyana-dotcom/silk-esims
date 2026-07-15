@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import Legal from "./pages/Legal";
 import Login from "./pages/Login";
 import Mockups from "./pages/Mockups";
+import Classic from "./pages/Classic";
 
 const queryClient = new QueryClient();
 
