@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { Search, ChevronRight, Tag, Plane, Smartphone, X } from 'lucide-react';
-import heroBeach from '@/assets/hero-travelers.jpg';
+import heroBeach from '@/assets/hero-splash.png.asset.json';
 import { heroCountries, heroChipSlugs, type HeroCountry } from '@/data/heroCountries';
 
 const Hero = () => {
@@ -41,7 +41,7 @@ const Hero = () => {
       {/* Full-bleed background image */}
       <div aria-hidden className="absolute inset-0">
         <img
-          src={heroBeach}
+          src={heroBeach.url}
           alt=""
           className="w-full h-full object-cover object-[center_75%]"
           width={1920}
