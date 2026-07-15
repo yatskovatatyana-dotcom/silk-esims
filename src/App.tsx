@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import Legal from "./pages/Legal";
 import Login from "./pages/Login";
 import Mockups from "./pages/Mockups";
+import Classic from "./pages/Classic";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/legal" element={<Legal />} />
           <Route path="/login" element={<Login />} />
           <Route path="/mockups" element={<Mockups />} />
+          <Route path="/classic" element={<Classic />} />
           <Route path="/privacy-policy" element={<Navigate to="/legal" replace />} />
           <Route path="/terms-of-service" element={<Navigate to="/legal" replace />} />
           <Route path="/admin" element={<Navigate to="/" replace />} />
