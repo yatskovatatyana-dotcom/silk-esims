@@ -170,6 +170,13 @@ const Hero = () => {
             })}
           </div>
 
+          <button
+            onClick={() => window.location.href = tariffUrl}
+            className="mt-4 md:mt-5 w-full inline-flex items-center justify-center gap-2 h-12 md:h-14 rounded-full bg-secondary text-secondary-foreground font-semibold text-sm md:text-base hover:bg-secondary/90 transition-colors"
+          >
+            {t('heroSearch.moreDestinations')}
+            <ChevronRight className="w-4 h-4" />
+          </button>
         </div>
       </div>
 
