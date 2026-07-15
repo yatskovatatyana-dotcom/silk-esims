@@ -41,7 +41,7 @@ const Hero = () => {
       {/* Full-bleed background image */}
       <div aria-hidden className="absolute inset-0">
         <img
-          src={heroBeach}
+          src={heroBeach.url}
           alt=""
           className="w-full h-full object-cover object-[center_75%]"
           width={1920}
