@@ -14,7 +14,10 @@ const Hero = () => {
   const tariffUrl = `https://app.silk-esim.ru/app?lang=${lang}&utm_source=tanya_landing&utm_medium=referral&utm_content=tariff`;
 
   const chips = useMemo(
-    () => heroChipSlugs.map((s) => heroCountries.find((c) => c.slug === s)!).filter(Boolean),
+    () => heroChipSlugs
+      .filter((s) => s !== 'global')
+      .map((s) => heroCountries.find((c) => c.slug === s)!)
+      .filter(Boolean),
     []
   );
 
