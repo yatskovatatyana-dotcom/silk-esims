@@ -34,9 +34,6 @@ const Hero = () => {
     { icon: Smartphone, title: t('heroFeatures.keep.title'),    body: t('heroFeatures.keep.body') },
   ];
 
-  const row1 = chips.slice(0, 4);
-  const row2 = chips.slice(4, 8);
-
   const CountryTile = ({ c }: { c: HeroCountry }) => {
     const isActive = c.slug === activeSlug;
     const from = c.plans[0]?.price;
@@ -45,20 +42,16 @@ const Hero = () => {
       <button
         key={c.slug}
         onClick={() => setActiveSlug(isActive ? '' : c.slug)}
-        className={`group flex items-center gap-2.5 md:gap-3 pl-2 pr-3 md:pl-3 md:pr-4 py-2 md:py-2.5 rounded-full border transition-all text-left shrink-0 hover:-translate-y-0.5 ${
-          isActive
-            ? 'border-secondary bg-secondary/10'
-            : 'border-white/20 bg-white/10 backdrop-blur-md hover:bg-white/20'
-        }`}
+        className="group flex flex-col items-center text-center transition-transform hover:-translate-y-0.5"
       >
-        <Flag country={flagKey} />
-        <div className="min-w-0">
-          <div className="text-sm md:text-base font-bold text-white truncate">
-            {c.name[lang]}
-          </div>
-          <div className="text-[11px] md:text-xs text-white/70 font-medium">
-            {t('heroSearch.fromPrice')} {from}
-          </div>
+        <div className={`rounded-full p-1 transition-colors ${isActive ? 'bg-secondary/30' : 'bg-white/10 group-hover:bg-white/20'}`}>
+          <Flag country={flagKey} className="w-12 h-12 md:w-16 md:h-16" />
+        </div>
+        <div className="mt-2 text-sm md:text-base font-bold text-white">
+          {c.name[lang]}
+        </div>
+        <div className="text-xs md:text-sm text-white/70 font-medium">
+          {t('heroSearch.fromPrice')} {from}
         </div>
       </button>
     );
@@ -108,8 +101,8 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Search + visible flag rows */}
-        <div className="mt-10 md:mt-14 max-w-4xl">
+        {/* Search + country grid */}
+        <div className="mt-10 md:mt-14 max-w-2xl">
           {/* Search bar */}
           <div className="relative flex items-center gap-3">
             <div className="relative flex-1">
@@ -147,26 +140,20 @@ const Hero = () => {
             </button>
           </div>
 
-          {/* Visible flag rows */}
-          <div className="mt-4 md:mt-5 space-y-2.5 md:space-y-3">
-            <div className="flex gap-2.5 md:gap-3 overflow-x-auto no-scrollbar pb-1">
-              {row1.map((c) => (
-                <CountryTile key={c.slug} c={c} />
-              ))}
-            </div>
-            <div className="flex gap-2.5 md:gap-3 overflow-x-auto no-scrollbar pb-1 md:pl-8">
-              {row2.map((c) => (
-                <CountryTile key={c.slug} c={c} />
-              ))}
-              <button
-                onClick={() => window.location.href = tariffUrl}
-                className="flex items-center gap-2 px-4 py-2 md:px-5 md:py-2.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white font-semibold text-sm md:text-base hover:bg-white/20 transition-all shrink-0"
-              >
-                <Flag country="global" className="w-5 h-5 md:w-6 md:h-6" />
-                {t('heroSearch.moreDestinations')}
-                <ChevronRight className="w-4 h-4 text-white/70" />
-              </button>
-            </div>
+          {/* All countries link */}
+          <button
+            onClick={() => window.location.href = tariffUrl}
+            className="mt-3 md:mt-4 flex items-center gap-1 text-sm md:text-base text-white/80 font-medium hover:text-white transition-colors"
+          >
+            {t('heroSearch.moreDestinations')}
+            <ChevronRight className="w-4 h-4" />
+          </button>
+
+          {/* Circular flag grid */}
+          <div className="mt-4 md:mt-5 grid grid-cols-3 gap-4 md:gap-6 max-w-md">
+            {chips.map((c) => (
+              <CountryTile key={c.slug} c={c} />
+            ))}
           </div>
         </div>
       </div>
