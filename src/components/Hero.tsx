@@ -35,13 +35,12 @@ const Hero = () => {
   ];
 
   const CountryTile = ({ c }: { c: HeroCountry }) => {
-    const isActive = c.slug === activeSlug;
     const from = c.plans[0]?.price;
     const flagKey = (c.slug === 'global' ? 'global' : c.slug) as Parameters<typeof Flag>[0]['country'];
     return (
       <button
         key={c.slug}
-        onClick={() => setActiveSlug(isActive ? '' : c.slug)}
+        onClick={() => setActiveSlug(c.slug === activeSlug ? '' : c.slug)}
         className="group flex flex-col items-center text-center transition-transform hover:-translate-y-0.5"
       >
         <Flag country={flagKey} className="w-12 h-12 md:w-16 md:h-16 shadow-lg" />
