@@ -34,19 +34,29 @@ const Hero = () => {
     { icon: Smartphone, title: t('heroFeatures.keep.title'),    body: t('heroFeatures.keep.body') },
   ];
 
-  const CountryRowTile = ({ c }: { c: HeroCountry }) => {
+  const row1 = chips.slice(0, 4);
+  const row2 = chips.slice(4, 8);
+
+  const CountryTile = ({ c }: { c: HeroCountry }) => {
+    const isActive = c.slug === activeSlug;
     const from = c.plans[0]?.price;
     const flagKey = (c.slug === 'global' ? 'global' : c.slug) as Parameters<typeof Flag>[0]['country'];
     return (
       <button
         key={c.slug}
-        onClick={() => setActiveSlug(c.slug === activeSlug ? '' : c.slug)}
-        className="group flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-white hover:bg-white/20 transition-colors shrink-0"
+        onClick={() => setActiveSlug(isActive ? '' : c.slug)}
+        className={`group flex items-center gap-2.5 md:gap-3 pl-2 pr-3 md:pl-3 md:pr-4 py-2 md:py-2.5 rounded-full border transition-all text-left shrink-0 hover:-translate-y-0.5 ${
+          isActive
+            ? 'border-secondary bg-secondary/10'
+            : 'border-white/20 bg-white/10 backdrop-blur-md hover:bg-white/20'
+        }`}
       >
-        <Flag country={flagKey} className="w-7 h-7 md:w-8 md:h-8" />
-        <div className="text-left">
-          <div className="text-sm md:text-base font-semibold leading-tight">{c.name[lang]}</div>
-          <div className="text-xs text-white/70 font-medium">
+        <Flag country={flagKey} />
+        <div className="min-w-0">
+          <div className="text-sm md:text-base font-bold text-white truncate">
+            {c.name[lang]}
+          </div>
+          <div className="text-[11px] md:text-xs text-white/70 font-medium">
             {t('heroSearch.fromPrice')} {from}
           </div>
         </div>
@@ -56,12 +66,12 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen overflow-hidden pt-24 md:pt-28 pb-8">
-      {/* Full-bleed background image — scaled down so the illustration is smaller and more background shows on the sides */}
-      <div aria-hidden className="absolute inset-0 overflow-hidden">
+      {/* Full-bleed background image */}
+      <div aria-hidden className="absolute inset-0">
         <img
           src={heroBeach.url}
           alt=""
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[115%] h-[115%] object-cover object-center scale-[0.9]"
+          className="w-full h-full object-cover object-[center_75%]"
           width={1920}
           height={1280}
         />
@@ -98,8 +108,8 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Search + country grid */}
-        <div className="mt-10 md:mt-14 max-w-2xl">
+        {/* Search + visible flag rows */}
+        <div className="mt-10 md:mt-14 max-w-4xl">
           {/* Search bar */}
           <div className="relative flex items-center gap-3">
             <div className="relative flex-1">
@@ -137,26 +147,25 @@ const Hero = () => {
             </button>
           </div>
 
-          {/* All countries link */}
-          <button
-            onClick={() => window.location.href = tariffUrl}
-            className="mt-3 md:mt-4 flex items-center gap-1 text-sm md:text-base text-white/80 font-medium hover:text-white transition-colors"
-          >
-            {t('heroSearch.moreDestinations')}
-            <ChevronRight className="w-4 h-4" />
-          </button>
-
-          {/* Horizontal country rows */}
-          <div className="mt-5 md:mt-6 space-y-3">
-            <div className="flex gap-3 overflow-x-auto no-scrollbar pb-1">
-              {chips.slice(0, 3).map((c) => (
-                <CountryRowTile key={c.slug} c={c} />
+          {/* Visible flag rows */}
+          <div className="mt-4 md:mt-5 space-y-2.5 md:space-y-3">
+            <div className="flex gap-2.5 md:gap-3 overflow-x-auto no-scrollbar pb-1">
+              {row1.map((c) => (
+                <CountryTile key={c.slug} c={c} />
               ))}
             </div>
-            <div className="flex gap-3 overflow-x-auto no-scrollbar pb-1">
-              {chips.slice(3, 6).map((c) => (
-                <CountryRowTile key={c.slug} c={c} />
+            <div className="flex gap-2.5 md:gap-3 overflow-x-auto no-scrollbar pb-1 md:pl-8">
+              {row2.map((c) => (
+                <CountryTile key={c.slug} c={c} />
               ))}
+              <button
+                onClick={() => window.location.href = tariffUrl}
+                className="flex items-center gap-2 px-4 py-2 md:px-5 md:py-2.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white font-semibold text-sm md:text-base hover:bg-white/20 transition-all shrink-0"
+              >
+                <Flag country="global" className="w-5 h-5 md:w-6 md:h-6" />
+                {t('heroSearch.moreDestinations')}
+                <ChevronRight className="w-4 h-4 text-white/70" />
+              </button>
             </div>
           </div>
         </div>
