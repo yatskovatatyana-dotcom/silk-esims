@@ -9,7 +9,7 @@ import s03 from '@/assets/screens/03-all-countries.png';
 import s04 from '@/assets/screens/04-plans.png';
 import s05 from '@/assets/screens/05-checkout.png';
 import s06 from '@/assets/screens/06-install.png';
-import s07 from '@/assets/screens/07-my-esim.png';
+import s07 from '@/assets/screens/07-my-esim.png.asset.json';
 import s08 from '@/assets/screens/08-profile.png';
 import s08b from '@/assets/screens/08b-profile-empty.png';
 import s09 from '@/assets/screens/09-login.png';
