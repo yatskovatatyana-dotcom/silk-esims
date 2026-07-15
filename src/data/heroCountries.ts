@@ -76,4 +76,4 @@ export const heroCountries: HeroCountry[] = [
   { slug: 'georgia',     name: { en: 'Georgia',     ru: 'Грузия' },       flag: '🇬🇪', plans: standard },
 ];
 
-export const heroChipSlugs = ['turkey', 'thailand', 'uae', 'europe', 'usa', 'japan', 'global'];
+export const heroChipSlugs = ['turkey', 'egypt', 'uae', 'thailand', 'georgia', 'vietnam'];
