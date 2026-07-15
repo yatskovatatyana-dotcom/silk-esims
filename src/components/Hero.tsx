@@ -34,21 +34,21 @@ const Hero = () => {
     { icon: Smartphone, title: t('heroFeatures.keep.title'),    body: t('heroFeatures.keep.body') },
   ];
 
-  const CountryTile = ({ c }: { c: HeroCountry }) => {
+  const CountryRowTile = ({ c }: { c: HeroCountry }) => {
     const from = c.plans[0]?.price;
     const flagKey = (c.slug === 'global' ? 'global' : c.slug) as Parameters<typeof Flag>[0]['country'];
     return (
       <button
         key={c.slug}
         onClick={() => setActiveSlug(c.slug === activeSlug ? '' : c.slug)}
-        className="group flex flex-col items-center text-center transition-transform hover:-translate-y-0.5"
+        className="group flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-white hover:bg-white/20 transition-colors shrink-0"
       >
-        <Flag country={flagKey} className="w-12 h-12 md:w-16 md:h-16 shadow-lg" />
-        <div className="mt-2 text-sm md:text-base font-bold text-white">
-          {c.name[lang]}
-        </div>
-        <div className="text-xs md:text-sm text-white/70 font-medium">
-          {t('heroSearch.fromPrice')} {from}
+        <Flag country={flagKey} className="w-7 h-7 md:w-8 md:h-8" />
+        <div className="text-left">
+          <div className="text-sm md:text-base font-semibold leading-tight">{c.name[lang]}</div>
+          <div className="text-xs text-white/70 font-medium">
+            {t('heroSearch.fromPrice')} {from}
+          </div>
         </div>
       </button>
     );
