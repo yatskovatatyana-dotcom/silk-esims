@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 
 type FlagProps = {
-  country: 'turkey' | 'thailand' | 'uae' | 'europe' | 'usa' | 'japan' | 'global';
+  country: 'turkey' | 'thailand' | 'uae' | 'europe' | 'usa' | 'japan' | 'egypt' | 'vietnam' | 'georgia' | 'global';
   className?: string;
 };
 
@@ -65,6 +65,39 @@ const Flag: FC<FlagProps> = ({ country, className = 'w-6 h-6 md:w-7 md:h-7' }) =
         <svg viewBox="0 0 36 36" className={common} aria-hidden>
           <rect width="36" height="36" fill="#fff" rx="18" />
           <circle cx="18" cy="18" r="7" fill="#B7312C" />
+        </svg>
+      );
+    case 'egypt':
+      return (
+        <svg viewBox="0 0 36 36" className={common} aria-hidden>
+          <rect width="36" height="36" fill="#fff" rx="18" />
+          <rect y="0" width="36" height="12" fill="#B7312C" />
+          <rect y="12" width="36" height="12" fill="#fff" />
+          <rect y="24" width="36" height="12" fill="#000" />
+          <path d="M18 9l1.8 5.5h5.8l-4.7 3.4 1.8 5.5-4.7-3.4-4.7 3.4 1.8-5.5-4.7-3.4h5.8z" fill="#C09300" />
+        </svg>
+      );
+    case 'vietnam':
+      return (
+        <svg viewBox="0 0 36 36" className={common} aria-hidden>
+          <rect width="36" height="36" fill="#DA251D" rx="18" />
+          <path d="M18 8l2.5 6.3h6.8l-5.5 4 2.1 6.4-5.9-4.3-5.9 4.3 2.1-6.4-5.5-4h6.8z" fill="#FFCE00" />
+        </svg>
+      );
+    case 'georgia':
+      return (
+        <svg viewBox="0 0 36 36" className={common} aria-hidden>
+          <rect width="36" height="36" fill="#fff" rx="18" />
+          <rect x="16" y="0" width="4" height="36" fill="#B7312C" />
+          <rect x="0" y="16" width="36" height="4" fill="#B7312C" />
+          <rect x="17" y="3" width="2" height="5" fill="#B7312C" />
+          <rect x="17" y="28" width="2" height="5" fill="#B7312C" />
+          <rect x="3" y="17" width="5" height="2" fill="#B7312C" />
+          <rect x="28" y="17" width="5" height="2" fill="#B7312C" />
+          <circle cx="9" cy="9" r="2" fill="#C09300" />
+          <circle cx="27" cy="9" r="2" fill="#C09300" />
+          <circle cx="9" cy="27" r="2" fill="#C09300" />
+          <circle cx="27" cy="27" r="2" fill="#C09300" />
         </svg>
       );
     case 'global':

@@ -73,6 +73,7 @@ export const heroCountries: HeroCountry[] = [
   { slug: 'egypt',       name: { en: 'Egypt',       ru: 'Египет' },       flag: '🇪🇬', plans: standard },
   { slug: 'morocco',     name: { en: 'Morocco',     ru: 'Марокко' },      flag: '🇲🇦', plans: standard },
   { slug: 'australia',   name: { en: 'Australia',   ru: 'Австралия' },    flag: '🇦🇺', plans: usa },
+  { slug: 'georgia',     name: { en: 'Georgia',     ru: 'Грузия' },       flag: '🇬🇪', plans: standard },
 ];
 
-export const heroChipSlugs = ['turkey', 'thailand', 'uae', 'europe', 'usa', 'japan', 'global'];
+export const heroChipSlugs = ['turkey', 'egypt', 'uae', 'thailand', 'georgia', 'vietnam'];
