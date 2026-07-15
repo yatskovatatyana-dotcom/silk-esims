@@ -9,7 +9,7 @@ import s03 from '@/assets/screens/03-all-countries.png';
 import s04 from '@/assets/screens/04-plans.png';
 import s05 from '@/assets/screens/05-checkout.png';
 import s06 from '@/assets/screens/06-install.png';
-import s07 from '@/assets/screens/07-my-esim.png';
+import s07 from '@/assets/screens/07-my-esim.png.asset.json';
 import s08 from '@/assets/screens/08-profile.png';
 import s08b from '@/assets/screens/08b-profile-empty.png';
 import s09 from '@/assets/screens/09-login.png';
@@ -32,7 +32,7 @@ const screens: Screen[] = [
   { n: 4, title: 'Тарифы страны', image: s04, note: 'Пакеты 1/3/5/10/20 ГБ, бейдж «Популярно».' },
   { n: 5, title: 'Оформление / Оплата', image: s05, note: 'Итог заказа и способы оплаты: карта, СБП, крипто.' },
   { n: 6, title: 'Установка eSIM', image: s06, note: 'Пошаговая инструкция и вход в чат поддержки.' },
-  { n: 7, title: 'Мой eSIM', image: s07, note: 'Активный пакет, прогресс трафика, «Добавить пакет».' },
+  { n: 7, title: 'Мой eSIM', image: s07.url, note: 'Активный пакет, прогресс трафика, «Добавить пакет».' },
   { n: 8, title: 'Профиль', image: s08, note: 'Email, история покупок, язык, удаление профиля.' },
   { n: 8.1, title: 'Профиль (пусто)', image: s08b, note: 'Состояние до входа: приглашение войти и подобрать страну.' },
   { n: 9, title: 'Вход', image: s09, note: 'Ввод email, ссылка на регистрацию.' },
