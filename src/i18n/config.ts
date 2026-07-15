@@ -42,7 +42,7 @@ const resources = {
         optimalNote: 'Best for 2 weeks',
         checkoutNote: 'Complete purchase in your account',
         fromPrice: 'from',
-        moreDestinations: 'More destinations',
+        moreDestinations: 'All countries',
       },
       heroStrip: {
         countries: { title: '180+ countries', body: 'Travel across 180+ countries and regions worldwide.' },
