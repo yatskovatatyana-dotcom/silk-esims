@@ -122,18 +122,21 @@ const Hero = () => {
                 className="w-full h-12 md:h-14 pl-12 pr-4 rounded-full bg-white text-foreground text-base md:text-lg font-medium placeholder:text-foreground/40 focus:outline-none focus:ring-2 focus:ring-secondary/40 shadow-elegant"
               />
               {query && suggestions.length > 0 && (
-                <div className="absolute left-0 right-0 top-full mt-2 rounded-2xl bg-white border border-border shadow-elegant overflow-hidden z-20">
-                  {suggestions.map((s) => (
+              <div className="absolute left-0 right-0 top-full mt-2 rounded-2xl bg-white border border-border shadow-elegant overflow-hidden z-20">
+                {suggestions.map((s) => {
+                  const flagKey = (s.slug === 'global' ? 'global' : s.slug) as Parameters<typeof Flag>[0]['country'];
+                  return (
                     <button
                       key={s.slug}
                       onClick={() => { setActiveSlug(s.slug); setQuery(''); }}
                       className="w-full flex items-center gap-3 px-4 py-3 hover:bg-muted text-left transition-colors"
                     >
-                      <span className="text-xl">{s.flag}</span>
+                      <Flag country={flagKey} className="w-6 h-6" />
                       <span className="font-semibold text-foreground">{s.name[lang]}</span>
                     </button>
-                  ))}
-                </div>
+                  );
+                })}
+              </div>
               )}
             </div>
             <button
