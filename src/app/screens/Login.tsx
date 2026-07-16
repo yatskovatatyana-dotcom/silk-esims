@@ -24,10 +24,10 @@ const Login = () => {
           <div className="w-20 h-20 mx-auto rounded-full bg-primary/10 flex items-center justify-center">
             <Mail className="w-10 h-10 text-primary" strokeWidth={2} />
           </div>
-          <h2 className="mt-6 text-center text-[28px] font-extrabold text-foreground leading-tight">
+          <h2 className="mt-6 text-center text-[34px] font-extrabold text-foreground leading-tight">
             С возвращением!
           </h2>
-          <p className="mt-2 text-center text-foreground/60">
+          <p className="mt-3 text-center text-foreground/60 text-[15px]">
             Введите вашу почту, чтобы войти в аккаунт
           </p>
 
