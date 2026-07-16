@@ -15,9 +15,10 @@ const FlagCircle: FC<Props> = ({ slug, className = 'w-14 h-14' }) => {
     case 'turkey':
       return svg(<>
         <rect width="36" height="36" fill="#E30917" />
-        <circle cx="15" cy="18" r="6" fill="none" stroke="#fff" strokeWidth="1.8" />
-        <circle cx="16.5" cy="18" r="4.5" fill="#E30917" />
-        <path d="M22.5 18l-4.6 1.5 1.8-4-3.6 2.7 3.6 2.7-1.8-4 4.6 1.5z" fill="#fff" />
+        <circle cx="14.5" cy="18" r="6.2" fill="#fff" />
+        <circle cx="16.2" cy="18" r="5" fill="#E30917" />
+        <path d="M23.6 18l-4 1.3.55-4.2-2.55 3.35 3.9 1.55-2.35-3.5 4.45 1.5z" fill="#fff" transform="translate(0.5 0)" />
+        <path d="M22 15.6l.55 1.7h1.8l-1.45 1.05.55 1.7-1.45-1.05-1.45 1.05.55-1.7-1.45-1.05h1.8z" fill="#fff" />
       </>);
     case 'thailand':
       return svg(<>
