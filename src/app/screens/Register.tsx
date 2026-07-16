@@ -24,7 +24,7 @@ const Register = () => {
           <div className="w-20 h-20 mx-auto rounded-full bg-primary/10 flex items-center justify-center">
             <UserPlus className="w-10 h-10 text-primary" strokeWidth={2} />
           </div>
-          <h2 className="mt-6 text-center text-[32px] font-extrabold text-foreground leading-tight">
+          <h2 className="mt-6 text-center text-[38px] font-extrabold text-foreground leading-tight">
             Создайте аккаунт
           </h2>
           <p className="mt-2 text-center text-foreground/60">

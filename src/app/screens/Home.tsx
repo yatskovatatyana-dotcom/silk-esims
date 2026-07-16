@@ -20,7 +20,7 @@ const Home = () => {
       {/* Blue banner region */}
       <div className="relative text-white" style={{ background: 'linear-gradient(180deg, hsl(230 82% 42%) 0%, hsl(240 82% 50%) 100%)' }}>
         <StatusBar dark />
-        <div className="text-center text-[15px] font-semibold pb-3">Silk eSIM</div>
+        <div className="text-center text-[19px] font-semibold pb-3 -mt-1">Silk eSIM</div>
         {/* Promo card */}
         <div className="mx-4 mb-4 rounded-2xl overflow-hidden relative bg-white/10 h-[170px]">
           <img src={heroSplash.url} alt="" className="absolute inset-0 w-full h-full object-cover object-[75%_center]" />

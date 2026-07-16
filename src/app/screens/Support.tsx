@@ -35,14 +35,14 @@ const Support = () => {
           </Link>
 
           <div>
-            <div className="text-xl font-bold text-foreground mb-3">Частые вопросы</div>
-            <div className="space-y-2.5">
+            <div className="text-2xl font-extrabold text-foreground mb-3">Частые вопросы</div>
+            <div className="space-y-3">
               {faq.map((q) => (
                 <button
                   key={q}
-                  className="w-full flex items-center gap-3 rounded-2xl border border-border p-4 text-left hover:bg-muted/40 transition"
+                  className="w-full flex items-center gap-3 rounded-2xl border border-border p-5 text-left hover:bg-muted/40 transition"
                 >
-                  <span className="flex-1 font-semibold text-foreground">{q}</span>
+                  <span className="flex-1 font-bold text-foreground text-[15px]">{q}</span>
                   <ChevronRight className="w-5 h-5 text-foreground/40" />
                 </button>
               ))}

@@ -18,12 +18,13 @@ export type Country = {
   plans: Plan[];
 };
 
-const makePlans = (base: number): Plan[] => [
-  { id: 'start',   tier: 'СТАРТОВЫЙ',    data: '1 GB',  days: 5,  daysLabel: '5 дней',  price: base,                priceLabel: `${base} ₽`,                icon: 'bolt' },
-  { id: 'optimal', tier: 'ОПТИМАЛЬНЫЙ',  data: '5 GB',  days: 14, daysLabel: '14 дней', price: Math.round(base*2.2), priceLabel: `${Math.round(base*2.2)} ₽`, badge: 'hit',  icon: 'sparkles' },
-  { id: 'max',     tier: 'МАКСИМАЛЬНЫЙ', data: '10 GB', days: 30, daysLabel: '1 месяц', price: Math.round(base*3.5), priceLabel: `${Math.round(base*3.5)} ₽`,                icon: 'arrow-up-right' },
-  { id: 'super',   tier: 'СУПЕР',        data: '20 GB', days: 30, daysLabel: '1 месяц', price: Math.round(base*5.2), priceLabel: `${Math.round(base*5.2)} ₽`, badge: 'hit',  icon: 'wifi' },
-  { id: 'ultra',   tier: 'УЛЬТРА',       data: '30 GB', days: 30, daysLabel: '1 месяц', price: Math.round(base*7.0), priceLabel: `${Math.round(base*7.0)} ₽`, badge: 'best', icon: 'rocket' },
+// Фиксированные цены — как в макете 04-plans (Турция).
+const makePlans = (_base: number): Plan[] => [
+  { id: 'start',   tier: 'СТАРТОВЫЙ',    data: '1 GB',  days: 5,  daysLabel: '5 дней',  price: 399,  priceLabel: '399 ₽',                icon: 'bolt' },
+  { id: 'optimal', tier: 'ОПТИМАЛЬНЫЙ',  data: '5 GB',  days: 14, daysLabel: '14 дней', price: 649,  priceLabel: '649 ₽',  badge: 'hit',  icon: 'sparkles' },
+  { id: 'max',     tier: 'МАКСИМАЛЬНЫЙ', data: '10 GB', days: 30, daysLabel: '1 месяц', price: 799,  priceLabel: '799 ₽',                 icon: 'arrow-up-right' },
+  { id: 'super',   tier: 'СУПЕР',        data: '20 GB', days: 30, daysLabel: '1 месяц', price: 1190, priceLabel: '1190 ₽', badge: 'hit',  icon: 'wifi' },
+  { id: 'ultra',   tier: 'УЛЬТРА',       data: '30 GB', days: 30, daysLabel: '1 месяц', price: 1590, priceLabel: '1590 ₽', badge: 'best', icon: 'rocket' },
 ];
 
 export const countries: Country[] = [

@@ -105,11 +105,11 @@ const ProfileLoggedIn = () => {
       <div className="flex-1 overflow-y-auto bg-white">
         <div className="p-5 space-y-4">
           <div className="flex items-center gap-4 -mt-2">
-            <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-              <User className="w-12 h-12 text-primary" strokeWidth={2} fill="currentColor" />
+            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[hsl(230_85%_55%)] to-[hsl(265_85%_60%)] flex items-center justify-center shrink-0 shadow-[0_10px_30px_-10px_rgba(90,60,220,0.4)]">
+              <User className="w-14 h-14 text-white" strokeWidth={2} fill="currentColor" />
             </div>
             <div className="min-w-0">
-              <div className="font-bold text-xl text-foreground truncate">{email}</div>
+              <div className="font-extrabold text-2xl text-foreground truncate">{email}</div>
               <div className="text-sm text-foreground/60 mt-0.5">Спасибо, что с нами!</div>
             </div>
           </div>
