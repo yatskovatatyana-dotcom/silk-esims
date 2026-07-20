@@ -83,7 +83,7 @@ const ProfileEmpty = () => {
             <input
               value={q}
               onChange={(e) => setQ(e.target.value)}
-              placeholder="Поиск страны"
+              placeholder={t('common.searchCountry')}
               className="w-full h-12 pl-12 pr-4 rounded-full bg-muted text-foreground placeholder:text-foreground/40 focus:outline-none focus:ring-2 focus:ring-primary/30"
             />
           </div>
