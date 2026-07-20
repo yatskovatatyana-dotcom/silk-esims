@@ -20,7 +20,7 @@ const Login = () => {
 
   return (
     <PhoneFrame hideTabBar>
-      <GradientHeader title={t('login.title')} back onBack={() => nav(-1)} />
+      <GradientHeader title={t('login.title')} back onBack={() => nav(-1)} close onClose={() => nav('/app/home')} />
       <form onSubmit={submit} className="flex-1 flex flex-col bg-white">
         <div className="flex-1 px-6 pt-12">
           <div className="w-20 h-20 mx-auto rounded-full bg-primary/10 flex items-center justify-center">
