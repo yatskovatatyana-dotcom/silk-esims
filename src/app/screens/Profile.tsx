@@ -107,12 +107,12 @@ const ProfileEmpty = () => {
             </div>
           </div>
 
-          <button className="w-full flex items-center gap-3 p-2 bg-white">
+          <button onClick={toggleLang} className="w-full flex items-center gap-3 p-2 bg-white">
             <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
               <Globe className="w-5 h-5 text-primary" />
             </div>
-            <span className="flex-1 text-left font-semibold text-foreground">Язык приложения</span>
-            <span className="text-foreground/60 text-sm">Русский</span>
+            <span className="flex-1 text-left font-semibold text-foreground">{t('profile.language')}</span>
+            <span className="text-foreground/60 text-sm">{lang === 'ru' ? 'Русский' : 'English'}</span>
             <ChevronDown className="w-4 h-4 text-foreground/40" />
           </button>
         </div>
