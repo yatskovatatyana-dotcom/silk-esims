@@ -45,6 +45,7 @@ const dict = {
   'country.hitSale': { ru: 'ХИТ ПРОДАЖ', en: 'BESTSELLER' },
   'country.shortTrips': { ru: 'ВЫБОР НА КОРОТКИЕ ПОЕЗДКИ', en: 'PICK FOR SHORT TRIPS' },
   'country.savings': { ru: 'экономия', en: 'save' },
+  'country.worksWith': { ru: 'Работает с', en: 'Works with' },
   'country.giftBonusRu': { ru: 'Начислим {n} ГБ в подарок', en: 'Get {n} GB as a bonus' },
   'country.buy': { ru: 'Купить', en: 'Buy' },
 
