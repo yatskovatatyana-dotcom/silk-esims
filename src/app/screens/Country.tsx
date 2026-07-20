@@ -60,11 +60,10 @@ const Country = () => {
     [country, featured]
   );
 
-  const shortTripsId = useMemo(() => {
-    // Highlight the "sensible pick" — first plan with badge 'hit' among others, else 'max'
-    const hit = others.find((p) => p.badge === 'hit');
-    return (hit ?? others.find((p) => p.id === 'max') ?? others[0])?.id;
-  }, [others]);
+  const shortTripsId = useMemo(
+    () => (others.find((p) => p.id === 'max') ?? others[0])?.id,
+    [others]
+  );
 
   const [selectedId, setSelectedId] = useState<string>('max');
 
