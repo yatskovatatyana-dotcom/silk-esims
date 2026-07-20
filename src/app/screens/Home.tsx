@@ -27,9 +27,9 @@ const Home = () => {
         <StatusBar dark />
         <div className="text-center text-[19px] font-semibold pb-3 -mt-1">Silk eSIM</div>
         {/* Promo card */}
-        <div className="mx-4 mb-4 rounded-2xl overflow-hidden relative bg-white/10 h-[170px]">
-          <img src={heroSplash.url} alt="" className="absolute inset-0 w-full h-full object-cover object-[75%_center]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(225_85%_45%)]/95 via-[hsl(230_85%_45%)]/70 to-transparent" />
+        <div className="mx-4 mb-5 rounded-2xl overflow-hidden relative bg-white/10 h-[160px]">
+          <img src={promoImg} alt="" className="absolute inset-0 w-full h-full object-cover object-[70%_center]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(225_85%_40%)]/90 via-[hsl(230_85%_45%)]/50 to-transparent" />
           <div className="relative p-5 h-full flex flex-col justify-between">
             <div>
               <div className="text-[22px] font-bold leading-tight whitespace-pre-line">{t('home.promoTitle')}</div>
@@ -46,11 +46,11 @@ const Home = () => {
       </div>
 
       {/* Light area */}
-      <div className="flex-1 overflow-y-auto -mt-3 rounded-t-3xl pt-5 px-4 pb-6" style={{ background: 'linear-gradient(180deg, hsl(220 45% 94%) 0%, hsl(0 0% 100%) 45%)' }}>
+      <div className="flex-1 overflow-y-auto rounded-t-3xl pt-4 px-4 pb-6" style={{ background: 'linear-gradient(180deg, hsl(220 45% 94%) 0%, hsl(0 0% 100%) 45%)' }}>
         {/* Login row */}
         <Link
           to="/app/login"
-          className="flex items-center gap-3 bg-white rounded-2xl border border-border shadow-[0_4px_16px_-8px_rgba(30,40,80,0.15)] px-4 py-3 -mt-8 mb-4"
+          className="flex items-center gap-3 bg-white rounded-2xl border border-border shadow-[0_4px_16px_-8px_rgba(30,40,80,0.15)] px-4 py-3 mb-4"
         >
           <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center text-white shrink-0">
             <User className="w-6 h-6" strokeWidth={2.2} fill="currentColor" />
