@@ -19,7 +19,7 @@ const ProfileEmpty = () => {
         </div>
       </div>
       <div className="flex-1 overflow-y-auto bg-white -mt-6 rounded-t-3xl">
-        <div className="p-4 space-y-3">
+        <div className="flex flex-col h-full p-4 justify-between">
           <Link
             to="/app/login"
             className="flex items-center gap-3 bg-white rounded-2xl border border-border shadow-[0_6px_20px_-10px_rgba(30,40,80,0.2)] px-4 py-4"
@@ -76,7 +76,7 @@ const ProfileEmpty = () => {
             </p>
           </div>
 
-          <div className="relative">
+          <div className="relative mt-2">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/40" />
             <input
               value={q}
@@ -87,7 +87,7 @@ const ProfileEmpty = () => {
           </div>
 
           <div className="p-2">
-            <div className="flex items-center justify-between mb-2 px-1">
+            <div className="flex items-center justify-between mb-3 px-1">
               <div className="font-bold text-foreground">Популярные направления</div>
               <Link to="/app/countries" className="text-primary text-sm font-bold flex items-center gap-1">
                 Все страны <ChevronRight className="w-3.5 h-3.5" />
@@ -105,7 +105,7 @@ const ProfileEmpty = () => {
             </div>
           </div>
 
-          <button className="w-full flex items-center gap-3 -mt-1 p-2 bg-white">
+          <button className="w-full flex items-center gap-3 p-2 bg-white">
             <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
               <Globe className="w-5 h-5 text-primary" />
             </div>
