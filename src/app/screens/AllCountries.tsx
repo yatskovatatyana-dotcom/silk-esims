@@ -1,5 +1,5 @@
-import { useNavigate } from 'react-router-dom';
-import { ChevronRight, Search } from 'lucide-react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { ChevronRight, Search, Gift } from 'lucide-react';
 import { useState, useMemo } from 'react';
 import { PhoneFrame, GradientHeader } from '../shell';
 import { countries } from '../data';
@@ -10,6 +10,8 @@ const AllCountries = () => {
   const nav = useNavigate();
   const [q, setQ] = useState('');
   const { t, lang } = useI18n();
+  const [params] = useSearchParams();
+  const promo = params.get('promo') === '1';
 
   const list = useMemo(() => {
     const s = q.trim().toLowerCase();
@@ -21,8 +23,19 @@ const AllCountries = () => {
 
   return (
     <PhoneFrame>
-      <GradientHeader title={t('common.allCountries')} back onBack={() => nav(-1)} />
+      <GradientHeader title={promo ? t('promo.title') : t('common.allCountries')} back onBack={() => nav(-1)} />
       <div className="flex-1 overflow-y-auto bg-white">
+        {promo && (
+          <div className="mx-4 mt-4 rounded-2xl bg-primary/10 border border-primary/20 px-4 py-3 flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shrink-0">
+              <Gift className="w-5 h-5" />
+            </div>
+            <div className="text-sm">
+              <div className="font-bold text-foreground leading-tight">{t('promo.bannerTitle')}</div>
+              <div className="text-foreground/60 text-xs mt-0.5">{t('promo.bannerSub')}</div>
+            </div>
+          </div>
+        )}
         <div className="p-4">
           <div className="relative">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/40" />
