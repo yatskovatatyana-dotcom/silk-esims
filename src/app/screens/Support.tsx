@@ -29,7 +29,6 @@ const Support = () => {
               </div>
               <div>
                 <div className="text-xl font-bold">Чат с поддержкой</div>
-                <div className="text-white/80 text-sm mt-0.5">Отвечаем в течение 5 минут</div>
               </div>
             </div>
           </Link>
