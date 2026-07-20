@@ -36,18 +36,43 @@ const ProfileEmpty = () => {
             </div>
           </Link>
 
-          <div className="text-center py-6">
-            <div className="w-32 h-32 mx-auto rounded-full bg-primary/5 flex items-center justify-center">
-              <svg viewBox="0 0 64 64" className="w-20 h-20 text-primary">
-                <rect x="18" y="20" width="28" height="30" rx="3" fill="currentColor" opacity="0.9"/>
-                <rect x="26" y="14" width="12" height="8" rx="2" fill="currentColor"/>
-                <circle cx="32" cy="35" r="7" fill="#fff"/>
-                <path d="M32 30 v10 M27 35 h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-              </svg>
-            </div>
-            <div className="mt-4 font-bold text-xl text-foreground">Пока пусто</div>
+          <div className="text-center py-2">
+            <svg viewBox="0 0 240 200" className="w-56 h-44 mx-auto block" aria-hidden>
+              <defs>
+                <linearGradient id="suitGrad" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0" stopColor="hsl(230 80% 62%)" />
+                  <stop offset="1" stopColor="hsl(230 75% 48%)" />
+                </linearGradient>
+              </defs>
+              <ellipse cx="45" cy="70" rx="18" ry="6" fill="hsl(230 40% 92%)" />
+              <ellipse cx="200" cy="60" rx="22" ry="7" fill="hsl(230 40% 92%)" />
+              <path d="M0 165 L50 120 L90 160 L140 105 L200 165 Z" fill="hsl(230 40% 92%)" />
+              <g fill="hsl(230 55% 82%)">
+                <path d="M55 160 q-5 -30 10 -50 q5 25 -10 50 z" />
+                <path d="M72 162 q-10 -25 5 -45 q8 22 -5 45 z" />
+                <path d="M185 162 q10 -28 -6 -50 q-7 25 6 50 z" />
+                <path d="M168 164 q6 -22 -8 -42 q-4 22 8 42 z" />
+              </g>
+              <ellipse cx="120" cy="180" rx="55" ry="5" fill="hsl(230 30% 80%)" opacity="0.35" />
+              <rect x="102" y="52" width="36" height="8" rx="3" fill="hsl(230 65% 50%)" />
+              <rect x="105" y="38" width="30" height="22" rx="6" fill="none" stroke="hsl(230 65% 50%)" strokeWidth="4" />
+              <rect x="70" y="60" width="100" height="115" rx="10" fill="url(#suitGrad)" />
+              <line x1="95" y1="60" x2="95" y2="175" stroke="hsl(230 85% 40%)" strokeWidth="2" opacity="0.55" />
+              <line x1="145" y1="60" x2="145" y2="175" stroke="hsl(230 85% 40%)" strokeWidth="2" opacity="0.55" />
+              <circle cx="120" cy="117" r="24" fill="none" stroke="#fff" strokeWidth="3" />
+              <ellipse cx="120" cy="117" rx="10" ry="24" fill="none" stroke="#fff" strokeWidth="3" />
+              <line x1="96" y1="117" x2="144" y2="117" stroke="#fff" strokeWidth="3" />
+              <circle cx="88" cy="180" r="6" fill="hsl(230 65% 35%)" />
+              <circle cx="152" cy="180" r="6" fill="hsl(230 65% 35%)" />
+              <g stroke="hsl(230 70% 55%)" strokeWidth="2" strokeLinecap="round">
+                <line x1="180" y1="55" x2="190" y2="55" />
+                <line x1="185" y1="50" x2="185" y2="60" />
+                <line x1="195" y1="42" x2="203" y2="42" />
+              </g>
+            </svg>
+            <div className="mt-2 font-bold text-xl text-foreground">Пока пусто</div>
             <p className="text-sm text-foreground/60 mt-1.5 max-w-[280px] mx-auto">
-              Здесь будут отображаться ваши eSIM, покупки и активные пакеты после входа в аккаунт.
+              Здесь будут отображаться ваши eSIM,<br/>покупки и активные пакеты<br/>после входа в аккаунт.
             </p>
           </div>
 
@@ -68,11 +93,11 @@ const ProfileEmpty = () => {
                 Все страны <ChevronRight className="w-3.5 h-3.5" />
               </Link>
             </div>
-            <div className="flex gap-3 overflow-x-auto no-scrollbar">
+            <div className="grid grid-cols-5 gap-2">
               {popular.map((c) => (
-                <Link key={c.slug} to={`/app/country/${c.slug}`} className="flex flex-col items-center gap-1.5 shrink-0 w-16">
-                  <div className="w-14 h-14 rounded-2xl overflow-hidden">
-                    <FlagCircle slug={c.slug} className="w-14 h-14 !rounded-2xl" />
+                <Link key={c.slug} to={`/app/country/${c.slug}`} className="flex flex-col items-center gap-1.5 min-w-0">
+                  <div className="w-12 h-12 rounded-xl overflow-hidden">
+                    <FlagCircle slug={c.slug} className="w-12 h-12 !rounded-xl" />
                   </div>
                   <div className="text-[11px] font-semibold text-foreground truncate w-full text-center">{c.name}</div>
                 </Link>
