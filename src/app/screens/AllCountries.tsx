@@ -4,19 +4,24 @@ import { useState, useMemo } from 'react';
 import { PhoneFrame, GradientHeader } from '../shell';
 import { countries } from '../data';
 import FlagCircle from '../FlagCircle';
+import { useI18n, getCountryName } from '../i18n';
 
 const AllCountries = () => {
   const nav = useNavigate();
   const [q, setQ] = useState('');
+  const { t, lang } = useI18n();
 
   const list = useMemo(() => {
     const s = q.trim().toLowerCase();
-    return countries.filter((c) => !s || c.name.toLowerCase().includes(s));
-  }, [q]);
+    return countries.filter((c) => {
+      const n = getCountryName(c.slug, c.name, lang).toLowerCase();
+      return !s || n.includes(s);
+    });
+  }, [q, lang]);
 
   return (
     <PhoneFrame>
-      <GradientHeader title="Все страны" back onBack={() => nav(-1)} />
+      <GradientHeader title={t('common.allCountries')} back onBack={() => nav(-1)} />
       <div className="flex-1 overflow-y-auto bg-white">
         <div className="p-4">
           <div className="relative">
@@ -24,7 +29,7 @@ const AllCountries = () => {
             <input
               value={q}
               onChange={(e) => setQ(e.target.value)}
-              placeholder="Поиск страны"
+              placeholder={t('common.searchCountry')}
               className="w-full h-12 pl-12 pr-4 rounded-full bg-white border border-border text-foreground placeholder:text-foreground/40 focus:outline-none focus:ring-2 focus:ring-primary/30"
             />
           </div>
@@ -38,9 +43,9 @@ const AllCountries = () => {
               >
                 <FlagCircle slug={c.slug} className="w-14 h-14" />
                 <div className="flex-1 min-w-0">
-                  <div className="font-bold text-[18px] text-foreground leading-tight">{c.name}</div>
+                  <div className="font-bold text-[18px] text-foreground leading-tight">{getCountryName(c.slug, c.name, lang)}</div>
                   <div className="text-sm text-foreground/60 mt-0.5">
-                    eSIM · от <span className="text-primary font-bold">₽{c.from}</span>
+                    eSIM · {t('common.from')} <span className="text-primary font-bold">₽{c.from}</span>
                   </div>
                 </div>
                 <ChevronRight className="w-5 h-5 text-foreground/40" />
@@ -48,7 +53,7 @@ const AllCountries = () => {
             </li>
           ))}
           {list.length === 0 && (
-            <li className="px-5 py-10 text-center text-foreground/60">Ничего не найдено</li>
+            <li className="px-5 py-10 text-center text-foreground/60">{t('common.notFound')}</li>
           )}
         </ul>
       </div>
