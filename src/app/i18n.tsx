@@ -40,6 +40,13 @@ const dict = {
   'country.toCart': { ru: 'В корзину', en: 'Add to cart' },
   'country.badgeHit': { ru: 'хит', en: 'top pick' },
   'country.badgeBest': { ru: 'Лучшая цена за ГБ', en: 'Best price per GB' },
+  'country.bestValue': { ru: 'ВЫГОДНЕЕ ВСЕГО', en: 'BEST VALUE' },
+  'country.otherPlans': { ru: 'ДРУГИЕ ПАКЕТЫ', en: 'OTHER PLANS' },
+  'country.hitSale': { ru: 'ХИТ ПРОДАЖ', en: 'BESTSELLER' },
+  'country.shortTrips': { ru: 'ВЫБОР НА КОРОТКИЕ ПОЕЗДКИ', en: 'PICK FOR SHORT TRIPS' },
+  'country.savings': { ru: 'экономия', en: 'save' },
+  'country.giftBonusRu': { ru: 'Начислим {n} ГБ в подарок', en: 'Get {n} GB as a bonus' },
+  'country.buy': { ru: 'Купить', en: 'Buy' },
 
   // Tiers
   'tier.start': { ru: 'СТАРТОВЫЙ', en: 'STARTER' },
