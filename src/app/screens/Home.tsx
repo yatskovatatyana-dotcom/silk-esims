@@ -16,10 +16,6 @@ const Home = () => {
   const freeOrder = auth ? orders.find((o) => o.price === 0) : null;
   const freeCountry = freeOrder ? countries.find((c) => c.slug === freeOrder.countrySlug) : null;
 
-const Home = () => {
-  const nav = useNavigate();
-  const [q, setQ] = useState('');
-  const { t, lang } = useI18n();
 
   const grid = homeCountries.map((s) => countries.find((c) => c.slug === s)!).filter(Boolean);
   const filtered = q.trim()
