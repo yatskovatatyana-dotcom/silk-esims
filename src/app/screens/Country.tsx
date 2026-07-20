@@ -86,7 +86,7 @@ const Country = () => {
         className="pb-4"
       />
       <div className="flex-1 overflow-y-auto bg-[hsl(220_25%_97%)]">
-        <div className="p-4 space-y-5 pt-6">
+        <div className="p-4 space-y-4 pt-6 pb-8">
           {country.plans.map((p) => (
             <PlanCard key={p.id} plan={p} onSelect={() => nav(`/app/checkout/${country.slug}/${p.id}`)} />
           ))}
