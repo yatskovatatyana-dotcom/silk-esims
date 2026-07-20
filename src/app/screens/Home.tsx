@@ -89,9 +89,11 @@ const Home = () => {
             )}
           </div>
 
-          <Link to="/app/countries" className="inline-flex items-center gap-1 text-primary text-sm font-bold mb-4">
-            {t('common.allCountries')} <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
+          <div className="flex justify-end mb-4">
+            <Link to="/app/countries" className="inline-flex items-center gap-1 text-primary text-sm font-bold">
+              {t('common.allCountries')} <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
 
           {/* Country flag grid 3x2 */}
           <div className="grid grid-cols-3 gap-x-4 gap-y-5">
