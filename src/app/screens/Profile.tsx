@@ -93,7 +93,7 @@ const ProfileEmpty = () => {
                 Все страны <ChevronRight className="w-3.5 h-3.5" />
               </Link>
             </div>
-            <div className="flex gap-3 overflow-x-auto no-scrollbar">
+            <div className="grid grid-cols-5 gap-2">
               {popular.map((c) => (
                 <Link key={c.slug} to={`/app/country/${c.slug}`} className="flex flex-col items-center gap-1.5 shrink-0 w-16">
                   <div className="w-14 h-14 rounded-2xl overflow-hidden">
