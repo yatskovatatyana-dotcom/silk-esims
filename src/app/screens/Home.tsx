@@ -1,11 +1,20 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { Search, User, ArrowRight } from 'lucide-react';
+import { Search, User, ArrowRight, Wifi } from 'lucide-react';
 import { PhoneFrame, StatusBar } from '../shell';
 import { countries, homeCountries } from '../data';
 import FlagCircle from '../FlagCircle';
 import promoImg from '@/assets/promo-santorini.jpg';
 import { useState } from 'react';
 import { useI18n, getCountryName } from '../i18n';
+import { useStore } from '../store';
+
+const Home = () => {
+  const nav = useNavigate();
+  const [q, setQ] = useState('');
+  const { t, lang } = useI18n();
+  const { auth, orders } = useStore();
+  const freeOrder = auth ? orders.find((o) => o.price === 0) : null;
+  const freeCountry = freeOrder ? countries.find((c) => c.slug === freeOrder.countrySlug) : null;
 
 const Home = () => {
   const nav = useNavigate();
