@@ -229,14 +229,11 @@ const Country = () => {
       <div className="absolute bottom-0 left-0 right-0 px-4 pb-5 pt-3 bg-gradient-to-t from-white via-white to-transparent">
         <button
           onClick={() => nav(`/app/checkout/${country.slug}/${selected.id}`)}
-          className="w-full h-14 rounded-2xl text-white font-bold text-[17px] inline-flex items-center justify-center gap-2 shadow-[0_10px_28px_-10px_hsl(248_78%_60%/0.7)] active:scale-[0.99] transition"
+          className="w-full h-12 rounded-2xl text-white font-bold text-[15px] inline-flex items-center justify-center gap-2 shadow-[0_10px_28px_-10px_hsl(248_78%_60%/0.7)] active:scale-[0.99] transition"
           style={{ background: `linear-gradient(135deg, ${PURPLE} 0%, ${PURPLE_DARK} 100%)` }}
         >
-          <span>{t('country.buy')}</span>
-          <span className="tracking-wide">
-            {localizedDataUnit(selected.data, lang)} · {selected.priceLabel}
-          </span>
-          <ArrowRight className="w-5 h-5" strokeWidth={2.4} />
+          <span>{t('country.buy')} {selected.priceLabel}</span>
+          <ArrowRight className="w-4 h-4" strokeWidth={2.4} />
         </button>
       </div>
     </PhoneFrame>
