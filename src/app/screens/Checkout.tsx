@@ -4,6 +4,7 @@ import { PhoneFrame, GradientHeader } from '../shell';
 import { getCountry } from '../data';
 import FlagCircle from '../FlagCircle';
 import { useStore } from '../store';
+import { useI18n, getCountryName, localizedDaysLabel, localizedDataUnit } from '../i18n';
 
 type Method = 'sbp' | 'crypto';
 
@@ -13,14 +14,15 @@ const Checkout = () => {
   const country = getCountry(slug);
   const plan = country?.plans.find((p) => p.id === planId);
   const { addOrder, auth } = useStore();
+  const { t, lang } = useI18n();
   const [method, setMethod] = useState<Method | null>(null);
   const [email, setEmail] = useState(auth?.email ?? '');
 
   if (!country || !plan) {
     return (
       <PhoneFrame hideTabBar>
-        <GradientHeader title="Оформление" back onBack={() => nav(-1)} />
-        <div className="flex-1 grid place-items-center text-foreground/60">Тариф не найден</div>
+        <GradientHeader title={t('checkout.title')} back onBack={() => nav(-1)} />
+        <div className="flex-1 grid place-items-center text-foreground/60">{t('checkout.planNotFound')}</div>
       </PhoneFrame>
     );
   }
@@ -38,7 +40,7 @@ const Checkout = () => {
   };
 
   const methods: { id: Method; label: string; icon: JSX.Element }[] = [
-    { id: 'sbp', label: 'СБП',
+    { id: 'sbp', label: t('checkout.sbp'),
       icon: (
         <svg viewBox="0 0 24 24" className="w-7 h-7">
           <defs>
@@ -52,7 +54,7 @@ const Checkout = () => {
           <path d="M20 4l-8 8 8 8V4z" fill="#E62A6C" opacity="0.85"/>
         </svg>
       ) },
-    { id: 'crypto', label: 'Криптовалюта',
+    { id: 'crypto', label: t('checkout.crypto'),
       icon: (
         <svg viewBox="0 0 24 24" className="w-7 h-7"><circle cx="12" cy="12" r="10" fill="#F7931A"/><text x="12" y="16.5" textAnchor="middle" fontSize="14" fontWeight="900" fill="#fff" fontFamily="Arial">₿</text></svg>
       ) },
@@ -60,20 +62,19 @@ const Checkout = () => {
 
   return (
     <PhoneFrame hideTabBar>
-      <GradientHeader title="Оформление" back onBack={() => nav(-1)} className="pb-10" />
+      <GradientHeader title={t('checkout.title')} back onBack={() => nav(-1)} className="pb-10" />
       <div className="flex-1 overflow-y-auto bg-white">
-        {/* Summary card */}
         <div className="mx-4 -mt-8 bg-white rounded-2xl border border-border shadow-[0_10px_30px_-14px_rgba(30,40,80,0.25)] p-4 flex items-center gap-4">
           <FlagCircle slug={country.slug} className="w-14 h-14" />
           <div className="flex-1 min-w-0">
-            <div className="font-extrabold text-xl text-foreground leading-tight">{country.name}</div>
-            <div className="text-sm text-foreground/60 mt-1">{plan.data.replace('GB','ГБ')} · {plan.days} дней</div>
+            <div className="font-extrabold text-xl text-foreground leading-tight">{getCountryName(country.slug, country.name, lang)}</div>
+            <div className="text-sm text-foreground/60 mt-1">{localizedDataUnit(plan.data, lang)} · {localizedDaysLabel(plan.days, lang)}</div>
           </div>
           <div className="font-extrabold text-2xl text-foreground">{plan.priceLabel}</div>
         </div>
 
         <div className="px-5 pt-8">
-          <div className="text-foreground font-extrabold text-lg mb-3">Способ оплаты</div>
+          <div className="text-foreground font-extrabold text-lg mb-3">{t('checkout.method')}</div>
           <div className="space-y-3">
             {methods.map((m) => (
               <button
@@ -97,7 +98,7 @@ const Checkout = () => {
           </div>
 
           <div className="mt-8">
-            <label className="block text-foreground font-extrabold text-base mb-2">Email для чека</label>
+            <label className="block text-foreground font-extrabold text-base mb-2">{t('checkout.emailLabel')}</label>
             <input
               type="email"
               value={email}
@@ -113,7 +114,7 @@ const Checkout = () => {
             onClick={pay}
             className="w-full py-4 rounded-2xl font-bold text-white text-lg bg-gradient-to-r from-[hsl(230_82%_50%)] to-[hsl(268_82%_58%)] hover:opacity-95 active:scale-[0.99] transition shadow-[0_10px_30px_-10px_rgba(90,60,220,0.5)]"
           >
-            Оплатить {plan.priceLabel}
+            {t('checkout.pay')} {plan.priceLabel}
           </button>
         </div>
       </div>

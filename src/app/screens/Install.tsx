@@ -2,22 +2,24 @@ import { useNavigate, useParams, Link } from 'react-router-dom';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { PhoneFrame, GradientHeader } from '../shell';
 import { useStore } from '../store';
-
-const steps = [
-  { n: 1, title: 'Установите eSIM', text: 'Отсканируйте QR-код и установите профиль на ваше устройство' },
-  { n: 2, title: 'Включите eSIM', text: 'Включите мобильные данные и роуминг для eSIM' },
-  { n: 3, title: 'Подключитесь к сети', text: 'Дождитесь подключения к сети в стране назначения' },
-];
+import { useI18n } from '../i18n';
 
 const Install = () => {
   const nav = useNavigate();
   const { orderId } = useParams();
   const { orders } = useStore();
   const order = orders.find((o) => o.id === orderId);
+  const { t } = useI18n();
+
+  const steps = [
+    { n: 1, title: t('install.step1.title'), text: t('install.step1.text') },
+    { n: 2, title: t('install.step2.title'), text: t('install.step2.text') },
+    { n: 3, title: t('install.step3.title'), text: t('install.step3.text') },
+  ];
 
   return (
     <PhoneFrame>
-      <GradientHeader title="Установка eSIM" back onBack={() => nav('/app/my-esim', { replace: true })} />
+      <GradientHeader title={t('install.title')} back onBack={() => nav('/app/my-esim', { replace: true })} />
       <div className="flex-1 overflow-y-auto bg-white">
         <div className="p-4 space-y-4">
           {steps.map((s) => (
@@ -34,7 +36,7 @@ const Install = () => {
 
           {order && (
             <div className="text-xs text-center text-foreground/50 py-1">
-              Заказ #{order.id.slice(-6)} · {order.countryName} · {order.planData}
+              {t('install.order')} #{order.id.slice(-6)} · {order.countryName} · {order.planData}
             </div>
           )}
 
@@ -45,7 +47,7 @@ const Install = () => {
             <div className="w-11 h-11 rounded-full bg-white/20 flex items-center justify-center shrink-0">
               <MessageCircle className="w-6 h-6" fill="currentColor" />
             </div>
-            <span className="flex-1 font-bold whitespace-nowrap">Нужна помощь? Чат с поддержкой</span>
+            <span className="flex-1 font-bold whitespace-nowrap">{t('install.needHelp')}</span>
             <ArrowRight className="w-5 h-5 shrink-0" />
           </Link>
         </div>
