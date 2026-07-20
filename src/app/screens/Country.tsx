@@ -172,10 +172,10 @@ const Country = () => {
             {others.map((p) => {
               const isSelected = selectedId === p.id;
               const isHighlighted = p.id === shortTripsId;
-              const showBonus = isSelected && bonusFor(p.data) > 0;
+              const showBonus = (isHighlighted || isSelected) && bonusFor(p.data) > 0;
               return (
                 <div key={p.id} className="relative pt-3">
-                  {isHighlighted && isSelected && (
+                  {isHighlighted && (
                     <div className="absolute -top-0.5 left-4 z-10">
                       <span
                         className="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold tracking-wider text-white"
@@ -190,6 +190,8 @@ const Country = () => {
                     className={`w-full text-left rounded-2xl px-4 py-4 flex items-center gap-3 transition ${
                       isSelected
                         ? 'bg-[hsl(248_90%_97%)] border-2 border-[hsl(248_78%_60%)]'
+                        : isHighlighted
+                        ? 'bg-[hsl(248_90%_98%)] border border-[hsl(248_78%_60%)]/40'
                         : 'bg-white border border-border/70'
                     }`}
                   >
