@@ -89,7 +89,7 @@ const AllCountries = () => {
         <div className="shrink-0 border-t border-border bg-white px-4 py-3">
           <button
             disabled={!selected}
-            onClick={() => selected && nav(`/app/login`)}
+            onClick={() => selected && nav(`/app/register?promo=${selected}`)}
             className="w-full h-12 rounded-full bg-primary text-white font-bold text-[16px] disabled:opacity-40 disabled:cursor-not-allowed transition hover:brightness-110"
           >
             {t('promo.getFree')}
