@@ -90,9 +90,9 @@ const ProfileEmpty = () => {
 
           <div className="p-2">
             <div className="flex items-center justify-between mb-3 px-1">
-              <div className="font-bold text-foreground">Популярные направления</div>
+              <div className="font-bold text-foreground">{t('common.popular')}</div>
               <Link to="/app/countries" className="text-primary text-sm font-bold flex items-center gap-1">
-                Все страны <ChevronRight className="w-3.5 h-3.5" />
+                {t('common.allCountries')} <ChevronRight className="w-3.5 h-3.5" />
               </Link>
             </div>
             <div className="grid grid-cols-5 gap-2">
