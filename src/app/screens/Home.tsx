@@ -32,7 +32,7 @@ const Home = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[hsl(225_90%_20%)]/95 via-[hsl(225_85%_25%)]/70 to-transparent" />
           <div className="relative p-5 h-full flex flex-col justify-between">
             <div>
-              <div className="text-[22px] font-bold leading-tight whitespace-pre-line drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]">{t('home.promoTitle')}</div>
+              <div className="text-[22px] font-bold leading-tight whitespace-pre-line text-foreground">{t('home.promoTitle')}</div>
               <div className="text-white text-sm mt-1 drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]">{t('home.promoSub')}</div>
             </div>
             <button
