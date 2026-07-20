@@ -17,7 +17,7 @@ const ProfileEmpty = () => {
       <div className="text-white pb-4" style={{ background: 'linear-gradient(180deg, hsl(235 85% 48%) 0%, hsl(265 80% 58%) 100%)' }}>
         <StatusBar dark />
         <div className="px-5 pt-2 pb-4">
-          <h1 className="text-[28px] font-bold">Профиль</h1>
+          <h1 className="text-[28px] font-bold">{t('profile.title')}</h1>
         </div>
       </div>
       <div className="flex-1 overflow-y-auto bg-white -mt-6 rounded-t-3xl">
