@@ -167,17 +167,17 @@ const Country = () => {
           <div className="text-[11px] font-bold tracking-[0.14em] text-foreground/40 mt-6 mb-2 pl-1">
             {t('country.otherPlans')}
           </div>
-          <div className="space-y-3">
+          <div className="space-y-2">
             {others.map((p) => {
               const isSelected = selectedId === p.id;
               const isHighlighted = p.id === shortTripsId;
               const showBonus = (isHighlighted || isSelected) && bonusFor(p.data) > 0;
               return (
-                <div key={p.id} className="relative pt-3">
+                <div key={p.id} className="relative pt-2.5">
                   {isHighlighted && (
-                    <div className="absolute -top-0.5 left-4 z-10">
+                    <div className="absolute -top-0.5 left-3 z-10">
                       <span
-                        className="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold tracking-wider text-white"
+                        className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-bold tracking-wider text-white"
                         style={{ background: PURPLE }}
                       >
                         {t('country.shortTrips')}
@@ -186,7 +186,7 @@ const Country = () => {
                   )}
                   <button
                     onClick={() => setSelectedId(p.id)}
-                    className={`w-full text-left rounded-2xl px-4 py-4 flex items-center gap-3 transition ${
+                    className={`w-full text-left rounded-xl px-3 py-2.5 flex items-center gap-2.5 transition ${
                       isHighlighted
                         ? 'bg-[hsl(248_90%_97%)] border-2 border-[hsl(248_78%_60%)]'
                         : isSelected
@@ -196,17 +196,17 @@ const Country = () => {
                   >
                     <Radio checked={isSelected} />
                     <div className="flex-1 min-w-0">
-                      <div className="text-[16px] font-bold text-foreground">
+                      <div className="text-[14px] font-bold text-foreground">
                         {localizedDataUnit(p.data, lang)} · {localizedDaysLabel(p.days, lang)}
                       </div>
                       {showBonus && (
-                        <div className="mt-1 inline-flex items-center gap-1 text-[12px] font-semibold text-[hsl(150_65%_38%)]">
-                          <Gift className="w-3.5 h-3.5" strokeWidth={2.4} />
+                        <div className="mt-0.5 inline-flex items-center gap-1 text-[11px] font-semibold text-[hsl(150_65%_38%)]">
+                          <Gift className="w-3 h-3" strokeWidth={2.4} />
                           {giftText(bonusFor(p.data))}
                         </div>
                       )}
                     </div>
-                    <div className="text-[17px] font-extrabold text-foreground shrink-0">
+                    <div className="text-[15px] font-extrabold text-foreground shrink-0">
                       {p.priceLabel}
                     </div>
                   </button>
@@ -214,6 +214,7 @@ const Country = () => {
               );
             })}
           </div>
+
         </div>
       </div>
 
