@@ -1,14 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Lock } from 'lucide-react';
 import { PhoneFrame, GradientHeader } from '../shell';
 import { useStore } from '../store';
-import { useI18n } from '../i18n';
+import { useI18n, getCountryName } from '../i18n';
+import { countries } from '../data';
 
 const Code = () => {
   const nav = useNavigate();
-  const { pendingLoginEmail, setAuth } = useStore();
-  const { t } = useI18n();
+  const { pendingLoginEmail, setAuth, addOrder, orders } = useStore();
+  const { t, lang } = useI18n();
+  const [params] = useSearchParams();
+  const promoSlug = params.get('promo');
   const [digits, setDigits] = useState(['', '', '', '']);
   const [seconds, setSeconds] = useState(45);
   const inputs = useRef<(HTMLInputElement | null)[]>([]);
@@ -26,9 +29,24 @@ const Code = () => {
   useEffect(() => {
     if (digits.every((d) => d !== '')) {
       setAuth({ email: pendingLoginEmail });
-      window.setTimeout(() => nav('/app/my-esim', { replace: true }), 200);
+      if (promoSlug) {
+        const c = countries.find((x) => x.slug === promoSlug);
+        if (c && !orders.some((o) => o.countrySlug === c.slug && o.price === 0)) {
+          addOrder({
+            countrySlug: c.slug,
+            countryName: getCountryName(c.slug, c.name, lang),
+            planData: '1 GB',
+            planDays: 1,
+            price: 0,
+            priceLabel: t('promo.free'),
+          });
+        }
+        window.setTimeout(() => nav('/app/home', { replace: true }), 200);
+      } else {
+        window.setTimeout(() => nav('/app/my-esim', { replace: true }), 200);
+      }
     }
-  }, [digits, pendingLoginEmail, setAuth, nav]);
+  }, [digits, pendingLoginEmail, setAuth, nav, promoSlug, addOrder, orders, lang, t]);
 
   const setDigit = (i: number, v: string) => {
     const c = v.replace(/\D/g, '').slice(-1);
