@@ -30,11 +30,11 @@ const ProfileEmpty = () => {
               <User className="w-7 h-7 text-primary" strokeWidth={2.2} fill="currentColor" />
             </div>
             <div className="flex-1 min-w-0">
-              <div className="font-bold text-foreground">Уже есть аккаунт?</div>
-              <p className="text-xs text-foreground/60 leading-snug mt-0.5">Войдите, чтобы управлять покупками и eSIM</p>
+              <div className="font-bold text-foreground">{t('profile.haveAccount')}</div>
+              <p className="text-xs text-foreground/60 leading-snug mt-0.5">{t('profile.loginToManage')}</p>
             </div>
             <div className="text-primary font-bold text-sm flex items-center gap-1">
-              Войти <ArrowRight className="w-4 h-4" />
+              {t('profile.login')} <ArrowRight className="w-4 h-4" />
             </div>
           </Link>
 
