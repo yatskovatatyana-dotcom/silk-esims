@@ -35,6 +35,11 @@ const dict = {
   'home.login': { ru: 'Войти', en: 'Log in' },
   'home.searchPlaceholder': { ru: 'В какую страну летите?', en: 'Where are you heading?' },
 
+  // Promo
+  'promo.title': { ru: '1 ГБ бесплатно', en: '1 GB free' },
+  'promo.bannerTitle': { ru: 'Первый пакет за наш счёт', en: 'First plan on us' },
+  'promo.bannerSub': { ru: 'Выберите страну — 1 ГБ на 1 день бесплатно', en: 'Pick a country — 1 GB for 1 day free' },
+
   // Country
   'country.notFound': { ru: 'Страна не найдена', en: 'Country not found' },
   'country.toCart': { ru: 'В корзину', en: 'Add to cart' },
