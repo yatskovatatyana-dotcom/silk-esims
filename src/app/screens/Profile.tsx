@@ -2,12 +2,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ChevronDown, ChevronRight, Globe, FileText, Shield, Trash2, User, ArrowRight, Clock, Search } from 'lucide-react';
 import { PhoneFrame, GradientHeader, StatusBar } from '../shell';
 import { useStore } from '../store';
+import { useI18n } from '../i18n';
 import FlagCircle from '../FlagCircle';
 import { countries, popularCountries } from '../data';
 import { useState } from 'react';
 
 const ProfileEmpty = () => {
   const [q, setQ] = useState('');
+  const { t, lang, toggleLang } = useI18n();
   const popular = popularCountries.map((s) => countries.find((c) => c.slug === s)!).filter(Boolean);
 
   return (
