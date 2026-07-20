@@ -95,9 +95,9 @@ const ProfileEmpty = () => {
             </div>
             <div className="grid grid-cols-5 gap-2">
               {popular.map((c) => (
-                <Link key={c.slug} to={`/app/country/${c.slug}`} className="flex flex-col items-center gap-1.5 shrink-0 w-16">
-                  <div className="w-14 h-14 rounded-2xl overflow-hidden">
-                    <FlagCircle slug={c.slug} className="w-14 h-14 !rounded-2xl" />
+                <Link key={c.slug} to={`/app/country/${c.slug}`} className="flex flex-col items-center gap-1.5 min-w-0">
+                  <div className="w-12 h-12 rounded-xl overflow-hidden">
+                    <FlagCircle slug={c.slug} className="w-12 h-12 !rounded-xl" />
                   </div>
                   <div className="text-[11px] font-semibold text-foreground truncate w-full text-center">{c.name}</div>
                 </Link>
