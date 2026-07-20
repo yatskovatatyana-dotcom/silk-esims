@@ -62,8 +62,8 @@ const Checkout = () => {
 
   return (
     <PhoneFrame hideTabBar>
-      <GradientHeader title={t('checkout.title')} back onBack={() => nav(-1)} className="pb-16" />
-      <div className="flex-1 overflow-y-auto bg-white">
+      <div className="flex-1 overflow-y-auto bg-white flex flex-col">
+        <GradientHeader title={t('checkout.title')} back onBack={() => nav(-1)} className="pb-16" />
         <div className="mx-4 -mt-10 relative z-10 bg-white rounded-2xl border border-border shadow-[0_10px_30px_-14px_rgba(30,40,80,0.25)] p-4 flex items-center gap-4">
           <FlagCircle slug={country.slug} className="w-14 h-14" />
           <div className="flex-1 min-w-0">
