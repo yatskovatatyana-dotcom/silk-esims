@@ -45,7 +45,7 @@ const AllCountries = () => {
                 <div className="flex-1 min-w-0">
                   <div className="font-bold text-[18px] text-foreground leading-tight">{getCountryName(c.slug, c.name, lang)}</div>
                   <div className="text-sm text-foreground/60 mt-0.5">
-                    eSIM · {t('common.from')} <span className="text-primary font-bold">₽{c.from}</span>
+                    eSIM · {t('common.from')} <span className="text-primary font-bold">€{c.plans[0].price}</span>
                   </div>
                 </div>
                 <ChevronRight className="w-5 h-5 text-foreground/40" />
