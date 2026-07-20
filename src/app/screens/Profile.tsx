@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ChevronDown, ChevronRight, Globe, FileText, Shield, Trash2, User, ArrowRight, Clock, Search } from 'lucide-react';
 import { PhoneFrame, GradientHeader, StatusBar } from '../shell';
 import { useStore } from '../store';
-import { useI18n } from '../i18n';
+import { useI18n, getCountryName } from '../i18n';
 import FlagCircle from '../FlagCircle';
 import { countries, popularCountries } from '../data';
 import { useState } from 'react';
@@ -101,7 +101,7 @@ const ProfileEmpty = () => {
                   <div className="w-12 h-12 rounded-xl overflow-hidden">
                     <FlagCircle slug={c.slug} className="w-12 h-12 !rounded-xl" />
                   </div>
-                  <div className="text-[11px] font-semibold text-foreground truncate w-full text-center">{c.name}</div>
+                  <div className="text-[11px] font-semibold text-foreground truncate w-full text-center">{getCountryName(c.slug, c.name, lang)}</div>
                 </Link>
               ))}
             </div>
@@ -170,7 +170,7 @@ const ProfileLoggedIn = () => {
                 <div key={o.id} className="flex items-center gap-3">
                   <FlagCircle slug={o.countrySlug} className="w-11 h-11" />
                   <div className="flex-1 min-w-0">
-                    <div className="font-bold text-foreground">{o.countryName}</div>
+                    <div className="font-bold text-foreground">{getCountryName(o.countrySlug, o.countryName, lang)}</div>
                     <div className="text-xs text-foreground/60">{o.planData} — {o.planDays} {t('common.days')}</div>
                   </div>
                   <div className="text-right">

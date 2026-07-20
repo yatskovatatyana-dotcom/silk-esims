@@ -55,7 +55,7 @@ export const GradientHeader = ({
       <div className="relative px-5 pb-5 pt-1">
         {back && (
           <button
-            aria-label="Назад"
+            aria-label="Back"
             onClick={onBack}
             className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition"
           >
