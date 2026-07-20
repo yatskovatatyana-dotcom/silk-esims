@@ -28,12 +28,12 @@ const Home = () => {
         <div className="text-center text-[19px] font-semibold pb-3 -mt-1">Silk eSIM</div>
         {/* Promo card */}
         <div className="mx-4 mb-5 rounded-2xl overflow-hidden relative bg-white/10 h-[160px]">
-          <img src={promoImg} alt="" className="absolute inset-0 w-full h-full object-cover object-[70%_center]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(225_85%_40%)]/90 via-[hsl(230_85%_45%)]/50 to-transparent" />
+          <img src={promoImg} alt="" className="absolute inset-0 w-full h-full object-cover object-[75%_center]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(225_90%_20%)]/95 via-[hsl(225_85%_25%)]/70 to-transparent" />
           <div className="relative p-5 h-full flex flex-col justify-between">
             <div>
-              <div className="text-[22px] font-bold leading-tight whitespace-pre-line">{t('home.promoTitle')}</div>
-              <div className="text-white/90 text-sm mt-1">{t('home.promoSub')}</div>
+              <div className="text-[22px] font-bold leading-tight whitespace-pre-line drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]">{t('home.promoTitle')}</div>
+              <div className="text-white text-sm mt-1 drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]">{t('home.promoSub')}</div>
             </div>
             <button
               onClick={() => nav('/app/country/turkey')}
