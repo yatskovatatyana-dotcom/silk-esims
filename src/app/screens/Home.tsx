@@ -83,7 +83,7 @@ const Home = () => {
                   >
                     <FlagCircle slug={c.slug} className="w-8 h-8" />
                     <span className="font-semibold text-foreground">{getCountryName(c.slug, c.name, lang)}</span>
-                    <span className="ml-auto text-sm text-foreground/60">{t('common.from')} {c.from} ₽</span>
+                    <span className="ml-auto text-sm text-foreground/60">€{c.plans[0].price}</span>
                   </button>
                 ))}
               </div>
