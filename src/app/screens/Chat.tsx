@@ -3,10 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { Paperclip, Send } from 'lucide-react';
 import { PhoneFrame, GradientHeader } from '../shell';
 import { useStore } from '../store';
+import { useI18n } from '../i18n';
 
 const Chat = () => {
   const nav = useNavigate();
   const { chat, sendChat } = useStore();
+  const { t, lang } = useI18n();
   const [text, setText] = useState('');
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -21,13 +23,13 @@ const Chat = () => {
     setText('');
   };
 
-  const today = new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
+  const today = new Date().toLocaleTimeString(lang === 'ru' ? 'ru-RU' : 'en-US', { hour: '2-digit', minute: '2-digit' });
 
   return (
     <PhoneFrame hideTabBar>
-      <GradientHeader title="Чат с поддержкой" back onBack={() => nav(-1)} />
+      <GradientHeader title={t('chat.title')} back onBack={() => nav(-1)} />
       <div ref={scrollRef} className="flex-1 overflow-y-auto bg-white px-4 py-4 flex flex-col gap-2">
-        <div className="text-center text-xs text-foreground/50 my-2">Сегодня, {today}</div>
+        <div className="text-center text-xs text-foreground/50 my-2">{t('chat.today')}, {today}</div>
         {chat.map((m) => (
           <div key={m.id} className={`max-w-[80%] ${m.from === 'user' ? 'self-end' : 'self-start'}`}>
             <div
@@ -48,14 +50,14 @@ const Chat = () => {
           <input
             value={text}
             onChange={(e) => setText(e.target.value)}
-            placeholder="Написать сообщение..."
+            placeholder={t('chat.placeholder')}
             className="flex-1 bg-transparent text-foreground placeholder:text-foreground/40 focus:outline-none"
           />
         </div>
         <button
           type="submit"
           className="w-12 h-12 rounded-full bg-gradient-to-br from-[hsl(230_82%_55%)] to-[hsl(268_82%_60%)] text-white flex items-center justify-center shrink-0 hover:opacity-95 active:scale-[0.97] transition"
-          aria-label="Отправить"
+          aria-label={t('chat.send')}
         >
           <Send className="w-5 h-5" fill="currentColor" />
         </button>

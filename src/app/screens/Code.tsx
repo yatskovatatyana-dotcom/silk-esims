@@ -3,10 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { Lock } from 'lucide-react';
 import { PhoneFrame, GradientHeader } from '../shell';
 import { useStore } from '../store';
+import { useI18n } from '../i18n';
 
 const Code = () => {
   const nav = useNavigate();
   const { pendingLoginEmail, setAuth } = useStore();
+  const { t } = useI18n();
   const [digits, setDigits] = useState(['', '', '', '']);
   const [seconds, setSeconds] = useState(45);
   const inputs = useRef<(HTMLInputElement | null)[]>([]);
@@ -42,13 +44,13 @@ const Code = () => {
 
   return (
     <PhoneFrame hideTabBar>
-      <GradientHeader title="Код подтверждения" back onBack={() => nav(-1)} />
+      <GradientHeader title={t('code.title')} back onBack={() => nav(-1)} />
       <div className="flex-1 flex flex-col bg-white">
         <div className="flex-1 px-6 pt-10">
           <div className="w-20 h-20 mx-auto rounded-full bg-primary/10 flex items-center justify-center">
             <Lock className="w-9 h-9 text-primary" strokeWidth={2.2} />
           </div>
-          <div className="text-center mt-6 text-foreground/70">Мы отправили код на</div>
+          <div className="text-center mt-6 text-foreground/70">{t('code.sentTo')}</div>
           <div className="text-center font-bold text-lg text-foreground mt-1">{pendingLoginEmail}</div>
 
           <div className="mt-8 flex justify-center gap-3">
@@ -71,13 +73,13 @@ const Code = () => {
           </div>
 
           <div className="text-center mt-10 text-sm text-foreground/60">
-            Отправить код повторно через {mmss}
+            {t('code.resendIn')} {mmss}
           </div>
           <button
             onClick={() => nav('/app/login')}
             className="mt-4 mx-auto block text-primary font-bold"
           >
-            Изменить email
+            {t('code.changeEmail')}
           </button>
         </div>
       </div>

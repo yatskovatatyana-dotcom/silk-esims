@@ -5,14 +5,19 @@ import { countries, homeCountries } from '../data';
 import FlagCircle from '../FlagCircle';
 import heroSplash from '@/assets/hero-splash.png.asset.json';
 import { useState } from 'react';
+import { useI18n, getCountryName } from '../i18n';
 
 const Home = () => {
   const nav = useNavigate();
   const [q, setQ] = useState('');
+  const { t, lang } = useI18n();
 
   const grid = homeCountries.map((s) => countries.find((c) => c.slug === s)!).filter(Boolean);
   const filtered = q.trim()
-    ? countries.filter((c) => c.name.toLowerCase().includes(q.toLowerCase())).slice(0, 6)
+    ? countries.filter((c) => {
+        const n = getCountryName(c.slug, c.name, lang).toLowerCase();
+        return n.includes(q.toLowerCase());
+      }).slice(0, 6)
     : [];
 
   return (
@@ -27,14 +32,14 @@ const Home = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[hsl(225_85%_45%)]/95 via-[hsl(230_85%_45%)]/70 to-transparent" />
           <div className="relative p-5 h-full flex flex-col justify-between">
             <div>
-              <div className="text-[22px] font-bold leading-tight">Первый пакет<br />за наш счёт</div>
-              <div className="text-white/90 text-sm mt-1">1 день — 1 Гб</div>
+              <div className="text-[22px] font-bold leading-tight whitespace-pre-line">{t('home.promoTitle')}</div>
+              <div className="text-white/90 text-sm mt-1">{t('home.promoSub')}</div>
             </div>
             <button
               onClick={() => nav('/app/country/turkey')}
               className="self-start bg-white text-primary font-semibold text-sm px-4 py-2 rounded-full hover:bg-white/95 transition"
             >
-              Попробовать бесплатно
+              {t('home.promoCta')}
             </button>
           </div>
         </div>
@@ -50,9 +55,9 @@ const Home = () => {
           <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center text-white shrink-0">
             <User className="w-6 h-6" strokeWidth={2.2} fill="currentColor" />
           </div>
-          <div className="flex-1 text-foreground font-medium">Уже есть аккаунт?</div>
+          <div className="flex-1 text-foreground font-medium">{t('home.haveAccount')}</div>
           <div className="text-primary font-bold text-sm flex items-center gap-1">
-            Войти <ArrowRight className="w-4 h-4" />
+            {t('home.login')} <ArrowRight className="w-4 h-4" />
           </div>
         </Link>
 
@@ -62,7 +67,7 @@ const Home = () => {
           <input
             value={q}
             onChange={(e) => setQ(e.target.value)}
-            placeholder="В какую страну летите?"
+            placeholder={t('home.searchPlaceholder')}
             className="w-full h-12 pl-12 pr-4 rounded-full bg-muted text-foreground text-[15px] placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/30"
           />
           {filtered.length > 0 && (
@@ -74,8 +79,8 @@ const Home = () => {
                   className="w-full flex items-center gap-3 px-4 py-3 hover:bg-muted text-left"
                 >
                   <FlagCircle slug={c.slug} className="w-8 h-8" />
-                  <span className="font-semibold text-foreground">{c.name}</span>
-                  <span className="ml-auto text-sm text-foreground/60">от {c.from} ₽</span>
+                  <span className="font-semibold text-foreground">{getCountryName(c.slug, c.name, lang)}</span>
+                  <span className="ml-auto text-sm text-foreground/60">{t('common.from')} {c.from} ₽</span>
                 </button>
               ))}
             </div>
@@ -83,7 +88,7 @@ const Home = () => {
         </div>
 
         <Link to="/app/countries" className="inline-flex items-center gap-1 text-primary text-sm font-bold mb-4">
-          Все страны <ArrowRight className="w-3.5 h-3.5" />
+          {t('common.allCountries')} <ArrowRight className="w-3.5 h-3.5" />
         </Link>
 
         {/* Country flag grid 3x2 */}
@@ -96,8 +101,8 @@ const Home = () => {
             >
               <FlagCircle slug={c.slug} className="w-[72px] h-[72px] group-hover:scale-105 transition" />
               <div className="text-center">
-                <div className="font-bold text-foreground text-[15px]">{c.name}</div>
-                <div className="text-xs text-primary font-semibold mt-0.5">от {c.from} ₽</div>
+                <div className="font-bold text-foreground text-[15px]">{getCountryName(c.slug, c.name, lang)}</div>
+                <div className="text-xs text-primary font-semibold mt-0.5">{t('common.from')} {c.from} ₽</div>
               </div>
             </button>
           ))}

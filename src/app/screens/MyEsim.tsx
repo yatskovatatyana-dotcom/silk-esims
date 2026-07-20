@@ -4,33 +4,31 @@ import { PhoneFrame, GradientHeader } from '../shell';
 import { useStore } from '../store';
 import { countries, popularCountries } from '../data';
 import FlagCircle from '../FlagCircle';
+import { useI18n, getCountryName } from '../i18n';
 
 const MyEsim = () => {
   const nav = useNavigate();
-  const { orders, auth } = useStore();
+  const { orders } = useStore();
+  const { t, lang } = useI18n();
 
-  if (!auth) {
-    // Not logged in — redirect to profile (which shows login card)
-  }
-
-  const active = orders[0]; // most recent
+  const active = orders[0];
   const pending = orders[1];
   const popular = popularCountries.map((s) => countries.find((c) => c.slug === s)!).filter(Boolean);
 
   return (
     <PhoneFrame>
-      <GradientHeader title="Мой eSIM" className="pb-6" />
+      <GradientHeader title={t('myesim.title')} className="pb-6" />
       <div className="flex-1 overflow-y-auto bg-white -mt-2 rounded-t-3xl">
         <div className="p-4 space-y-4">
           {!active && (
             <div className="rounded-2xl border border-border p-6 text-center bg-muted/40">
-              <div className="text-foreground font-bold">У вас пока нет активных eSIM</div>
-              <p className="text-sm text-foreground/60 mt-1">Выберите страну, чтобы начать</p>
+              <div className="text-foreground font-bold">{t('myesim.emptyTitle')}</div>
+              <p className="text-sm text-foreground/60 mt-1">{t('myesim.emptyText')}</p>
               <Link
                 to="/app/countries"
                 className="inline-flex items-center gap-1 mt-4 text-primary font-bold text-sm"
               >
-                Все страны <ChevronRight className="w-4 h-4" />
+                {t('common.allCountries')} <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
           )}
@@ -40,32 +38,32 @@ const MyEsim = () => {
               <button className="w-full flex items-center gap-3 text-left">
                 <FlagCircle slug={active.countrySlug} className="w-14 h-14" />
                 <div className="flex-1 min-w-0">
-                  <div className="font-bold text-xl text-foreground leading-tight">{active.countryName}</div>
+                  <div className="font-bold text-xl text-foreground leading-tight">{getCountryName(active.countrySlug, active.countryName, lang)}</div>
                   <span className="inline-flex items-center gap-1 mt-1 px-2 py-0.5 rounded-full text-[11px] font-bold bg-[hsl(150_60%_92%)] text-[hsl(150_60%_28%)]">
-                    <Check className="w-3 h-3" strokeWidth={3} /> Активен
+                    <Check className="w-3 h-3" strokeWidth={3} /> {t('myesim.active')}
                   </span>
                 </div>
                 <ChevronRight className="w-5 h-5 text-foreground/40" />
               </button>
 
               <div className="mt-4 text-sm text-foreground/60">
-                Действует до {new Date(active.createdAt + active.planDays * 86400000).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' })}
+                {t('myesim.validUntil')} {new Date(active.createdAt + active.planDays * 86400000).toLocaleDateString(lang === 'ru' ? 'ru-RU' : 'en-US', { day: 'numeric', month: 'long' })}
               </div>
 
               <div className="mt-4">
                 <div className="flex items-center justify-between mb-1.5">
-                  <div className="text-sm text-foreground/60">Трафик</div>
+                  <div className="text-sm text-foreground/60">{t('myesim.traffic')}</div>
                   <RefreshCw className="w-4 h-4 text-foreground/40" />
                 </div>
-                <div className="font-bold text-foreground">осталось 10 ГБ из {active.planData}</div>
+                <div className="font-bold text-foreground">{t('myesim.remaining')} {active.planData}</div>
                 <div className="mt-2 h-2 rounded-full bg-muted overflow-hidden">
                   <div className="h-full rounded-full bg-[hsl(150_65%_45%)]" style={{ width: '50%' }} />
                 </div>
               </div>
 
               <div className="mt-4">
-                <div className="text-sm text-foreground/60 mb-1.5">Дни</div>
-                <div className="font-bold text-foreground">20 из {active.planDays} дн.</div>
+                <div className="text-sm text-foreground/60 mb-1.5">{t('myesim.days')}</div>
+                <div className="font-bold text-foreground">{t('myesim.daysOf')} {active.planDays} {t('common.daysShort')}</div>
                 <div className="mt-2 h-2 rounded-full bg-muted overflow-hidden">
                   <div className="h-full rounded-full bg-[hsl(40_95%_55%)]" style={{ width: `${Math.min(100, (20/active.planDays)*100)}%` }} />
                 </div>
@@ -79,8 +77,8 @@ const MyEsim = () => {
                   <Plus className="w-6 h-6 text-primary" strokeWidth={2.4} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="font-bold text-foreground text-sm">Добавить пакет в {active.countryName}</div>
-                  <div className="text-xs text-foreground/60">Пакет будет в очереди на активацию</div>
+                  <div className="font-bold text-foreground text-sm">{t('myesim.addPlan')} {getCountryName(active.countrySlug, active.countryName, lang)}</div>
+                  <div className="text-xs text-foreground/60">{t('myesim.addPlanSub')}</div>
                 </div>
                 <ChevronRight className="w-5 h-5 text-foreground/40" />
               </button>
@@ -92,15 +90,15 @@ const MyEsim = () => {
               <div className="flex items-center gap-3">
                 <FlagCircle slug={pending.countrySlug} className="w-14 h-14" />
                 <div className="flex-1 min-w-0">
-                  <div className="font-bold text-xl text-foreground leading-tight">{pending.countryName}</div>
+                  <div className="font-bold text-xl text-foreground leading-tight">{getCountryName(pending.countrySlug, pending.countryName, lang)}</div>
                   <span className="inline-flex items-center gap-1 mt-1 px-2 py-0.5 rounded-full text-[11px] font-bold bg-primary/10 text-primary">
-                    <Clock className="w-3 h-3" /> Ожидает
+                    <Clock className="w-3 h-3" /> {t('myesim.pending')}
                   </span>
                 </div>
                 <ChevronRight className="w-5 h-5 text-foreground/40" />
               </div>
-              <div className="mt-3 font-bold text-foreground">{pending.planData} · {pending.planDays} дн.</div>
-              <div className="text-sm text-foreground/60">Начнёт действовать при подключении к местной сети</div>
+              <div className="mt-3 font-bold text-foreground">{pending.planData} · {pending.planDays} {t('common.daysShort')}</div>
+              <div className="text-sm text-foreground/60">{t('myesim.pendingSub')}</div>
             </div>
           )}
 
@@ -108,13 +106,13 @@ const MyEsim = () => {
             to="/app/countries"
             className="w-full flex items-center justify-center gap-2 rounded-2xl border border-border p-3.5 text-primary font-bold hover:bg-primary/5 transition"
           >
-            <Plus className="w-5 h-5" strokeWidth={2.4} /> Добавить страну
+            <Plus className="w-5 h-5" strokeWidth={2.4} /> {t('myesim.addCountry')}
           </Link>
 
           <div>
             <div className="flex items-center justify-between mb-3">
-              <div className="font-bold text-foreground text-lg">Популярные направления</div>
-              <Link to="/app/countries" className="text-primary text-sm font-bold">Все</Link>
+              <div className="font-bold text-foreground text-lg">{t('common.popular')}</div>
+              <Link to="/app/countries" className="text-primary text-sm font-bold">{t('common.all')}</Link>
             </div>
             <div className="flex gap-3 overflow-x-auto no-scrollbar">
               {popular.map((c) => (
@@ -124,7 +122,7 @@ const MyEsim = () => {
                   className="flex flex-col items-center gap-2 shrink-0 w-16"
                 >
                   <FlagCircle slug={c.slug} className="w-14 h-14" />
-                  <div className="text-xs font-semibold text-foreground truncate w-full text-center">{c.name}</div>
+                  <div className="text-xs font-semibold text-foreground truncate w-full text-center">{getCountryName(c.slug, c.name, lang)}</div>
                 </button>
               ))}
             </div>
