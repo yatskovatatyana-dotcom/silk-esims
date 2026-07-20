@@ -1,5 +1,5 @@
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { ChevronRight, Search, Gift } from 'lucide-react';
+import { ChevronRight, Search, Gift, Check } from 'lucide-react';
 import { useState, useMemo } from 'react';
 import { PhoneFrame, GradientHeader } from '../shell';
 import { countries } from '../data';
@@ -12,6 +12,7 @@ const AllCountries = () => {
   const { t, lang } = useI18n();
   const [params] = useSearchParams();
   const promo = params.get('promo') === '1';
+  const [selected, setSelected] = useState<string | null>(null);
 
   const list = useMemo(() => {
     const s = q.trim().toLowerCase();
@@ -47,29 +48,54 @@ const AllCountries = () => {
             />
           </div>
         </div>
-        <ul>
-          {list.map((c) => (
-            <li key={c.slug}>
-              <button
-                onClick={() => nav(`/app/country/${c.slug}`)}
-                className="w-full flex items-center gap-4 px-5 py-3.5 border-b border-border/60 hover:bg-muted/50 transition text-left"
-              >
-                <FlagCircle slug={c.slug} className="w-14 h-14" />
-                <div className="flex-1 min-w-0">
-                  <div className="font-bold text-[18px] text-foreground leading-tight">{getCountryName(c.slug, c.name, lang)}</div>
-                  <div className="text-sm text-foreground/60 mt-0.5">
-                    eSIM · {t('common.from')} <span className="text-primary font-bold">€{c.plans[0].price}</span>
+        <ul className={promo ? 'pb-28' : ''}>
+          {list.map((c) => {
+            const isSelected = selected === c.slug;
+            return (
+              <li key={c.slug}>
+                <button
+                  onClick={() => (promo ? setSelected(c.slug) : nav(`/app/country/${c.slug}`))}
+                  className="w-full flex items-center gap-4 px-5 py-3.5 border-b border-border/60 hover:bg-muted/50 transition text-left"
+                >
+                  {promo && (
+                    <span
+                      className={`w-6 h-6 rounded-full border-2 flex items-center justify-center shrink-0 transition ${
+                        isSelected ? 'bg-primary border-primary' : 'border-foreground/25'
+                      }`}
+                    >
+                      {isSelected && <Check className="w-3.5 h-3.5 text-white" strokeWidth={3} />}
+                    </span>
+                  )}
+                  <FlagCircle slug={c.slug} className="w-14 h-14" />
+                  <div className="flex-1 min-w-0">
+                    <div className="font-bold text-[18px] text-foreground leading-tight">{getCountryName(c.slug, c.name, lang)}</div>
+                    {!promo && (
+                      <div className="text-sm text-foreground/60 mt-0.5">
+                        eSIM · {t('common.from')} <span className="text-primary font-bold">€{c.plans[0].price}</span>
+                      </div>
+                    )}
                   </div>
-                </div>
-                <ChevronRight className="w-5 h-5 text-foreground/40" />
-              </button>
-            </li>
-          ))}
+                  {!promo && <ChevronRight className="w-5 h-5 text-foreground/40" />}
+                </button>
+              </li>
+            );
+          })}
           {list.length === 0 && (
             <li className="px-5 py-10 text-center text-foreground/60">{t('common.notFound')}</li>
           )}
         </ul>
       </div>
+      {promo && (
+        <div className="shrink-0 border-t border-border bg-white px-4 py-3">
+          <button
+            disabled={!selected}
+            onClick={() => selected && nav(`/app/login`)}
+            className="w-full h-12 rounded-full bg-primary text-white font-bold text-[16px] disabled:opacity-40 disabled:cursor-not-allowed transition hover:brightness-110"
+          >
+            {t('promo.getFree')}
+          </button>
+        </div>
+      )}
     </PhoneFrame>
   );
 };
