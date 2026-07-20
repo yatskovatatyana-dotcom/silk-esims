@@ -39,7 +39,10 @@ const dict = {
   'promo.title': { ru: '1 ГБ бесплатно', en: '1 GB free' },
   'promo.bannerTitle': { ru: 'Первый пакет за наш счёт', en: 'First plan on us' },
   'promo.bannerSub': { ru: 'Выберите страну — 1 ГБ на 1 день бесплатно', en: 'Pick a country — 1 GB for 1 day free' },
-  'promo.getFree': { ru: 'Подключить бесплатно', en: 'Connect for free' },
+ 'promo.getFree': { ru: 'Подключить бесплатно', en: 'Connect for free' },
+ 'promo.free': { ru: 'Бесплатно', en: 'Free' },
+ 'promo.activeTitle': { ru: 'Ваш бесплатный пакет', en: 'Your free plan' },
+ 'promo.activeSub': { ru: '1 ГБ · 1 день', en: '1 GB · 1 day' },
 
   // Country
   'country.notFound': { ru: 'Страна не найдена', en: 'Country not found' },
