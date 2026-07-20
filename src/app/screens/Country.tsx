@@ -41,24 +41,24 @@ const PlanCard = ({ plan, onSelect }: { plan: Plan; onSelect: () => void }) => {
           </span>
         </div>
       )}
-      <div className="bg-white rounded-2xl border border-border/60 shadow-[0_2px_10px_-6px_rgba(30,40,80,0.12)] p-4 flex items-center gap-4">
-        <div className={`w-[68px] h-[68px] rounded-2xl ${tint.bg} flex items-center justify-center shrink-0`}>
-          <Icon className={`w-8 h-8 ${tint.fg}`} strokeWidth={2.4} />
+      <div className="bg-white rounded-2xl border border-border/60 shadow-[0_2px_10px_-6px_rgba(30,40,80,0.12)] p-3.5 flex items-center gap-3">
+        <div className={`w-[60px] h-[60px] rounded-2xl ${tint.bg} flex items-center justify-center shrink-0`}>
+          <Icon className={`w-7 h-7 ${tint.fg}`} strokeWidth={2.4} />
         </div>
         <div className="flex-1 min-w-0">
-          <div className="text-[11px] font-semibold tracking-wider text-foreground/50 uppercase">{plan.tier}</div>
-          <div className="flex items-baseline gap-2 mt-0.5">
-            <div className="text-[26px] font-extrabold text-foreground leading-none">{plan.data}</div>
-            <div className="inline-flex items-center gap-1 text-[13px] text-foreground/60">
-              <Calendar className="w-3.5 h-3.5" strokeWidth={2} />
+          <div className="text-[11px] font-semibold tracking-wider text-foreground/50 uppercase truncate">{plan.tier}</div>
+          <div className="flex items-baseline gap-2 mt-0.5 whitespace-nowrap">
+            <div className="text-[22px] font-extrabold text-foreground leading-none">{plan.data}</div>
+            <div className="inline-flex items-center gap-1 text-[12px] text-foreground/60">
+              <Calendar className="w-3.5 h-3.5 shrink-0" strokeWidth={2} />
               <span>{plan.daysLabel}</span>
             </div>
           </div>
-          <div className="text-[15px] font-semibold text-foreground/80 mt-1">{plan.priceLabel}</div>
+          <div className="text-[14px] font-semibold text-foreground/80 mt-1">{plan.priceLabel}</div>
         </div>
         <button
           onClick={onSelect}
-          className="shrink-0 inline-flex items-center gap-1.5 rounded-full bg-[hsl(245_75%_58%)] text-white text-[14px] font-semibold pl-4 pr-3 py-2.5 hover:bg-[hsl(245_75%_52%)] active:scale-[0.98] transition"
+          className="shrink-0 inline-flex items-center gap-1 rounded-full bg-[hsl(245_75%_58%)] text-white text-[13px] font-semibold pl-3.5 pr-2.5 py-2.5 hover:bg-[hsl(245_75%_52%)] active:scale-[0.98] transition"
         >
           В корзину <ArrowRight className="w-4 h-4" />
         </button>
