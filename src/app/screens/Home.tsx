@@ -37,7 +37,7 @@ const Home = () => {
               <div className="text-foreground/60 text-[12px] font-medium mt-1">{t('home.promoSub')}</div>
             </div>
             <button
-              onClick={() => nav('/app/country/turkey')}
+              onClick={() => nav('/app/countries?promo=1')}
               className="self-start bg-primary text-white font-semibold text-[13px] px-4 py-2.5 rounded-full shadow-[0_6px_16px_-4px_hsl(230_82%_42%/0.55)] hover:brightness-110 active:scale-[0.98] transition whitespace-nowrap inline-flex items-center gap-1.5"
             >
               {t('home.promoCta')} <ArrowRight className="w-3.5 h-3.5" />
