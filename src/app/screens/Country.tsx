@@ -172,12 +172,15 @@ const Country = () => {
               const isSelected = selectedId === p.id;
               const isHighlighted = p.id === shortTripsId;
               const showBonus = (isHighlighted || isSelected) && bonusFor(p.data) > 0;
+              const isMax = p.id === 'max';
               return (
-                <div key={p.id} className="relative pt-2.5">
+                <div key={p.id} className={`relative ${isMax ? 'pt-3.5' : 'pt-2.5'}`}>
                   {isHighlighted && (
-                    <div className="absolute -top-0.5 left-3 z-10">
+                    <div className={`absolute -top-0.5 z-10 ${isMax ? 'left-4' : 'left-3'}`}>
                       <span
-                        className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-bold tracking-wider text-white"
+                        className={`inline-flex items-center rounded-full font-bold tracking-wider text-white ${
+                          isMax ? 'px-2.5 py-1 text-[10px]' : 'px-2 py-0.5 text-[9px]'
+                        }`}
                         style={{ background: PURPLE }}
                       >
                         {t('country.shortTrips')}
@@ -186,27 +189,31 @@ const Country = () => {
                   )}
                   <button
                     onClick={() => setSelectedId(p.id)}
-                    className={`w-full text-left rounded-xl px-3 py-2.5 flex items-center gap-2.5 transition ${
+                    className={`w-full text-left rounded-xl flex items-center transition ${
                       isHighlighted
                         ? 'bg-[hsl(248_90%_97%)] border-2 border-[hsl(248_78%_60%)]'
                         : isSelected
                         ? 'bg-[hsl(248_90%_97%)] border-2 border-[hsl(248_78%_60%)]'
                         : 'bg-white border border-border/70'
+                    } ${
+                      isMax
+                        ? 'px-5 py-5 gap-4 rounded-2xl'
+                        : 'px-3 py-2.5 gap-2.5'
                     }`}
                   >
                     <Radio checked={isSelected} />
                     <div className="flex-1 min-w-0">
-                      <div className="text-[14px] font-bold text-foreground">
+                      <div className={`font-bold text-foreground ${isMax ? 'text-[18px]' : 'text-[14px]'}`}>
                         {localizedDataUnit(p.data, lang)} · {localizedDaysLabel(p.days, lang)}
                       </div>
                       {showBonus && (
-                        <div className="mt-0.5 inline-flex items-center gap-1 text-[11px] font-semibold text-[hsl(150_65%_38%)]">
-                          <Gift className="w-3 h-3" strokeWidth={2.4} />
+                        <div className={`mt-1 inline-flex items-center gap-1 font-semibold text-[hsl(150_65%_38%)] ${isMax ? 'text-[13px]' : 'text-[11px]'}`}>
+                          <Gift className={`${isMax ? 'w-4 h-4' : 'w-3 h-3'}`} strokeWidth={2.4} />
                           {giftText(bonusFor(p.data))}
                         </div>
                       )}
                     </div>
-                    <div className="text-[15px] font-extrabold text-foreground shrink-0">
+                    <div className={`font-extrabold text-foreground shrink-0 ${isMax ? 'text-[19px]' : 'text-[15px]'}`}>
                       {p.priceLabel}
                     </div>
                   </button>
