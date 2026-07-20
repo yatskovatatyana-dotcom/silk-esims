@@ -30,6 +30,7 @@ const dict = {
   'home.promoTitle': { ru: 'Первый пакет\nза наш счёт', en: 'First plan\non us' },
   'home.promoSub': { ru: '1 день — 1 Гб', en: '1 day — 1 GB' },
   'home.promoCta': { ru: 'Попробовать бесплатно', en: 'Try for free' },
+  'home.promoBadge': { ru: 'Бесплатно', en: 'Free' },
   'home.haveAccount': { ru: 'Уже есть аккаунт?', en: 'Already have an account?' },
   'home.login': { ru: 'Войти', en: 'Log in' },
   'home.searchPlaceholder': { ru: 'В какую страну летите?', en: 'Where are you heading?' },

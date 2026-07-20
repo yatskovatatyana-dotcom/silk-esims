@@ -31,10 +31,11 @@ const Home = () => {
           <img src={promoImg} alt="" className="absolute inset-0 w-full h-full object-cover object-[85%_center]" />
           {/* Left readability gradient: solid white → transparent */}
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent" style={{ backgroundImage: 'linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0.92) 42%, rgba(255,255,255,0) 70%)' }} />
-          {/* Accent gift ribbon */}
+          {/* Modern promo tag */}
           <div className="absolute top-3 left-3 z-10">
-            <span className="inline-flex items-center gap-1 bg-primary text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full shadow-sm">
-              🎁 {lang === 'ru' ? 'Промо' : 'Promo'}
+            <span className="inline-flex items-center gap-1.5 bg-primary/10 text-primary text-[11px] font-semibold px-2.5 py-1 rounded-full">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+              {t('home.promoBadge')}
             </span>
           </div>
           <div className="relative h-full flex flex-col justify-between p-4 pt-10 pl-4 max-w-[62%]">
