@@ -1,16 +1,21 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { Search, User, ArrowRight } from 'lucide-react';
+import { Search, User, ArrowRight, Wifi } from 'lucide-react';
 import { PhoneFrame, StatusBar } from '../shell';
 import { countries, homeCountries } from '../data';
 import FlagCircle from '../FlagCircle';
 import promoImg from '@/assets/promo-santorini.jpg';
 import { useState } from 'react';
 import { useI18n, getCountryName } from '../i18n';
+import { useStore } from '../store';
 
 const Home = () => {
   const nav = useNavigate();
   const [q, setQ] = useState('');
   const { t, lang } = useI18n();
+  const { auth, orders } = useStore();
+  const freeOrder = auth ? orders.find((o) => o.price === 0) : null;
+  const freeCountry = freeOrder ? countries.find((c) => c.slug === freeOrder.countrySlug) : null;
+
 
   const grid = homeCountries.map((s) => countries.find((c) => c.slug === s)!).filter(Boolean);
   const filtered = q.trim()
@@ -48,19 +53,35 @@ const Home = () => {
 
       {/* Light area */}
       <div className="flex-1 overflow-y-auto rounded-t-3xl pt-4 px-4 pb-6" style={{ background: 'linear-gradient(180deg, hsl(220 45% 94%) 0%, hsl(0 0% 100%) 45%)' }}>
-        {/* Login row */}
-        <Link
-          to="/app/login"
-          className="flex items-center gap-3 bg-white rounded-2xl border border-border shadow-[0_4px_16px_-8px_rgba(30,40,80,0.15)] px-4 py-3 mb-4"
-        >
-          <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center text-white shrink-0">
-            <User className="w-6 h-6" strokeWidth={2.2} fill="currentColor" />
-          </div>
-          <div className="flex-1 text-foreground font-medium">{t('home.haveAccount')}</div>
-          <div className="text-primary font-bold text-sm flex items-center gap-1">
-            {t('home.login')} <ArrowRight className="w-4 h-4" />
-          </div>
-        </Link>
+        {/* Free promo plan card */}
+        {freeOrder && freeCountry ? (
+          <button
+            onClick={() => nav('/app/my-esim')}
+            className="w-full flex items-center gap-3 bg-white rounded-2xl border-2 border-primary/40 shadow-[0_8px_24px_-10px_rgba(90,60,220,0.35)] px-4 py-3 mb-4 text-left"
+          >
+            <FlagCircle slug={freeCountry.slug} className="w-11 h-11 shrink-0" />
+            <div className="flex-1 min-w-0">
+              <div className="text-[11px] font-extrabold tracking-wider text-primary uppercase">{t('promo.free')} · {getCountryName(freeCountry.slug, freeCountry.name, lang)}</div>
+              <div className="font-bold text-foreground text-[15px] leading-tight">{t('promo.activeTitle')}</div>
+              <div className="text-foreground/60 text-xs mt-0.5">{t('promo.activeSub')}</div>
+            </div>
+            <Wifi className="w-5 h-5 text-primary" />
+          </button>
+        ) : (
+          /* Login row */
+          <Link
+            to="/app/login"
+            className="flex items-center gap-3 bg-white rounded-2xl border border-border shadow-[0_4px_16px_-8px_rgba(30,40,80,0.15)] px-4 py-3 mb-4"
+          >
+            <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center text-white shrink-0">
+              <User className="w-6 h-6" strokeWidth={2.2} fill="currentColor" />
+            </div>
+            <div className="flex-1 text-foreground font-medium">{t('home.haveAccount')}</div>
+            <div className="text-primary font-bold text-sm flex items-center gap-1">
+              {t('home.login')} <ArrowRight className="w-4 h-4" />
+            </div>
+          </Link>
+        )}
 
         {/* Search + countries card */}
         <div className="rounded-3xl bg-white border border-border shadow-[0_4px_16px_-8px_rgba(30,40,80,0.12)] p-4">

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { UserPlus } from 'lucide-react';
 import { PhoneFrame, GradientHeader } from '../shell';
 import { useStore } from '../store';
@@ -10,12 +10,14 @@ const Register = () => {
   const { setPendingLoginEmail } = useStore();
   const { t } = useI18n();
   const [email, setEmail] = useState('');
+  const [params] = useSearchParams();
+  const promo = params.get('promo');
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.trim()) return;
     setPendingLoginEmail(email.trim());
-    nav('/app/login/code');
+    nav(promo ? `/app/login/code?promo=${promo}` : '/app/login/code');
   };
 
   return (
