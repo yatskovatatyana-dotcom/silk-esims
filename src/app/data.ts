@@ -28,9 +28,9 @@ const makePlans = (_base: number): Plan[] => [
 ];
 
 export const countries: Country[] = [
-  { slug: 'turkey',    name: 'Турция',      from: 199, region: 'europe',      plans: makePlans(199) },
-  { slug: 'thailand',  name: 'Таиланд',     from: 249, region: 'asia',        plans: makePlans(249) },
-  { slug: 'uae',       name: 'ОАЭ',         from: 199, region: 'middle-east', plans: makePlans(199) },
+  { slug: 'turkey',    name: 'Турция',      from: 290, region: 'europe',      plans: makePlans(290) },
+  { slug: 'thailand',  name: 'Таиланд',     from: 290, region: 'asia',        plans: makePlans(290) },
+  { slug: 'uae',       name: 'ОАЭ',         from: 390, region: 'middle-east', plans: makePlans(390) },
   { slug: 'europe',    name: 'Европа',      from: 229, region: 'europe',      plans: makePlans(229) },
   { slug: 'usa',       name: 'США',         from: 349, region: 'americas',    plans: makePlans(349) },
   { slug: 'japan',     name: 'Япония',      from: 249, region: 'asia',        plans: makePlans(249) },
