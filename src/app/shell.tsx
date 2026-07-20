@@ -37,15 +37,19 @@ export const StatusBar = ({ dark = false }: { dark?: boolean }) => {
 export const GradientHeader = ({
   title,
   back,
+  close,
   subtitle,
   onBack,
+  onClose,
   extra,
   className = '',
 }: {
   title?: ReactNode;
   subtitle?: ReactNode;
   back?: boolean;
+  close?: boolean;
   onBack?: () => void;
+  onClose?: () => void;
   extra?: ReactNode;
   className?: string;
 }) => {
@@ -61,6 +65,17 @@ export const GradientHeader = ({
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
               <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+        )}
+        {close && (
+          <button
+            aria-label="Close"
+            onClick={onClose}
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+              <path d="M18 6L6 18M6 6l12 12" />
             </svg>
           </button>
         )}
