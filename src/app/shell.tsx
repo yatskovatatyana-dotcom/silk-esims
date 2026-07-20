@@ -63,7 +63,7 @@ export const GradientHeader = ({
             onClick={onBack}
             className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition"
           >
-            <svg viewBox="0 0 24 24" fill="none" strokeLinejoin="round" className="w-6 h-6">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
               <path d="M15 18l-6-6 6-6" />
             </svg>
           </button>
