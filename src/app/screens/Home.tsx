@@ -27,19 +27,26 @@ const Home = () => {
         <StatusBar dark />
         <div className="text-center text-[19px] font-semibold pb-3 -mt-1">Silk eSIM</div>
         {/* Promo card */}
-        <div className="mx-4 mb-5 rounded-2xl overflow-hidden relative bg-white/10 h-[160px]">
-          <img src={promoImg} alt="" className="absolute inset-0 w-full h-full object-cover object-[75%_center]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(225_90%_20%)]/95 via-[hsl(225_85%_25%)]/70 to-transparent" />
-          <div className="relative p-5 h-full flex flex-col justify-between">
+        <div className="mx-4 mb-5 rounded-2xl overflow-hidden relative bg-white h-[168px] shadow-[0_10px_30px_-12px_rgba(0,0,0,0.35)]">
+          <img src={promoImg} alt="" className="absolute inset-0 w-full h-full object-cover object-[85%_center]" />
+          {/* Left readability gradient: solid white → transparent */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent" style={{ backgroundImage: 'linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0.92) 42%, rgba(255,255,255,0) 70%)' }} />
+          {/* Accent gift ribbon */}
+          <div className="absolute top-3 left-3 z-10">
+            <span className="inline-flex items-center gap-1 bg-primary text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full shadow-sm">
+              🎁 {lang === 'ru' ? 'Промо' : 'Promo'}
+            </span>
+          </div>
+          <div className="relative h-full flex flex-col justify-between p-4 pt-10 pl-4 max-w-[62%]">
             <div>
-              <div className="text-[22px] font-bold leading-tight whitespace-pre-line text-foreground">{t('home.promoTitle')}</div>
-              <div className="text-white text-sm mt-1 drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]">{t('home.promoSub')}</div>
+              <div className="text-[19px] font-extrabold leading-[1.15] whitespace-pre-line text-foreground tracking-tight">{t('home.promoTitle')}</div>
+              <div className="text-foreground/60 text-[12px] font-medium mt-1">{t('home.promoSub')}</div>
             </div>
             <button
               onClick={() => nav('/app/country/turkey')}
-              className="self-start bg-white text-primary font-semibold text-sm px-4 py-2 rounded-full hover:bg-white/95 transition"
+              className="self-start bg-primary text-white font-semibold text-[13px] px-4 py-2.5 rounded-full shadow-[0_6px_16px_-4px_hsl(230_82%_42%/0.55)] hover:brightness-110 active:scale-[0.98] transition whitespace-nowrap inline-flex items-center gap-1.5"
             >
-              {t('home.promoCta')}
+              {t('home.promoCta')} <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>
