@@ -72,7 +72,7 @@ const ProfileEmpty = () => {
             </svg>
             <div className="mt-2 font-bold text-xl text-foreground">Пока пусто</div>
             <p className="text-sm text-foreground/60 mt-1.5 max-w-[280px] mx-auto">
-              Здесь будут отображаться ваши eSIM,<br/>покупки и активные пакеты<br/>после входа в аккаунт.
+              Здесь будут отображаться ваши покупки и активные пакеты после входа в аккаунт.
             </p>
           </div>
 
