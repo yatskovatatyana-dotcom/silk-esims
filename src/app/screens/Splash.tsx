@@ -22,7 +22,7 @@ const Splash = () => {
       <div className="relative flex flex-col min-h-screen px-8 pb-10 justify-end">
         <div className="flex flex-col gap-3">
           <button
-            onClick={() => nav('/app/countries')}
+            onClick={() => nav('/app/home')}
             className="w-full h-14 rounded-2xl bg-[hsl(245_75%_55%)] text-white font-bold text-[17px] hover:bg-[hsl(245_75%_50%)] transition shadow-[0_10px_30px_-10px_rgba(0,0,0,0.4)]"
           >
             {t('splash.start')}
