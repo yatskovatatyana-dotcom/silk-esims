@@ -72,9 +72,9 @@ const ProfileEmpty = () => {
                 <line x1="195" y1="42" x2="203" y2="42" />
               </g>
             </svg>
-            <div className="mt-1 font-bold text-xl text-foreground">Пока пусто</div>
+            <div className="mt-1 font-bold text-xl text-foreground">{t('profile.empty')}</div>
             <p className="text-sm text-foreground/60 mt-1 max-w-[280px] mx-auto">
-              Здесь будут отображаться ваши покупки и активные пакеты после входа в аккаунт.
+              {t('profile.emptyDesc')}
             </p>
           </div>
 
