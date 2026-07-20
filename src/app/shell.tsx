@@ -1,6 +1,7 @@
 import { Home, Headphones, User } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import type { ReactNode } from 'react';
+import { useI18n } from './i18n';
 
 /** Fake iPhone status bar with 9:41 and icons */
 export const StatusBar = ({ dark = false }: { dark?: boolean }) => {
