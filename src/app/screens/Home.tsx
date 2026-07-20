@@ -107,7 +107,7 @@ const Home = () => {
                 <FlagCircle slug={c.slug} className="w-[72px] h-[72px] group-hover:scale-105 transition" />
                 <div className="text-center">
                   <div className="font-bold text-foreground text-[15px]">{getCountryName(c.slug, c.name, lang)}</div>
-                  <div className="text-xs text-primary font-semibold mt-0.5">{t('common.from')} {c.from} ₽</div>
+                  <div className="text-xs text-primary font-semibold mt-0.5">€{c.plans[0].price}</div>
                 </div>
               </button>
             ))}
