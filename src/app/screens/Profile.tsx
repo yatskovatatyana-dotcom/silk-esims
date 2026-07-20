@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 const ProfileEmpty = () => {
   const [q, setQ] = useState('');
-  const { t, lang, toggleLang } = useI18n();
+  const { t, lang, setLang } = useI18n();
   const popular = popularCountries.map((s) => countries.find((c) => c.slug === s)!).filter(Boolean);
 
   return (
@@ -107,14 +107,26 @@ const ProfileEmpty = () => {
             </div>
           </div>
 
-          <button onClick={toggleLang} className="w-full flex items-center gap-3 p-2 bg-white">
+          <div className="w-full flex items-center gap-3 p-2 bg-white">
             <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
               <Globe className="w-5 h-5 text-primary" />
             </div>
             <span className="flex-1 text-left font-semibold text-foreground">{t('profile.language')}</span>
-            <span className="text-foreground/60 text-sm">{lang === 'ru' ? 'Русский' : 'English'}</span>
-            <ChevronDown className="w-4 h-4 text-foreground/40" />
-          </button>
+            <div className="flex items-center rounded-full bg-muted p-1 gap-1">
+              <button
+                onClick={() => setLang('en')}
+                className={`px-3 py-1 rounded-full text-sm font-bold transition ${lang === 'en' ? 'bg-primary text-white' : 'text-foreground/60 hover:text-foreground'}`}
+              >
+                Eng
+              </button>
+              <button
+                onClick={() => setLang('ru')}
+                className={`px-3 py-1 rounded-full text-sm font-bold transition ${lang === 'ru' ? 'bg-primary text-white' : 'text-foreground/60 hover:text-foreground'}`}
+              >
+                Ru
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </PhoneFrame>
@@ -124,7 +136,7 @@ const ProfileEmpty = () => {
 const ProfileLoggedIn = () => {
   const nav = useNavigate();
   const { auth, orders, setAuth } = useStore();
-  const { t, lang, toggleLang } = useI18n();
+  const { t, lang, setLang } = useI18n();
   const email = auth?.email ?? '—';
 
   return (
@@ -173,12 +185,24 @@ const ProfileLoggedIn = () => {
           </details>
 
           <div className="rounded-2xl bg-white border border-border overflow-hidden">
-            <button onClick={toggleLang} className="w-full flex items-center gap-3 p-4 hover:bg-muted/40 transition">
+            <div className="w-full flex items-center gap-3 p-4">
               <Globe className="w-5 h-5 text-primary" />
               <span className="flex-1 text-left font-semibold text-foreground">{t('profile.language.short')}</span>
-              <span className="text-foreground/60 text-sm">{lang === 'ru' ? 'Русский' : 'English'}</span>
-              <ChevronRight className="w-4 h-4 text-foreground/40" />
-            </button>
+              <div className="flex items-center rounded-full bg-muted p-1 gap-1">
+                <button
+                  onClick={() => setLang('en')}
+                  className={`px-3 py-1 rounded-full text-sm font-bold transition ${lang === 'en' ? 'bg-primary text-white' : 'text-foreground/60 hover:text-foreground'}`}
+                >
+                  Eng
+                </button>
+                <button
+                  onClick={() => setLang('ru')}
+                  className={`px-3 py-1 rounded-full text-sm font-bold transition ${lang === 'ru' ? 'bg-primary text-white' : 'text-foreground/60 hover:text-foreground'}`}
+                >
+                  Ru
+                </button>
+              </div>
+            </div>
             <div className="h-px bg-border" />
             <button className="w-full flex items-center gap-3 p-4 hover:bg-muted/40 transition">
               <FileText className="w-5 h-5 text-primary" />
