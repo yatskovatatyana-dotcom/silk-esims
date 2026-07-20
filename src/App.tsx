@@ -33,6 +33,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <AppStoreProvider>
+        <I18nProvider>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
