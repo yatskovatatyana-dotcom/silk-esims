@@ -3,7 +3,7 @@ import { Search, User, ArrowRight } from 'lucide-react';
 import { PhoneFrame, StatusBar } from '../shell';
 import { countries, homeCountries } from '../data';
 import FlagCircle from '../FlagCircle';
-import heroSplash from '@/assets/hero-splash.png.asset.json';
+import promoImg from '@/assets/promo-santorini.jpg';
 import { useState } from 'react';
 import { useI18n, getCountryName } from '../i18n';
 
