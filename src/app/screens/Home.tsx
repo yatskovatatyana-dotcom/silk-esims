@@ -45,12 +45,12 @@ const Home = () => {
         </div>
       </div>
 
-      {/* White area */}
-      <div className="flex-1 overflow-y-auto -mt-3 rounded-t-3xl bg-white pt-5 px-4 pb-6">
+      {/* Light area */}
+      <div className="flex-1 overflow-y-auto -mt-3 rounded-t-3xl pt-5 px-4 pb-6" style={{ background: 'linear-gradient(180deg, hsl(220 45% 94%) 0%, hsl(0 0% 100%) 45%)' }}>
         {/* Login row */}
         <Link
           to="/app/login"
-          className="flex items-center gap-3 bg-white rounded-2xl border border-border shadow-[0_4px_16px_-8px_rgba(30,40,80,0.15)] px-4 py-3 -mt-8 mb-5"
+          className="flex items-center gap-3 bg-white rounded-2xl border border-border shadow-[0_4px_16px_-8px_rgba(30,40,80,0.15)] px-4 py-3 -mt-8 mb-4"
         >
           <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center text-white shrink-0">
             <User className="w-6 h-6" strokeWidth={2.2} fill="currentColor" />
@@ -61,51 +61,54 @@ const Home = () => {
           </div>
         </Link>
 
-        {/* Search */}
-        <div className="relative mb-3">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/40" />
-          <input
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-            placeholder={t('home.searchPlaceholder')}
-            className="w-full h-12 pl-12 pr-4 rounded-full bg-muted text-foreground text-[15px] placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/30"
-          />
-          {filtered.length > 0 && (
-            <div className="absolute left-0 right-0 top-full mt-2 rounded-2xl bg-white border border-border shadow-elegant z-10 overflow-hidden">
-              {filtered.map((c) => (
-                <button
-                  key={c.slug}
-                  onClick={() => nav(`/app/country/${c.slug}`)}
-                  className="w-full flex items-center gap-3 px-4 py-3 hover:bg-muted text-left"
-                >
-                  <FlagCircle slug={c.slug} className="w-8 h-8" />
-                  <span className="font-semibold text-foreground">{getCountryName(c.slug, c.name, lang)}</span>
-                  <span className="ml-auto text-sm text-foreground/60">{t('common.from')} {c.from} ₽</span>
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-
-        <Link to="/app/countries" className="inline-flex items-center gap-1 text-primary text-sm font-bold mb-4">
-          {t('common.allCountries')} <ArrowRight className="w-3.5 h-3.5" />
-        </Link>
-
-        {/* Country flag grid 3x2 */}
-        <div className="grid grid-cols-3 gap-x-4 gap-y-6">
-          {grid.map((c) => (
-            <button
-              key={c.slug}
-              onClick={() => nav(`/app/country/${c.slug}`)}
-              className="flex flex-col items-center gap-2 group"
-            >
-              <FlagCircle slug={c.slug} className="w-[72px] h-[72px] group-hover:scale-105 transition" />
-              <div className="text-center">
-                <div className="font-bold text-foreground text-[15px]">{getCountryName(c.slug, c.name, lang)}</div>
-                <div className="text-xs text-primary font-semibold mt-0.5">{t('common.from')} {c.from} ₽</div>
+        {/* Search + countries card */}
+        <div className="rounded-3xl bg-white border border-border shadow-[0_4px_16px_-8px_rgba(30,40,80,0.12)] p-4">
+          {/* Search */}
+          <div className="relative mb-3">
+            <Search className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/40" />
+            <input
+              value={q}
+              onChange={(e) => setQ(e.target.value)}
+              placeholder={t('home.searchPlaceholder')}
+              className="w-full h-12 pl-5 pr-12 rounded-full bg-muted text-foreground text-[15px] placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/30"
+            />
+            {filtered.length > 0 && (
+              <div className="absolute left-0 right-0 top-full mt-2 rounded-2xl bg-white border border-border shadow-elegant z-10 overflow-hidden">
+                {filtered.map((c) => (
+                  <button
+                    key={c.slug}
+                    onClick={() => nav(`/app/country/${c.slug}`)}
+                    className="w-full flex items-center gap-3 px-4 py-3 hover:bg-muted text-left"
+                  >
+                    <FlagCircle slug={c.slug} className="w-8 h-8" />
+                    <span className="font-semibold text-foreground">{getCountryName(c.slug, c.name, lang)}</span>
+                    <span className="ml-auto text-sm text-foreground/60">{t('common.from')} {c.from} ₽</span>
+                  </button>
+                ))}
               </div>
-            </button>
-          ))}
+            )}
+          </div>
+
+          <Link to="/app/countries" className="inline-flex items-center gap-1 text-primary text-sm font-bold mb-4">
+            {t('common.allCountries')} <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+
+          {/* Country flag grid 3x2 */}
+          <div className="grid grid-cols-3 gap-x-4 gap-y-5">
+            {grid.map((c) => (
+              <button
+                key={c.slug}
+                onClick={() => nav(`/app/country/${c.slug}`)}
+                className="flex flex-col items-center gap-2 group"
+              >
+                <FlagCircle slug={c.slug} className="w-[72px] h-[72px] group-hover:scale-105 transition" />
+                <div className="text-center">
+                  <div className="font-bold text-foreground text-[15px]">{getCountryName(c.slug, c.name, lang)}</div>
+                  <div className="text-xs text-primary font-semibold mt-0.5">{t('common.from')} {c.from} ₽</div>
+                </div>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </PhoneFrame>
