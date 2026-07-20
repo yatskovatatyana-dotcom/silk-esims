@@ -5,7 +5,7 @@ export type Plan = {
   days: number;
   daysLabel: string; // "5 дней" / "1 месяц"
   price: number;
-  priceLabel: string; // "399 ₽"
+  priceLabel: string; // "€4"
   badge?: 'hit' | 'best';
   icon: 'bolt' | 'sparkles' | 'arrow-up-right' | 'wifi' | 'rocket';
 };
