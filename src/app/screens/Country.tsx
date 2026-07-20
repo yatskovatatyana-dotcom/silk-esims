@@ -65,7 +65,7 @@ const Country = () => {
     [others]
   );
 
-  const [selectedId, setSelectedId] = useState<string>('max');
+  const [selectedId, setSelectedId] = useState<string>('super');
 
   if (!country || !featured) {
     return (
