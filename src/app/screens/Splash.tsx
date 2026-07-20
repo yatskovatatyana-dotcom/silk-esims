@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import splashMockup from '@/assets/screens/01-splash.png.asset.json';
+import splashMockup from '@/assets/screens/01-splash-clean.png.asset.json';
 
 const Splash = () => {
   const nav = useNavigate();
