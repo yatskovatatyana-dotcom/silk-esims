@@ -19,7 +19,7 @@ const ProfileEmpty = () => {
         </div>
       </div>
       <div className="flex-1 overflow-y-auto bg-white -mt-6 rounded-t-3xl">
-        <div className="p-4 space-y-4">
+        <div className="p-4 space-y-3">
           <Link
             to="/app/login"
             className="flex items-center gap-3 bg-white rounded-2xl border border-border shadow-[0_6px_20px_-10px_rgba(30,40,80,0.2)] px-4 py-4"
@@ -36,8 +36,8 @@ const ProfileEmpty = () => {
             </div>
           </Link>
 
-          <div className="text-center py-2">
-            <svg viewBox="0 0 240 200" className="w-56 h-44 mx-auto block" aria-hidden>
+          <div className="text-center py-1">
+            <svg viewBox="0 0 240 200" className="w-48 h-36 mx-auto block" aria-hidden>
               <defs>
                 <linearGradient id="suitGrad" x1="0" x2="1" y1="0" y2="1">
                   <stop offset="0" stopColor="hsl(230 80% 62%)" />
@@ -70,8 +70,8 @@ const ProfileEmpty = () => {
                 <line x1="195" y1="42" x2="203" y2="42" />
               </g>
             </svg>
-            <div className="mt-2 font-bold text-xl text-foreground">Пока пусто</div>
-            <p className="text-sm text-foreground/60 mt-1.5 max-w-[280px] mx-auto">
+            <div className="mt-1 font-bold text-xl text-foreground">Пока пусто</div>
+            <p className="text-sm text-foreground/60 mt-1 max-w-[280px] mx-auto">
               Здесь будут отображаться ваши покупки и активные пакеты после входа в аккаунт.
             </p>
           </div>
@@ -86,8 +86,8 @@ const ProfileEmpty = () => {
             />
           </div>
 
-          <div className="rounded-2xl border border-border bg-white p-4">
-            <div className="flex items-center justify-between mb-3">
+          <div className="p-2">
+            <div className="flex items-center justify-between mb-2 px-1">
               <div className="font-bold text-foreground">Популярные направления</div>
               <Link to="/app/countries" className="text-primary text-sm font-bold flex items-center gap-1">
                 Все страны <ChevronRight className="w-3.5 h-3.5" />
@@ -95,7 +95,7 @@ const ProfileEmpty = () => {
             </div>
             <div className="grid grid-cols-5 gap-2">
               {popular.map((c) => (
-                <Link key={c.slug} to={`/app/country/${c.slug}`} className="flex flex-col items-center gap-1.5 min-w-0">
+                <Link key={c.slug} to={`/app/country/${c.slug}`} className="flex flex-col items-center gap-1 min-w-0">
                   <div className="w-12 h-12 rounded-xl overflow-hidden">
                     <FlagCircle slug={c.slug} className="w-12 h-12 !rounded-xl" />
                   </div>
@@ -105,7 +105,7 @@ const ProfileEmpty = () => {
             </div>
           </div>
 
-          <button className="w-full flex items-center gap-3 rounded-2xl border border-border p-3.5 bg-white">
+          <button className="w-full flex items-center gap-3 -mt-1 p-2 bg-white">
             <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
               <Globe className="w-5 h-5 text-primary" />
             </div>
