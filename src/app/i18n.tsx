@@ -32,7 +32,7 @@ const dict = {
   'home.promoCta': { ru: 'Попробовать бесплатно', en: 'Try for free' },
   'home.haveAccount': { ru: 'Уже есть аккаунт?', en: 'Already have an account?' },
   'home.login': { ru: 'Войти', en: 'Log in' },
-  'home.searchPlaceholder': { ru: 'В какую страну летите?', en: 'Where are you flying?' },
+  'home.searchPlaceholder': { ru: 'В какую страну летите?', en: 'Where are you heading?' },
 
   // Country
   'country.notFound': { ru: 'Страна не найдена', en: 'Country not found' },
