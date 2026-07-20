@@ -2,12 +2,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ChevronDown, ChevronRight, Globe, FileText, Shield, Trash2, User, ArrowRight, Clock, Search } from 'lucide-react';
 import { PhoneFrame, GradientHeader, StatusBar } from '../shell';
 import { useStore } from '../store';
+import { useI18n } from '../i18n';
 import FlagCircle from '../FlagCircle';
 import { countries, popularCountries } from '../data';
 import { useState } from 'react';
 
 const ProfileEmpty = () => {
   const [q, setQ] = useState('');
+  const { t, lang, toggleLang } = useI18n();
   const popular = popularCountries.map((s) => countries.find((c) => c.slug === s)!).filter(Boolean);
 
   return (
@@ -15,7 +17,7 @@ const ProfileEmpty = () => {
       <div className="text-white pb-4" style={{ background: 'linear-gradient(180deg, hsl(235 85% 48%) 0%, hsl(265 80% 58%) 100%)' }}>
         <StatusBar dark />
         <div className="px-5 pt-2 pb-4">
-          <h1 className="text-[28px] font-bold">Профиль</h1>
+          <h1 className="text-[28px] font-bold">{t('profile.title')}</h1>
         </div>
       </div>
       <div className="flex-1 overflow-y-auto bg-white -mt-6 rounded-t-3xl">
@@ -28,11 +30,11 @@ const ProfileEmpty = () => {
               <User className="w-7 h-7 text-primary" strokeWidth={2.2} fill="currentColor" />
             </div>
             <div className="flex-1 min-w-0">
-              <div className="font-bold text-foreground">Уже есть аккаунт?</div>
-              <p className="text-xs text-foreground/60 leading-snug mt-0.5">Войдите, чтобы управлять покупками и eSIM</p>
+              <div className="font-bold text-foreground">{t('profile.haveAccount')}</div>
+              <p className="text-xs text-foreground/60 leading-snug mt-0.5">{t('profile.loginToManage')}</p>
             </div>
             <div className="text-primary font-bold text-sm flex items-center gap-1">
-              Войти <ArrowRight className="w-4 h-4" />
+              {t('profile.login')} <ArrowRight className="w-4 h-4" />
             </div>
           </Link>
 
@@ -70,9 +72,9 @@ const ProfileEmpty = () => {
                 <line x1="195" y1="42" x2="203" y2="42" />
               </g>
             </svg>
-            <div className="mt-1 font-bold text-xl text-foreground">Пока пусто</div>
+            <div className="mt-1 font-bold text-xl text-foreground">{t('profile.empty')}</div>
             <p className="text-sm text-foreground/60 mt-1 max-w-[280px] mx-auto">
-              Здесь будут отображаться ваши покупки и активные пакеты после входа в аккаунт.
+              {t('profile.emptyDesc')}
             </p>
           </div>
 
@@ -81,16 +83,16 @@ const ProfileEmpty = () => {
             <input
               value={q}
               onChange={(e) => setQ(e.target.value)}
-              placeholder="Поиск страны"
+              placeholder={t('common.searchCountry')}
               className="w-full h-12 pl-12 pr-4 rounded-full bg-muted text-foreground placeholder:text-foreground/40 focus:outline-none focus:ring-2 focus:ring-primary/30"
             />
           </div>
 
           <div className="p-2">
             <div className="flex items-center justify-between mb-3 px-1">
-              <div className="font-bold text-foreground">Популярные направления</div>
+              <div className="font-bold text-foreground">{t('common.popular')}</div>
               <Link to="/app/countries" className="text-primary text-sm font-bold flex items-center gap-1">
-                Все страны <ChevronRight className="w-3.5 h-3.5" />
+                {t('common.allCountries')} <ChevronRight className="w-3.5 h-3.5" />
               </Link>
             </div>
             <div className="grid grid-cols-5 gap-2">
@@ -105,12 +107,12 @@ const ProfileEmpty = () => {
             </div>
           </div>
 
-          <button className="w-full flex items-center gap-3 p-2 bg-white">
+          <button onClick={toggleLang} className="w-full flex items-center gap-3 p-2 bg-white">
             <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
               <Globe className="w-5 h-5 text-primary" />
             </div>
-            <span className="flex-1 text-left font-semibold text-foreground">Язык приложения</span>
-            <span className="text-foreground/60 text-sm">Русский</span>
+            <span className="flex-1 text-left font-semibold text-foreground">{t('profile.language')}</span>
+            <span className="text-foreground/60 text-sm">{lang === 'ru' ? 'Русский' : 'English'}</span>
             <ChevronDown className="w-4 h-4 text-foreground/40" />
           </button>
         </div>
@@ -122,11 +124,12 @@ const ProfileEmpty = () => {
 const ProfileLoggedIn = () => {
   const nav = useNavigate();
   const { auth, orders, setAuth } = useStore();
+  const { t, lang, toggleLang } = useI18n();
   const email = auth?.email ?? '—';
 
   return (
     <PhoneFrame>
-      <GradientHeader title="Профиль" className="pb-8" />
+      <GradientHeader title={t('profile.title')} className="pb-8" />
       <div className="flex-1 overflow-y-auto bg-white">
         <div className="p-5 space-y-4">
           <div className="flex items-center gap-4 -mt-2">
@@ -135,7 +138,7 @@ const ProfileLoggedIn = () => {
             </div>
             <div className="min-w-0">
               <div className="font-extrabold text-2xl text-foreground truncate">{email}</div>
-              <div className="text-sm text-foreground/60 mt-0.5">Спасибо, что с нами!</div>
+              <div className="text-sm text-foreground/60 mt-0.5">{t('profile.thanks')}</div>
             </div>
           </div>
 
@@ -144,24 +147,24 @@ const ProfileLoggedIn = () => {
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                 <Clock className="w-5 h-5 text-primary" />
               </div>
-              <span className="flex-1 font-bold text-foreground">История покупок</span>
+              <span className="flex-1 font-bold text-foreground">{t('profile.history')}</span>
               <ChevronDown className="w-5 h-5 text-foreground/40 group-open:rotate-180 transition" />
             </summary>
             <div className="mt-3 space-y-2 border-t border-border pt-3">
               {orders.length === 0 && (
-                <div className="text-sm text-foreground/60 py-2 text-center">Покупок пока нет</div>
+                <div className="text-sm text-foreground/60 py-2 text-center">{t('profile.noOrders')}</div>
               )}
               {orders.map((o) => (
                 <div key={o.id} className="flex items-center gap-3">
                   <FlagCircle slug={o.countrySlug} className="w-11 h-11" />
                   <div className="flex-1 min-w-0">
                     <div className="font-bold text-foreground">{o.countryName}</div>
-                    <div className="text-xs text-foreground/60">{o.planData} — {o.planDays} дней</div>
+                    <div className="text-xs text-foreground/60">{o.planData} — {o.planDays} {t('common.days')}</div>
                   </div>
                   <div className="text-right">
                     <div className="font-bold text-foreground">{o.priceLabel}</div>
                     <div className="text-xs text-foreground/60">
-                      {new Date(o.createdAt).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' })}
+                      {new Date(o.createdAt).toLocaleDateString(lang === 'ru' ? 'ru-RU' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
                     </div>
                   </div>
                 </div>
@@ -170,22 +173,22 @@ const ProfileLoggedIn = () => {
           </details>
 
           <div className="rounded-2xl bg-white border border-border overflow-hidden">
-            <button className="w-full flex items-center gap-3 p-4 hover:bg-muted/40 transition">
+            <button onClick={toggleLang} className="w-full flex items-center gap-3 p-4 hover:bg-muted/40 transition">
               <Globe className="w-5 h-5 text-primary" />
-              <span className="flex-1 text-left font-semibold text-foreground">Язык</span>
-              <span className="text-foreground/60 text-sm">Русский</span>
+              <span className="flex-1 text-left font-semibold text-foreground">{t('profile.language.short')}</span>
+              <span className="text-foreground/60 text-sm">{lang === 'ru' ? 'Русский' : 'English'}</span>
               <ChevronRight className="w-4 h-4 text-foreground/40" />
             </button>
             <div className="h-px bg-border" />
             <button className="w-full flex items-center gap-3 p-4 hover:bg-muted/40 transition">
               <FileText className="w-5 h-5 text-primary" />
-              <span className="flex-1 text-left font-semibold text-foreground">Условия использования</span>
+              <span className="flex-1 text-left font-semibold text-foreground">{t('profile.terms')}</span>
               <ChevronRight className="w-4 h-4 text-foreground/40" />
             </button>
             <div className="h-px bg-border" />
             <button className="w-full flex items-center gap-3 p-4 hover:bg-muted/40 transition">
               <Shield className="w-5 h-5 text-primary" />
-              <span className="flex-1 text-left font-semibold text-foreground">Политика конфиденциальности</span>
+              <span className="flex-1 text-left font-semibold text-foreground">{t('profile.privacy')}</span>
               <ChevronRight className="w-4 h-4 text-foreground/40" />
             </button>
           </div>
@@ -194,7 +197,7 @@ const ProfileLoggedIn = () => {
             onClick={() => { setAuth(null); nav('/app/home'); }}
             className="w-full flex items-center justify-center gap-2 rounded-2xl bg-primary/5 border border-primary/20 py-4 text-primary font-bold hover:bg-primary/10 transition"
           >
-            <Trash2 className="w-5 h-5" /> Удалить профиль
+            <Trash2 className="w-5 h-5" /> {t('profile.delete')}
           </button>
         </div>
       </div>

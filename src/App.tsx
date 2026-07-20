@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import Mockups from "./pages/Mockups";
 
 import { AppStoreProvider } from "./app/store";
+import { I18nProvider } from "./app/i18n";
 import Splash from "./app/screens/Splash";
 import Home from "./app/screens/Home";
 import AllCountries from "./app/screens/AllCountries";
@@ -32,6 +33,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <AppStoreProvider>
+        <I18nProvider>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
@@ -61,6 +63,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
+        </I18nProvider>
       </AppStoreProvider>
     </TooltipProvider>
   </QueryClientProvider>

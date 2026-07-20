@@ -1,6 +1,7 @@
 import { Home, Headphones, User } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import type { ReactNode } from 'react';
+import { useI18n } from './i18n';
 
 /** Fake iPhone status bar with 9:41 and icons */
 export const StatusBar = ({ dark = false }: { dark?: boolean }) => {
@@ -79,10 +80,11 @@ export const GradientHeader = ({
 
 export const BottomTabBar = () => {
   const { pathname } = useLocation();
+  const { t } = useI18n();
   const tabs = [
-    { to: '/app/home', label: 'Главная', icon: Home, match: (p: string) => p === '/app/home' || p === '/app' || p.startsWith('/app/country') || p.startsWith('/app/countries') || p.startsWith('/app/checkout') },
-    { to: '/app/support', label: 'Поддержка', icon: Headphones, match: (p: string) => p.startsWith('/app/support') || p.startsWith('/app/install') },
-    { to: '/app/profile', label: 'Профиль', icon: User, match: (p: string) => p.startsWith('/app/profile') || p.startsWith('/app/my-esim') || p.startsWith('/app/login') || p.startsWith('/app/register') },
+    { to: '/app/home', label: t('tab.home'), icon: Home, match: (p: string) => p === '/app/home' || p === '/app' || p.startsWith('/app/country') || p.startsWith('/app/countries') || p.startsWith('/app/checkout') },
+    { to: '/app/support', label: t('tab.support'), icon: Headphones, match: (p: string) => p.startsWith('/app/support') || p.startsWith('/app/install') },
+    { to: '/app/profile', label: t('tab.profile'), icon: User, match: (p: string) => p.startsWith('/app/profile') || p.startsWith('/app/my-esim') || p.startsWith('/app/login') || p.startsWith('/app/register') },
   ];
   return (
     <nav className="h-[72px] border-t border-border bg-white flex items-stretch shrink-0">
