@@ -187,10 +187,10 @@ const Country = () => {
                   <button
                     onClick={() => setSelectedId(p.id)}
                     className={`w-full text-left rounded-2xl px-4 py-4 flex items-center gap-3 transition ${
-                      isSelected
+                      isHighlighted
                         ? 'bg-[hsl(248_90%_97%)] border-2 border-[hsl(248_78%_60%)]'
-                        : isHighlighted
-                        ? 'bg-[hsl(248_90%_98%)] border border-[hsl(248_78%_60%)]/40'
+                        : isSelected
+                        ? 'bg-[hsl(248_90%_97%)] border-2 border-[hsl(248_78%_60%)]'
                         : 'bg-white border border-border/70'
                     }`}
                   >
