@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import heroSplash from '@/assets/hero-splash-vertical.png.asset.json';
+import splashMockup from '@/assets/screens/01-splash.png.asset.json';
 
 const Splash = () => {
   const nav = useNavigate();
@@ -7,21 +7,12 @@ const Splash = () => {
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-[hsl(245_70%_60%)]">
       <img
-        src={heroSplash.url}
+        src={splashMockup.url}
         alt=""
         className="absolute inset-0 w-full h-full object-cover"
       />
-      <div className="relative flex flex-col min-h-screen px-8 pt-20 pb-10">
-        <div>
-          <h1 className="text-white text-[38px] leading-[1.1] font-extrabold tracking-tight">
-            Одна eSIM<br />на все поездки
-          </h1>
-          <p className="mt-5 text-white/90 text-[19px] leading-snug font-medium">
-            Мобильный интернет<br />в 180+ странах
-          </p>
-        </div>
-
-        <div className="mt-auto flex flex-col gap-3">
+      <div className="relative flex flex-col min-h-screen px-8 pb-10 justify-end">
+        <div className="flex flex-col gap-3">
           <button
             onClick={() => nav('/app/countries')}
             className="w-full h-14 rounded-2xl bg-[hsl(245_75%_55%)] text-white font-bold text-[17px] hover:bg-[hsl(245_75%_50%)] transition shadow-[0_10px_30px_-10px_rgba(0,0,0,0.4)]"
