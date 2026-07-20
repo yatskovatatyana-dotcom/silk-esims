@@ -118,8 +118,8 @@ export const PhoneFrame = ({
 }) => {
   return (
     <div className="min-h-screen w-full bg-[hsl(220_25%_92%)] flex items-stretch justify-center">
-      <div className={`w-full max-w-[430px] min-h-screen flex flex-col ${bg} shadow-[0_20px_60px_-20px_rgba(30,40,80,0.25)]`}>
-        <div className="flex-1 flex flex-col overflow-hidden">{children}</div>
+      <div className={`w-full max-w-[430px] h-screen flex flex-col ${bg} shadow-[0_20px_60px_-20px_rgba(30,40,80,0.25)]`}>
+        <div className="flex-1 flex flex-col min-h-0 overflow-hidden">{children}</div>
         {!hideTabBar && <BottomTabBar />}
       </div>
     </div>
