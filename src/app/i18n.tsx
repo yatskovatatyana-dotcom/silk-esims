@@ -22,7 +22,7 @@ const dict = {
   'common.all': { ru: 'Все', en: 'All' },
 
   // Splash
-  'splash.start': { ru: 'Начать', en: 'Get started' },
+  'splash.start': { ru: 'Смотреть тарифы', en: 'Explore data plans' },
   'splash.haveAccount': { ru: 'Уже есть аккаунт?', en: 'Already have an account?' },
   'splash.login': { ru: 'Войти', en: 'Log in' },
 
