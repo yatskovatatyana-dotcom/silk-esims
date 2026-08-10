@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { ChevronDown, ChevronRight, Globe, FileText, Shield, Trash2, User, ArrowRight, Clock, Search } from 'lucide-react';
 import { PhoneFrame, GradientHeader, StatusBar } from '../shell';
-import { useStore } from '../store';
+import { useStore, type Order } from '../store';
 import { useI18n, getCountryName } from '../i18n';
 import FlagCircle from '../FlagCircle';
 import { countries, popularCountries } from '../data';
