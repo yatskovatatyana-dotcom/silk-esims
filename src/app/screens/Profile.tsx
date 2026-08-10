@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { ChevronDown, ChevronRight, Globe, FileText, Shield, Trash2, User, ArrowRight, Clock, Search } from 'lucide-react';
 import { PhoneFrame, GradientHeader, StatusBar } from '../shell';
-import { useStore } from '../store';
+import { useStore, type Order } from '../store';
 import { useI18n, getCountryName } from '../i18n';
 import FlagCircle from '../FlagCircle';
 import { countries, popularCountries } from '../data';
@@ -133,10 +133,18 @@ const ProfileEmpty = () => {
   );
 };
 
-const ProfileLoggedIn = () => {
+const ProfileLoggedIn = ({
+  auth: demoAuth,
+  orders: demoOrders,
+}: {
+  auth?: { email: string } | null;
+  orders?: Order[];
+} = {}) => {
   const nav = useNavigate();
-  const { auth, orders, setAuth } = useStore();
+  const { auth: storeAuth, orders: storeOrders, setAuth } = useStore();
   const { t, lang, setLang } = useI18n();
+  const auth = demoAuth !== undefined ? demoAuth : storeAuth;
+  const orders = demoOrders !== undefined ? demoOrders : storeOrders;
   const email = auth?.email ?? '—';
 
   return (
@@ -235,3 +243,4 @@ const Profile = () => {
 };
 
 export default Profile;
+export { ProfileEmpty, ProfileLoggedIn };

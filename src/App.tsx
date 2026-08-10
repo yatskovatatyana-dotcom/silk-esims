@@ -18,7 +18,7 @@ import Country from "./app/screens/Country";
 import Checkout from "./app/screens/Checkout";
 import Install from "./app/screens/Install";
 import MyEsim from "./app/screens/MyEsim";
-import Profile from "./app/screens/Profile";
+import Profile, { ProfileLoggedIn } from "./app/screens/Profile";
 import AppLogin from "./app/screens/Login";
 import AppCode from "./app/screens/Code";
 import AppRegister from "./app/screens/Register";
@@ -50,6 +50,29 @@ const App = () => (
             <Route path="/app/install/:orderId" element={<Install />} />
             <Route path="/app/my-esim" element={<MyEsim />} />
             <Route path="/app/profile" element={<Profile />} />
+            <Route
+              path="/app/profile/logged-in"
+              element={
+                <ProfileLoggedIn
+                  auth={{ email: "user@example.com" }}
+                  orders={[
+                    {
+                      id: "ord_demo1",
+                      countrySlug: "turkey",
+                      countryName: "Turkey",
+                      planData: "10 GB",
+                      planDays: 30,
+                      price: 12,
+                      priceLabel: "€12",
+                      createdAt: Date.now(),
+                      status: "active",
+                      usedGb: 3,
+                      usedDays: 7,
+                    },
+                  ]}
+                />
+              }
+            />
             <Route path="/app/login" element={<AppLogin />} />
             <Route path="/app/login/code" element={<AppCode />} />
             <Route path="/app/register" element={<AppRegister />} />
