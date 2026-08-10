@@ -133,10 +133,18 @@ const ProfileEmpty = () => {
   );
 };
 
-const ProfileLoggedIn = () => {
+const ProfileLoggedIn = ({
+  auth: demoAuth,
+  orders: demoOrders,
+}: {
+  auth?: { email: string } | null;
+  orders?: Order[];
+} = {}) => {
   const nav = useNavigate();
-  const { auth, orders, setAuth } = useStore();
+  const { auth: storeAuth, orders: storeOrders, setAuth } = useStore();
   const { t, lang, setLang } = useI18n();
+  const auth = demoAuth !== undefined ? demoAuth : storeAuth;
+  const orders = demoOrders !== undefined ? demoOrders : storeOrders;
   const email = auth?.email ?? '—';
 
   return (
