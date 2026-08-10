@@ -65,7 +65,7 @@ const Country = () => {
 
   const plainTop = useMemo(() => (hasThreePlans ? sortedPlans[0] : null), [hasThreePlans, sortedPlans]);
   const shortTripsPlan = useMemo(
-    () => (hasThreePlans ? sortedPlans[1] : null),
+    () => (hasThreePlans ? sortedPlans[0] : null),
     [hasThreePlans, sortedPlans]
   );
 
