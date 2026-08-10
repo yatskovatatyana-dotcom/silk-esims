@@ -21,7 +21,7 @@ export type Country = {
 // Три пакета: 5 / 10 / 20 ГБ.
 const makePlans = (_base: number): Plan[] => [
   { id: 'optimal', tier: 'ОПТИМАЛЬНЫЙ',  data: '5 GB',  days: 14, daysLabel: '14 дней', price: 7,  priceLabel: '€7',  icon: 'sparkles' },
-  { id: 'max',     tier: 'МАКСИМАЛЬНЫЙ', data: '10 GB', days: 30, daysLabel: '1 месяц', price: 9,  priceLabel: '€9',  icon: 'arrow-up-right' },
+  { id: 'max',     tier: 'МАКСИМАЛЬНЫЙ', data: '10 GB', days: 14, daysLabel: '14 дней', price: 9,  priceLabel: '€9',  icon: 'arrow-up-right' },
   { id: 'super',   tier: 'СУПЕР',        data: '20 GB', days: 30, daysLabel: '1 месяц', price: 13, priceLabel: '€13', icon: 'wifi' },
 ];
 
