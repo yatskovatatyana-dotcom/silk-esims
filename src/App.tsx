@@ -50,7 +50,29 @@ const App = () => (
             <Route path="/app/install/:orderId" element={<Install />} />
             <Route path="/app/my-esim" element={<MyEsim />} />
             <Route path="/app/profile" element={<Profile />} />
-            <Route path="/app/profile/logged-in" element={<ProfileLoggedIn />} />
+            <Route
+              path="/app/profile/logged-in"
+              element={
+                <ProfileLoggedIn
+                  auth={{ email: "user@example.com" }}
+                  orders={[
+                    {
+                      id: "ord_demo1",
+                      countrySlug: "turkey",
+                      countryName: "Turkey",
+                      planData: "10 GB",
+                      planDays: 30,
+                      price: 12,
+                      priceLabel: "€12",
+                      createdAt: Date.now(),
+                      status: "active",
+                      usedGb: 3,
+                      usedDays: 7,
+                    },
+                  ]}
+                />
+              }
+            />
             <Route path="/app/login" element={<AppLogin />} />
             <Route path="/app/login/code" element={<AppCode />} />
             <Route path="/app/register" element={<AppRegister />} />
