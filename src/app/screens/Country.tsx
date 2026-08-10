@@ -125,8 +125,30 @@ const Country = () => {
 
       <div className="flex-1 overflow-y-auto bg-white">
         <div className="px-4 pt-4 pb-32">
-          {/* Featured */}
-          <div className="text-[11px] font-bold tracking-[0.14em] text-foreground/40 mb-2 pl-1">
+          {/* Plain small plan on top (only for 3-plan bundles) */}
+          {plainTop && (
+            <button
+              onClick={() => setSelectedId(plainTop.id)}
+              className={`w-full text-left rounded-xl flex items-center px-3 py-3 gap-3 transition ${
+                selectedId === plainTop.id
+                  ? 'bg-[hsl(248_90%_97%)] border-2 border-[hsl(248_78%_60%)]'
+                  : 'bg-white border border-border/70'
+              }`}
+            >
+              <Radio checked={selectedId === plainTop.id} />
+              <div className="flex-1 min-w-0">
+                <div className="font-bold text-foreground text-[14px]">
+                  {localizedDataUnit(plainTop.data, lang)} · {localizedDaysLabel(plainTop.days, lang)}
+                </div>
+              </div>
+              <div className="font-extrabold text-foreground shrink-0 text-[15px]">
+                {plainTop.priceLabel}
+              </div>
+            </button>
+          )}
+
+          {/* Featured — largest plan */}
+          <div className={`text-[11px] font-bold tracking-[0.14em] text-foreground/40 mb-2 pl-1 ${plainTop ? 'mt-5' : ''}`}>
             {t('country.bestValue')}
           </div>
           <button
@@ -138,7 +160,7 @@ const Country = () => {
               <div className="flex items-center gap-2.5">
                 <Radio checked={selectedId === featured.id} purple />
                 <span className="text-[13px] font-bold tracking-wider uppercase text-white/90">
-                  {lang === 'ru' ? 'СУПЕР' : 'SUPER'}
+                  {featured.tier}
                 </span>
               </div>
               <div className="flex flex-col items-end gap-2">
@@ -201,63 +223,65 @@ const Country = () => {
             </div>
           </button>
 
-          {/* Others */}
+          {/* Others — middle plan highlighted for short trips */}
           <div className="text-[11px] font-bold tracking-[0.14em] text-foreground/40 mt-6 mb-2 pl-1">
             {t('country.otherPlans')}
           </div>
           <div className="space-y-2">
-            {others.map((p) => {
-              const isSelected = selectedId === p.id;
-              const isHighlighted = p.id === shortTripsId;
-              const showBonus = (isHighlighted || isSelected) && bonusFor(p.data) > 0;
-              const isMax = p.id === 'max';
-              return (
-                <div key={p.id} className={`relative ${isMax ? 'pt-3.5' : 'pt-2.5'}`}>
-                  {isHighlighted && (
-                    <div className={`absolute -top-0.5 z-10 ${isMax ? 'left-4' : 'left-3'}`}>
-                      <span
-                        className={`inline-flex items-center rounded-full font-bold tracking-wider text-white ${
-                          isMax ? 'px-2.5 py-1 text-[10px]' : 'px-2 py-0.5 text-[9px]'
-                        }`}
-                        style={{ background: PURPLE }}
-                      >
-                        {t('country.shortTrips')}
-                      </span>
-                    </div>
-                  )}
-                  <button
-                    onClick={() => setSelectedId(p.id)}
-                    className={`w-full text-left rounded-xl flex items-center transition ${
-                      isHighlighted
-                        ? 'bg-[hsl(248_90%_97%)] border-2 border-[hsl(248_78%_60%)]'
-                        : isSelected
-                        ? 'bg-[hsl(248_90%_97%)] border-2 border-[hsl(248_78%_60%)]'
-                        : 'bg-white border border-border/70'
-                    } ${
-                      isMax
-                        ? 'px-5 py-5 gap-4 rounded-2xl'
-                        : 'px-3 py-2.5 gap-2.5'
-                    }`}
-                  >
-                    <Radio checked={isSelected} />
-                    <div className="flex-1 min-w-0">
-                      <div className={`font-bold text-foreground ${isMax ? 'text-[18px]' : 'text-[14px]'}`}>
-                        {localizedDataUnit(p.data, lang)} · {localizedDaysLabel(p.days, lang)}
+            {others
+              .filter((p) => p.id !== plainTop?.id)
+              .map((p) => {
+                const isSelected = selectedId === p.id;
+                const isHighlighted = p.id === shortTripsId;
+                const showBonus = (isHighlighted || isSelected) && bonusFor(p.data) > 0;
+                const isMedium = hasThreePlans && p.id === shortTripsPlan?.id;
+                return (
+                  <div key={p.id} className={`relative ${isMedium ? 'pt-3.5' : 'pt-2.5'}`}>
+                    {isHighlighted && (
+                      <div className={`absolute -top-0.5 z-10 ${isMedium ? 'left-4' : 'left-3'}`}>
+                        <span
+                          className={`inline-flex items-center rounded-full font-bold tracking-wider text-white ${
+                            isMedium ? 'px-2.5 py-1 text-[10px]' : 'px-2 py-0.5 text-[9px]'
+                          }`}
+                          style={{ background: PURPLE }}
+                        >
+                          {t('country.shortTrips')}
+                        </span>
                       </div>
-                      {showBonus && (
-                        <div className={`mt-1 inline-flex items-center gap-1 font-semibold text-[hsl(150_65%_38%)] ${isMax ? 'text-[13px]' : 'text-[11px]'}`}>
-                          <Gift className={`${isMax ? 'w-4 h-4' : 'w-3 h-3'}`} strokeWidth={2.4} />
-                          {giftText(bonusFor(p.data))}
+                    )}
+                    <button
+                      onClick={() => setSelectedId(p.id)}
+                      className={`w-full text-left rounded-xl flex items-center transition ${
+                        isHighlighted
+                          ? 'bg-[hsl(248_90%_97%)] border-2 border-[hsl(248_78%_60%)]'
+                          : isSelected
+                          ? 'bg-[hsl(248_90%_97%)] border-2 border-[hsl(248_78%_60%)]'
+                          : 'bg-white border border-border/70'
+                      } ${
+                        isMedium
+                          ? 'px-5 py-5 gap-4 rounded-2xl'
+                          : 'px-3 py-2.5 gap-2.5'
+                      }`}
+                    >
+                      <Radio checked={isSelected} />
+                      <div className="flex-1 min-w-0">
+                        <div className={`font-bold text-foreground ${isMedium ? 'text-[18px]' : 'text-[14px]'}`}>
+                          {localizedDataUnit(p.data, lang)} · {localizedDaysLabel(p.days, lang)}
                         </div>
-                      )}
-                    </div>
-                    <div className={`font-extrabold text-foreground shrink-0 ${isMax ? 'text-[19px]' : 'text-[15px]'}`}>
-                      {p.priceLabel}
-                    </div>
-                  </button>
-                </div>
-              );
-            })}
+                        {showBonus && (
+                          <div className={`mt-1 inline-flex items-center gap-1 font-semibold text-[hsl(150_65%_38%)] ${isMedium ? 'text-[13px]' : 'text-[11px]'}`}>
+                            <Gift className={`${isMedium ? 'w-4 h-4' : 'w-3 h-3'}`} strokeWidth={2.4} />
+                            {giftText(bonusFor(p.data))}
+                          </div>
+                        )}
+                      </div>
+                      <div className={`font-extrabold text-foreground shrink-0 ${isMedium ? 'text-[19px]' : 'text-[15px]'}`}>
+                        {p.priceLabel}
+                      </div>
+                    </button>
+                  </div>
+                );
+              })}
           </div>
 
         </div>
