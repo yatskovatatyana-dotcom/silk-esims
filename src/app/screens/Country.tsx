@@ -125,26 +125,44 @@ const Country = () => {
 
       <div className="flex-1 overflow-y-auto bg-white">
         <div className="px-4 pt-4 pb-32">
-          {/* Plain small plan on top (only for 3-plan bundles) */}
+          {/* Small plan on top — highlighted as the 2-week option */}
           {plainTop && (
-            <button
-              onClick={() => setSelectedId(plainTop.id)}
-              className={`w-full text-left rounded-xl flex items-center px-3 py-3 gap-3 transition ${
-                selectedId === plainTop.id
-                  ? 'bg-[hsl(248_90%_97%)] border-2 border-[hsl(248_78%_60%)]'
-                  : 'bg-white border border-border/70'
-              }`}
-            >
-              <Radio checked={selectedId === plainTop.id} />
-              <div className="flex-1 min-w-0">
-                <div className="font-bold text-foreground text-[14px]">
-                  {localizedDataUnit(plainTop.data, lang)} · {localizedDaysLabel(plainTop.days, lang)}
+            <div className="relative pt-3.5">
+              {plainTop.id === shortTripsId && (
+                <div className="absolute -top-0.5 z-10 left-4">
+                  <span
+                    className="inline-flex items-center rounded-full font-bold tracking-wider text-white px-2.5 py-1 text-[10px]"
+                    style={{ background: PURPLE }}
+                  >
+                    {t('country.shortTrips')}
+                  </span>
                 </div>
-              </div>
-              <div className="font-extrabold text-foreground shrink-0 text-[15px]">
-                {plainTop.priceLabel}
-              </div>
-            </button>
+              )}
+              <button
+                onClick={() => setSelectedId(plainTop.id)}
+                className={`w-full text-left rounded-2xl flex items-center gap-4 transition ${
+                  plainTop.id === shortTripsId || selectedId === plainTop.id
+                    ? 'bg-[hsl(248_90%_97%)] border-2 border-[hsl(248_78%_60%)]'
+                    : 'bg-white border border-border/70'
+                } px-5 py-5`}
+              >
+                <Radio checked={selectedId === plainTop.id} />
+                <div className="flex-1 min-w-0">
+                  <div className="font-bold text-foreground text-[18px]">
+                    {localizedDataUnit(plainTop.data, lang)} · {localizedDaysLabel(plainTop.days, lang)}
+                  </div>
+                  {bonusFor(plainTop.data) > 0 && (
+                    <div className="mt-1 inline-flex items-center gap-1 font-semibold text-[hsl(150_65%_38%)] text-[13px]">
+                      <Gift className="w-4 h-4" strokeWidth={2.4} />
+                      {giftText(bonusFor(plainTop.data))}
+                    </div>
+                  )}
+                </div>
+                <div className="font-extrabold text-foreground shrink-0 text-[19px]">
+                  {plainTop.priceLabel}
+                </div>
+              </button>
+            </div>
           )}
 
           {/* Featured — largest plan */}
