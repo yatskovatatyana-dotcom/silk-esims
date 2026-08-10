@@ -18,7 +18,7 @@ import Country from "./app/screens/Country";
 import Checkout from "./app/screens/Checkout";
 import Install from "./app/screens/Install";
 import MyEsim from "./app/screens/MyEsim";
-import Profile from "./app/screens/Profile";
+import Profile, { ProfileLoggedIn } from "./app/screens/Profile";
 import AppLogin from "./app/screens/Login";
 import AppCode from "./app/screens/Code";
 import AppRegister from "./app/screens/Register";
