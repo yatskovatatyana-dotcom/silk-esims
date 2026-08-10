@@ -47,23 +47,37 @@ const Country = () => {
   const country = getCountry(slug);
   const { t, lang } = useI18n();
 
+  const sortedPlans = useMemo(() => {
+    if (!country) return [] as Plan[];
+    return [...country.plans].sort((a, b) => gbNumber(a.data) - gbNumber(b.data));
+  }, [country]);
+
+  const hasThreePlans = sortedPlans.length === 3;
+
   const featured = useMemo(() => {
     if (!country) return null;
+    if (hasThreePlans) return sortedPlans[sortedPlans.length - 1];
     return (
       country.plans.find((p) => p.id === 'super') ??
       country.plans[country.plans.length - 1]
     );
-  }, [country]);
+  }, [country, sortedPlans, hasThreePlans]);
+
+  const plainTop = useMemo(() => (hasThreePlans ? sortedPlans[0] : null), [hasThreePlans, sortedPlans]);
+  const shortTripsPlan = useMemo(
+    () => (hasThreePlans ? sortedPlans[1] : null),
+    [hasThreePlans, sortedPlans]
+  );
 
   const others = useMemo(
     () => (country && featured ? country.plans.filter((p) => p.id !== featured.id) : []),
     [country, featured]
   );
 
-  const shortTripsId = useMemo(
-    () => (others.find((p) => p.id === 'max') ?? others[0])?.id,
-    [others]
-  );
+  const shortTripsId = useMemo(() => {
+    if (hasThreePlans) return shortTripsPlan?.id;
+    return (others.find((p) => p.id === 'max') ?? others[0])?.id;
+  }, [hasThreePlans, shortTripsPlan, others]);
 
   const [selectedId, setSelectedId] = useState<string>('super');
 
