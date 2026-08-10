@@ -235,3 +235,4 @@ const Profile = () => {
 };
 
 export default Profile;
+export { ProfileEmpty, ProfileLoggedIn };
