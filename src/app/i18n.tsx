@@ -52,7 +52,7 @@ const dict = {
   'country.bestValue': { ru: 'ВЫГОДНЕЕ ВСЕГО', en: 'BEST VALUE' },
   'country.otherPlans': { ru: 'ДРУГИЕ ПАКЕТЫ', en: 'OTHER PLANS' },
   'country.hitSale': { ru: 'ХИТ ПРОДАЖ', en: 'BESTSELLER' },
-  'country.shortTrips': { ru: '2 НЕДЕЛИ', en: '2 WEEKS' },
+  'country.shortTrips': { ru: 'ВЫБОР НА КОРОТКИЕ ПОЕЗДКИ', en: 'PICK FOR SHORT TRIPS' },
   'country.savings': { ru: 'экономия', en: 'save' },
   'country.giftBonusRu': { ru: 'Начислим {n} ГБ в подарок', en: 'Get {n} GB as a bonus' },
   'country.buy': { ru: 'Купить', en: 'Buy' },
