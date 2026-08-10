@@ -50,6 +50,7 @@ const App = () => (
             <Route path="/app/install/:orderId" element={<Install />} />
             <Route path="/app/my-esim" element={<MyEsim />} />
             <Route path="/app/profile" element={<Profile />} />
+            <Route path="/app/profile/logged-in" element={<ProfileLoggedIn />} />
             <Route path="/app/login" element={<AppLogin />} />
             <Route path="/app/login/code" element={<AppCode />} />
             <Route path="/app/register" element={<AppRegister />} />
