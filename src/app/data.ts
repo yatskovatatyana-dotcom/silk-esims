@@ -18,13 +18,11 @@ export type Country = {
   plans: Plan[];
 };
 
-// Фиксированные цены — как в макете 04-plans (Турция).
+// Три пакета: 5 / 10 / 20 ГБ.
 const makePlans = (_base: number): Plan[] => [
-  { id: 'start',   tier: 'СТАРТОВЫЙ',    data: '1 GB',  days: 5,  daysLabel: '5 дней',  price: 4,  priceLabel: '€4',                icon: 'bolt' },
-  { id: 'optimal', tier: 'ОПТИМАЛЬНЫЙ',  data: '5 GB',  days: 14, daysLabel: '14 дней', price: 7,  priceLabel: '€7',  badge: 'hit',  icon: 'sparkles' },
-  { id: 'max',     tier: 'МАКСИМАЛЬНЫЙ', data: '10 GB', days: 30, daysLabel: '1 месяц', price: 9,  priceLabel: '€9',                 icon: 'arrow-up-right' },
-  { id: 'super',   tier: 'СУПЕР',        data: '20 GB', days: 30, daysLabel: '1 месяц', price: 13, priceLabel: '€13', badge: 'hit',  icon: 'wifi' },
-  { id: 'ultra',   tier: 'УЛЬТРА',       data: '30 GB', days: 30, daysLabel: '1 месяц', price: 17, priceLabel: '€17', badge: 'best', icon: 'rocket' },
+  { id: 'optimal', tier: 'ОПТИМАЛЬНЫЙ',  data: '5 GB',  days: 14, daysLabel: '14 дней', price: 7,  priceLabel: '€7',  icon: 'sparkles' },
+  { id: 'max',     tier: 'МАКСИМАЛЬНЫЙ', data: '10 GB', days: 30, daysLabel: '1 месяц', price: 9,  priceLabel: '€9',  icon: 'arrow-up-right' },
+  { id: 'super',   tier: 'СУПЕР',        data: '20 GB', days: 30, daysLabel: '1 месяц', price: 13, priceLabel: '€13', icon: 'wifi' },
 ];
 
 export const countries: Country[] = [
