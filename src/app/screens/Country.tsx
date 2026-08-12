@@ -124,7 +124,7 @@ const Country = () => {
       </div>
 
       <div className="flex-1 overflow-y-auto bg-white">
-        <div className="px-4 pt-4 pb-32">
+        <div className="px-4 pt-4 pb-4">
           {/* Plain small plan on top (only for 3-plan bundles) */}
           {plainTop && (
             <button
@@ -273,8 +273,8 @@ const Country = () => {
         </div>
       </div>
 
-      {/* Sticky buy bar */}
-      <div className="absolute bottom-0 left-0 right-0 px-4 pb-5 pt-3 bg-gradient-to-t from-white via-white to-transparent">
+      {/* Buy bar */}
+      <div className="shrink-0 px-4 pb-5 pt-3 bg-white border-t border-border/60">
         <button
           onClick={() => nav(`/app/checkout/${country.slug}/${selected.id}`)}
           className="w-full h-12 rounded-2xl text-white font-bold text-[15px] inline-flex items-center justify-center gap-2 shadow-[0_10px_28px_-10px_hsl(248_78%_60%/0.7)] active:scale-[0.99] transition"
