@@ -25,11 +25,19 @@ const makePlans = (_base: number): Plan[] => [
   { id: 'super',   tier: 'СУПЕР',        data: '20 GB', days: 30, daysLabel: '1 месяц', price: 13, priceLabel: '€13', icon: 'wifi' },
 ];
 
+const makePlans5 = (_base: number): Plan[] => [
+  { id: 'starter',  tier: 'СТАРТ',       data: '1 GB',  days: 7,  daysLabel: '7 дней',  price: 4,  priceLabel: '€4',  icon: 'sparkles' },
+  { id: 'optimal',  tier: 'ОПТИМАЛЬНЫЙ', data: '5 GB',  days: 14, daysLabel: '14 дней', price: 7,  priceLabel: '€7',  icon: 'sparkles' },
+  { id: 'max',      tier: 'МАКСИМАЛЬНЫЙ', data: '10 GB', days: 14, daysLabel: '14 дней', price: 9,  priceLabel: '€9',  icon: 'arrow-up-right' },
+  { id: 'super',    tier: 'СУПЕР',        data: '20 GB', days: 30, daysLabel: '1 месяц', price: 13, priceLabel: '€13', icon: 'wifi' },
+  { id: 'ultra',    tier: 'УЛЬТРА',       data: '50 GB', days: 30, daysLabel: '1 месяц', price: 22, priceLabel: '€22', icon: 'wifi' },
+];
+
 export const countries: Country[] = [
   { slug: 'turkey',    name: 'Турция',      from: 290, region: 'europe',      plans: makePlans(290) },
   { slug: 'thailand',  name: 'Таиланд',     from: 290, region: 'asia',        plans: makePlans(290) },
   { slug: 'uae',       name: 'ОАЭ',         from: 390, region: 'middle-east', plans: makePlans(390) },
-  { slug: 'europe',    name: 'Европа',      from: 229, region: 'europe',      plans: makePlans(229) },
+  { slug: 'europe',    name: 'Европа',      from: 229, region: 'europe',      plans: makePlans5(229) },
   { slug: 'usa',       name: 'США',         from: 349, region: 'americas',    plans: makePlans(349) },
   { slug: 'japan',     name: 'Япония',      from: 249, region: 'asia',        plans: makePlans(249) },
   { slug: 'egypt',     name: 'Египет',      from: 290, region: 'africa',      plans: makePlans(290) },
