@@ -234,7 +234,7 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
           {/* Others — middle plan highlighted for short trips */}
           <div className="space-y-2 mt-6">
             {others
-              .filter((p) => p.id !== plainTop?.id)
+              .filter((p) => p.id !== plainTop?.id && !topPlans.some((tp) => tp.id === p.id))
               .map((p) => {
                 const isSelected = selectedId === p.id;
                 const isHighlighted = p.id === shortTripsId;
