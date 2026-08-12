@@ -80,6 +80,16 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
     return (others.find((p) => p.id === 'max') ?? others[0])?.id;
   }, [hasThreePlans, shortTripsPlan, others]);
 
+  // Plans smaller than the short-trips plan — rendered as plain rows above the featured card.
+  const topPlans = useMemo(() => {
+    if (!country || !featured) return [] as Plan[];
+    const shortPlan = country.plans.find((p) => p.id === shortTripsId);
+    const shortGb = shortPlan ? gbNumber(shortPlan.data) : Infinity;
+    return country.plans
+      .filter((p) => p.id !== featured.id && p.id !== shortTripsId && gbNumber(p.data) < shortGb)
+      .sort((a, b) => gbNumber(a.data) - gbNumber(b.data));
+  }, [country, featured, shortTripsId]);
+
   const [selectedId, setSelectedId] = useState<string>('super');
 
   if (!country || !featured) {
