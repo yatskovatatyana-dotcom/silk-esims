@@ -41,8 +41,8 @@ const Radio = ({ checked, purple }: { checked: boolean; purple?: boolean }) => (
   </div>
 );
 
-const Country = () => {
-  const { slug = '' } = useParams();
+const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
+  const { slug = defaultSlug ?? '' } = useParams();
   const nav = useNavigate();
   const country = getCountry(slug);
   const { t, lang } = useI18n();
