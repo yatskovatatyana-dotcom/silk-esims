@@ -46,6 +46,8 @@ const App = () => (
             <Route path="/app/home" element={<Home />} />
             <Route path="/app/countries" element={<AllCountries />} />
             <Route path="/app/country/:slug" element={<Country />} />
+            <Route path="/app/usa" element={<Country defaultSlug="usa" />} />
+            <Route path="/app/checkout/:slug/:planId" element={<Checkout />} />
             <Route path="/app/checkout/:slug/:planId" element={<Checkout />} />
             <Route path="/app/install/:orderId" element={<Install />} />
             <Route path="/app/my-esim" element={<MyEsim />} />
