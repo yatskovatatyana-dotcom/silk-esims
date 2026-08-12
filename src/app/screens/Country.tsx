@@ -98,8 +98,8 @@ const Country = () => {
   const featSavings = savingsPct(featured, base);
   const featBonus = bonusFor(featured.data);
 
-  const giftText = (n: number) =>
-    (lang === 'ru' ? `Начислим ${n} ГБ в подарок` : `Get ${n} GB as a bonus`);
+  const giftText = (data: string, n: number) =>
+    (lang === 'ru' ? `${data.replace('GB', 'ГБ')} + ${n} ГБ в подарок` : `${data} + ${n} GB as a bonus`);
 
   return (
     <PhoneFrame hideTabBar bg="bg-white">
@@ -194,7 +194,7 @@ const Country = () => {
             {featBonus > 0 && (
               <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/15 text-white text-[13px] font-semibold">
                 <Gift className="w-3.5 h-3.5" strokeWidth={2.4} />
-                {giftText(featBonus)}
+                {giftText(featured.data, featBonus)}
               </div>
             )}
 
@@ -257,7 +257,7 @@ const Country = () => {
                         {showBonus && (
                           <div className={`mt-1 inline-flex items-center gap-1 font-semibold text-[hsl(150_65%_38%)] ${isMedium ? 'text-[13px]' : 'text-[11px]'}`}>
                             <Gift className={`${isMedium ? 'w-4 h-4' : 'w-3 h-3'}`} strokeWidth={2.4} />
-                            {giftText(bonusFor(p.data))}
+                            {giftText(p.data, bonusFor(p.data))}
                           </div>
                         )}
                       </div>
