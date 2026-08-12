@@ -257,7 +257,7 @@ const Country = () => {
                         {showBonus && (
                           <div className={`mt-1 inline-flex items-center gap-1 font-semibold text-[hsl(150_65%_38%)] ${isMedium ? 'text-[13px]' : 'text-[11px]'}`}>
                             <Gift className={`${isMedium ? 'w-4 h-4' : 'w-3 h-3'}`} strokeWidth={2.4} />
-                            {giftText(bonusFor(p.data))}
+                            {giftText(p.data, bonusFor(p.data))}
                           </div>
                         )}
                       </div>
