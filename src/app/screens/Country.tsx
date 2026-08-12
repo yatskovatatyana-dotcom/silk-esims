@@ -11,14 +11,21 @@ const PURPLE_DARK = 'hsl(250 70% 52%)';
 const PURPLE_SOFT = 'hsl(248 90% 97%)';
 
 const gbNumber = (data: string) => parseInt(data, 10) || 0;
+const perGbPrice = (plan: Plan) => plan.price / gbNumber(plan.data);
+const perGbLabel = (plan: Plan, lang: Lang) =>
+  `€${perGbPrice(plan).toFixed(2)}/${lang === 'ru' ? 'ГБ' : 'GB'}`;
+/** Absolute euro saving vs buying the same data at the cheapest plan's per-GB rate. */
+const savingsEur = (plan: Plan, base: Plan) => {
+  const basePerGb = base.price / gbNumber(base.data);
+  const equivalent = basePerGb * gbNumber(plan.data);
+  return Math.max(0, equivalent - plan.price);
+};
+/** Percentage saving vs the cheapest plan's per-GB rate. */
 const savingsPct = (plan: Plan, base: Plan) => {
   const perGb = plan.price / gbNumber(plan.data);
   const basePerGb = base.price / gbNumber(base.data);
   return Math.round((1 - perGb / basePerGb) * 100);
 };
-const perGbPrice = (plan: Plan) => plan.price / gbNumber(plan.data);
-const perGbLabel = (plan: Plan, lang: Lang) =>
-  `€${perGbPrice(plan).toFixed(2)}/${lang === 'ru' ? 'ГБ' : 'GB'}`;
 
 const PlanMeta = ({
   plan,
@@ -33,14 +40,20 @@ const PlanMeta = ({
   dark?: boolean;
   size?: 'sm' | 'md';
 }) => {
-  const sav = savingsPct(plan, base);
+  const eur = savingsEur(plan, base);
+  const hasSaving = eur > 0.01;
   const textCls = dark ? 'text-white/80' : 'text-foreground/55';
   const savCls = dark ? 'text-white' : 'text-[hsl(150_65%_38%)]';
   const sizeCls = size === 'md' ? 'text-[13px]' : 'text-[11px]';
+  const savingLabel = lang === 'ru' ? 'экономия' : 'save';
   return (
     <div className={`mt-1 flex items-center gap-2 font-semibold ${sizeCls} ${textCls}`}>
       <span>{perGbLabel(plan, lang)}</span>
-      {sav > 0 && <span className={savCls}>−{sav}%</span>}
+      {hasSaving && (
+        <span className={savCls}>
+          {savingLabel} €{eur.toFixed(2)}
+        </span>
+      )}
     </div>
   );
 };
