@@ -13,6 +13,7 @@ const PURPLE_SOFT = 'hsl(248 90% 97%)';
 const gbNumber = (data: string) => parseInt(data, 10) || 0;
 const bonusFor = (data: string) => {
   const gb = gbNumber(data);
+  if (gb >= 30) return 3;
   if (gb >= 20) return 2;
   if (gb >= 10) return 1;
   return 0;
