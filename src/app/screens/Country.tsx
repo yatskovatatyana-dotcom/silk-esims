@@ -4,7 +4,7 @@ import { ArrowRight, ChevronLeft, Star, Check } from 'lucide-react';
 import { PhoneFrame, StatusBar } from '../shell';
 import { getCountry, type Plan } from '../data';
 import FlagCircle from '../FlagCircle';
-import { useI18n, getCountryName, localizedDaysLabel, localizedDataUnit } from '../i18n';
+import { useI18n, getCountryName, localizedDaysLabel, localizedDataUnit, type Lang } from '../i18n';
 
 const PURPLE = 'hsl(248 78% 60%)';
 const PURPLE_DARK = 'hsl(250 70% 52%)';
@@ -15,6 +15,34 @@ const savingsPct = (plan: Plan, base: Plan) => {
   const perGb = plan.price / gbNumber(plan.data);
   const basePerGb = base.price / gbNumber(base.data);
   return Math.round((1 - perGb / basePerGb) * 100);
+};
+const perGbPrice = (plan: Plan) => plan.price / gbNumber(plan.data);
+const perGbLabel = (plan: Plan, lang: Lang) =>
+  `€${perGbPrice(plan).toFixed(2)}/${lang === 'ru' ? 'ГБ' : 'GB'}`;
+
+const PlanMeta = ({
+  plan,
+  base,
+  lang,
+  dark,
+  size = 'sm',
+}: {
+  plan: Plan;
+  base: Plan;
+  lang: Lang;
+  dark?: boolean;
+  size?: 'sm' | 'md';
+}) => {
+  const sav = savingsPct(plan, base);
+  const textCls = dark ? 'text-white/80' : 'text-foreground/55';
+  const savCls = dark ? 'text-white' : 'text-[hsl(150_65%_38%)]';
+  const sizeCls = size === 'md' ? 'text-[13px]' : 'text-[11px]';
+  return (
+    <div className={`mt-1 flex items-center gap-2 font-semibold ${sizeCls} ${textCls}`}>
+      <span>{perGbLabel(plan, lang)}</span>
+      {sav > 0 && <span className={savCls}>−{sav}%</span>}
+    </div>
+  );
 };
 
 const Radio = ({ checked, purple }: { checked: boolean; purple?: boolean }) => (
