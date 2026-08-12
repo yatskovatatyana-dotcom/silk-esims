@@ -177,12 +177,17 @@ const Country = () => {
               </div>
             </div>
 
-            <div className="mt-3">
-              <div className="text-[44px] font-extrabold leading-none tracking-tight">
-                {localizedDataUnit(featured.data, lang)}
+            <div className="mt-3 flex items-end justify-between gap-3">
+              <div>
+                <div className="text-[44px] font-extrabold leading-none tracking-tight">
+                  {localizedDataUnit(featured.data, lang)}
+                </div>
+                <div className="mt-2 text-[15px] text-white/90 font-medium">
+                  {localizedDaysLabel(featured.days, lang)}
+                </div>
               </div>
-              <div className="mt-2 text-[15px] text-white/90 font-medium">
-                {localizedDaysLabel(featured.days, lang)} · {featured.priceLabel}
+              <div className="text-[26px] font-extrabold leading-none tracking-tight whitespace-nowrap pb-1">
+                {featured.priceLabel}
               </div>
             </div>
 
