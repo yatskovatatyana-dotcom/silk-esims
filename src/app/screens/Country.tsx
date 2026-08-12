@@ -12,8 +12,10 @@ const PURPLE_SOFT = 'hsl(248 90% 97%)';
 
 const gbNumber = (data: string) => parseInt(data, 10) || 0;
 const perGbPrice = (plan: Plan) => plan.price / gbNumber(plan.data);
-const perGbLabel = (plan: Plan, _lang: Lang) =>
-  `€${perGbPrice(plan).toFixed(2)}`;
+const perGbLabel = (plan: Plan, lang: Lang) => {
+  const unit = lang === 'ru' ? 'ГБ' : 'GB';
+  return `${gbNumber(plan.data)} ${unit} — €${perGbPrice(plan).toFixed(2)}`;
+};
 /** Percentage saving vs the cheapest plan's per-GB rate. */
 const savingsPct = (plan: Plan, base: Plan) => {
   const perGb = plan.price / gbNumber(plan.data);
