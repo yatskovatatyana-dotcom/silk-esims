@@ -175,6 +175,7 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
                       <div className="font-bold text-foreground text-[14px]">
                         {localizedDataUnit(p.data, lang)} · {localizedDaysLabel(p.days, lang)}
                       </div>
+                      <PlanMeta plan={p} base={base} lang={lang} />
                     </div>
                     <div className="font-extrabold text-foreground shrink-0 text-[15px]">
                       {p.priceLabel}
@@ -224,8 +225,13 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
                   {localizedDaysLabel(featured.days, lang)}
                 </div>
               </div>
-              <div className="text-[19px] font-extrabold leading-none tracking-tight whitespace-nowrap pb-1">
-                {featured.priceLabel}
+              <div className="flex flex-col items-end gap-1 pb-1">
+                <div className="text-[19px] font-extrabold leading-none tracking-tight whitespace-nowrap">
+                  {featured.priceLabel}
+                </div>
+                <div className="text-[12px] font-semibold text-white/80 leading-none">
+                  {perGbLabel(featured, lang)}
+                </div>
               </div>
             </div>
 
