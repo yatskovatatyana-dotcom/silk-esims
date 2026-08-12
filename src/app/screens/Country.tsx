@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowRight, ChevronLeft, Gift, Star, Check } from 'lucide-react';
+import { ArrowRight, ChevronLeft, Star, Check } from 'lucide-react';
 import { PhoneFrame, StatusBar } from '../shell';
 import { getCountry, type Plan } from '../data';
 import FlagCircle from '../FlagCircle';
@@ -11,13 +11,6 @@ const PURPLE_DARK = 'hsl(250 70% 52%)';
 const PURPLE_SOFT = 'hsl(248 90% 97%)';
 
 const gbNumber = (data: string) => parseInt(data, 10) || 0;
-const bonusFor = (data: string) => {
-  const gb = gbNumber(data);
-  if (gb >= 30) return 3;
-  if (gb >= 20) return 2;
-  if (gb >= 10) return 1;
-  return 0;
-};
 const savingsPct = (plan: Plan, base: Plan) => {
   const perGb = plan.price / gbNumber(plan.data);
   const basePerGb = base.price / gbNumber(base.data);
@@ -108,10 +101,7 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
   const selected = country.plans.find((p) => p.id === selectedId) ?? featured;
   const base = country.plans[0];
   const featSavings = savingsPct(featured, base);
-  const featBonus = bonusFor(featured.data);
 
-  const giftText = (n: number) =>
-    (lang === 'ru' ? `Начислим ${n} ГБ в подарок` : `Get ${n} GB as a bonus`);
 
   return (
     <PhoneFrame hideTabBar bg="bg-white">
@@ -211,13 +201,6 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
               </div>
             </div>
 
-            {featBonus > 0 && (
-              <div className="mt-3 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white text-[hsl(248_78%_60%)] text-[14px] font-bold shadow-[0_6px_18px_-6px_hsl(248_78%_60%/0.5)]">
-                <Gift className="w-4 h-4" strokeWidth={2.6} />
-                {giftText(featBonus)}
-              </div>
-            )}
-
             {/* Savings bar */}
             <div className="mt-4 flex items-center gap-3">
               <div className="flex-1 h-1.5 rounded-full bg-white/25 overflow-hidden">
@@ -239,7 +222,6 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
               .map((p) => {
                 const isSelected = selectedId === p.id;
                 const isHighlighted = p.id === shortTripsId;
-                const showBonus = (isHighlighted || isSelected) && bonusFor(p.data) > 0;
                 const isMedium = hasThreePlans && p.id === shortTripsPlan?.id;
                 return (
                   <div key={p.id} className={`relative ${isMedium ? 'pt-3.5' : 'pt-2.5'}`}>
@@ -274,12 +256,6 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
                         <div className={`font-bold text-foreground ${isMedium ? 'text-[18px]' : 'text-[14px]'}`}>
                           {localizedDataUnit(p.data, lang)} · {localizedDaysLabel(p.days, lang)}
                         </div>
-                        {showBonus && (
-                          <div className={`mt-1 inline-flex items-center gap-1 font-semibold text-[hsl(150_65%_38%)] ${isMedium ? 'text-[13px]' : 'text-[11px]'}`}>
-                            <Gift className={`${isMedium ? 'w-4 h-4' : 'w-3 h-3'}`} strokeWidth={2.4} />
-                            {giftText(bonusFor(p.data))}
-                          </div>
-                        )}
                       </div>
                       <div className={`font-extrabold text-foreground shrink-0 ${isMedium ? 'text-[19px]' : 'text-[15px]'}`}>
                         {p.priceLabel}
