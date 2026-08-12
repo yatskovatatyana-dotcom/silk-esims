@@ -142,6 +142,7 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
   const selected = country.plans.find((p) => p.id === selectedId) ?? featured;
   const base = country.plans[0];
   const featSavings = savingsPct(featured, base);
+  const featSavingsEur = savingsEur(featured, base);
 
 
   return (
