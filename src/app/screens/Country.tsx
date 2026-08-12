@@ -234,25 +234,29 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
                 </div>
               </div>
               <div className="flex flex-col items-end gap-1 pb-1">
-                <div className="text-[19px] font-extrabold leading-none tracking-tight whitespace-nowrap">
+                <div className="text-[28px] font-extrabold leading-none tracking-tight whitespace-nowrap">
                   {featured.priceLabel}
-                </div>
-                <div className="text-[12px] font-semibold text-white/80 leading-none">
-                  {perGbLabel(featured, lang)}
                 </div>
               </div>
             </div>
 
-            {/* Savings bar */}
-            <div className="mt-4 flex items-center gap-3">
-              <div className="flex-1 h-1.5 rounded-full bg-white/25 overflow-hidden">
-                <div
-                  className="h-full rounded-full bg-white"
-                  style={{ width: `${Math.max(0, Math.min(100, featSavings))}%` }}
-                />
+            {/* Value strip — price per GB + savings, obvious at a glance */}
+            <div className="mt-4 grid grid-cols-2 gap-2">
+              <div className="rounded-xl bg-white/15 px-3 py-2.5">
+                <div className="text-[10px] font-semibold text-white/70 uppercase tracking-wider leading-none">
+                  {lang === 'ru' ? 'за 1 ГБ' : 'per 1 GB'}
+                </div>
+                <div className="mt-1 text-[16px] font-extrabold leading-none">
+                  {perGbLabel(featured, lang)}
+                </div>
               </div>
-              <div className="text-[13px] font-bold text-white whitespace-nowrap">
-                {lang === 'ru' ? 'выгода' : 'save'} {featSavings}%
+              <div className="rounded-xl bg-white px-3 py-2.5">
+                <div className="text-[10px] font-semibold uppercase tracking-wider leading-none text-[hsl(248_78%_60%)]">
+                  {lang === 'ru' ? 'выгода' : 'you save'}
+                </div>
+                <div className="mt-1 text-[16px] font-extrabold leading-none text-[hsl(248_78%_60%)]">
+                  {featSavings}%
+                </div>
               </div>
             </div>
           </button>
