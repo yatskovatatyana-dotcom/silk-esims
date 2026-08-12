@@ -41,7 +41,7 @@ const PlanMeta = ({
     ? 'bg-white/20 text-white'
     : 'bg-[hsl(150_65%_95%)] text-[hsl(150_65%_32%)]';
   const sizeCls = size === 'md' ? 'text-[13px]' : 'text-[11px]';
-  const savingWord = lang === 'ru' ? 'выгода' : 'save';
+  const savingWord = lang === 'ru' ? 'дешевле на' : 'cheaper by';
   return (
     <div className={`mt-1 flex items-center gap-1.5 font-semibold ${sizeCls} ${textCls}`}>
       <span>{perGbLabel(plan, lang)}</span>
@@ -252,7 +252,7 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
               </div>
               <div className="rounded-xl bg-white px-3 py-2.5">
                 <div className="text-[10px] font-semibold uppercase tracking-wider leading-none text-[hsl(248_78%_60%)]">
-                  {lang === 'ru' ? 'выгода' : 'you save'}
+                  {lang === 'ru' ? 'дешевле на' : 'cheaper by'}
                 </div>
                 <div className="mt-1 text-[16px] font-extrabold leading-none text-[hsl(248_78%_60%)]">
                   {featSavings}%
