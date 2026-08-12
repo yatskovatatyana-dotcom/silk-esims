@@ -136,30 +136,38 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
 
       <div className="flex-1 overflow-y-auto bg-white">
         <div className="px-4 pt-4 pb-4">
-          {/* Plain small plan on top (only for 3-plan bundles) */}
-          {plainTop && (
-            <button
-              onClick={() => setSelectedId(plainTop.id)}
-              className={`w-full text-left rounded-xl flex items-center px-3 py-3 gap-3 transition ${
-                selectedId === plainTop.id
-                  ? 'bg-[hsl(248_90%_97%)] border-2 border-[hsl(248_78%_60%)]'
-                  : 'bg-white border border-border/70'
-              }`}
-            >
-              <Radio checked={selectedId === plainTop.id} />
-              <div className="flex-1 min-w-0">
-                <div className="font-bold text-foreground text-[14px]">
-                  {localizedDataUnit(plainTop.data, lang)} · {localizedDaysLabel(plainTop.days, lang)}
-                </div>
-              </div>
-              <div className="font-extrabold text-foreground shrink-0 text-[15px]">
-                {plainTop.priceLabel}
-              </div>
-            </button>
+          {/* Plain small plans on top (smaller than the short-trips plan) */}
+          {topPlans.length > 0 && (
+            <div className="space-y-2">
+              {topPlans.map((p) => {
+                const isSelected = selectedId === p.id;
+                return (
+                  <button
+                    key={p.id}
+                    onClick={() => setSelectedId(p.id)}
+                    className={`w-full text-left rounded-xl flex items-center px-3 py-3 gap-3 transition ${
+                      isSelected
+                        ? 'bg-[hsl(248_90%_97%)] border-2 border-[hsl(248_78%_60%)]'
+                        : 'bg-white border border-border/70'
+                    }`}
+                  >
+                    <Radio checked={isSelected} />
+                    <div className="flex-1 min-w-0">
+                      <div className="font-bold text-foreground text-[14px]">
+                        {localizedDataUnit(p.data, lang)} · {localizedDaysLabel(p.days, lang)}
+                      </div>
+                    </div>
+                    <div className="font-extrabold text-foreground shrink-0 text-[15px]">
+                      {p.priceLabel}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
           )}
 
           {/* Featured — largest plan */}
-          <div className={`mb-3 pl-1 ${plainTop ? 'mt-5' : ''}`}>
+          <div className={`mb-3 pl-1 ${topPlans.length > 0 ? 'mt-5' : ''}`}>
             <span
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-white text-[11px] font-bold tracking-wider shadow-sm"
               style={{ background: `linear-gradient(135deg, ${PURPLE} 0%, ${PURPLE_DARK} 100%)` }}
