@@ -249,7 +249,7 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
                   {lang === 'ru' ? 'цена за 1 ГБ' : 'price per 1 GB'}
                 </div>
                 <div className="mt-1 text-[16px] font-extrabold leading-none">
-                  {perGbLabel(featured, lang)}
+                  €{perGbPrice(featured).toFixed(2)}
                 </div>
               </div>
               <div className="rounded-xl bg-white px-3 py-2.5">
