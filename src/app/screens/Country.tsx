@@ -14,12 +14,6 @@ const gbNumber = (data: string) => parseInt(data, 10) || 0;
 const perGbPrice = (plan: Plan) => plan.price / gbNumber(plan.data);
 const perGbLabel = (plan: Plan, lang: Lang) =>
   `€${perGbPrice(plan).toFixed(2)}/${lang === 'ru' ? 'ГБ' : 'GB'}`;
-/** How many times cheaper per GB vs the cheapest plan. 1 = same as cheapest. */
-const cheaperMultiplier = (plan: Plan, base: Plan) => {
-  const perGb = plan.price / gbNumber(plan.data);
-  const basePerGb = base.price / gbNumber(base.data);
-  return basePerGb / perGb;
-};
 /** Percentage saving vs the cheapest plan's per-GB rate. */
 const savingsPct = (plan: Plan, base: Plan) => {
   const perGb = plan.price / gbNumber(plan.data);
