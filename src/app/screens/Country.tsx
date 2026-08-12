@@ -211,13 +211,6 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
               </div>
             </div>
 
-            {featBonus > 0 && (
-              <div className="mt-3 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white text-[hsl(248_78%_60%)] text-[14px] font-bold shadow-[0_6px_18px_-6px_hsl(248_78%_60%/0.5)]">
-                <Gift className="w-4 h-4" strokeWidth={2.6} />
-                {giftText(featBonus)}
-              </div>
-            )}
-
             {/* Savings bar */}
             <div className="mt-4 flex items-center gap-3">
               <div className="flex-1 h-1.5 rounded-full bg-white/25 overflow-hidden">
@@ -274,12 +267,6 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
                         <div className={`font-bold text-foreground ${isMedium ? 'text-[18px]' : 'text-[14px]'}`}>
                           {localizedDataUnit(p.data, lang)} · {localizedDaysLabel(p.days, lang)}
                         </div>
-                        {showBonus && (
-                          <div className={`mt-1 inline-flex items-center gap-1 font-semibold text-[hsl(150_65%_38%)] ${isMedium ? 'text-[13px]' : 'text-[11px]'}`}>
-                            <Gift className={`${isMedium ? 'w-4 h-4' : 'w-3 h-3'}`} strokeWidth={2.4} />
-                            {giftText(bonusFor(p.data))}
-                          </div>
-                        )}
                       </div>
                       <div className={`font-extrabold text-foreground shrink-0 ${isMedium ? 'text-[19px]' : 'text-[15px]'}`}>
                         {p.priceLabel}
