@@ -14,12 +14,6 @@ const gbNumber = (data: string) => parseInt(data, 10) || 0;
 const perGbPrice = (plan: Plan) => plan.price / gbNumber(plan.data);
 const perGbLabel = (plan: Plan, lang: Lang) =>
   `€${perGbPrice(plan).toFixed(2)}/${lang === 'ru' ? 'ГБ' : 'GB'}`;
-/** How many times cheaper per GB vs the cheapest plan. 1 = same as cheapest. */
-const cheaperMultiplier = (plan: Plan, base: Plan) => {
-  const perGb = plan.price / gbNumber(plan.data);
-  const basePerGb = base.price / gbNumber(base.data);
-  return basePerGb / perGb;
-};
 /** Percentage saving vs the cheapest plan's per-GB rate. */
 const savingsPct = (plan: Plan, base: Plan) => {
   const perGb = plan.price / gbNumber(plan.data);
@@ -40,20 +34,20 @@ const PlanMeta = ({
   dark?: boolean;
   size?: 'sm' | 'md';
 }) => {
-  const mult = cheaperMultiplier(plan, base);
-  const hasSaving = mult > 1.04;
+  const pct = savingsPct(plan, base);
+  const hasSaving = pct > 4;
   const textCls = dark ? 'text-white/80' : 'text-foreground/55';
   const savCls = dark
     ? 'bg-white/20 text-white'
     : 'bg-[hsl(150_65%_95%)] text-[hsl(150_65%_32%)]';
   const sizeCls = size === 'md' ? 'text-[13px]' : 'text-[11px]';
-  const cheaperWord = lang === 'ru' ? 'дешевле' : 'cheaper';
+  const savingWord = lang === 'ru' ? 'выгода' : 'save';
   return (
     <div className={`mt-1 flex items-center gap-1.5 font-semibold ${sizeCls} ${textCls}`}>
       <span>{perGbLabel(plan, lang)}</span>
       {hasSaving && (
         <span className={`px-1.5 py-0.5 rounded-md leading-none ${savCls}`}>
-          {mult.toFixed(1)}× {cheaperWord}
+          {savingWord} {pct}%
         </span>
       )}
     </div>
@@ -144,8 +138,6 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
   const selected = country.plans.find((p) => p.id === selectedId) ?? featured;
   const base = country.plans[0];
   const featSavings = savingsPct(featured, base);
-  const featMult = cheaperMultiplier(featured, base);
-
 
   return (
     <PhoneFrame hideTabBar bg="bg-white">
@@ -260,8 +252,7 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
                 />
               </div>
               <div className="text-[13px] font-bold text-white whitespace-nowrap">
-                {lang === 'ru' ? 'в' : ''} {featMult.toFixed(1)}×{' '}
-                {lang === 'ru' ? 'дешевле за ГБ' : 'cheaper per GB'}
+                {lang === 'ru' ? 'выгода' : 'save'} {featSavings}%
               </div>
             </div>
           </button>
