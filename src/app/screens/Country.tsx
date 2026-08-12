@@ -183,7 +183,7 @@ const Country = () => {
                   {localizedDataUnit(featured.data, lang)}
                   {featBonus > 0 && (
                     <span className="text-[24px] font-bold text-white/90">
-                      {' '}+ {featBonus} {lang === 'ru' ? 'ГБ' : 'GB'}
+                      {' '}+ {featBonus} {lang === 'ru' ? 'ГБ' : 'GB'} {lang === 'ru' ? 'в подарок' : 'as a bonus'}
                     </span>
                   )}
                 </div>
