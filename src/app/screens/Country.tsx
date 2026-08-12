@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowRight, ChevronLeft, Gift, Star, Check } from 'lucide-react';
+import { ArrowRight, ChevronLeft, Star, Check } from 'lucide-react';
 import { PhoneFrame, StatusBar } from '../shell';
 import { getCountry, type Plan } from '../data';
 import FlagCircle from '../FlagCircle';
@@ -11,13 +11,6 @@ const PURPLE_DARK = 'hsl(250 70% 52%)';
 const PURPLE_SOFT = 'hsl(248 90% 97%)';
 
 const gbNumber = (data: string) => parseInt(data, 10) || 0;
-const bonusFor = (data: string) => {
-  const gb = gbNumber(data);
-  if (gb >= 30) return 3;
-  if (gb >= 20) return 2;
-  if (gb >= 10) return 1;
-  return 0;
-};
 const savingsPct = (plan: Plan, base: Plan) => {
   const perGb = plan.price / gbNumber(plan.data);
   const basePerGb = base.price / gbNumber(base.data);
