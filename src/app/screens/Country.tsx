@@ -144,8 +144,6 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
   const selected = country.plans.find((p) => p.id === selectedId) ?? featured;
   const base = country.plans[0];
   const featSavings = savingsPct(featured, base);
-  const featMult = cheaperMultiplier(featured, base);
-
 
   return (
     <PhoneFrame hideTabBar bg="bg-white">
