@@ -260,8 +260,7 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
                 />
               </div>
               <div className="text-[13px] font-bold text-white whitespace-nowrap">
-                {lang === 'ru' ? 'в' : ''} {featMult.toFixed(1)}×{' '}
-                {lang === 'ru' ? 'дешевле за ГБ' : 'cheaper per GB'}
+                {lang === 'ru' ? 'выгода' : 'save'} {featSavings}%
               </div>
             </div>
           </button>
