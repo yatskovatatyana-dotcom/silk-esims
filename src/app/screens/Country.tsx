@@ -148,8 +148,14 @@ const Country = () => {
           )}
 
           {/* Featured — largest plan */}
-          <div className={`text-[11px] font-bold tracking-[0.14em] text-foreground/40 mb-2 pl-1 ${plainTop ? 'mt-5' : ''}`}>
-            {t('country.bestValue')}
+          <div className={`mb-3 pl-1 ${plainTop ? 'mt-5' : ''}`}>
+            <span
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-white text-[11px] font-bold tracking-wider shadow-sm"
+              style={{ background: `linear-gradient(135deg, ${PURPLE} 0%, ${PURPLE_DARK} 100%)` }}
+            >
+              <Star className="w-3 h-3" fill="currentColor" strokeWidth={0} />
+              {t('country.bestValue')}
+            </span>
           </div>
           <button
             onClick={() => setSelectedId(featured.id)}
