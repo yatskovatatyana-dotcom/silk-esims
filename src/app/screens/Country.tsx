@@ -181,11 +181,6 @@ const Country = () => {
               <div>
                 <div className="text-[44px] font-extrabold leading-none tracking-tight">
                   {localizedDataUnit(featured.data, lang)}
-                  {featBonus > 0 && (
-                    <span className="text-[24px] font-bold text-white/90">
-                      {' '}+ {featBonus} {lang === 'ru' ? 'ГБ' : 'GB'} {lang === 'ru' ? 'в подарок' : 'as a bonus'}
-                    </span>
-                  )}
                 </div>
                 <div className="mt-2 text-[15px] text-white/90 font-medium">
                   {localizedDaysLabel(featured.days, lang)}
