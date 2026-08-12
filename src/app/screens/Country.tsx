@@ -192,8 +192,8 @@ const Country = () => {
             </div>
 
             {featBonus > 0 && (
-              <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/15 text-white text-[13px] font-semibold">
-                <Gift className="w-3.5 h-3.5" strokeWidth={2.4} />
+              <div className="mt-3 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white text-[hsl(248_78%_60%)] text-[14px] font-bold shadow-[0_6px_18px_-6px_hsl(248_78%_60%/0.5)]">
+                <Gift className="w-4 h-4" strokeWidth={2.6} />
                 {giftText(featBonus)}
               </div>
             )}
