@@ -252,7 +252,7 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
               </div>
               <div className="rounded-xl bg-white px-3 py-2.5">
                 <div className="text-[10px] font-semibold uppercase tracking-wider leading-none text-[hsl(248_78%_60%)]">
-                  {lang === 'ru' ? 'выгода' : 'you save'}
+                  {lang === 'ru' ? 'дешевле на' : 'cheaper by'}
                 </div>
                 <div className="mt-1 text-[16px] font-extrabold leading-none text-[hsl(248_78%_60%)]">
                   {featSavings}%
