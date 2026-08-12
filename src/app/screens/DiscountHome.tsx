@@ -3,7 +3,6 @@ import { Search, User, ArrowRight } from 'lucide-react';
 import { PhoneFrame, StatusBar } from '../shell';
 import { countries, homeCountries } from '../data';
 import FlagCircle from '../FlagCircle';
-import alarmClock from '@/assets/discount-alarm.png';
 import { useState } from 'react';
 import { useI18n, getCountryName } from '../i18n';
 
@@ -94,6 +93,246 @@ const variants: Variant[] = [
     title: '#ffffff',
     sub: 'rgba(255,255,255,0.8)',
   },
+  {
+    id: 'indigo',
+    label: 'Indigo',
+    bg: 'linear-gradient(135deg, hsl(238 80% 46%) 0%, hsl(244 82% 56%) 55%, hsl(252 84% 62%) 100%)',
+    glow: 'hsl(246 84% 60% / 0.5)',
+    chip: 'rgba(255,255,255,0.22)',
+    chipText: '#ffffff',
+    ctaBg: '#ffffff',
+    ctaText: 'hsl(240 80% 42%)',
+    title: '#ffffff',
+    sub: 'rgba(255,255,255,0.86)',
+  },
+  {
+    id: 'royal',
+    label: 'Royal Blue',
+    bg: 'linear-gradient(135deg, hsl(222 84% 40%) 0%, hsl(226 86% 50%) 55%, hsl(232 88% 58%) 100%)',
+    glow: 'hsl(228 86% 54% / 0.5)',
+    chip: 'rgba(255,255,255,0.22)',
+    chipText: '#ffffff',
+    ctaBg: '#ffffff',
+    ctaText: 'hsl(224 84% 38%)',
+    title: '#ffffff',
+    sub: 'rgba(255,255,255,0.86)',
+  },
+  {
+    id: 'azure',
+    label: 'Azure',
+    bg: 'linear-gradient(135deg, hsl(206 90% 44%) 0%, hsl(200 92% 52%) 55%, hsl(192 92% 58%) 100%)',
+    glow: 'hsl(198 92% 52% / 0.45)',
+    chip: 'rgba(255,255,255,0.22)',
+    chipText: '#ffffff',
+    ctaBg: '#ffffff',
+    ctaText: 'hsl(204 88% 36%)',
+    title: '#ffffff',
+    sub: 'rgba(255,255,255,0.86)',
+  },
+  {
+    id: 'sky',
+    label: 'Sky',
+    bg: 'linear-gradient(135deg, hsl(210 92% 56%) 0%, hsl(200 94% 62%) 55%, hsl(188 92% 66%) 100%)',
+    glow: 'hsl(198 92% 60% / 0.45)',
+    chip: 'rgba(255,255,255,0.22)',
+    chipText: '#ffffff',
+    ctaBg: '#ffffff',
+    ctaText: 'hsl(206 88% 40%)',
+    title: '#ffffff',
+    sub: 'rgba(255,255,255,0.86)',
+  },
+  {
+    id: 'teal',
+    label: 'Teal',
+    bg: 'linear-gradient(135deg, hsl(188 72% 32%) 0%, hsl(178 70% 38%) 55%, hsl(170 66% 44%) 100%)',
+    glow: 'hsl(178 70% 40% / 0.45)',
+    chip: 'rgba(255,255,255,0.22)',
+    chipText: '#ffffff',
+    ctaBg: '#ffffff',
+    ctaText: 'hsl(186 70% 26%)',
+    title: '#ffffff',
+    sub: 'rgba(255,255,255,0.86)',
+  },
+  {
+    id: 'mint',
+    label: 'Mint',
+    bg: 'linear-gradient(135deg, hsl(162 62% 40%) 0%, hsl(156 64% 48%) 55%, hsl(146 62% 56%) 100%)',
+    glow: 'hsl(154 64% 48% / 0.45)',
+    chip: 'rgba(255,255,255,0.22)',
+    chipText: '#ffffff',
+    ctaBg: '#ffffff',
+    ctaText: 'hsl(162 60% 30%)',
+    title: '#ffffff',
+    sub: 'rgba(255,255,255,0.86)',
+  },
+  {
+    id: 'lime',
+    label: 'Lime',
+    bg: 'linear-gradient(135deg, hsl(96 58% 40%) 0%, hsl(86 62% 46%) 55%, hsl(76 66% 52%) 100%)',
+    glow: 'hsl(86 62% 46% / 0.4)',
+    chip: 'rgba(255,255,255,0.22)',
+    chipText: '#ffffff',
+    ctaBg: '#ffffff',
+    ctaText: 'hsl(96 56% 30%)',
+    title: '#ffffff',
+    sub: 'rgba(255,255,255,0.86)',
+  },
+  {
+    id: 'amber',
+    label: 'Amber',
+    bg: 'linear-gradient(135deg, hsl(38 96% 56%) 0%, hsl(32 94% 52%) 55%, hsl(24 92% 50%) 100%)',
+    glow: 'hsl(32 94% 54% / 0.45)',
+    chip: 'rgba(255,255,255,0.22)',
+    chipText: '#ffffff',
+    ctaBg: '#ffffff',
+    ctaText: 'hsl(26 88% 40%)',
+    title: '#ffffff',
+    sub: 'rgba(255,255,255,0.86)',
+  },
+  {
+    id: 'sunset',
+    label: 'Sunset',
+    bg: 'linear-gradient(135deg, hsl(24 94% 58%) 0%, hsl(12 90% 60%) 55%, hsl(338 84% 60%) 100%)',
+    glow: 'hsl(8 90% 60% / 0.45)',
+    chip: 'rgba(255,255,255,0.22)',
+    chipText: '#ffffff',
+    ctaBg: '#ffffff',
+    ctaText: 'hsl(356 82% 46%)',
+    title: '#ffffff',
+    sub: 'rgba(255,255,255,0.86)',
+  },
+  {
+    id: 'peach',
+    label: 'Peach',
+    bg: 'linear-gradient(135deg, hsl(20 94% 70%) 0%, hsl(8 92% 72%) 55%, hsl(350 90% 74%) 100%)',
+    glow: 'hsl(10 92% 70% / 0.4)',
+    chip: 'rgba(255,255,255,0.22)',
+    chipText: '#ffffff',
+    ctaBg: '#ffffff',
+    ctaText: 'hsl(356 78% 44%)',
+    title: '#ffffff',
+    sub: 'rgba(255,255,255,0.86)',
+  },
+  {
+    id: 'rose',
+    label: 'Rose',
+    bg: 'linear-gradient(135deg, hsl(340 84% 58%) 0%, hsl(330 80% 56%) 55%, hsl(318 78% 56%) 100%)',
+    glow: 'hsl(332 82% 58% / 0.45)',
+    chip: 'rgba(255,255,255,0.22)',
+    chipText: '#ffffff',
+    ctaBg: '#ffffff',
+    ctaText: 'hsl(336 76% 44%)',
+    title: '#ffffff',
+    sub: 'rgba(255,255,255,0.86)',
+  },
+  {
+    id: 'magenta',
+    label: 'Magenta',
+    bg: 'linear-gradient(135deg, hsl(312 82% 52%) 0%, hsl(300 80% 52%) 55%, hsl(286 82% 56%) 100%)',
+    glow: 'hsl(300 82% 54% / 0.5)',
+    chip: 'rgba(255,255,255,0.22)',
+    chipText: '#ffffff',
+    ctaBg: '#ffffff',
+    ctaText: 'hsl(306 78% 42%)',
+    title: '#ffffff',
+    sub: 'rgba(255,255,255,0.86)',
+  },
+  {
+    id: 'purple',
+    label: 'Purple',
+    bg: 'linear-gradient(135deg, hsl(272 78% 52%) 0%, hsl(264 80% 56%) 55%, hsl(254 84% 60%) 100%)',
+    glow: 'hsl(266 82% 56% / 0.5)',
+    chip: 'rgba(255,255,255,0.22)',
+    chipText: '#ffffff',
+    ctaBg: '#ffffff',
+    ctaText: 'hsl(270 76% 44%)',
+    title: '#ffffff',
+    sub: 'rgba(255,255,255,0.86)',
+  },
+  {
+    id: 'lavender',
+    label: 'Lavender',
+    bg: 'linear-gradient(135deg, hsl(254 70% 64%) 0%, hsl(264 72% 70%) 55%, hsl(280 70% 74%) 100%)',
+    glow: 'hsl(264 72% 68% / 0.4)',
+    chip: 'rgba(255,255,255,0.22)',
+    chipText: '#ffffff',
+    ctaBg: '#ffffff',
+    ctaText: 'hsl(262 66% 48%)',
+    title: '#ffffff',
+    sub: 'rgba(255,255,255,0.86)',
+  },
+  {
+    id: 'plum',
+    label: 'Plum',
+    bg: 'linear-gradient(135deg, hsl(290 56% 32%) 0%, hsl(300 58% 40%) 55%, hsl(316 60% 48%) 100%)',
+    glow: 'hsl(302 60% 42% / 0.45)',
+    chip: 'rgba(255,255,255,0.22)',
+    chipText: '#ffffff',
+    ctaBg: '#ffffff',
+    ctaText: 'hsl(294 56% 28%)',
+    title: '#ffffff',
+    sub: 'rgba(255,255,255,0.86)',
+  },
+  {
+    id: 'navy',
+    label: 'Navy',
+    bg: 'linear-gradient(135deg, hsl(226 60% 18%) 0%, hsl(232 64% 26%) 55%, hsl(240 68% 34%) 100%)',
+    glow: 'hsl(236 70% 40% / 0.5)',
+    chip: 'rgba(255,255,255,0.22)',
+    chipText: '#ffffff',
+    ctaBg: '#ffffff',
+    ctaText: 'hsl(230 62% 20%)',
+    title: '#ffffff',
+    sub: 'rgba(255,255,255,0.86)',
+  },
+  {
+    id: 'slate',
+    label: 'Slate',
+    bg: 'linear-gradient(135deg, hsl(218 30% 26%) 0%, hsl(220 26% 36%) 55%, hsl(222 24% 46%) 100%)',
+    glow: 'hsl(220 30% 40% / 0.4)',
+    chip: 'rgba(255,255,255,0.22)',
+    chipText: '#ffffff',
+    ctaBg: '#ffffff',
+    ctaText: 'hsl(220 32% 24%)',
+    title: '#ffffff',
+    sub: 'rgba(255,255,255,0.86)',
+  },
+  {
+    id: 'graphite',
+    label: 'Graphite',
+    bg: 'linear-gradient(135deg, hsl(225 18% 14%) 0%, hsl(228 16% 22%) 55%, hsl(230 14% 30%) 100%)',
+    glow: 'hsl(232 40% 45% / 0.4)',
+    chip: 'rgba(255,255,255,0.22)',
+    chipText: '#ffffff',
+    ctaBg: '#ffffff',
+    ctaText: 'hsl(228 20% 18%)',
+    title: '#ffffff',
+    sub: 'rgba(255,255,255,0.86)',
+  },
+  {
+    id: 'aurora',
+    label: 'Aurora',
+    bg: 'linear-gradient(135deg, hsl(196 88% 46%) 0%, hsl(230 82% 56%) 55%, hsl(268 82% 62%) 100%)',
+    glow: 'hsl(234 84% 56% / 0.5)',
+    chip: 'rgba(255,255,255,0.22)',
+    chipText: '#ffffff',
+    ctaBg: '#ffffff',
+    ctaText: 'hsl(226 80% 42%)',
+    title: '#ffffff',
+    sub: 'rgba(255,255,255,0.86)',
+  },
+  {
+    id: 'tropic',
+    label: 'Tropic',
+    bg: 'linear-gradient(135deg, hsl(170 70% 40%) 0%, hsl(196 82% 48%) 55%, hsl(222 84% 56%) 100%)',
+    glow: 'hsl(196 82% 48% / 0.45)',
+    chip: 'rgba(255,255,255,0.22)',
+    chipText: '#ffffff',
+    ctaBg: '#ffffff',
+    ctaText: 'hsl(200 78% 32%)',
+    title: '#ffffff',
+    sub: 'rgba(255,255,255,0.86)',
+  },
 ];
 
 const DiscountHome = () => {
@@ -130,21 +369,7 @@ const DiscountHome = () => {
           className="mx-4 mb-5 rounded-2xl overflow-hidden relative h-[196px]"
           style={{ background: active.bg, boxShadow: `0 14px 34px -14px ${active.glow}` }}
         >
-          {/* soft radial glow behind the clock */}
-          <div
-            className="absolute right-[-10%] top-1/2 -translate-y-1/2 w-[62%] aspect-square rounded-full"
-            style={{ background: `radial-gradient(circle, ${active.glow} 0%, transparent 68%)` }}
-          />
-          <img
-            src={alarmClock}
-            alt=""
-            width={1024}
-            height={1024}
-            loading="lazy"
-            className="absolute right-[-6px] top-1/2 -translate-y-1/2 w-[150px] h-[150px] object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.28)]"
-          />
-
-          <div className="relative h-full flex flex-col justify-between p-4 max-w-[68%]">
+          <div className="relative h-full flex flex-col justify-between p-5">
             <div>
               <span
                 className="inline-block rounded-full px-2.5 py-1 text-[10px] font-semibold leading-none"
