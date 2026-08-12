@@ -186,7 +186,7 @@ const Country = () => {
                   {localizedDaysLabel(featured.days, lang)}
                 </div>
               </div>
-              <div className="text-[26px] font-extrabold leading-none tracking-tight whitespace-nowrap pb-1">
+              <div className="text-[19px] font-extrabold leading-none tracking-tight whitespace-nowrap pb-1">
                 {featured.priceLabel}
               </div>
             </div>
