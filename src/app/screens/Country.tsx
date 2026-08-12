@@ -41,7 +41,7 @@ const PlanMeta = ({
     ? 'bg-white/20 text-white'
     : 'bg-[hsl(150_65%_95%)] text-[hsl(150_65%_32%)]';
   const sizeCls = size === 'md' ? 'text-[13px]' : 'text-[11px]';
-  const savingWord = lang === 'ru' ? 'выгода' : 'save';
+  const savingWord = lang === 'ru' ? 'дешевле на' : 'cheaper by';
   return (
     <div className={`mt-1 flex items-center gap-1.5 font-semibold ${sizeCls} ${textCls}`}>
       <span>{perGbLabel(plan, lang)}</span>
