@@ -4,7 +4,7 @@ import { ArrowRight, ChevronLeft, Star, Check } from 'lucide-react';
 import { PhoneFrame, StatusBar } from '../shell';
 import { getCountry, type Plan } from '../data';
 import FlagCircle from '../FlagCircle';
-import { useI18n, getCountryName, localizedDaysLabel, localizedDataUnit } from '../i18n';
+import { useI18n, getCountryName, localizedDaysLabel, localizedDataUnit, type Lang } from '../i18n';
 
 const PURPLE = 'hsl(248 78% 60%)';
 const PURPLE_DARK = 'hsl(250 70% 52%)';
@@ -15,6 +15,34 @@ const savingsPct = (plan: Plan, base: Plan) => {
   const perGb = plan.price / gbNumber(plan.data);
   const basePerGb = base.price / gbNumber(base.data);
   return Math.round((1 - perGb / basePerGb) * 100);
+};
+const perGbPrice = (plan: Plan) => plan.price / gbNumber(plan.data);
+const perGbLabel = (plan: Plan, lang: Lang) =>
+  `€${perGbPrice(plan).toFixed(2)}/${lang === 'ru' ? 'ГБ' : 'GB'}`;
+
+const PlanMeta = ({
+  plan,
+  base,
+  lang,
+  dark,
+  size = 'sm',
+}: {
+  plan: Plan;
+  base: Plan;
+  lang: Lang;
+  dark?: boolean;
+  size?: 'sm' | 'md';
+}) => {
+  const sav = savingsPct(plan, base);
+  const textCls = dark ? 'text-white/80' : 'text-foreground/55';
+  const savCls = dark ? 'text-white' : 'text-[hsl(150_65%_38%)]';
+  const sizeCls = size === 'md' ? 'text-[13px]' : 'text-[11px]';
+  return (
+    <div className={`mt-1 flex items-center gap-2 font-semibold ${sizeCls} ${textCls}`}>
+      <span>{perGbLabel(plan, lang)}</span>
+      {sav > 0 && <span className={savCls}>−{sav}%</span>}
+    </div>
+  );
 };
 
 const Radio = ({ checked, purple }: { checked: boolean; purple?: boolean }) => (
@@ -147,6 +175,7 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
                       <div className="font-bold text-foreground text-[14px]">
                         {localizedDataUnit(p.data, lang)} · {localizedDaysLabel(p.days, lang)}
                       </div>
+                      <PlanMeta plan={p} base={base} lang={lang} />
                     </div>
                     <div className="font-extrabold text-foreground shrink-0 text-[15px]">
                       {p.priceLabel}
@@ -196,8 +225,13 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
                   {localizedDaysLabel(featured.days, lang)}
                 </div>
               </div>
-              <div className="text-[19px] font-extrabold leading-none tracking-tight whitespace-nowrap pb-1">
-                {featured.priceLabel}
+              <div className="flex flex-col items-end gap-1 pb-1">
+                <div className="text-[19px] font-extrabold leading-none tracking-tight whitespace-nowrap">
+                  {featured.priceLabel}
+                </div>
+                <div className="text-[12px] font-semibold text-white/80 leading-none">
+                  {perGbLabel(featured, lang)}
+                </div>
               </div>
             </div>
 
@@ -256,6 +290,7 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
                         <div className={`font-bold text-foreground ${isMedium ? 'text-[18px]' : 'text-[14px]'}`}>
                           {localizedDataUnit(p.data, lang)} · {localizedDaysLabel(p.days, lang)}
                         </div>
+                        <PlanMeta plan={p} base={base} lang={lang} size={isMedium ? 'md' : 'sm'} />
                       </div>
                       <div className={`font-extrabold text-foreground shrink-0 ${isMedium ? 'text-[19px]' : 'text-[15px]'}`}>
                         {p.priceLabel}
