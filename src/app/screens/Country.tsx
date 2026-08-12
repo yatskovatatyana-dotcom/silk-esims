@@ -98,8 +98,8 @@ const Country = () => {
   const featSavings = savingsPct(featured, base);
   const featBonus = bonusFor(featured.data);
 
-  const giftText = (n: number) =>
-    (lang === 'ru' ? `Начислим ${n} ГБ в подарок` : `Get ${n} GB as a bonus`);
+  const giftText = (data: string, n: number) =>
+    (lang === 'ru' ? `${data.replace('GB', 'ГБ')} + ${n} ГБ в подарок` : `${data} + ${n} GB as a bonus`);
 
   return (
     <PhoneFrame hideTabBar bg="bg-white">
