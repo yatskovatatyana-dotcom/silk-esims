@@ -13,6 +13,8 @@ import { AppStoreProvider } from "./app/store";
 import { I18nProvider } from "./app/i18n";
 import Splash from "./app/screens/Splash";
 import Home from "./app/screens/Home";
+import DiscountHome from "./app/screens/DiscountHome";
+
 import AllCountries from "./app/screens/AllCountries";
 import Country from "./app/screens/Country";
 import Checkout from "./app/screens/Checkout";
@@ -44,6 +46,8 @@ const App = () => (
             {/* Mobile app prototype */}
             <Route path="/app" element={<Splash />} />
             <Route path="/app/home" element={<Home />} />
+            <Route path="/app/discount-banner" element={<DiscountHome />} />
+
             <Route path="/app/countries" element={<AllCountries />} />
             <Route path="/app/country/:slug" element={<Country />} />
             <Route path="/app/usa" element={<Country defaultSlug="usa" />} />
