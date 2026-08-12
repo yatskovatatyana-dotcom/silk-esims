@@ -230,10 +230,7 @@ const Country = () => {
           </button>
 
           {/* Others — middle plan highlighted for short trips */}
-          <div className="text-[11px] font-bold tracking-[0.14em] text-foreground/40 mt-6 mb-2 pl-1">
-            {t('country.otherPlans')}
-          </div>
-          <div className="space-y-2">
+          <div className="space-y-2 mt-6">
             {others
               .filter((p) => p.id !== plainTop?.id)
               .map((p) => {
