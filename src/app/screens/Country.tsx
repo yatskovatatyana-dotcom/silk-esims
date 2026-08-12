@@ -57,6 +57,7 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
   const featured = useMemo(() => {
     if (!country) return null;
     if (hasThreePlans) return sortedPlans[sortedPlans.length - 1];
+    if (sortedPlans.length >= 5) return sortedPlans[sortedPlans.length - 1];
     return (
       country.plans.find((p) => p.id === 'super') ??
       country.plans[country.plans.length - 1]
