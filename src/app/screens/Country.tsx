@@ -108,10 +108,7 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
   const selected = country.plans.find((p) => p.id === selectedId) ?? featured;
   const base = country.plans[0];
   const featSavings = savingsPct(featured, base);
-  const featBonus = bonusFor(featured.data);
 
-  const giftText = (n: number) =>
-    (lang === 'ru' ? `Начислим ${n} ГБ в подарок` : `Get ${n} GB as a bonus`);
 
   return (
     <PhoneFrame hideTabBar bg="bg-white">
@@ -232,7 +229,6 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
               .map((p) => {
                 const isSelected = selectedId === p.id;
                 const isHighlighted = p.id === shortTripsId;
-                const showBonus = (isHighlighted || isSelected) && bonusFor(p.data) > 0;
                 const isMedium = hasThreePlans && p.id === shortTripsPlan?.id;
                 return (
                   <div key={p.id} className={`relative ${isMedium ? 'pt-3.5' : 'pt-2.5'}`}>
