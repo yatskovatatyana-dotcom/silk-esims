@@ -244,7 +244,7 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
             <div className="mt-4 grid grid-cols-2 gap-2">
               <div className="rounded-xl bg-white/15 px-3 py-2.5">
                 <div className="text-[10px] font-semibold text-white/70 uppercase tracking-wider leading-none">
-                  {lang === 'ru' ? 'за 1 ГБ' : 'per 1 GB'}
+                  {lang === 'ru' ? 'цена за 1 ГБ' : 'price per 1 GB'}
                 </div>
                 <div className="mt-1 text-[16px] font-extrabold leading-none">
                   {perGbLabel(featured, lang)}
