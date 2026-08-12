@@ -290,6 +290,7 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
                         <div className={`font-bold text-foreground ${isMedium ? 'text-[18px]' : 'text-[14px]'}`}>
                           {localizedDataUnit(p.data, lang)} · {localizedDaysLabel(p.days, lang)}
                         </div>
+                        <PlanMeta plan={p} base={base} lang={lang} size={isMedium ? 'md' : 'sm'} />
                       </div>
                       <div className={`font-extrabold text-foreground shrink-0 ${isMedium ? 'text-[19px]' : 'text-[15px]'}`}>
                         {p.priceLabel}
