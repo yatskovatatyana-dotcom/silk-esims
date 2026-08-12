@@ -258,7 +258,8 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
                 />
               </div>
               <div className="text-[13px] font-bold text-white whitespace-nowrap">
-                {t('country.savings')} {featSavings}%
+                {t('country.savings')} €{featSavingsEur.toFixed(2)}
+                <span className="text-white/70 font-semibold ml-1">· −{featSavings}%</span>
               </div>
             </div>
           </button>
