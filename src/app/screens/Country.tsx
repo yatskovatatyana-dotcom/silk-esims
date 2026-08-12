@@ -40,20 +40,20 @@ const PlanMeta = ({
   dark?: boolean;
   size?: 'sm' | 'md';
 }) => {
-  const mult = cheaperMultiplier(plan, base);
-  const hasSaving = mult > 1.04;
+  const pct = savingsPct(plan, base);
+  const hasSaving = pct > 4;
   const textCls = dark ? 'text-white/80' : 'text-foreground/55';
   const savCls = dark
     ? 'bg-white/20 text-white'
     : 'bg-[hsl(150_65%_95%)] text-[hsl(150_65%_32%)]';
   const sizeCls = size === 'md' ? 'text-[13px]' : 'text-[11px]';
-  const cheaperWord = lang === 'ru' ? 'дешевле' : 'cheaper';
+  const savingWord = lang === 'ru' ? 'выгода' : 'save';
   return (
     <div className={`mt-1 flex items-center gap-1.5 font-semibold ${sizeCls} ${textCls}`}>
       <span>{perGbLabel(plan, lang)}</span>
       {hasSaving && (
         <span className={`px-1.5 py-0.5 rounded-md leading-none ${savCls}`}>
-          {mult.toFixed(1)}× {cheaperWord}
+          {savingWord} {pct}%
         </span>
       )}
     </div>
