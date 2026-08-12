@@ -3,7 +3,7 @@ import { Search, User, ArrowRight } from 'lucide-react';
 import { PhoneFrame, StatusBar } from '../shell';
 import { countries, homeCountries } from '../data';
 import FlagCircle from '../FlagCircle';
-import clockAsset from '@/assets/discount-clock.png.asset.json';
+import alarmClock from '@/assets/discount-alarm.png';
 import { useState } from 'react';
 import { useI18n, getCountryName } from '../i18n';
 
@@ -22,6 +22,18 @@ type Variant = {
 
 /** Colour directions for the discount banner, tuned against the app's indigo shell. */
 const variants: Variant[] = [
+  {
+    id: 'violet',
+    label: 'Violet',
+    bg: 'linear-gradient(135deg, hsl(258 84% 62%) 0%, hsl(276 78% 58%) 48%, hsl(320 80% 62%) 100%)',
+    glow: 'hsl(288 82% 64% / 0.5)',
+    chip: 'rgba(255,255,255,0.22)',
+    chipText: '#ffffff',
+    ctaBg: '#ffffff',
+    ctaText: 'hsl(268 72% 46%)',
+    title: '#ffffff',
+    sub: 'rgba(255,255,255,0.86)',
+  },
   {
     id: 'emerald',
     label: 'Emerald',
@@ -124,7 +136,7 @@ const DiscountHome = () => {
             style={{ background: `radial-gradient(circle, ${active.glow} 0%, transparent 68%)` }}
           />
           <img
-            src={clockAsset.url}
+            src={alarmClock}
             alt=""
             width={1024}
             height={1024}
