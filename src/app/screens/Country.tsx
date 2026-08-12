@@ -162,6 +162,7 @@ const Country = () => {
             className="w-full text-left rounded-3xl p-5 text-white relative overflow-hidden shadow-[0_16px_40px_-16px_hsl(248_78%_60%/0.55)] active:scale-[0.995] transition"
             style={{ background: `linear-gradient(155deg, ${PURPLE} 0%, ${PURPLE_DARK} 100%)` }}
           >
+            {/* Header: radio + tier + bestseller badge */}
             <div className="flex items-start justify-between gap-3">
               <div className="flex items-center gap-2.5">
                 <Radio checked={selectedId === featured.id} purple />
@@ -169,26 +170,26 @@ const Country = () => {
                   {featured.tier}
                 </span>
               </div>
-              <div className="flex flex-col items-end gap-2">
-                <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-[11px] font-bold tracking-wider bg-white/20 text-white backdrop-blur-sm">
-                  <Star className="w-3 h-3" fill="currentColor" strokeWidth={0} />
-                  {t('country.hitSale')}
-                </span>
-              </div>
+              <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-[11px] font-bold tracking-wider bg-white/20 text-white backdrop-blur-sm">
+                <Star className="w-3 h-3" fill="currentColor" strokeWidth={0} />
+                {t('country.hitSale')}
+              </span>
             </div>
 
+            {/* Main: data volume + bonus + total + duration + price */}
             <div className="mt-3 flex items-end justify-between gap-3">
-              <div>
+              <div className="min-w-0">
                 <div className="text-[44px] font-extrabold leading-none tracking-tight">
                   {localizedDataUnit(featured.data, lang)}
-                  {featBonus > 0 && (
-                    <span className="text-[24px] font-bold text-white/90">
-                      {' '}+ {featBonus} {lang === 'ru' ? 'ГБ' : 'GB'} {lang === 'ru' ? 'в подарок' : 'as a bonus'}
-                    </span>
-                  )}
                 </div>
-                <div className="mt-2 text-[15px] text-white/90 font-medium">
-                  {localizedDaysLabel(featured.days, lang)}
+                {featBonus > 0 && (
+                  <div className="mt-1.5 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/15 text-white text-[12px] font-semibold">
+                    <Gift className="w-3 h-3" strokeWidth={2.4} />
+                    +{featBonus} {lang === 'ru' ? 'ГБ' : 'GB'} {lang === 'ru' ? 'в подарок' : 'as a bonus'}
+                  </div>
+                )}
+                <div className="mt-2 text-[14px] text-white/85 font-medium">
+                  {t('country.total')} {gbNumber(featured.data) + featBonus} {lang === 'ru' ? 'ГБ' : 'GB'} · {localizedDaysLabel(featured.days, lang)}
                 </div>
               </div>
               <div className="text-[19px] font-extrabold leading-none tracking-tight whitespace-nowrap pb-1">
@@ -196,23 +197,27 @@ const Country = () => {
               </div>
             </div>
 
-            {featBonus > 0 && (
-              <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/15 text-white text-[13px] font-semibold">
-                <Gift className="w-3.5 h-3.5" strokeWidth={2.4} />
-                {giftText(featBonus)}
+            {/* Benefit breakdown panel */}
+            <div className="mt-4 rounded-2xl bg-white/10 p-3.5">
+              <div className="flex items-center justify-between gap-2">
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-[18px] font-extrabold">
+                    €{(featured.price / gbNumber(featured.data)).toFixed(2)}
+                  </span>
+                  <span className="text-[11px] font-medium text-white/70">{t('country.perGb')}</span>
+                  <span className="text-[12px] font-medium text-white/45 line-through ml-1">
+                    €{(base.price / gbNumber(base.data)).toFixed(2)}
+                  </span>
+                </div>
+                <div className="text-[15px] font-extrabold whitespace-nowrap">
+                  {t('country.savings')} {featSavings}%
+                </div>
               </div>
-            )}
-
-            {/* Savings bar */}
-            <div className="mt-4 flex items-center gap-3">
-              <div className="flex-1 h-1.5 rounded-full bg-white/25 overflow-hidden">
+              <div className="mt-2.5 h-1.5 rounded-full bg-white/20 overflow-hidden">
                 <div
                   className="h-full rounded-full bg-white"
                   style={{ width: `${Math.max(0, Math.min(100, featSavings))}%` }}
                 />
-              </div>
-              <div className="text-[13px] font-bold text-white whitespace-nowrap">
-                {t('country.savings')} {featSavings}%
               </div>
             </div>
           </button>

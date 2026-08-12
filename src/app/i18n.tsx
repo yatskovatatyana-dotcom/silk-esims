@@ -56,6 +56,10 @@ const dict = {
   'country.savings': { ru: 'экономия', en: 'save' },
   'country.giftBonusRu': { ru: 'Начислим {n} ГБ в подарок', en: 'Get {n} GB as a bonus' },
   'country.buy': { ru: 'Купить', en: 'Buy' },
+  'country.total': { ru: 'итого', en: 'total' },
+  'country.perGb': { ru: 'за ГБ', en: 'per GB' },
+  'country.insteadOf': { ru: 'вместо', en: 'instead of' },
+  'country.giftLabel': { ru: 'подарок', en: 'gift' },
 
   // Tiers
   'tier.start': { ru: 'СТАРТОВЫЙ', en: 'STARTER' },
