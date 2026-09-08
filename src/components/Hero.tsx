@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Search, ChevronRight, Tag, Plane, Smartphone, X } from 'lucide-react';
 import heroWide from '@/assets/hero-wide-modern.png.asset.json';
 import heroMobile from '@/assets/hero-mobile-clean.png.asset.json';
-import alternateHero from '@/assets/illustration-heroes.webp';
+import alternateHero from '@/assets/illustration-heroes-legs.webp';
 import Flag from '@/components/Flag';
 import { heroCountries, heroChipSlugs, type HeroCountry } from '@/data/heroCountries';
 
