@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Search, ChevronRight, Tag, Plane, Smartphone, X } from 'lucide-react';
 import heroWide from '@/assets/hero-wide-modern.png.asset.json';
 import heroMobile from '@/assets/hero-mobile-clean.png.asset.json';
-import alternateHero from '@/assets/illustration-heroes.png.asset.json';
+import alternateHero from '@/assets/illustration-heroes.webp';
 import Flag from '@/components/Flag';
 import { heroCountries, heroChipSlugs, type HeroCountry } from '@/data/heroCountries';
 
@@ -79,7 +79,7 @@ const Hero = ({ variant = 'current' }: HeroProps) => {
       <div aria-hidden className="absolute inset-0 bg-foreground">
         {variant === 'alternate' ? (
           <img
-            src={alternateHero.url}
+            src={alternateHero}
             alt=""
             className="h-full w-full object-contain object-bottom md:object-cover md:object-center"
             width={1536}
