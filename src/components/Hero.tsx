@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Search, ChevronRight, Tag, Plane, Smartphone, X } from 'lucide-react';
-import heroBeach from '@/assets/hero-splash.png.asset.json';
+import heroWide from '@/assets/hero-wide-modern.png.asset.json';
+import heroMobile from '@/assets/hero-mobile-clean.png.asset.json';
 import Flag from '@/components/Flag';
 import { heroCountries, heroChipSlugs, type HeroCountry } from '@/data/heroCountries';
 
@@ -69,17 +70,20 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen overflow-hidden pt-24 md:pt-28 pb-8">
-      {/* Full-bleed background image */}
+      {/* Responsive artwork: each format keeps both travellers fully visible. */}
       <div aria-hidden className="absolute inset-0">
-        <img
-          src={heroBeach.url}
-          alt=""
-          className="w-full h-full object-cover object-[center_75%]"
-          width={1920}
-          height={1280}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/20" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-black/60" />
+        <picture>
+          <source media="(min-width: 768px)" srcSet={heroWide.url} />
+          <img
+            src={heroMobile.url}
+            alt=""
+            className="h-full w-full object-cover object-center"
+            width={960}
+            height={1920}
+          />
+        </picture>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-black/50" />
       </div>
 
       <div className="container relative mx-auto max-w-7xl">
