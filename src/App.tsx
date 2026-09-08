@@ -9,6 +9,7 @@ import Legal from "./pages/Legal";
 import Login from "./pages/Login";
 import Mockups from "./pages/Mockups";
 import HeroAlternate from "./pages/HeroAlternate";
+import HeroCompare from "./pages/HeroCompare";
 
 import { AppStoreProvider } from "./app/store";
 import { I18nProvider } from "./app/i18n";
@@ -41,6 +42,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/hero-2" element={<HeroAlternate />} />
+            <Route path="/hero-compare" element={<HeroCompare />} />
             <Route path="/legal" element={<Legal />} />
             <Route path="/login" element={<Login />} />
             <Route path="/mockups" element={<Mockups />} />
