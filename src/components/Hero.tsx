@@ -3,10 +3,15 @@ import { useTranslation } from 'react-i18next';
 import { Search, ChevronRight, Tag, Plane, Smartphone, X } from 'lucide-react';
 import heroWide from '@/assets/hero-wide-modern.png.asset.json';
 import heroMobile from '@/assets/hero-mobile-clean.png.asset.json';
+import alternateHero from '@/assets/illustration-heroes.webp';
 import Flag from '@/components/Flag';
 import { heroCountries, heroChipSlugs, type HeroCountry } from '@/data/heroCountries';
 
-const Hero = () => {
+type HeroProps = {
+  variant?: 'current' | 'alternate';
+};
+
+const Hero = ({ variant = 'current' }: HeroProps) => {
   const { t, i18n } = useTranslation();
   const lang = (i18n.language === 'ru' ? 'ru' : 'en') as 'ru' | 'en';
 
@@ -71,17 +76,27 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen overflow-hidden pt-24 md:pt-28 pb-8">
       {/* Responsive artwork: each format keeps both travellers fully visible. */}
-      <div aria-hidden className="absolute inset-0">
-        <picture>
-          <source media="(min-width: 768px)" srcSet={heroWide.url} />
+      <div aria-hidden className="absolute inset-0 bg-foreground">
+        {variant === 'alternate' ? (
           <img
-            src={heroMobile.url}
+            src={alternateHero}
             alt=""
-            className="h-full w-full object-cover object-center"
-            width={960}
-            height={1920}
+            className="h-full w-full object-cover object-[64%_center] md:object-center"
+            width={1536}
+            height={1024}
           />
-        </picture>
+        ) : (
+          <picture>
+            <source media="(min-width: 768px)" srcSet={heroWide.url} />
+            <img
+              src={heroMobile.url}
+              alt=""
+              className="h-full w-full object-cover object-center"
+              width={960}
+              height={1920}
+            />
+          </picture>
+        )}
         <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-black/50" />
       </div>
