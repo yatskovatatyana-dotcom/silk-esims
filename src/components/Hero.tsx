@@ -80,7 +80,6 @@ const Hero = () => {
             className="h-full w-full object-cover object-center"
             width={960}
             height={1920}
-            fetchpriority="high"
           />
         </picture>
         <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-transparent" />
