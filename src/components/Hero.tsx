@@ -81,7 +81,7 @@ const Hero = ({ variant = 'current' }: HeroProps) => {
           <img
             src={alternateHero}
             alt=""
-            className="h-full w-full object-contain object-bottom md:object-cover md:object-center"
+            className="h-full w-full object-cover object-[64%_center] md:object-center"
             width={1536}
             height={1024}
           />
