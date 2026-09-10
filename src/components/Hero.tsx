@@ -75,13 +75,13 @@ const Hero = (_props: HeroProps) => {
   );
 
   return (
-    <section className="relative overflow-hidden pb-8 bg-[#2b2fd4]">
+    <section className="relative overflow-hidden bg-primary md:h-[100svh] md:min-h-[640px]">
       {/* Hero artwork: clean banner, headline and search rendered on top */}
-      <div className="relative">
+      <div className="relative md:h-full">
         <img
           src={heroBanner}
           alt="Silk eSIM — One eSIM for every trip"
-          className="block w-full h-auto md:h-[calc(100svh-4.5rem)] md:object-cover md:object-bottom"
+          className="block w-full h-auto md:absolute md:inset-0 md:h-full md:w-full md:object-contain md:object-right-top"
           width={1536}
           height={1024}
         />
