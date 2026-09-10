@@ -147,9 +147,9 @@ const Hero = (_props: HeroProps) => {
         <div className="absolute inset-0">
           <div
             className="container mx-auto max-w-7xl h-full px-6"
-            style={{ fontSize: 'clamp(12px, 1.35vw, 20px)' }}
+            style={{ fontSize: 'clamp(12px, 1.5vw, 24px)' }}
           >
-            <div className="pt-[15.5em] w-[42%] max-w-[25em]">
+            <div className="pt-[11em] w-[42%] max-w-[25em] flex flex-col h-full">
               <h1 className="text-white font-extrabold leading-[1.05] tracking-tight text-[2.6em] drop-shadow-[0_2px_12px_rgba(20,16,80,0.45)]">
                 {t('heroNew.line1')}{' '}
                 <span className="block text-[#e9b4ff]">
@@ -160,9 +160,9 @@ const Hero = (_props: HeroProps) => {
                 {t('heroNew.subtitleA')} {t('heroNew.subtitleB')}
               </p>
 
-              <div className="mt-[0.8em]">{searchField}</div>
+              <div className="mt-auto pt-[1.2em]">{searchField}</div>
 
-              <div className="mt-[0.7em]">{tilesCard}</div>
+              <div className="mt-[0.7em] pb-[1.5em]">{tilesCard}</div>
             </div>
           </div>
         </div>
