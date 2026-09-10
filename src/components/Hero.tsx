@@ -1,9 +1,7 @@
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Search, ChevronRight, Tag, Plane, Smartphone, X } from 'lucide-react';
-import heroWide from '@/assets/hero-wide-modern.png.asset.json';
-import heroMobile from '@/assets/hero-mobile-clean.png.asset.json';
-import alternateHero from '@/assets/illustration-heroes-matching-legs.webp';
+import { Search, ChevronRight, X } from 'lucide-react';
+import heroBanner from '@/assets/hero-main-banner.png.asset.json';
 import Flag from '@/components/Flag';
 import { heroCountries, heroChipSlugs, type HeroCountry } from '@/data/heroCountries';
 
@@ -11,7 +9,7 @@ type HeroProps = {
   variant?: 'current' | 'alternate';
 };
 
-const Hero = ({ variant = 'current' }: HeroProps) => {
+const Hero = (_props: HeroProps) => {
   const { t, i18n } = useTranslation();
   const lang = (i18n.language === 'ru' ? 'ru' : 'en') as 'ru' | 'en';
 
