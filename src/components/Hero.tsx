@@ -82,8 +82,8 @@ const Hero = (_props: HeroProps) => {
           src={heroBanner}
           alt="Silk eSIM — One eSIM for every trip"
           className="block h-auto w-full md:-mt-[130px]"
-          width={1508}
-          height={848}
+          width={1376}
+          height={768}
         />
 
         {/* Overlay: compact headline top-left, search field under it, next to the heroes */}
