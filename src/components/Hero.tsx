@@ -106,30 +106,34 @@ const Hero = (_props: HeroProps) => {
 
   return (
     <section className="relative overflow-hidden bg-primary">
-      {/* ---------- Mobile: stacked, no text over the artwork ---------- */}
-      <div className="md:hidden" style={{ fontSize: '16px' }}>
-        <div className="container mx-auto max-w-xl px-4 pt-24">
-          <h1 className="text-white font-extrabold leading-[1.05] tracking-tight text-[2.15em]">
-            {t('heroNew.line1')}{' '}
-            <span className="block text-[#e9b4ff]">
-              {t('heroNew.line2a')} {t('heroNew.line2b')}
-            </span>
-          </h1>
-          <p className="mt-2 text-white/85 font-medium text-[0.95em]">
-            {t('heroNew.subtitleA')} {t('heroNew.subtitleB')}
-          </p>
+      {/* ---------- Mobile: unified artwork and compact destination panel ---------- */}
+      <div className="md:hidden">
+        <div className="relative h-[310px] min-[420px]:h-[330px] overflow-hidden">
+          <img
+            src={heroBanner}
+            alt="Silk eSIM — One eSIM for every trip"
+            className="absolute inset-0 block h-full w-full object-cover object-[68%_center]"
+            width={1376}
+            height={768}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/35 via-primary/5 to-transparent" />
+          <div className="absolute inset-x-0 top-0 mx-auto max-w-xl px-4 pt-[88px]">
+            <div className="w-[58%] max-w-[220px]">
+              <h1 className="text-primary-foreground font-extrabold leading-[1.06] text-[30px] drop-shadow-[0_2px_10px_hsl(var(--foreground)/0.3)]">
+                {t('heroNew.line1')}{' '}
+                <span className="block text-primary-foreground/90">
+                  {t('heroNew.line2a')} {t('heroNew.line2b')}
+                </span>
+              </h1>
+              <p className="mt-2 text-primary-foreground/90 font-medium text-[12px] leading-snug drop-shadow-[0_1px_6px_hsl(var(--foreground)/0.35)]">
+                {t('heroNew.subtitleA')} {t('heroNew.subtitleB')}
+              </p>
+            </div>
+          </div>
         </div>
 
-        <img
-          src={heroBanner}
-          alt="Silk eSIM — One eSIM for every trip"
-          className="mt-5 block w-full aspect-[16/9] object-cover object-[72%_78%]"
-          width={1376}
-          height={768}
-        />
-
-        <div className="container mx-auto max-w-xl px-4 -mt-5 relative pb-8">
-          <div className="mb-3">{searchField}</div>
+        <div className="relative z-10 mx-auto max-w-xl px-3 -mt-3 pb-4" style={{ fontSize: '14px' }}>
+          <div className="mb-2">{searchField}</div>
           {tilesCard}
         </div>
       </div>
