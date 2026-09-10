@@ -90,9 +90,9 @@ const Hero = (_props: HeroProps) => {
         <div className="absolute inset-0">
           <div
             className="container mx-auto max-w-7xl h-full px-4 md:px-6"
-            style={{ fontSize: 'clamp(9px, 1.05vw, 15px)' }}
+            style={{ fontSize: 'clamp(11px, 1.05vw, 15px)' }}
           >
-            <div className="pt-[6%] md:pt-[4.5%] w-[68%] md:w-[42%] max-w-[26em]">
+            <div className="pt-[22%] sm:pt-[14%] md:pt-[7%] w-[68%] md:w-[42%] max-w-[26em]">
               <h1 className="text-white font-extrabold leading-[1.05] tracking-tight text-[2.6em] drop-shadow-[0_2px_12px_rgba(20,16,80,0.45)]">
                 {t('heroNew.line1')}{' '}
                 <span className="block text-[#e9b4ff]">
