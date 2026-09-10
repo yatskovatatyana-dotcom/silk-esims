@@ -118,7 +118,6 @@ const Hero = (_props: HeroProps) => {
           <p className="mt-2 text-white/85 font-medium text-[0.95em]">
             {t('heroNew.subtitleA')} {t('heroNew.subtitleB')}
           </p>
-          <div className="mt-4">{searchField}</div>
         </div>
 
         <img
@@ -130,6 +129,7 @@ const Hero = (_props: HeroProps) => {
         />
 
         <div className="container mx-auto max-w-xl px-4 -mt-5 relative pb-8">
+          <div className="mb-3">{searchField}</div>
           {tilesCard}
         </div>
       </div>
