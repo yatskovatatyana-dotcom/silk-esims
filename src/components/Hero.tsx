@@ -92,7 +92,7 @@ const Hero = (_props: HeroProps) => {
             className="container mx-auto max-w-7xl h-full px-4 md:px-6"
             style={{ fontSize: 'clamp(12px, 1.5vw, 24px)' }}
           >
-            <div className="pt-[22%] sm:pt-[14%] md:pt-[7%] w-[68%] md:w-[42%] max-w-[26em]">
+            <div className="pt-[22%] sm:pt-[14%] md:pt-[5.5em] w-[68%] md:w-[42%] max-w-[26em]">
               <h1 className="text-white font-extrabold leading-[1.05] tracking-tight text-[2.6em] drop-shadow-[0_2px_12px_rgba(20,16,80,0.45)]">
                 {t('heroNew.line1')}{' '}
                 <span className="block text-[#e9b4ff]">
