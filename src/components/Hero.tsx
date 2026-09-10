@@ -133,7 +133,7 @@ const Hero = (_props: HeroProps) => {
               </div>
 
               {/* Compact country tiles card under the search — desktop, over the banner */}
-              <div className="hidden md:block mt-4 max-w-sm">
+              <div className="hidden md:block mt-[1em]">
                 {tilesCard}
               </div>
             </div>
@@ -142,7 +142,7 @@ const Hero = (_props: HeroProps) => {
       </div>
 
       {/* Mobile: card flows right below the banner */}
-      <div className="md:hidden container relative mx-auto max-w-7xl px-4">
+      <div className="md:hidden container relative mx-auto max-w-7xl px-4" style={{ fontSize: '15px' }}>
         <div className="-mt-8">
           {tilesCard}
         </div>
