@@ -50,8 +50,8 @@ const Hero = (_props: HeroProps) => {
       />
 
       <div className="container relative mx-auto max-w-7xl">
-        {/* White search + tiles card */}
-        <div className="mt-10 md:mt-14 max-w-4xl rounded-3xl bg-white shadow-elegant p-4 md:p-6">
+        {/* White search + tiles card, overlapping the banner */}
+        <div className="-mt-16 md:-mt-32 max-w-4xl rounded-3xl bg-white shadow-elegant p-4 md:p-6">
           {/* Search bar */}
           <div className="relative">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/40" />
