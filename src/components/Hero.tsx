@@ -35,6 +35,45 @@ const Hero = (_props: HeroProps) => {
 
   const active = heroCountries.find((c) => c.slug === activeSlug) ?? heroCountries[0];
 
+  const tilesCard = (
+    <div className="rounded-2xl bg-white shadow-elegant p-3 md:p-4">
+      <div className="grid grid-cols-2 gap-2">
+        {chips.map((c) => {
+          const isActive = c.slug === activeSlug;
+          const from = c.plans[0]?.price;
+          const flagKey = (c.slug === 'global' ? 'global' : c.slug) as Parameters<typeof Flag>[0]['country'];
+          return (
+            <button
+              key={c.slug}
+              onClick={() => setActiveSlug(isActive ? '' : c.slug)}
+              className={`flex items-center gap-2 rounded-xl border px-2.5 py-2 text-left transition-all hover:-translate-y-0.5 hover:shadow-soft ${
+                isActive ? 'border-secondary bg-secondary/5' : 'border-border bg-card'
+              }`}
+            >
+              <Flag country={flagKey} className="w-7 h-7 shrink-0" />
+              <div className="min-w-0">
+                <div className="text-[13px] font-bold text-foreground truncate leading-tight">
+                  {c.name[lang]}
+                </div>
+                <div className="text-[10px] text-foreground/60 font-medium whitespace-nowrap">
+                  {t('heroSearch.fromPrice')} {from}
+                </div>
+              </div>
+            </button>
+          );
+        })}
+      </div>
+
+      <button
+        onClick={() => window.location.href = tariffUrl}
+        className="mt-2.5 w-full inline-flex items-center justify-center gap-1.5 h-10 rounded-full bg-secondary text-secondary-foreground font-semibold text-[13px] hover:bg-secondary/90 transition-colors"
+      >
+        {t('heroSearch.moreDestinations')}
+        <ChevronRight className="w-4 h-4" />
+      </button>
+    </div>
+  );
+
   return (
     <section className="relative overflow-hidden pb-8 bg-[#2b2fd4]">
       {/* Hero artwork: clean banner, headline and search rendered on top */}
