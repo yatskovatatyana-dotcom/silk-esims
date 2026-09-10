@@ -36,23 +36,18 @@ const Hero = (_props: HeroProps) => {
   const active = heroCountries.find((c) => c.slug === activeSlug) ?? heroCountries[0];
 
   return (
-    <section className="relative min-h-screen overflow-hidden pb-8">
+    <section className="relative overflow-hidden pb-8 bg-[#2b2fd4]">
       <h1 className="sr-only">
         Silk eSIM — {t('heroNew.line1')} {t('heroNew.line2a')} {t('heroNew.line2b')}
       </h1>
-      {/* Hero artwork: brand name, headline and subline are baked into the banner. */}
-      <div aria-hidden className="absolute inset-0 bg-[#2b2fd4]">
-        <img
-          src={heroBanner.url}
-          alt=""
-          className="h-full w-full object-cover object-center"
-          width={1536}
-          height={1024}
-        />
-      </div>
-
-      {/* Spacer keeps the baked-in headline fully visible above the card. */}
-      <div className="relative h-[56vw] max-h-[62vh] min-h-[300px]" />
+      {/* Hero artwork: full-width banner, brand name and headline are baked in. */}
+      <img
+        src={heroBanner.url}
+        alt="Silk eSIM — One eSIM for every trip"
+        className="block w-full h-auto"
+        width={1536}
+        height={1024}
+      />
 
       <div className="container relative mx-auto max-w-7xl">
         {/* White search + tiles card */}
