@@ -142,8 +142,8 @@ const Hero = (_props: HeroProps) => {
       </div>
 
       {/* Mobile: card flows right below the banner */}
-      <div className="md:hidden container relative mx-auto max-w-7xl px-4" style={{ fontSize: '15px' }}>
-        <div className="-mt-8">
+      <div className="md:hidden container relative mx-auto max-w-7xl px-4 pb-6" style={{ fontSize: '15px' }}>
+        <div className="mt-4">
           {tilesCard}
         </div>
       </div>
