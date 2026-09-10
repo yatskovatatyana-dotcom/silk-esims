@@ -124,12 +124,12 @@ const Hero = (_props: HeroProps) => {
         <img
           src={heroBanner}
           alt="Silk eSIM — One eSIM for every trip"
-          className="mt-5 block w-full aspect-[16/9] object-cover object-[72%_bottom]"
+          className="mt-5 block w-full aspect-[16/9] object-cover object-[72%_78%]"
           width={1376}
           height={768}
         />
 
-        <div className="container mx-auto max-w-xl px-4 -mt-8 relative pb-8">
+        <div className="container mx-auto max-w-xl px-4 -mt-5 relative pb-8">
           {tilesCard}
         </div>
       </div>
