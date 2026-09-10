@@ -160,9 +160,9 @@ const Hero = (_props: HeroProps) => {
                 {t('heroNew.subtitleA')} {t('heroNew.subtitleB')}
               </p>
 
-              <div className="mt-[0.8em]">{searchField}</div>
+              <div className="mt-auto pt-[1.2em]">{searchField}</div>
 
-              <div className="mt-[0.7em]">{tilesCard}</div>
+              <div className="mt-[0.7em] pb-[1.5em]">{tilesCard}</div>
             </div>
           </div>
         </div>
