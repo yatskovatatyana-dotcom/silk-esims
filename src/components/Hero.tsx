@@ -88,27 +88,30 @@ const Hero = (_props: HeroProps) => {
 
         {/* Overlay: compact headline top-left, search field under it, next to the heroes */}
         <div className="absolute inset-0">
-          <div className="container mx-auto max-w-7xl h-full px-4 md:px-6">
-            <div className="pt-[24%] sm:pt-[14%] md:pt-[5%] max-w-[68%] md:max-w-[46%]">
-              <h1 className="text-white font-extrabold leading-[1.05] tracking-tight text-xl sm:text-3xl md:text-4xl lg:text-5xl drop-shadow-[0_2px_12px_rgba(20,16,80,0.45)]">
+          <div
+            className="container mx-auto max-w-7xl h-full px-4 md:px-6"
+            style={{ fontSize: 'clamp(9px, 1.05vw, 15px)' }}
+          >
+            <div className="pt-[6%] md:pt-[4.5%] w-[68%] md:w-[42%] max-w-[26em]">
+              <h1 className="text-white font-extrabold leading-[1.05] tracking-tight text-[2.6em] drop-shadow-[0_2px_12px_rgba(20,16,80,0.45)]">
                 {t('heroNew.line1')}{' '}
                 <span className="block text-[#e9b4ff]">
                   {t('heroNew.line2a')} {t('heroNew.line2b')}
                 </span>
               </h1>
-              <p className="mt-1.5 md:mt-3 text-white/90 font-medium text-[11px] sm:text-sm md:text-base drop-shadow-[0_1px_8px_rgba(20,16,80,0.5)]">
+              <p className="mt-[0.5em] text-white/90 font-medium text-[0.95em] drop-shadow-[0_1px_8px_rgba(20,16,80,0.5)]">
                 {t('heroNew.subtitleA')} {t('heroNew.subtitleB')}
               </p>
 
               {/* Search bar right under the headline */}
-              <div className="relative mt-3 md:mt-5 max-w-md">
-                <Search className="absolute left-3.5 md:left-4 top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 text-foreground/40" />
+              <div className="relative mt-[1.1em]">
+                <Search className="absolute left-[0.9em] top-1/2 -translate-y-1/2 w-[1.1em] h-[1.1em] text-foreground/40" />
                 <input
                   type="text"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder={t('heroSearch.placeholder')}
-                  className="w-full h-10 md:h-12 pl-10 md:pl-12 pr-4 rounded-full bg-white text-foreground text-sm md:text-base font-medium placeholder:text-foreground/40 shadow-elegant focus:outline-none focus:ring-2 focus:ring-secondary/40"
+                  className="w-full h-[2.9em] pl-[2.6em] pr-[1em] rounded-full bg-white text-foreground text-[0.95em] font-medium placeholder:text-foreground/40 shadow-elegant focus:outline-none focus:ring-2 focus:ring-secondary/40"
                 />
                 {query && suggestions.length > 0 && (
                   <div className="absolute left-0 right-0 top-full mt-2 rounded-2xl bg-white border border-border shadow-elegant overflow-hidden z-20">
