@@ -50,7 +50,7 @@ const Hero = (_props: HeroProps) => {
         {/* Overlay: compact headline top-left, search field under it, next to the heroes */}
         <div className="absolute inset-0">
           <div className="container mx-auto max-w-7xl h-full px-4 md:px-6">
-            <div className="pt-[4%] md:pt-[5%] max-w-[62%] md:max-w-[46%]">
+            <div className="pt-[24%] sm:pt-[14%] md:pt-[5%] max-w-[68%] md:max-w-[46%]">
               <h1 className="text-white font-extrabold leading-[1.05] tracking-tight text-xl sm:text-3xl md:text-4xl lg:text-5xl drop-shadow-[0_2px_12px_rgba(20,16,80,0.45)]">
                 {t('heroNew.line1')}{' '}
                 <span className="block text-[#e9b4ff]">
