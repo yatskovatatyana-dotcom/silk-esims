@@ -30,7 +30,11 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between h-20">
-        <a href="/" className="flex items-center gap-2" aria-label="Silk eSIM home" />
+        <a href="/" className="flex items-center gap-2">
+          <span className={`text-xl font-bold tracking-tight ${scrolled ? 'text-foreground' : 'text-white'}`}>
+            Silk eSIM
+          </span>
+        </a>
 
         <nav className="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
           {nav.map((n) => (
