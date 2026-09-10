@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Search, ChevronRight, X } from 'lucide-react';
-import heroBanner from '@/assets/hero-banner-clean.png';
+import heroBanner from '@/assets/hero-banner-wide.png';
 import Flag from '@/components/Flag';
 import { heroCountries, heroChipSlugs, type HeroCountry } from '@/data/heroCountries';
 
@@ -81,9 +81,9 @@ const Hero = (_props: HeroProps) => {
         <img
           src={heroBanner}
           alt="Silk eSIM — One eSIM for every trip"
-          className="block w-full h-auto md:absolute md:inset-y-0 md:right-0 md:h-full md:w-auto md:max-w-none md:object-contain md:object-right-top"
-          width={1536}
-          height={1024}
+          className="block w-full h-auto md:absolute md:inset-0 md:h-full md:w-full md:object-contain md:object-center"
+          width={1508}
+          height={848}
         />
 
         {/* Overlay: compact headline top-left, search field under it, next to the heroes */}
