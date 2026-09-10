@@ -81,7 +81,7 @@ const Hero = (_props: HeroProps) => {
         <img
           src={heroBanner}
           alt="Silk eSIM — One eSIM for every trip"
-          className="block w-full h-auto md:absolute md:inset-0 md:h-full md:w-full md:object-contain md:object-right-top"
+          className="block w-full h-auto md:absolute md:inset-0 md:h-full md:w-full md:object-cover md:object-top"
           width={1536}
           height={1024}
         />
