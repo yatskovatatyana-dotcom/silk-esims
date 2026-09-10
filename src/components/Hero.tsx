@@ -36,8 +36,8 @@ const Hero = (_props: HeroProps) => {
   const active = heroCountries.find((c) => c.slug === activeSlug) ?? heroCountries[0];
 
   const tilesCard = (
-    <div className="rounded-2xl bg-white shadow-elegant p-3 md:p-4">
-      <div className="grid grid-cols-2 gap-2">
+    <div className="rounded-[1.1em] bg-white shadow-elegant p-[0.75em]">
+      <div className="grid grid-cols-2 gap-[0.5em]">
         {chips.map((c) => {
           const isActive = c.slug === activeSlug;
           const from = c.plans[0]?.price;
@@ -46,16 +46,16 @@ const Hero = (_props: HeroProps) => {
             <button
               key={c.slug}
               onClick={() => setActiveSlug(isActive ? '' : c.slug)}
-              className={`flex items-center gap-2 rounded-xl border px-2.5 py-2 text-left transition-all hover:-translate-y-0.5 hover:shadow-soft ${
+              className={`flex items-center gap-[0.5em] rounded-[0.8em] border px-[0.6em] py-[0.5em] text-left transition-all hover:-translate-y-0.5 hover:shadow-soft ${
                 isActive ? 'border-secondary bg-secondary/5' : 'border-border bg-card'
               }`}
             >
-              <Flag country={flagKey} className="w-7 h-7 shrink-0" />
+              <Flag country={flagKey} className="w-[1.75em] h-[1.75em] shrink-0" />
               <div className="min-w-0">
-                <div className="text-[13px] font-bold text-foreground truncate leading-tight">
+                <div className="text-[0.85em] font-bold text-foreground truncate leading-tight">
                   {c.name[lang]}
                 </div>
-                <div className="text-[10px] text-foreground/60 font-medium whitespace-nowrap">
+                <div className="text-[0.68em] text-foreground/60 font-medium whitespace-nowrap">
                   {t('heroSearch.fromPrice')} {from}
                 </div>
               </div>
@@ -66,10 +66,10 @@ const Hero = (_props: HeroProps) => {
 
       <button
         onClick={() => window.location.href = tariffUrl}
-        className="mt-2.5 w-full inline-flex items-center justify-center gap-1.5 h-10 rounded-full bg-secondary text-secondary-foreground font-semibold text-[13px] hover:bg-secondary/90 transition-colors"
+        className="mt-[0.6em] w-full inline-flex items-center justify-center gap-[0.35em] h-[2.5em] rounded-full bg-secondary text-secondary-foreground font-semibold text-[0.85em] hover:bg-secondary/90 transition-colors"
       >
         {t('heroSearch.moreDestinations')}
-        <ChevronRight className="w-4 h-4" />
+        <ChevronRight className="w-[1.1em] h-[1.1em]" />
       </button>
     </div>
   );
