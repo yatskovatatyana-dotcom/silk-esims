@@ -37,6 +37,9 @@ const Hero = (_props: HeroProps) => {
 
   return (
     <section className="relative min-h-screen overflow-hidden pb-8">
+      <h1 className="sr-only">
+        Silk eSIM — {t('heroNew.line1')} {t('heroNew.line2a')} {t('heroNew.line2b')}
+      </h1>
       {/* Hero artwork: brand name, headline and subline are baked into the banner. */}
       <div aria-hidden className="absolute inset-0 bg-[#2b2fd4]">
         <img
