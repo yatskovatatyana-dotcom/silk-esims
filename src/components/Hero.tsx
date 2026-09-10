@@ -1,9 +1,7 @@
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Search, ChevronRight, Tag, Plane, Smartphone, X } from 'lucide-react';
-import heroWide from '@/assets/hero-wide-modern.png.asset.json';
-import heroMobile from '@/assets/hero-mobile-clean.png.asset.json';
-import alternateHero from '@/assets/illustration-heroes-matching-legs.webp';
+import { Search, ChevronRight, X } from 'lucide-react';
+import heroBanner from '@/assets/hero-main-banner.png.asset.json';
 import Flag from '@/components/Flag';
 import { heroCountries, heroChipSlugs, type HeroCountry } from '@/data/heroCountries';
 
@@ -11,7 +9,7 @@ type HeroProps = {
   variant?: 'current' | 'alternate';
 };
 
-const Hero = ({ variant = 'current' }: HeroProps) => {
+const Hero = (_props: HeroProps) => {
   const { t, i18n } = useTranslation();
   const lang = (i18n.language === 'ru' ? 'ru' : 'en') as 'ru' | 'en';
 
@@ -37,101 +35,23 @@ const Hero = ({ variant = 'current' }: HeroProps) => {
 
   const active = heroCountries.find((c) => c.slug === activeSlug) ?? heroCountries[0];
 
-  const features = [
-    { icon: Tag,        title: t('heroFeatures.cheaper.title'), body: t('heroFeatures.cheaper.body') },
-    { icon: Plane,      title: t('heroFeatures.arrive.title'),  body: t('heroFeatures.arrive.body') },
-    { icon: Smartphone, title: t('heroFeatures.keep.title'),    body: t('heroFeatures.keep.body') },
-  ];
-
-  const row1 = chips.slice(0, 4);
-  const row2 = chips.slice(4, 8);
-
-  const CountryTile = ({ c }: { c: HeroCountry }) => {
-    const isActive = c.slug === activeSlug;
-    const from = c.plans[0]?.price;
-    const flagKey = (c.slug === 'global' ? 'global' : c.slug) as Parameters<typeof Flag>[0]['country'];
-    return (
-      <button
-        key={c.slug}
-        onClick={() => setActiveSlug(isActive ? '' : c.slug)}
-        className={`group flex items-center gap-2.5 md:gap-3 pl-2 pr-3 md:pl-3 md:pr-4 py-2 md:py-2.5 rounded-full border transition-all text-left shrink-0 hover:-translate-y-0.5 ${
-          isActive
-            ? 'border-secondary bg-secondary/10'
-            : 'border-white/20 bg-white/10 backdrop-blur-md hover:bg-white/20'
-        }`}
-      >
-        <Flag country={flagKey} />
-        <div className="min-w-0">
-          <div className="text-sm md:text-base font-bold text-white truncate">
-            {c.name[lang]}
-          </div>
-          <div className="text-[11px] md:text-xs text-white/70 font-medium">
-            {t('heroSearch.fromPrice')} {from}
-          </div>
-        </div>
-      </button>
-    );
-  };
-
   return (
-    <section className="relative min-h-screen overflow-hidden pt-24 md:pt-28 pb-8">
-      {/* Responsive artwork: each format keeps both travellers fully visible. */}
-      <div aria-hidden className="absolute inset-0 bg-foreground">
-        {variant === 'alternate' ? (
-          <img
-            src={alternateHero}
-            alt=""
-            className="h-full w-full object-cover object-[64%_center] md:object-center"
-            width={1536}
-            height={1024}
-          />
-        ) : (
-          <picture>
-            <source media="(min-width: 768px)" srcSet={heroWide.url} />
-            <img
-              src={heroMobile.url}
-              alt=""
-              className="h-full w-full object-cover object-center"
-              width={960}
-              height={1920}
-            />
-          </picture>
-        )}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-black/50" />
-      </div>
+    <section className="relative overflow-hidden pb-8 bg-[#2b2fd4]">
+      <h1 className="sr-only">
+        Silk eSIM — {t('heroNew.line1')} {t('heroNew.line2a')} {t('heroNew.line2b')}
+      </h1>
+      {/* Hero artwork: full-width banner, brand name and headline are baked in. */}
+      <img
+        src={heroBanner.url}
+        alt="Silk eSIM — One eSIM for every trip"
+        className="block w-full h-auto"
+        width={1536}
+        height={1024}
+      />
 
       <div className="container relative mx-auto max-w-7xl">
-        {/* Headline + features */}
-        <div className="max-w-2xl">
-          <h1 className="text-white font-bold text-5xl md:text-7xl leading-[0.95] tracking-tight">
-            {t('heroNew.line1')}{' '}
-            <br className="hidden md:block" />
-            {t('heroNew.line2a')}{' '}
-            <span className="text-secondary">{t('heroNew.line2b')}</span>
-          </h1>
-          <p className="mt-6 text-xl md:text-2xl text-white/90 font-medium">
-            {t('heroNew.subtitleA')}{' '}
-            <span className="text-secondary font-semibold">{t('heroNew.subtitleB')}</span>
-          </p>
-
-          <div className="mt-8 md:mt-10 grid grid-cols-3 gap-3 md:gap-6 max-w-2xl">
-            {features.map((f) => (
-              <div key={f.title}>
-                <f.icon className="w-6 h-6 md:w-8 md:h-8 text-secondary" strokeWidth={1.75} />
-                <div className="mt-2 md:mt-3 text-white font-semibold text-xs md:text-base leading-snug">
-                  {f.title}
-                </div>
-                <p className="mt-2 text-sm text-white/70 leading-relaxed hidden md:block">
-                  {f.body}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* White search + tiles card */}
-        <div className="mt-10 md:mt-14 max-w-4xl rounded-3xl bg-white shadow-elegant p-4 md:p-6">
+        {/* White search + tiles card, overlapping the banner */}
+        <div className="-mt-16 md:-mt-32 max-w-4xl rounded-3xl bg-white shadow-elegant p-4 md:p-6">
           {/* Search bar */}
           <div className="relative">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/40" />
