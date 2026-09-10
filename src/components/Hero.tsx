@@ -81,7 +81,7 @@ const Hero = (_props: HeroProps) => {
         <img
           src={heroBanner}
           alt="Silk eSIM — One eSIM for every trip"
-          className="block h-auto w-full"
+          className="block h-auto w-full md:-mt-[130px]"
           width={1508}
           height={848}
         />
@@ -92,7 +92,7 @@ const Hero = (_props: HeroProps) => {
             className="container mx-auto max-w-7xl h-full px-4 md:px-6"
             style={{ fontSize: 'clamp(12px, 1.35vw, 20px)' }}
           >
-            <div className="pt-[12%] sm:pt-[10%] md:pt-[5em] w-[68%] md:w-[42%] max-w-[25em]">
+            <div className="pt-[12%] sm:pt-[10%] md:pt-[15.5em] w-[68%] md:w-[42%] max-w-[25em]">
               <h1 className="text-white font-extrabold leading-[1.05] tracking-tight text-[2.6em] drop-shadow-[0_2px_12px_rgba(20,16,80,0.45)]">
                 {t('heroNew.line1')}{' '}
                 <span className="block text-[#e9b4ff]">
