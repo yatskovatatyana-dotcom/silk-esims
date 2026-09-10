@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Search, ChevronRight, X } from 'lucide-react';
-import heroBanner from '@/assets/hero-main-banner.png.asset.json';
+import heroBanner from '@/assets/hero-banner-clean.png';
 import Flag from '@/components/Flag';
 import { heroCountries, heroChipSlugs, type HeroCountry } from '@/data/heroCountries';
 
@@ -37,52 +37,68 @@ const Hero = (_props: HeroProps) => {
 
   return (
     <section className="relative overflow-hidden pb-8 bg-[#2b2fd4]">
-      <h1 className="sr-only">
-        Silk eSIM — {t('heroNew.line1')} {t('heroNew.line2a')} {t('heroNew.line2b')}
-      </h1>
-      {/* Hero artwork: full-width banner, brand name and headline are baked in. */}
-      <img
-        src={heroBanner.url}
-        alt="Silk eSIM — One eSIM for every trip"
-        className="block w-full h-auto"
-        width={1536}
-        height={1024}
-      />
+      {/* Hero artwork: clean banner, headline and search rendered on top */}
+      <div className="relative">
+        <img
+          src={heroBanner}
+          alt="Silk eSIM — One eSIM for every trip"
+          className="block w-full h-auto"
+          width={1536}
+          height={1024}
+        />
 
-      <div className="container relative mx-auto max-w-7xl">
-        {/* White search + tiles card, overlapping the banner */}
-        <div className="-mt-16 md:-mt-32 max-w-4xl rounded-3xl bg-white shadow-elegant p-4 md:p-6">
-          {/* Search bar */}
-          <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/40" />
-            <input
-              type="text"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder={t('heroSearch.placeholder')}
-              className="w-full h-12 md:h-14 pl-12 pr-4 rounded-full bg-muted text-foreground text-base md:text-lg font-medium placeholder:text-foreground/40 focus:outline-none focus:ring-2 focus:ring-secondary/40"
-            />
-            {query && suggestions.length > 0 && (
-              <div className="absolute left-0 right-0 top-full mt-2 rounded-2xl bg-white border border-border shadow-elegant overflow-hidden z-20">
-                {suggestions.map((s) => {
-                  const flagKey = (s.slug === 'global' ? 'global' : s.slug) as Parameters<typeof Flag>[0]['country'];
-                  return (
-                    <button
-                      key={s.slug}
-                      onClick={() => { setActiveSlug(s.slug); setQuery(''); }}
-                      className="w-full flex items-center gap-3 px-4 py-3 hover:bg-muted text-left transition-colors"
-                    >
-                      <Flag country={flagKey} className="w-6 h-6" />
-                      <span className="font-semibold text-foreground">{s.name[lang]}</span>
-                    </button>
-                  );
-                })}
+        {/* Overlay: compact headline top-left, search field under it, next to the heroes */}
+        <div className="absolute inset-0">
+          <div className="container mx-auto max-w-7xl h-full px-4 md:px-6">
+            <div className="pt-[4%] md:pt-[5%] max-w-[62%] md:max-w-[46%]">
+              <h1 className="text-white font-extrabold leading-[1.05] tracking-tight text-xl sm:text-3xl md:text-4xl lg:text-5xl drop-shadow-[0_2px_12px_rgba(20,16,80,0.45)]">
+                {t('heroNew.line1')}{' '}
+                <span className="block text-[#e9b4ff]">
+                  {t('heroNew.line2a')} {t('heroNew.line2b')}
+                </span>
+              </h1>
+              <p className="mt-1.5 md:mt-3 text-white/90 font-medium text-[11px] sm:text-sm md:text-base drop-shadow-[0_1px_8px_rgba(20,16,80,0.5)]">
+                {t('heroNew.subtitleA')} {t('heroNew.subtitleB')}
+              </p>
+
+              {/* Search bar right under the headline */}
+              <div className="relative mt-3 md:mt-5 max-w-md">
+                <Search className="absolute left-3.5 md:left-4 top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 text-foreground/40" />
+                <input
+                  type="text"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder={t('heroSearch.placeholder')}
+                  className="w-full h-10 md:h-12 pl-10 md:pl-12 pr-4 rounded-full bg-white text-foreground text-sm md:text-base font-medium placeholder:text-foreground/40 shadow-elegant focus:outline-none focus:ring-2 focus:ring-secondary/40"
+                />
+                {query && suggestions.length > 0 && (
+                  <div className="absolute left-0 right-0 top-full mt-2 rounded-2xl bg-white border border-border shadow-elegant overflow-hidden z-20">
+                    {suggestions.map((s) => {
+                      const flagKey = (s.slug === 'global' ? 'global' : s.slug) as Parameters<typeof Flag>[0]['country'];
+                      return (
+                        <button
+                          key={s.slug}
+                          onClick={() => { setActiveSlug(s.slug); setQuery(''); }}
+                          className="w-full flex items-center gap-3 px-4 py-3 hover:bg-muted text-left transition-colors"
+                        >
+                          <Flag country={flagKey} className="w-6 h-6" />
+                          <span className="font-semibold text-foreground">{s.name[lang]}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
-            )}
+            </div>
           </div>
+        </div>
+      </div>
 
+      <div className="container relative mx-auto max-w-7xl px-4 md:px-6">
+        {/* White tiles card, slightly overlapping the banner */}
+        <div className="-mt-10 md:-mt-20 max-w-4xl rounded-3xl bg-white shadow-elegant p-4 md:p-6">
           {/* Country tile grid */}
-          <div className="mt-4 md:mt-5 grid grid-cols-2 md:grid-cols-3 gap-2.5 md:gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-2.5 md:gap-3">
             {chips.map((c) => {
               const isActive = c.slug === activeSlug;
               const from = c.plans[0]?.price;
