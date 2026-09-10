@@ -78,10 +78,17 @@ const Hero = (_props: HeroProps) => {
     <section className="relative overflow-hidden bg-primary md:h-[100svh] md:min-h-[600px]">
       {/* Hero artwork: clean banner, headline and search rendered on top */}
       <div className="relative md:h-full">
+        {/* Desktop edge fill: the full artwork stays undistorted above this layer. */}
+        <img
+          src={heroBanner}
+          alt=""
+          aria-hidden="true"
+          className="hidden md:block absolute inset-0 h-full w-full object-cover"
+        />
         <img
           src={heroBanner}
           alt="Silk eSIM — One eSIM for every trip"
-          className="block w-full h-auto md:absolute md:inset-0 md:h-full md:w-full md:object-contain md:object-center"
+          className="relative block w-full h-auto md:absolute md:inset-0 md:h-full md:w-full md:object-contain md:object-center"
           width={1508}
           height={848}
         />
