@@ -35,6 +35,45 @@ const Hero = (_props: HeroProps) => {
 
   const active = heroCountries.find((c) => c.slug === activeSlug) ?? heroCountries[0];
 
+  const tilesCard = (
+    <div className="rounded-2xl bg-white shadow-elegant p-3 md:p-4">
+      <div className="grid grid-cols-2 gap-2">
+        {chips.map((c) => {
+          const isActive = c.slug === activeSlug;
+          const from = c.plans[0]?.price;
+          const flagKey = (c.slug === 'global' ? 'global' : c.slug) as Parameters<typeof Flag>[0]['country'];
+          return (
+            <button
+              key={c.slug}
+              onClick={() => setActiveSlug(isActive ? '' : c.slug)}
+              className={`flex items-center gap-2 rounded-xl border px-2.5 py-2 text-left transition-all hover:-translate-y-0.5 hover:shadow-soft ${
+                isActive ? 'border-secondary bg-secondary/5' : 'border-border bg-card'
+              }`}
+            >
+              <Flag country={flagKey} className="w-7 h-7 shrink-0" />
+              <div className="min-w-0">
+                <div className="text-[13px] font-bold text-foreground truncate leading-tight">
+                  {c.name[lang]}
+                </div>
+                <div className="text-[10px] text-foreground/60 font-medium whitespace-nowrap">
+                  {t('heroSearch.fromPrice')} {from}
+                </div>
+              </div>
+            </button>
+          );
+        })}
+      </div>
+
+      <button
+        onClick={() => window.location.href = tariffUrl}
+        className="mt-2.5 w-full inline-flex items-center justify-center gap-1.5 h-10 rounded-full bg-secondary text-secondary-foreground font-semibold text-[13px] hover:bg-secondary/90 transition-colors"
+      >
+        {t('heroSearch.moreDestinations')}
+        <ChevronRight className="w-4 h-4" />
+      </button>
+    </div>
+  );
+
   return (
     <section className="relative overflow-hidden pb-8 bg-[#2b2fd4]">
       {/* Hero artwork: clean banner, headline and search rendered on top */}
@@ -89,49 +128,20 @@ const Hero = (_props: HeroProps) => {
                   </div>
                 )}
               </div>
+
+              {/* Compact country tiles card under the search — desktop, over the banner */}
+              <div className="hidden md:block mt-4 max-w-sm">
+                {tilesCard}
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="container relative mx-auto max-w-7xl px-4 md:px-6">
-        {/* White tiles card, slightly overlapping the banner */}
-        <div className="-mt-10 md:-mt-20 max-w-4xl rounded-3xl bg-white shadow-elegant p-4 md:p-6">
-          {/* Country tile grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-2.5 md:gap-3">
-            {chips.map((c) => {
-              const isActive = c.slug === activeSlug;
-              const from = c.plans[0]?.price;
-              const flagKey = (c.slug === 'global' ? 'global' : c.slug) as Parameters<typeof Flag>[0]['country'];
-              return (
-                <button
-                  key={c.slug}
-                  onClick={() => setActiveSlug(isActive ? '' : c.slug)}
-                  className={`flex items-center gap-3 rounded-2xl border px-3 py-3 md:px-4 md:py-3.5 text-left transition-all hover:-translate-y-0.5 hover:shadow-soft ${
-                    isActive ? 'border-secondary bg-secondary/5' : 'border-border bg-card'
-                  }`}
-                >
-                  <Flag country={flagKey} className="w-8 h-8 md:w-9 md:h-9" />
-                  <div className="min-w-0">
-                    <div className="text-sm md:text-base font-bold text-foreground truncate">
-                      {c.name[lang]}
-                    </div>
-                    <div className="text-[11px] md:text-xs text-foreground/60 font-medium">
-                      {t('heroSearch.fromPrice')} {from}
-                    </div>
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-
-          <button
-            onClick={() => window.location.href = tariffUrl}
-            className="mt-4 md:mt-5 w-full inline-flex items-center justify-center gap-2 h-12 md:h-14 rounded-full bg-secondary text-secondary-foreground font-semibold text-sm md:text-base hover:bg-secondary/90 transition-colors"
-          >
-            {t('heroSearch.moreDestinations')}
-            <ChevronRight className="w-4 h-4" />
-          </button>
+      {/* Mobile: card flows right below the banner */}
+      <div className="md:hidden container relative mx-auto max-w-7xl px-4">
+        <div className="-mt-8">
+          {tilesCard}
         </div>
       </div>
 
