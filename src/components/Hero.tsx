@@ -74,25 +74,82 @@ const Hero = (_props: HeroProps) => {
     </div>
   );
 
+  const searchField = (
+    <div className="relative">
+      <Search className="absolute left-[0.9em] top-1/2 -translate-y-1/2 w-[1.1em] h-[1.1em] text-foreground/40" />
+      <input
+        type="text"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder={t('heroSearch.placeholder')}
+        className="w-full h-[2.9em] pl-[2.6em] pr-[1em] rounded-full bg-white text-foreground text-[0.95em] font-medium placeholder:text-foreground/40 shadow-elegant focus:outline-none focus:ring-2 focus:ring-secondary/40"
+      />
+      {query && suggestions.length > 0 && (
+        <div className="absolute left-0 right-0 top-full mt-2 rounded-2xl bg-white border border-border shadow-elegant overflow-hidden z-20">
+          {suggestions.map((s) => {
+            const flagKey = (s.slug === 'global' ? 'global' : s.slug) as Parameters<typeof Flag>[0]['country'];
+            return (
+              <button
+                key={s.slug}
+                onClick={() => { setActiveSlug(s.slug); setQuery(''); }}
+                className="w-full flex items-center gap-3 px-4 py-3 hover:bg-muted text-left transition-colors"
+              >
+                <Flag country={flagKey} className="w-6 h-6" />
+                <span className="font-semibold text-foreground">{s.name[lang]}</span>
+              </button>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+
   return (
     <section className="relative overflow-hidden bg-primary">
-      {/* Hero artwork: clean banner, headline and search rendered on top */}
-      <div className="relative">
+      {/* ---------- Mobile: stacked, no text over the artwork ---------- */}
+      <div className="md:hidden" style={{ fontSize: '16px' }}>
+        <div className="container mx-auto max-w-xl px-4 pt-24">
+          <h1 className="text-white font-extrabold leading-[1.05] tracking-tight text-[2.15em]">
+            {t('heroNew.line1')}{' '}
+            <span className="block text-[#e9b4ff]">
+              {t('heroNew.line2a')} {t('heroNew.line2b')}
+            </span>
+          </h1>
+          <p className="mt-2 text-white/85 font-medium text-[0.95em]">
+            {t('heroNew.subtitleA')} {t('heroNew.subtitleB')}
+          </p>
+          <div className="mt-4">{searchField}</div>
+        </div>
+
         <img
           src={heroBanner}
           alt="Silk eSIM — One eSIM for every trip"
-          className="block h-auto w-full md:-mt-[130px]"
+          className="mt-5 block w-full aspect-[16/9] object-cover object-[72%_78%]"
           width={1376}
           height={768}
         />
 
-        {/* Overlay: compact headline top-left, search field under it, next to the heroes */}
+        <div className="container mx-auto max-w-xl px-4 -mt-5 relative pb-8">
+          {tilesCard}
+        </div>
+      </div>
+
+      {/* ---------- Desktop: headline and search over the artwork ---------- */}
+      <div className="relative hidden md:block">
+        <img
+          src={heroBanner}
+          alt="Silk eSIM — One eSIM for every trip"
+          className="block h-auto w-full -mt-[130px]"
+          width={1376}
+          height={768}
+        />
+
         <div className="absolute inset-0">
           <div
-            className="container mx-auto max-w-7xl h-full px-4 md:px-6"
+            className="container mx-auto max-w-7xl h-full px-6"
             style={{ fontSize: 'clamp(12px, 1.35vw, 20px)' }}
           >
-            <div className="pt-[12%] sm:pt-[10%] md:pt-[15.5em] w-[68%] md:w-[42%] max-w-[25em]">
+            <div className="pt-[15.5em] w-[42%] max-w-[25em]">
               <h1 className="text-white font-extrabold leading-[1.05] tracking-tight text-[2.6em] drop-shadow-[0_2px_12px_rgba(20,16,80,0.45)]">
                 {t('heroNew.line1')}{' '}
                 <span className="block text-[#e9b4ff]">
@@ -103,50 +160,14 @@ const Hero = (_props: HeroProps) => {
                 {t('heroNew.subtitleA')} {t('heroNew.subtitleB')}
               </p>
 
-              {/* Search bar right under the headline */}
-              <div className="relative mt-[0.8em]">
-                <Search className="absolute left-[0.9em] top-1/2 -translate-y-1/2 w-[1.1em] h-[1.1em] text-foreground/40" />
-                <input
-                  type="text"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  placeholder={t('heroSearch.placeholder')}
-                  className="w-full h-[2.9em] pl-[2.6em] pr-[1em] rounded-full bg-white text-foreground text-[0.95em] font-medium placeholder:text-foreground/40 shadow-elegant focus:outline-none focus:ring-2 focus:ring-secondary/40"
-                />
-                {query && suggestions.length > 0 && (
-                  <div className="absolute left-0 right-0 top-full mt-2 rounded-2xl bg-white border border-border shadow-elegant overflow-hidden z-20">
-                    {suggestions.map((s) => {
-                      const flagKey = (s.slug === 'global' ? 'global' : s.slug) as Parameters<typeof Flag>[0]['country'];
-                      return (
-                        <button
-                          key={s.slug}
-                          onClick={() => { setActiveSlug(s.slug); setQuery(''); }}
-                          className="w-full flex items-center gap-3 px-4 py-3 hover:bg-muted text-left transition-colors"
-                        >
-                          <Flag country={flagKey} className="w-6 h-6" />
-                          <span className="font-semibold text-foreground">{s.name[lang]}</span>
-                        </button>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
+              <div className="mt-[0.8em]">{searchField}</div>
 
-              {/* Compact country tiles card under the search — desktop, over the banner */}
-              <div className="hidden md:block mt-[0.7em]">
-                {tilesCard}
-              </div>
+              <div className="mt-[0.7em]">{tilesCard}</div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Mobile: card flows right below the banner */}
-      <div className="md:hidden container relative mx-auto max-w-7xl px-4 pb-6" style={{ fontSize: '15px' }}>
-        <div className="mt-4">
-          {tilesCard}
-        </div>
-      </div>
 
       {/* Plans overlay — bottom sheet on mobile, centered modal on desktop */}
       {activeSlug && active && (
