@@ -36,8 +36,8 @@ const Hero = (_props: HeroProps) => {
   const active = heroCountries.find((c) => c.slug === activeSlug) ?? heroCountries[0];
 
   const tilesCard = (
-    <div className="rounded-2xl bg-white shadow-elegant p-3 md:p-4">
-      <div className="grid grid-cols-2 gap-2">
+    <div className="rounded-[1.1em] bg-white shadow-elegant p-[0.75em]">
+      <div className="grid grid-cols-2 gap-[0.5em]">
         {chips.map((c) => {
           const isActive = c.slug === activeSlug;
           const from = c.plans[0]?.price;
@@ -46,16 +46,16 @@ const Hero = (_props: HeroProps) => {
             <button
               key={c.slug}
               onClick={() => setActiveSlug(isActive ? '' : c.slug)}
-              className={`flex items-center gap-2 rounded-xl border px-2.5 py-2 text-left transition-all hover:-translate-y-0.5 hover:shadow-soft ${
+              className={`flex items-center gap-[0.5em] rounded-[0.8em] border px-[0.6em] py-[0.5em] text-left transition-all hover:-translate-y-0.5 hover:shadow-soft ${
                 isActive ? 'border-secondary bg-secondary/5' : 'border-border bg-card'
               }`}
             >
-              <Flag country={flagKey} className="w-7 h-7 shrink-0" />
+              <Flag country={flagKey} className="w-[1.75em] h-[1.75em] shrink-0" />
               <div className="min-w-0">
-                <div className="text-[13px] font-bold text-foreground truncate leading-tight">
+                <div className="text-[0.85em] font-bold text-foreground truncate leading-tight">
                   {c.name[lang]}
                 </div>
-                <div className="text-[10px] text-foreground/60 font-medium whitespace-nowrap">
+                <div className="text-[0.68em] text-foreground/60 font-medium whitespace-nowrap">
                   {t('heroSearch.fromPrice')} {from}
                 </div>
               </div>
@@ -66,10 +66,10 @@ const Hero = (_props: HeroProps) => {
 
       <button
         onClick={() => window.location.href = tariffUrl}
-        className="mt-2.5 w-full inline-flex items-center justify-center gap-1.5 h-10 rounded-full bg-secondary text-secondary-foreground font-semibold text-[13px] hover:bg-secondary/90 transition-colors"
+        className="mt-[0.6em] w-full inline-flex items-center justify-center gap-[0.35em] h-[2.5em] rounded-full bg-secondary text-secondary-foreground font-semibold text-[0.85em] hover:bg-secondary/90 transition-colors"
       >
         {t('heroSearch.moreDestinations')}
-        <ChevronRight className="w-4 h-4" />
+        <ChevronRight className="w-[1.1em] h-[1.1em]" />
       </button>
     </div>
   );
@@ -88,27 +88,30 @@ const Hero = (_props: HeroProps) => {
 
         {/* Overlay: compact headline top-left, search field under it, next to the heroes */}
         <div className="absolute inset-0">
-          <div className="container mx-auto max-w-7xl h-full px-4 md:px-6">
-            <div className="pt-[24%] sm:pt-[14%] md:pt-[5%] max-w-[68%] md:max-w-[46%]">
-              <h1 className="text-white font-extrabold leading-[1.05] tracking-tight text-xl sm:text-3xl md:text-4xl lg:text-5xl drop-shadow-[0_2px_12px_rgba(20,16,80,0.45)]">
+          <div
+            className="container mx-auto max-w-7xl h-full px-4 md:px-6"
+            style={{ fontSize: 'clamp(11px, 1.05vw, 15px)' }}
+          >
+            <div className="pt-[22%] sm:pt-[14%] md:pt-[7%] w-[68%] md:w-[42%] max-w-[26em]">
+              <h1 className="text-white font-extrabold leading-[1.05] tracking-tight text-[2.6em] drop-shadow-[0_2px_12px_rgba(20,16,80,0.45)]">
                 {t('heroNew.line1')}{' '}
                 <span className="block text-[#e9b4ff]">
                   {t('heroNew.line2a')} {t('heroNew.line2b')}
                 </span>
               </h1>
-              <p className="mt-1.5 md:mt-3 text-white/90 font-medium text-[11px] sm:text-sm md:text-base drop-shadow-[0_1px_8px_rgba(20,16,80,0.5)]">
+              <p className="mt-[0.5em] text-white/90 font-medium text-[0.95em] drop-shadow-[0_1px_8px_rgba(20,16,80,0.5)]">
                 {t('heroNew.subtitleA')} {t('heroNew.subtitleB')}
               </p>
 
               {/* Search bar right under the headline */}
-              <div className="relative mt-3 md:mt-5 max-w-md">
-                <Search className="absolute left-3.5 md:left-4 top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 text-foreground/40" />
+              <div className="relative mt-[1.1em]">
+                <Search className="absolute left-[0.9em] top-1/2 -translate-y-1/2 w-[1.1em] h-[1.1em] text-foreground/40" />
                 <input
                   type="text"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder={t('heroSearch.placeholder')}
-                  className="w-full h-10 md:h-12 pl-10 md:pl-12 pr-4 rounded-full bg-white text-foreground text-sm md:text-base font-medium placeholder:text-foreground/40 shadow-elegant focus:outline-none focus:ring-2 focus:ring-secondary/40"
+                  className="w-full h-[2.9em] pl-[2.6em] pr-[1em] rounded-full bg-white text-foreground text-[0.95em] font-medium placeholder:text-foreground/40 shadow-elegant focus:outline-none focus:ring-2 focus:ring-secondary/40"
                 />
                 {query && suggestions.length > 0 && (
                   <div className="absolute left-0 right-0 top-full mt-2 rounded-2xl bg-white border border-border shadow-elegant overflow-hidden z-20">
@@ -130,7 +133,7 @@ const Hero = (_props: HeroProps) => {
               </div>
 
               {/* Compact country tiles card under the search — desktop, over the banner */}
-              <div className="hidden md:block mt-4 max-w-sm">
+              <div className="hidden md:block mt-[1em]">
                 {tilesCard}
               </div>
             </div>
@@ -139,7 +142,7 @@ const Hero = (_props: HeroProps) => {
       </div>
 
       {/* Mobile: card flows right below the banner */}
-      <div className="md:hidden container relative mx-auto max-w-7xl px-4">
+      <div className="md:hidden container relative mx-auto max-w-7xl px-4" style={{ fontSize: '15px' }}>
         <div className="-mt-8">
           {tilesCard}
         </div>
