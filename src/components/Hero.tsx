@@ -262,6 +262,17 @@ const Hero = (_props: HeroProps) => {
                 );
               })}
             </div>
+
+            {active.slug === 'europe' && (
+              <div className="mt-4">
+                <div className="text-[10px] font-bold uppercase tracking-wider text-foreground/50 mb-1">
+                  {t('heroSearch.europeIncludes')}
+                </div>
+                <p className="text-[11px] leading-relaxed text-foreground/60">
+                  {t('heroSearch.europeCountries')}
+                </p>
+              </div>
+            )}
           </div>
         </div>
       )}
