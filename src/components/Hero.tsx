@@ -74,7 +74,7 @@ const Hero = (_props: HeroProps) => {
       </div>
 
       <button
-        onClick={() => window.location.href = tariffUrl}
+        onClick={() => setShowAll(true)}
         className="mt-[0.45em] w-full inline-flex items-center justify-center gap-[0.35em] h-[2.2em] rounded-full bg-secondary text-secondary-foreground font-semibold text-[0.82em] hover:bg-secondary/90 transition-colors"
       >
         {t('heroSearch.moreDestinations')}
