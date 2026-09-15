@@ -44,7 +44,7 @@ const resources = {
         fromPrice: 'from',
         moreDestinations: 'More destinations',
         europeIncludes: 'Package covers:',
-        europeCountries: 'Austria, Belgium, Bulgaria, Croatia, Cyprus, Czechia, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Italy, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Netherlands, Norway, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden, Switzerland, United Kingdom',
+        europeCountries: 'Austria, Belgium, Bulgaria, Croatia, Cyprus, Czechia, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Ireland, Italy, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Netherlands, Norway, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden, Switzerland',
       },
       heroStrip: {
         countries: { title: '180+ countries', body: 'Travel across 180+ countries and regions worldwide.' },
@@ -232,7 +232,7 @@ const resources = {
         fromPrice: 'от',
         moreDestinations: 'Больше стран',
         europeIncludes: 'Пакет действует в:',
-        europeCountries: 'Австрия, Бельгия, Болгария, Венгрия, Великобритания, Германия, Греция, Дания, Исландия, Ирландия, Испания, Италия, Кипр, Латвия, Литва, Лихтенштейн, Люксембург, Мальта, Нидерланды, Норвегия, Польша, Португалия, Румыния, Словакия, Словения, Финляндия, Франция, Хорватия, Чехия, Швейцария, Швеция, Эстония',
+        europeCountries: 'Австрия, Бельгия, Болгария, Венгрия, Германия, Греция, Дания, Ирландия, Испания, Италия, Кипр, Латвия, Литва, Лихтенштейн, Люксембург, Мальта, Нидерланды, Норвегия, Польша, Португалия, Румыния, Словакия, Словения, Финляндия, Франция, Хорватия, Чехия, Швейцария, Швеция, Эстония',
       },
       heroStrip: {
         countries: { title: '180+ стран', body: 'Путешествуйте в 180+ странах и регионах мира.' },
