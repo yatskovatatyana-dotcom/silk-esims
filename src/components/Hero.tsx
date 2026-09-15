@@ -265,6 +265,79 @@ const Hero = (_props: HeroProps) => {
           </div>
         </div>
       )}
+
+      {/* Full destinations modal */}
+      {showAll && (
+        <div className="fixed inset-0 z-50 flex items-end md:items-center md:justify-center">
+          <button
+            aria-label="Close"
+            onClick={() => setShowAll(false)}
+            className="absolute inset-0 bg-black/50 animate-fade-in"
+          />
+          <div
+            className="relative w-full md:w-[560px] md:max-w-[92vw] max-h-[85vh] md:max-h-[80vh] rounded-t-3xl md:rounded-3xl bg-background shadow-elegant px-5 md:px-6 pb-6 pt-3 md:pt-6 flex flex-col"
+            style={{ animation: 'slide-up-sheet 0.28s cubic-bezier(0.32, 0.72, 0, 1)' }}
+          >
+            <div className="md:hidden mx-auto h-1.5 w-10 rounded-full bg-foreground/15 mb-4" />
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-bold text-foreground">
+                {lang === 'ru' ? 'Все страны' : 'All destinations'}
+              </h3>
+              <button
+                onClick={() => setShowAll(false)}
+                aria-label="Close"
+                className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-foreground/70 hover:text-foreground shrink-0"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="relative mb-3">
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/40" />
+              <input
+                type="text"
+                value={allQuery}
+                onChange={(e) => setAllQuery(e.target.value)}
+                placeholder={t('heroSearch.placeholder')}
+                className="w-full h-11 pl-10 pr-4 rounded-full bg-muted text-foreground text-sm placeholder:text-foreground/40 focus:outline-none focus:ring-2 focus:ring-secondary/40"
+              />
+            </div>
+
+            <div className="overflow-y-auto -mx-1 px-1 flex-1">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pb-2">
+                {allFiltered.map((c) => {
+                  const flagKey = (c.slug === 'global' ? 'global' : c.slug) as Parameters<typeof Flag>[0]['country'];
+                  return (
+                    <button
+                      key={c.slug}
+                      onClick={() => {
+                        setActiveSlug(c.slug);
+                        setShowAll(false);
+                        setAllQuery('');
+                      }}
+                      className="flex items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3 text-left transition-all hover:-translate-y-0.5 hover:shadow-soft"
+                    >
+                      <Flag country={flagKey} className="w-8 h-8 shrink-0" />
+                      <div className="min-w-0 flex-1">
+                        <div className="font-bold text-foreground text-sm truncate">{c.name[lang]}</div>
+                        <div className="text-xs text-foreground/60">
+                          {t('heroSearch.fromPrice')} {c.plans[0]?.price}
+                        </div>
+                      </div>
+                      <ChevronRight className="w-4 h-4 text-foreground/40 shrink-0" />
+                    </button>
+                  );
+                })}
+                {allFiltered.length === 0 && (
+                  <div className="col-span-full py-10 text-center text-foreground/60 text-sm">
+                    {lang === 'ru' ? 'Ничего не найдено' : 'No destinations found'}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
