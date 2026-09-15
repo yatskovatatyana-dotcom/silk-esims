@@ -15,6 +15,8 @@ const Hero = (_props: HeroProps) => {
 
   const [query, setQuery] = useState('');
   const [activeSlug, setActiveSlug] = useState<string>('');
+  const [showAll, setShowAll] = useState(false);
+  const [allQuery, setAllQuery] = useState('');
   const tariffUrl = `https://app.silk-esim.ru/app?lang=${lang}&utm_source=tanya_landing&utm_medium=referral&utm_content=tariff`;
 
   const chips = useMemo(
