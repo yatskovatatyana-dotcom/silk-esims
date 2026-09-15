@@ -35,6 +35,13 @@ const Hero = (_props: HeroProps) => {
       .slice(0, 6);
   }, [query]);
 
+  const allFiltered = useMemo(() => {
+    const q = allQuery.trim().toLowerCase();
+    if (!q) return heroCountries;
+    return heroCountries
+      .filter((c) => c.name.en.toLowerCase().includes(q) || c.name.ru.toLowerCase().includes(q));
+  }, [allQuery]);
+
   const active = heroCountries.find((c) => c.slug === activeSlug) ?? heroCountries[0];
 
   const tilesCard = (
