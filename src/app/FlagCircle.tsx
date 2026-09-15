@@ -177,6 +177,19 @@ const FlagCircle: FC<Props> = ({ slug, className = 'w-14 h-14' }) => {
         <circle cx="30" cy="20" r="1.2" fill="#fff" />
         <circle cx="24" cy="24" r="1.2" fill="#fff" />
       </>);
+    case 'portugal':
+      return svg(<>
+        <rect width="14.4" height="36" fill="#046A38" />
+        <rect x="14.4" width="21.6" height="36" fill="#DA291C" />
+        <circle cx="14.4" cy="18" r="4.5" fill="#FFE900" stroke="#000" strokeWidth="0.8" />
+      </>);
+    case 'global':
+      return svg(<>
+        <rect width="36" height="36" fill="#2E4EA7" />
+        <circle cx="18" cy="18" r="12" fill="none" stroke="#4FC3F7" strokeWidth="2" />
+        <ellipse cx="18" cy="18" rx="5" ry="12" fill="none" stroke="#4FC3F7" strokeWidth="2" />
+        <path d="M6 18h24M18 6c3 4 3 20 0 24M18 6c-3 4-3 20 0 24" fill="none" stroke="#4FC3F7" strokeWidth="2" />
+      </>);
     default:
       return (
         <div className={`${wrap} bg-gradient-to-br from-primary to-secondary flex items-center justify-center`}>
