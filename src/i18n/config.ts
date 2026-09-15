@@ -43,6 +43,8 @@ const resources = {
         checkoutNote: 'Complete purchase in your account',
         fromPrice: 'from',
         moreDestinations: 'More destinations',
+        europeIncludes: 'Package covers:',
+        europeCountries: 'Austria, Belgium, Bulgaria, Croatia, Cyprus, Czechia, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Italy, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Netherlands, Norway, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden, Switzerland, United Kingdom',
       },
       heroStrip: {
         countries: { title: '180+ countries', body: 'Travel across 180+ countries and regions worldwide.' },
