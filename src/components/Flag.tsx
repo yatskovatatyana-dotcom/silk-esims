@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import Flags from 'country-flag-icons/react/3x2';
+import * as Flags from 'country-flag-icons/react/3x2';
 import { getFlagCode } from '@/lib/flagCodes';
 
 type FlagProps = {
