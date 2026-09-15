@@ -6,7 +6,7 @@ type FlagProps = {
 };
 
 const Flag: FC<FlagProps> = ({ country, className = 'w-6 h-6 md:w-7 md:h-7' }) => {
-  const common = `rounded-full object-cover ${className}`;
+  const common = `rounded-full object-cover ring-1 ring-black/10 ${className}`;
 
   switch (country) {
     case 'turkey':

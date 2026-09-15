@@ -54,10 +54,8 @@ export const heroCountries: HeroCountry[] = [
   { slug: 'europe',   name: { en: 'Europe',   ru: 'Европа' },  flag: '🇪🇺', plans: europe },
   { slug: 'usa',      name: { en: 'USA',      ru: 'США' },     flag: '🇺🇸', plans: usa },
   { slug: 'japan',    name: { en: 'Japan',    ru: 'Япония' },  flag: '🇯🇵', plans: asia },
-  { slug: 'global',   name: { en: 'All countries', ru: 'Все страны' }, flag: '🌍', plans: global },
   // extra searchable countries
   { slug: 'italy',       name: { en: 'Italy',       ru: 'Италия' },       flag: '🇮🇹', plans: europe },
-  { slug: 'spain',       name: { en: 'Spain',       ru: 'Испания' },      flag: '🇪🇸', plans: europe },
   { slug: 'france',      name: { en: 'France',      ru: 'Франция' },      flag: '🇫🇷', plans: europe },
   { slug: 'uk',          name: { en: 'United Kingdom', ru: 'Великобритания' }, flag: '🇬🇧', plans: europe },
   { slug: 'vietnam',     name: { en: 'Vietnam',     ru: 'Вьетнам' },      flag: '🇻🇳', plans: asia },
@@ -72,4 +70,4 @@ export const heroCountries: HeroCountry[] = [
   { slug: 'australia',   name: { en: 'Australia',   ru: 'Австралия' },    flag: '🇦🇺', plans: usa },
 ];
 
-export const heroChipSlugs = ['turkey', 'thailand', 'uae', 'europe', 'usa', 'japan', 'global'];
+export const heroChipSlugs = ['turkey', 'thailand', 'uae', 'europe', 'usa', 'japan'];
