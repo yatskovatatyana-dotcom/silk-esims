@@ -28,7 +28,7 @@ const Flag: FC<FlagProps> = ({ country, className = 'w-6 h-6 md:w-7 md:h-7' }) =
 
   return (
     <span className={wrap} aria-hidden>
-      <FlagSvg className="h-full w-auto min-w-full block" />
+      <FlagSvg className="h-full w-[150%] max-w-none block" />
     </span>
   );
 };

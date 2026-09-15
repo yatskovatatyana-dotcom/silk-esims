@@ -20,7 +20,7 @@ const FlagCircle: FC<Props> = ({ slug, className = 'w-14 h-14' }) => {
 
   return (
     <div className={wrap} aria-hidden>
-      <FlagSvg className="h-full w-auto min-w-full block" />
+      <FlagSvg className="h-full w-[150%] max-w-none block" />
     </div>
   );
 };
