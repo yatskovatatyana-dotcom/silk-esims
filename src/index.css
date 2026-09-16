@@ -116,6 +116,35 @@
   50%      { transform: translate3d(10px, -14px, 0) scale(1.06); }
 }
 
+@keyframes planet-drift-blue {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(7px, -10px, 0) rotate(2deg); }
+}
+
+@keyframes planet-drift-yellow {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(-8px, 8px, 0) rotate(-2deg); }
+}
+
+@keyframes planet-drift-earth {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(5px, -7px, 0) rotate(2.5deg); }
+}
+
+.welcome-planet {
+  pointer-events: none;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.welcome-planet-blue { animation: planet-drift-blue 5.5s ease-in-out infinite; }
+.welcome-planet-yellow { animation: planet-drift-yellow 6.5s ease-in-out infinite 0.4s; }
+.welcome-planet-earth { animation: planet-drift-earth 7s ease-in-out infinite 0.8s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .welcome-planet { animation: none; }
+}
+
 @keyframes route-dash {
   from { stroke-dashoffset: 0; }
   to   { stroke-dashoffset: -28; }
