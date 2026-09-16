@@ -107,7 +107,7 @@ const Welcome = () => {
             className={`absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out motion-reduce:transition-none ${slide.art}`}
           />
           <div className={`pointer-events-none absolute -left-16 top-10 h-56 w-56 rounded-full bg-gradient-to-br ${slide.glow} to-transparent blur-2xl animate-[soft-float_6s_ease-in-out_infinite] motion-reduce:animate-none`} />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[hsl(258_82%_50%)] to-transparent" />
+          
 
           {/* dotted route + moving marker, echoing the banner style */}
           <svg
