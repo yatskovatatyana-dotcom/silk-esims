@@ -17,7 +17,7 @@ type Slide = {
 const slides: Slide[] = [
   { image: welcomeOne, title: 'Choose a country', body: 'where you need data — connect in just 1 minute' },
   { image: welcomeTwo, title: 'Top up your plans', body: 'worldwide without reinstalling your eSIM' },
-  { image: welcomeThree, title: 'Great-value plans', body: 'discounts and bonuses — all in one app' },
+  { image: welcomeThree, title: 'Choose a country', body: 'where you need data — connect in just 1 minute' },
 ];
 
 const Welcome = () => {
