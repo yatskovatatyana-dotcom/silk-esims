@@ -4,26 +4,24 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import welcomeOne from '@/assets/welcome-background-1.png';
 import welcomeTwo from '@/assets/welcome-background-2.png';
-import welcomeThree from '@/assets/welcome-background-3-planets-v2.png';
-import { useI18n, type TKey } from '../i18n';
+import welcomeThree from '@/assets/welcome-background-3-planets-v3.png';
 
 export const WELCOME_KEY = 'silk-app-welcome-v1';
 
 type Slide = {
   image: string;
-  title: TKey;
-  body: TKey;
+  title: string;
+  body: string;
 };
 
 const slides: Slide[] = [
-  { image: welcomeOne, title: 'welcome.s1.title', body: 'welcome.s1.body' },
-  { image: welcomeTwo, title: 'welcome.s2.title', body: 'welcome.s2.body' },
-  { image: welcomeThree, title: 'welcome.s3.title', body: 'welcome.s3.body' },
+  { image: welcomeOne, title: 'Choose a country', body: 'where you need data — connect in just 1 minute' },
+  { image: welcomeTwo, title: 'Top up your plans', body: 'worldwide without reinstalling your eSIM' },
+  { image: welcomeThree, title: 'Great-value plans', body: 'discounts and bonuses — all in one app' },
 ];
 
 const Welcome = () => {
   const navigate = useNavigate();
-  const { t, lang, toggleLang } = useI18n();
   const [index, setIndex] = useState(0);
   const touchX = useRef<number | null>(null);
 
@@ -82,7 +80,7 @@ const Welcome = () => {
               type="button"
               variant="ghost"
               size="icon"
-              aria-label={t('common.back')}
+              aria-label="Back"
               onClick={prev}
               className="pointer-events-auto h-10 w-10 rounded-full bg-card text-foreground shadow-none hover:bg-card/90"
             >
@@ -90,36 +88,25 @@ const Welcome = () => {
             </Button>
           </div>
 
-          <div className="flex items-center gap-4">
-            <Button
-              type="button"
-              variant="ghost"
-              onClick={toggleLang}
-              className="h-10 px-1 text-[13px] font-bold text-foreground/70 hover:bg-transparent hover:text-foreground"
-              aria-label={lang === 'ru' ? 'Switch to English' : 'Переключить на русский'}
-            >
-              {lang === 'ru' ? 'EN' : 'RU'}
-            </Button>
-            <Button
-              type="button"
-              variant="ghost"
-              onClick={finish}
-              className="h-10 px-0 text-[19px] font-bold text-foreground hover:bg-transparent hover:text-foreground/70"
-            >
-              {t('welcome.skip')}
-            </Button>
-          </div>
+          <Button
+            type="button"
+            variant="ghost"
+            onClick={finish}
+            className="h-10 px-0 text-[16px] font-bold text-foreground hover:bg-transparent hover:text-foreground/70"
+          >
+            Skip
+          </Button>
         </div>
 
         <div
-          key={`copy-${index}-${lang}`}
+          key={`copy-${index}`}
           className="absolute inset-x-5 top-[77%] z-10 text-center text-foreground animate-[welcome-rise_0.5s_cubic-bezier(0.22,1,0.36,1)_both] motion-reduce:animate-none"
         >
           <h1 className="text-[22px] font-medium leading-[1.18] tracking-normal">
-            {t(slide.title)}
+            {slide.title}
           </h1>
           <p className="mx-auto mt-1.5 max-w-[290px] whitespace-pre-line text-[14px] font-medium leading-[1.35] text-foreground/85">
-            {t(slide.body)}
+            {slide.body}
           </p>
         </div>
 
@@ -127,7 +114,7 @@ const Welcome = () => {
           <Button
             type="button"
             size="icon"
-            aria-label={index === slides.length - 1 ? t('welcome.start') : t('welcome.next')}
+            aria-label={index === slides.length - 1 ? 'Get started' : 'Next'}
             onClick={next}
             className="pointer-events-auto h-[46px] w-[46px] rounded-full bg-card text-foreground shadow-none hover:bg-card/90"
           >
