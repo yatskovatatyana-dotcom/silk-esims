@@ -77,14 +77,14 @@ const Welcome = () => {
         />
 
         <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between px-5 pt-[max(3.1rem,env(safe-area-inset-top))] max-h-[700px]:pt-8">
-          <div className="relative flex h-[68px] w-[68px] items-center justify-center rounded-full border-2 border-card before:absolute before:inset-[-5px] before:rounded-full before:border before:border-card/75 max-h-[700px]:h-[58px] max-h-[700px]:w-[58px]">
+          <div className="pointer-events-none relative flex h-[68px] w-[68px] items-center justify-center rounded-full border-2 border-card before:absolute before:inset-[-5px] before:rounded-full before:border before:border-card/75 max-h-[700px]:h-[58px] max-h-[700px]:w-[58px]">
             <Button
               type="button"
               variant="ghost"
               size="icon"
               aria-label={t('common.back')}
               onClick={prev}
-              className="h-[54px] w-[54px] rounded-full bg-card text-foreground shadow-none hover:bg-card/90 max-h-[700px]:h-[46px] max-h-[700px]:w-[46px]"
+              className="pointer-events-auto h-[54px] w-[54px] rounded-full bg-card text-foreground shadow-none hover:bg-card/90 max-h-[700px]:h-[46px] max-h-[700px]:w-[46px]"
             >
               <ChevronLeft className="h-7 w-7" strokeWidth={2.7} />
             </Button>
@@ -123,13 +123,13 @@ const Welcome = () => {
           </p>
         </div>
 
-        <div className="absolute bottom-[max(4rem,env(safe-area-inset-bottom))] left-1/2 z-10 flex h-[76px] w-[76px] -translate-x-1/2 items-center justify-center rounded-full border-2 border-card before:absolute before:inset-[-5px] before:rounded-full before:border before:border-card/75 max-h-[700px]:bottom-6 max-h-[700px]:h-[62px] max-h-[700px]:w-[62px]">
+        <div className="pointer-events-none absolute bottom-[max(4rem,env(safe-area-inset-bottom))] left-1/2 z-10 flex h-[76px] w-[76px] -translate-x-1/2 items-center justify-center rounded-full border-2 border-card before:absolute before:inset-[-5px] before:rounded-full before:border before:border-card/75 max-h-[700px]:bottom-6 max-h-[700px]:h-[62px] max-h-[700px]:w-[62px]">
           <Button
             type="button"
             size="icon"
             aria-label={index === slides.length - 1 ? t('welcome.start') : t('welcome.next')}
             onClick={next}
-            className="h-[60px] w-[60px] rounded-full bg-card text-foreground shadow-none hover:bg-card/90 max-h-[700px]:h-[50px] max-h-[700px]:w-[50px]"
+            className="pointer-events-auto h-[60px] w-[60px] rounded-full bg-card text-foreground shadow-none hover:bg-card/90 max-h-[700px]:h-[50px] max-h-[700px]:w-[50px]"
           >
             <ChevronRight className="h-7 w-7" strokeWidth={2.7} />
           </Button>
