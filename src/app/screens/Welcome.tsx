@@ -5,6 +5,10 @@ import { Button } from '@/components/ui/button';
 import welcomeOne from '@/assets/welcome-background-1.png';
 import welcomeTwo from '@/assets/welcome-background-2.png';
 import welcomeThree from '@/assets/welcome-background-3-planets-v5.png';
+import welcomeThreeBase from '@/assets/welcome-background-3-animated-base.png';
+import bluePlanet from '@/assets/welcome-saturn-blue-layer.png';
+import yellowPlanet from '@/assets/welcome-saturn-yellow-layer.png';
+import earthPlanet from '@/assets/welcome-earth-layer.png';
 
 export const WELCOME_KEY = 'silk-app-welcome-v1';
 
@@ -67,12 +71,21 @@ const Welcome = () => {
           touchX.current = null;
         }}
       >
-        <img
-          key={slide.image}
-          src={slide.image}
-          alt=""
-          className="absolute inset-0 h-full w-full object-cover animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none"
-        />
+        {index === 2 ? (
+          <div key="animated-planets" className="absolute inset-0 animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none">
+            <img src={welcomeThreeBase} alt="" className="absolute inset-0 h-full w-full object-cover" />
+            <img src={bluePlanet} alt="" className="welcome-planet welcome-planet-blue absolute inset-0 h-full w-full object-cover" />
+            <img src={yellowPlanet} alt="" className="welcome-planet welcome-planet-yellow absolute inset-0 h-full w-full object-cover" />
+            <img src={earthPlanet} alt="" className="welcome-planet welcome-planet-earth absolute inset-0 h-full w-full object-cover" />
+          </div>
+        ) : (
+          <img
+            key={slide.image}
+            src={slide.image}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none"
+          />
+        )}
 
         <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between px-5 pt-[max(3.1rem,env(safe-area-inset-top))] max-h-[700px]:pt-8">
           <div className="pointer-events-none relative flex h-[50px] w-[50px] items-center justify-center rounded-full border-2 border-card before:absolute before:inset-[-4px] before:rounded-full before:border before:border-card/75">
