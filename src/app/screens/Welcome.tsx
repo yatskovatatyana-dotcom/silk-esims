@@ -77,14 +77,14 @@ const Welcome = () => {
         />
 
         <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between px-5 pt-[max(3.1rem,env(safe-area-inset-top))] max-h-[700px]:pt-8">
-          <div className="pointer-events-none relative flex h-[68px] w-[68px] items-center justify-center rounded-full border-2 border-card before:absolute before:inset-[-5px] before:rounded-full before:border before:border-card/75 max-h-[700px]:h-[58px] max-h-[700px]:w-[58px]">
+          <div className="pointer-events-none relative flex h-[50px] w-[50px] items-center justify-center rounded-full border-2 border-card before:absolute before:inset-[-4px] before:rounded-full before:border before:border-card/75">
             <Button
               type="button"
               variant="ghost"
               size="icon"
               aria-label={t('common.back')}
               onClick={prev}
-              className="pointer-events-auto h-[54px] w-[54px] rounded-full bg-card text-foreground shadow-none hover:bg-card/90 max-h-[700px]:h-[46px] max-h-[700px]:w-[46px]"
+              className="pointer-events-auto h-10 w-10 rounded-full bg-card text-foreground shadow-none hover:bg-card/90"
             >
               <ChevronLeft className="h-7 w-7" strokeWidth={2.7} />
             </Button>
@@ -113,23 +113,23 @@ const Welcome = () => {
 
         <div
           key={`copy-${index}-${lang}`}
-          className="absolute inset-x-5 top-[72.5%] z-10 text-center text-foreground animate-[welcome-rise_0.5s_cubic-bezier(0.22,1,0.36,1)_both] motion-reduce:animate-none max-h-[700px]:top-[74%]"
+          className="absolute inset-x-5 top-[77%] z-10 text-center text-foreground animate-[welcome-rise_0.5s_cubic-bezier(0.22,1,0.36,1)_both] motion-reduce:animate-none"
         >
-          <h1 className="text-[28px] font-medium leading-[1.18] tracking-normal max-h-[700px]:text-[21px]">
+          <h1 className="text-[22px] font-medium leading-[1.18] tracking-normal">
             {t(slide.title)}
           </h1>
-          <p className="mx-auto mt-1.5 max-w-[290px] whitespace-pre-line text-[18px] font-medium leading-[1.35] text-foreground/85 max-h-[700px]:mt-1 max-h-[700px]:text-[14px]">
+          <p className="mx-auto mt-1.5 max-w-[290px] whitespace-pre-line text-[14px] font-medium leading-[1.35] text-foreground/85">
             {t(slide.body)}
           </p>
         </div>
 
-        <div className="pointer-events-none absolute bottom-[max(4rem,env(safe-area-inset-bottom))] left-1/2 z-10 flex h-[76px] w-[76px] -translate-x-1/2 items-center justify-center rounded-full border-2 border-card before:absolute before:inset-[-5px] before:rounded-full before:border before:border-card/75 max-h-[700px]:bottom-6 max-h-[700px]:h-[62px] max-h-[700px]:w-[62px]">
+        <div className="pointer-events-none absolute bottom-[max(1rem,env(safe-area-inset-bottom))] left-1/2 z-10 flex h-[58px] w-[58px] -translate-x-1/2 items-center justify-center rounded-full border-2 border-card before:absolute before:inset-[-4px] before:rounded-full before:border before:border-card/75">
           <Button
             type="button"
             size="icon"
             aria-label={index === slides.length - 1 ? t('welcome.start') : t('welcome.next')}
             onClick={next}
-            className="pointer-events-auto h-[60px] w-[60px] rounded-full bg-card text-foreground shadow-none hover:bg-card/90 max-h-[700px]:h-[50px] max-h-[700px]:w-[50px]"
+            className="pointer-events-auto h-[46px] w-[46px] rounded-full bg-card text-foreground shadow-none hover:bg-card/90"
           >
             <ChevronRight className="h-7 w-7" strokeWidth={2.7} />
           </Button>
