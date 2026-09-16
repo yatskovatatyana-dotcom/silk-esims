@@ -76,17 +76,19 @@ const Welcome = () => {
           className="absolute inset-0 h-full w-full object-cover animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none"
         />
 
-        <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between px-6 pt-[max(3.1rem,env(safe-area-inset-top))] max-h-[700px]:pt-6">
-          <Button
-            type="button"
-            variant="ghost"
-            size="icon"
-            aria-label={t('common.back')}
-            onClick={prev}
-            className="h-14 w-14 rounded-full border-[7px] border-card/45 bg-card text-foreground shadow-[0_0_0_2px_hsl(var(--card))] hover:bg-card/90 max-h-[700px]:h-12 max-h-[700px]:w-12 max-h-[700px]:border-[6px]"
-          >
-            <ChevronLeft className="h-7 w-7" strokeWidth={2.5} />
-          </Button>
+        <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between px-5 pt-[max(3.1rem,env(safe-area-inset-top))] max-h-[700px]:pt-8">
+          <div className="relative flex h-[68px] w-[68px] items-center justify-center rounded-full border-2 border-card before:absolute before:inset-[-5px] before:rounded-full before:border before:border-card/75 max-h-[700px]:h-[58px] max-h-[700px]:w-[58px]">
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon"
+              aria-label={t('common.back')}
+              onClick={prev}
+              className="h-[54px] w-[54px] rounded-full bg-card text-foreground shadow-none hover:bg-card/90 max-h-[700px]:h-[46px] max-h-[700px]:w-[46px]"
+            >
+              <ChevronLeft className="h-7 w-7" strokeWidth={2.7} />
+            </Button>
+          </div>
 
           <div className="flex items-center gap-4">
             <Button
@@ -111,25 +113,27 @@ const Welcome = () => {
 
         <div
           key={`copy-${index}-${lang}`}
-          className="absolute inset-x-5 top-[69.5%] z-10 text-center text-foreground animate-[welcome-rise_0.5s_cubic-bezier(0.22,1,0.36,1)_both] motion-reduce:animate-none max-h-[700px]:top-[68%]"
+          className="absolute inset-x-5 top-[72.5%] z-10 text-center text-foreground animate-[welcome-rise_0.5s_cubic-bezier(0.22,1,0.36,1)_both] motion-reduce:animate-none max-h-[700px]:top-[74%]"
         >
-          <h1 className="text-[28px] font-medium leading-[1.18] tracking-normal max-h-[700px]:text-[23px]">
+          <h1 className="text-[28px] font-medium leading-[1.18] tracking-normal max-h-[700px]:text-[21px]">
             {t(slide.title)}
           </h1>
-          <p className="mx-auto mt-1.5 max-w-[290px] whitespace-pre-line text-[18px] font-medium leading-[1.35] text-foreground/85 max-h-[700px]:mt-1 max-h-[700px]:text-[15px]">
+          <p className="mx-auto mt-1.5 max-w-[290px] whitespace-pre-line text-[18px] font-medium leading-[1.35] text-foreground/85 max-h-[700px]:mt-1 max-h-[700px]:text-[14px]">
             {t(slide.body)}
           </p>
         </div>
 
-        <Button
-          type="button"
-          size="icon"
-          aria-label={index === slides.length - 1 ? t('welcome.start') : t('welcome.next')}
-          onClick={next}
-          className="absolute bottom-[max(4.7rem,env(safe-area-inset-bottom))] left-1/2 z-10 h-16 w-16 -translate-x-1/2 rounded-full border-[8px] border-card/50 bg-card text-foreground shadow-[0_0_0_2px_hsl(var(--card))] hover:bg-card/90 max-h-[700px]:bottom-8 max-h-[700px]:h-14 max-h-[700px]:w-14 max-h-[700px]:border-[7px]"
-        >
-          <ChevronRight className="h-7 w-7" strokeWidth={2.6} />
-        </Button>
+        <div className="absolute bottom-[max(4rem,env(safe-area-inset-bottom))] left-1/2 z-10 flex h-[76px] w-[76px] -translate-x-1/2 items-center justify-center rounded-full border-2 border-card before:absolute before:inset-[-5px] before:rounded-full before:border before:border-card/75 max-h-[700px]:bottom-6 max-h-[700px]:h-[62px] max-h-[700px]:w-[62px]">
+          <Button
+            type="button"
+            size="icon"
+            aria-label={index === slides.length - 1 ? t('welcome.start') : t('welcome.next')}
+            onClick={next}
+            className="h-[60px] w-[60px] rounded-full bg-card text-foreground shadow-none hover:bg-card/90 max-h-[700px]:h-[50px] max-h-[700px]:w-[50px]"
+          >
+            <ChevronRight className="h-7 w-7" strokeWidth={2.7} />
+          </Button>
+        </div>
       </section>
     </main>
   );
