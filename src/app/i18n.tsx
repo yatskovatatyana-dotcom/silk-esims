@@ -26,28 +26,28 @@ const dict = {
   'welcome.next': { ru: 'Далее', en: 'Next' },
   'welcome.start': { ru: 'Начать', en: 'Get started' },
   'welcome.s1.title': {
-    ru: 'Выбери страну, где нужен интернет',
-    en: 'Pick the country where you need data',
+    ru: 'Выбери страну',
+    en: 'Choose a country',
   },
   'welcome.s1.body': {
-    ru: 'И подключи её за 1 минуту — без сим-карт и очередей',
-    en: 'And get connected in 1 minute — no SIM cards, no queues',
+    ru: 'где нужен интернет —\nподключи за 1 минуту',
+    en: 'where you need data —\nconnect in just 1 minute',
   },
   'welcome.s2.title': {
-    ru: 'Докупай пакеты по всему миру',
-    en: 'Top up plans anywhere in the world',
+    ru: 'Докупай пакеты',
+    en: 'Top up your plans',
   },
   'welcome.s2.body': {
-    ru: 'Одна eSIM на все поездки — переустанавливать не нужно',
-    en: 'One eSIM for every trip — no reinstalling needed',
+    ru: 'по всему миру без\nпереустановки eSIM',
+    en: 'worldwide without\nreinstalling your eSIM',
   },
   'welcome.s3.title': {
-    ru: 'Выгодные пакеты, скидки, бонусы',
-    en: 'Great plans, discounts and bonuses',
+    ru: 'Выгодные пакеты',
+    en: 'Great-value plans',
   },
   'welcome.s3.body': {
-    ru: 'Всё в одном приложении — и всегда под рукой',
-    en: 'All in one app — always at your fingertips',
+    ru: 'скидки и бонусы —\nвсё в одном приложении',
+    en: 'discounts and bonuses —\nall in one app',
   },
 
   // Splash
