@@ -4,11 +4,11 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import welcomeOne from '@/assets/welcome-background-1.png';
 import welcomeTwo from '@/assets/welcome-background-2.png';
-import welcomeThree from '@/assets/welcome-background-3-planets-sharp.png';
-import welcomeThreeBase from '@/assets/welcome-background-3-animated-base.png';
-import bluePlanet from '@/assets/welcome-saturn-blue-sharp.png';
-import yellowPlanet from '@/assets/welcome-saturn-yellow-sharp.png';
-import earthPlanet from '@/assets/welcome-earth-sharp.png';
+import welcomeThree from '@/assets/welcome-background-3-denim-sharp.png';
+import welcomeThreeBase from '@/assets/welcome-background-3-denim-base.png';
+import bluePlanet from '@/assets/welcome-saturn-blue-denim.png';
+import yellowPlanet from '@/assets/welcome-saturn-yellow-denim.png';
+import earthPlanet from '@/assets/welcome-earth-denim.png';
 
 export const WELCOME_KEY = 'silk-app-welcome-v1';
 
