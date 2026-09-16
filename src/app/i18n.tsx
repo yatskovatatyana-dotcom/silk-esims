@@ -21,6 +21,35 @@ const dict = {
   'common.notFound': { ru: 'Ничего не найдено', en: 'Nothing found' },
   'common.all': { ru: 'Все', en: 'All' },
 
+  // Welcome (onboarding)
+  'welcome.skip': { ru: 'Пропустить', en: 'Skip' },
+  'welcome.next': { ru: 'Далее', en: 'Next' },
+  'welcome.start': { ru: 'Начать', en: 'Get started' },
+  'welcome.s1.title': {
+    ru: 'Выбери страну, где нужен интернет',
+    en: 'Pick the country where you need data',
+  },
+  'welcome.s1.body': {
+    ru: 'И подключи её за 1 минуту — без сим-карт и очередей',
+    en: 'And get connected in 1 minute — no SIM cards, no queues',
+  },
+  'welcome.s2.title': {
+    ru: 'Докупай пакеты по всему миру',
+    en: 'Top up plans anywhere in the world',
+  },
+  'welcome.s2.body': {
+    ru: 'Одна eSIM на все поездки — переустанавливать не нужно',
+    en: 'One eSIM for every trip — no reinstalling needed',
+  },
+  'welcome.s3.title': {
+    ru: 'Выгодные пакеты, скидки, бонусы',
+    en: 'Great plans, discounts and bonuses',
+  },
+  'welcome.s3.body': {
+    ru: 'Всё в одном приложении — и всегда под рукой',
+    en: 'All in one app — always at your fingertips',
+  },
+
   // Splash
   'splash.start': { ru: 'Смотреть тарифы', en: 'Explore data plans' },
   'splash.haveAccount': { ru: 'Уже есть аккаунт?', en: 'Already have an account?' },
