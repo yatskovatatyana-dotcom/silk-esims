@@ -14,6 +14,8 @@ import HeroCompare from "./pages/HeroCompare";
 import { AppStoreProvider } from "./app/store";
 import { I18nProvider } from "./app/i18n";
 import Splash from "./app/screens/Splash";
+import Welcome from "./app/screens/Welcome";
+import AppEntry from "./app/screens/AppEntry";
 import Home from "./app/screens/Home";
 import DiscountHome from "./app/screens/DiscountHome";
 
@@ -48,7 +50,9 @@ const App = () => (
             <Route path="/mockups" element={<Mockups />} />
 
             {/* Mobile app prototype */}
-            <Route path="/app" element={<Splash />} />
+            <Route path="/app" element={<AppEntry />} />
+            <Route path="/app/welcome" element={<Welcome />} />
+            <Route path="/app/start" element={<Splash />} />
             <Route path="/app/home" element={<Home />} />
             <Route path="/app/discount-banner" element={<DiscountHome />} />
 
