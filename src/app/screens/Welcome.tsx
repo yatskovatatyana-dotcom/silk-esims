@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import welcomeOne from '@/assets/welcome-background-1.png';
 import welcomeTwo from '@/assets/welcome-background-2.png';
-import welcomeThree from '@/assets/welcome-background-3.png';
+import welcomeThree from '@/assets/welcome-background-3-planets.png';
 import { useI18n, type TKey } from '../i18n';
 
 export const WELCOME_KEY = 'silk-app-welcome-v1';
