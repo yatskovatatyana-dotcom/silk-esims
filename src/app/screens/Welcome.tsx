@@ -90,7 +90,11 @@ const Welcome = () => {
         ) : null}
 
         {slide.topCaption ? (
-          <div aria-hidden className="absolute inset-0" style={{ background: 'rgb(255,221,130)' }} />
+          <div
+            aria-hidden
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(90deg, rgb(247,215,133) 0%, rgb(252,211,132) 50%, rgb(250,206,131) 100%)' }}
+          />
         ) : null}
 
         <img
