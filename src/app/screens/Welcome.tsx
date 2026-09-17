@@ -4,30 +4,23 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import welcomeOne from '@/assets/welcome-background-1.png';
 import welcomeTwo from '@/assets/welcome-background-2.png';
-import welcomePinkBase from '@/assets/welcome-background-3-reference-quality.png';
-import welcomeBluePlanet from '@/assets/welcome-saturn-blue-clean.png';
-import welcomeYellowPlanet from '@/assets/welcome-saturn-yellow-clean.png';
-import welcomeEarth from '@/assets/welcome-earth-clean.png';
+import welcomePinkFinal from '@/assets/welcome-background-3-final.png';
 
 export const WELCOME_KEY = 'silk-app-welcome-v1';
 
 type Slide = {
   image: string;
-  title: string;
-  body: string;
-  animatedPlanets?: boolean;
-  caption?: string;
+  title?: string;
+  body?: string;
+  captionLines?: string[];
 };
 
 const slides: Slide[] = [
   { image: welcomeOne, title: 'Choose a country', body: 'where you need data — connect in just 1 minute' },
   { image: welcomeTwo, title: 'Top up your plans', body: 'worldwide without reinstalling your eSIM' },
   {
-    image: welcomePinkBase,
-    title: 'Choose a country',
-    body: 'where you need data — connect in just 1 minute',
-    animatedPlanets: true,
-    caption: 'Crossing borders? Stay connected anywhere, without the roaming fees.',
+    image: welcomePinkFinal,
+    captionLines: ['Crossing borders?', 'Stay connected anywhere, without the roaming fees.'],
   },
 ];
 
@@ -85,14 +78,6 @@ const Welcome = () => {
           className="absolute inset-0 h-full w-full object-cover animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none"
         />
 
-        {slide.animatedPlanets && (
-          <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden" aria-hidden="true">
-            <img src={welcomeBluePlanet} alt="" className="welcome-planet welcome-planet-blue absolute inset-0 h-full w-full object-cover" />
-            <img src={welcomeYellowPlanet} alt="" className="welcome-planet welcome-planet-yellow absolute inset-0 h-full w-full object-cover" />
-            <img src={welcomeEarth} alt="" className="welcome-planet welcome-planet-earth absolute inset-0 h-full w-full object-cover" />
-          </div>
-        )}
-
         <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between px-5 pt-[max(3.1rem,env(safe-area-inset-top))] max-h-[700px]:pt-8">
           <div className="pointer-events-none relative flex h-[50px] w-[50px] items-center justify-center rounded-full border-2 border-card before:absolute before:inset-[-4px] before:rounded-full before:border before:border-card/75">
             <Button
@@ -119,18 +104,27 @@ const Welcome = () => {
 
         <div
           key={`copy-${index}`}
-          className="absolute inset-x-5 top-[77%] z-10 text-center text-foreground animate-[welcome-rise_0.5s_cubic-bezier(0.22,1,0.36,1)_both] motion-reduce:animate-none"
+          className="absolute inset-x-4 top-[78%] z-10 text-center text-foreground animate-[welcome-rise_0.5s_cubic-bezier(0.22,1,0.36,1)_both] motion-reduce:animate-none"
         >
-          <h1 className="text-[22px] font-medium leading-[1.18] tracking-normal">
-            {slide.title}
-          </h1>
-          <p className="mx-auto mt-1.5 max-w-[290px] whitespace-pre-line text-[14px] font-medium leading-[1.35] text-foreground/85">
-            {slide.body}
-          </p>
-          {slide.caption && (
-            <p className="mx-auto mt-3 max-w-[300px] text-[12px] font-medium leading-[1.3] text-foreground/70">
-              {slide.caption}
+          {slide.title && (
+            <h1 className="text-[22px] font-medium leading-[1.18] tracking-normal">
+              {slide.title}
+            </h1>
+          )}
+          {slide.body && (
+            <p className="mx-auto mt-1.5 max-w-[290px] whitespace-pre-line text-[14px] font-medium leading-[1.35] text-foreground/85">
+              {slide.body}
             </p>
+          )}
+          {slide.captionLines && (
+            <div className="flex flex-col items-center gap-1.5">
+              <p className="w-full text-[18px] font-extrabold leading-[1.2] tracking-tight text-white [text-shadow:0_1px_5px_rgba(0,0,0,0.55)]">
+                {slide.captionLines[0]}
+              </p>
+              <p className="w-full text-[13.5px] font-extrabold leading-[1.25] tracking-tight text-white [text-shadow:0_1px_5px_rgba(0,0,0,0.55)]">
+                {slide.captionLines[1]}
+              </p>
+            </div>
           )}
         </div>
 
