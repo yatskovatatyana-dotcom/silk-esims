@@ -1,9 +1,43 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Search, ChevronRight, X } from 'lucide-react';
+import { Search, ChevronRight, X, Star } from 'lucide-react';
 import heroBanner from '@/assets/hero-banner-wide.png';
 import Flag from '@/components/Flag';
-import { heroCountries, heroChipSlugs, type HeroCountry } from '@/data/heroCountries';
+import { heroCountries, heroChipSlugs, type HeroCountry, type HeroPlan } from '@/data/heroCountries';
+
+const gbNumber = (data: string) => parseInt(data, 10) || 0;
+const priceNumber = (price: string) => Number(price.replace(/[^\d.,]/g, '').replace(/\s/g, '').replace(',', '.')) || 0;
+const currencyOf = (price: string) => price.replace(/[\d\s.,]/g, '') || '';
+const dataLabel = (data: string, lang: 'ru' | 'en') =>
+  lang === 'ru' ? data.replace('GB', 'ГБ') : data.replace('ГБ', 'GB');
+const perGbValue = (p: HeroPlan) => {
+  const v = priceNumber(p.price) / (gbNumber(p.data) || 1);
+  return `${currencyOf(p.price)}${v >= 10 ? Math.round(v) : v.toFixed(2)}`;
+};
+const perGbLabel = (p: HeroPlan, lang: 'ru' | 'en') =>
+  `1 ${lang === 'ru' ? 'ГБ' : 'GB'} — ${perGbValue(p)}`;
+const savingsPct = (p: HeroPlan, base: HeroPlan) => {
+  const per = priceNumber(p.price) / (gbNumber(p.data) || 1);
+  const basePer = priceNumber(base.price) / (gbNumber(base.data) || 1);
+  if (!basePer) return 0;
+  return Math.round((1 - per / basePer) * 100);
+};
+
+const Radio = ({ checked, onLight }: { checked: boolean; onLight?: boolean }) => (
+  <div
+    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 transition ${
+      checked
+        ? onLight
+          ? 'border-white bg-white'
+          : 'border-secondary bg-secondary'
+        : onLight
+        ? 'border-white/70'
+        : 'border-foreground/25'
+    }`}
+  >
+    {checked && <div className={`h-2.5 w-2.5 rounded-full ${onLight ? 'bg-secondary' : 'bg-white'}`} />}
+  </div>
+);
 
 type HeroProps = {
   variant?: 'current' | 'alternate';
