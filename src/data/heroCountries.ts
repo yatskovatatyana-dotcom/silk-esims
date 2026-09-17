@@ -7,45 +7,19 @@ export type HeroCountry = {
   plans: HeroPlan[];
 };
 
-const standard: HeroPlan[] = [
-  { data: '1 ГБ', days: 7, price: '₽199' },
-  { data: '3 ГБ', days: 15, price: '₽499' },
-  { data: '5 ГБ', days: 30, price: '₽799' },
-  { data: '10 ГБ', days: 30, price: '₽1 299' },
-  { data: '20 ГБ', days: 30, price: '₽1 899' },
+const plans: HeroPlan[] = [
+  { data: '1 ГБ', days: 7, price: '€4' },
+  { data: '5 ГБ', days: 14, price: '€7' },
+  { data: '10 ГБ', days: 14, price: '€9' },
+  { data: '20 ГБ', days: 30, price: '€13' },
+  { data: '30 ГБ', days: 30, price: '€17' },
 ];
 
-const asia: HeroPlan[] = [
-  { data: '1 ГБ', days: 7, price: '₽249' },
-  { data: '3 ГБ', days: 15, price: '₽599' },
-  { data: '5 ГБ', days: 30, price: '₽899' },
-  { data: '10 ГБ', days: 30, price: '₽1 499' },
-  { data: '20 ГБ', days: 30, price: '₽2 199' },
-];
-
-const usa: HeroPlan[] = [
-  { data: '1 ГБ', days: 7, price: '₽349' },
-  { data: '3 ГБ', days: 15, price: '₽699' },
-  { data: '5 ГБ', days: 30, price: '₽1 099' },
-  { data: '10 ГБ', days: 30, price: '₽1 799' },
-  { data: '20 ГБ', days: 30, price: '₽2 699' },
-];
-
-const europe: HeroPlan[] = [
-  { data: '1 ГБ', days: 7, price: '₽229' },
-  { data: '3 ГБ', days: 15, price: '₽549' },
-  { data: '5 ГБ', days: 30, price: '₽849' },
-  { data: '10 ГБ', days: 30, price: '₽1 399' },
-  { data: '20 ГБ', days: 30, price: '₽1 999' },
-];
-
-const global: HeroPlan[] = [
-  { data: '1 ГБ', days: 7, price: '₽399' },
-  { data: '3 ГБ', days: 15, price: '₽899' },
-  { data: '5 ГБ', days: 30, price: '₽1 299' },
-  { data: '10 ГБ', days: 30, price: '₽2 099' },
-  { data: '20 ГБ', days: 30, price: '₽2 999' },
-];
+const standard = plans;
+const asia = plans;
+const usa = plans;
+const europe = plans;
+const global = plans;
 
 export const heroCountries: HeroCountry[] = [
   { slug: 'turkey',   name: { en: 'Turkey',   ru: 'Турция' },  flag: '🇹🇷', popular: true, plans: standard },

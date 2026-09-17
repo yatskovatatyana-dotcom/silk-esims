@@ -7,24 +7,17 @@ export type Destination = {
   plans: Plan[];
 };
 
-// Prices are illustrative and follow the PRD's example pricing shape.
-const standardPlans: Plan[] = [
-  { data: '1 GB', days: 7, price: '₽199' },
-  { data: '5 GB', days: 30, price: '₽799', badge: 'popular' },
-  { data: '10 GB', days: 30, price: '₽1 299', badge: 'best' },
+const basePlans: Plan[] = [
+  { data: '1 GB', days: 7, price: '€4' },
+  { data: '5 GB', days: 14, price: '€7', badge: 'popular' },
+  { data: '10 GB', days: 14, price: '€9' },
+  { data: '20 GB', days: 30, price: '€13', badge: 'best' },
+  { data: '30 GB', days: 30, price: '€17' },
 ];
 
-const asiaPlans: Plan[] = [
-  { data: '1 GB', days: 7, price: '₽249' },
-  { data: '5 GB', days: 30, price: '₽899', badge: 'popular' },
-  { data: '10 GB', days: 30, price: '₽1 499', badge: 'best' },
-];
-
-const usaPlans: Plan[] = [
-  { data: '1 GB', days: 7, price: '₽349' },
-  { data: '5 GB', days: 30, price: '₽1 099', badge: 'popular' },
-  { data: '10 GB', days: 30, price: '₽1 799', badge: 'best' },
-];
+const standardPlans = basePlans;
+const asiaPlans = basePlans;
+const usaPlans = basePlans;
 
 export const destinations: Destination[] = [
   { slug: 'italy',     name: { en: 'Italy',     ru: 'Италия' },     region: 'Europe',      flag: '🇮🇹', plans: standardPlans },
