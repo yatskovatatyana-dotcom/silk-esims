@@ -16,12 +16,19 @@ type Slide = {
   title: string;
   body: string;
   animatedPlanets?: boolean;
+  caption?: string;
 };
 
 const slides: Slide[] = [
   { image: welcomeOne, title: 'Choose a country', body: 'where you need data — connect in just 1 minute' },
   { image: welcomeTwo, title: 'Top up your plans', body: 'worldwide without reinstalling your eSIM' },
-  { image: welcomePinkBase, title: 'Choose a country', body: 'where you need data — connect in just 1 minute', animatedPlanets: true },
+  {
+    image: welcomePinkBase,
+    title: 'Choose a country',
+    body: 'where you need data — connect in just 1 minute',
+    animatedPlanets: true,
+    caption: 'Crossing borders? Stay connected anywhere, without the roaming fees.',
+  },
 ];
 
 const Welcome = () => {
@@ -120,6 +127,11 @@ const Welcome = () => {
           <p className="mx-auto mt-1.5 max-w-[290px] whitespace-pre-line text-[14px] font-medium leading-[1.35] text-foreground/85">
             {slide.body}
           </p>
+          {slide.caption && (
+            <p className="mx-auto mt-3 max-w-[300px] text-[12px] font-medium leading-[1.3] text-foreground/70">
+              {slide.caption}
+            </p>
+          )}
         </div>
 
         <div className="pointer-events-none absolute bottom-[max(1rem,env(safe-area-inset-bottom))] left-1/2 z-10 flex h-[58px] w-[58px] -translate-x-1/2 items-center justify-center rounded-full border-2 border-card before:absolute before:inset-[-4px] before:rounded-full before:border before:border-card/75">
