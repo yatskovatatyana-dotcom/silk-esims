@@ -51,6 +51,7 @@ const Hero = (_props: HeroProps) => {
   const [activeSlug, setActiveSlug] = useState<string>('');
   const [showAll, setShowAll] = useState(false);
   const [allQuery, setAllQuery] = useState('');
+  const [selectedIdx, setSelectedIdx] = useState(3);
 
   useEffect(() => {
     const openAll = () => setShowAll(true);
