@@ -1,9 +1,43 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Search, ChevronRight, X } from 'lucide-react';
+import { Search, ChevronRight, X, Star } from 'lucide-react';
 import heroBanner from '@/assets/hero-banner-wide.png';
 import Flag from '@/components/Flag';
-import { heroCountries, heroChipSlugs, type HeroCountry } from '@/data/heroCountries';
+import { heroCountries, heroChipSlugs, type HeroCountry, type HeroPlan } from '@/data/heroCountries';
+
+const gbNumber = (data: string) => parseInt(data, 10) || 0;
+const priceNumber = (price: string) => Number(price.replace(/[^\d.,]/g, '').replace(/\s/g, '').replace(',', '.')) || 0;
+const currencyOf = (price: string) => price.replace(/[\d\s.,]/g, '') || '';
+const dataLabel = (data: string, lang: 'ru' | 'en') =>
+  lang === 'ru' ? data.replace('GB', 'ГБ') : data.replace('ГБ', 'GB');
+const perGbValue = (p: HeroPlan) => {
+  const v = priceNumber(p.price) / (gbNumber(p.data) || 1);
+  return `${currencyOf(p.price)}${v >= 10 ? Math.round(v) : v.toFixed(2)}`;
+};
+const perGbLabel = (p: HeroPlan, lang: 'ru' | 'en') =>
+  `1 ${lang === 'ru' ? 'ГБ' : 'GB'} — ${perGbValue(p)}`;
+const savingsPct = (p: HeroPlan, base: HeroPlan) => {
+  const per = priceNumber(p.price) / (gbNumber(p.data) || 1);
+  const basePer = priceNumber(base.price) / (gbNumber(base.data) || 1);
+  if (!basePer) return 0;
+  return Math.round((1 - per / basePer) * 100);
+};
+
+const Radio = ({ checked, onLight }: { checked: boolean; onLight?: boolean }) => (
+  <div
+    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 transition ${
+      checked
+        ? onLight
+          ? 'border-white bg-white'
+          : 'border-secondary bg-secondary'
+        : onLight
+        ? 'border-white/70'
+        : 'border-foreground/25'
+    }`}
+  >
+    {checked && <div className={`h-2.5 w-2.5 rounded-full ${onLight ? 'bg-secondary' : 'bg-white'}`} />}
+  </div>
+);
 
 type HeroProps = {
   variant?: 'current' | 'alternate';
@@ -17,12 +51,17 @@ const Hero = (_props: HeroProps) => {
   const [activeSlug, setActiveSlug] = useState<string>('');
   const [showAll, setShowAll] = useState(false);
   const [allQuery, setAllQuery] = useState('');
+  const [selectedIdx, setSelectedIdx] = useState(3);
 
   useEffect(() => {
     const openAll = () => setShowAll(true);
     window.addEventListener('silk:open-destinations', openAll);
     return () => window.removeEventListener('silk:open-destinations', openAll);
   }, []);
+
+  useEffect(() => {
+    setSelectedIdx(3);
+  }, [activeSlug]);
 
   const tariffUrl = `https://app.silk-esim.srsignal.com/app?lang=${lang}&utm_source=tanya_landing&utm_medium=referral&utm_content=tariff`;
 
@@ -226,49 +265,120 @@ const Hero = (_props: HeroProps) => {
               </button>
             </div>
 
-            <div className="space-y-2.5">
-              {[0, 1, 3].map((idx, i) => {
-                const p = active.plans[idx];
-                if (!p) return null;
-                const isOptimal = i === 1;
-                const isBest = i === 2;
-                const badge = isOptimal
-                  ? t('heroSearch.optimalBadge')
-                  : isBest
-                  ? t('heroSearch.bestBadge')
-                  : null;
+            {(() => {
+              const top = active.plans[0];
+              const short = active.plans[2];
+              const feat = active.plans[3] ?? active.plans[active.plans.length - 1];
+              const base = active.plans[0];
+              const row = (p: typeof top, badge: string | null, medium: boolean) => {
+                const isSel = selectedIdx === active.plans.indexOf(p);
+                const pct = savingsPct(p, base);
                 return (
-                  <div key={idx}>
+                  <div className={`relative ${badge ? 'pt-3' : ''}`}>
+                    {badge && (
+                      <div className="absolute -top-0.5 left-4 z-10">
+                        <span className="inline-flex items-center rounded-full bg-secondary px-2.5 py-1 text-[10px] font-bold tracking-wider text-secondary-foreground">
+                          {badge}
+                        </span>
+                      </div>
+                    )}
                     <button
-                      onClick={() => window.location.href = tariffUrl}
-                      className={`w-full flex items-center justify-between gap-3 rounded-2xl bg-card px-4 py-3.5 transition-all active:scale-[0.98] hover:-translate-y-0.5 ${
-                        isOptimal
-                          ? 'border-2 border-secondary shadow-soft'
-                          : 'border border-border'
+                      onClick={() => setSelectedIdx(active.plans.indexOf(p))}
+                      className={`w-full text-left flex items-center gap-3 rounded-2xl transition ${
+                        medium ? 'px-4 py-4' : 'px-3 py-3'
+                      } ${
+                        isSel || badge
+                          ? 'border-2 border-secondary bg-secondary/5'
+                          : 'border border-border bg-card'
                       }`}
                     >
-                      <div className="flex items-center gap-3 min-w-0">
-                        <div className="text-left">
-                          <div className="text-xl font-extrabold text-foreground leading-tight">{p.data}</div>
-                          <div className="text-[11px] text-foreground/60 mt-0.5">
-                            {p.days} {t('heroSearch.daysShort')}
-                          </div>
+                      <Radio checked={isSel} />
+                      <div className="min-w-0 flex-1">
+                        <div className={`font-bold text-foreground ${medium ? 'text-[17px]' : 'text-[14px]'}`}>
+                          {dataLabel(p.data, lang)} · {p.days} {t('heroSearch.daysShort')}
                         </div>
-                        {badge && (
-                          <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary text-secondary-foreground text-[9px] font-bold tracking-wider whitespace-nowrap">
-                            {badge}
-                          </span>
-                        )}
+                        <div className="mt-1 flex items-center gap-1.5 text-[11px] font-semibold text-foreground/55">
+                          <span>{perGbLabel(p, lang)}</span>
+                          {pct > 4 && (
+                            <span className="rounded-md bg-[hsl(150_65%_95%)] px-1.5 py-0.5 leading-none text-[hsl(150_65%_32%)]">
+                              {t('heroSearch.cheaperBy')} {pct}%
+                            </span>
+                          )}
+                        </div>
                       </div>
-                      <div className="flex items-center gap-1 shrink-0">
-                        <span className="text-lg font-extrabold text-foreground">{p.price}</span>
-                        <ChevronRight className="w-4 h-4 text-foreground/40" />
+                      <div className={`shrink-0 font-extrabold text-foreground ${medium ? 'text-[18px]' : 'text-[15px]'}`}>
+                        {p.price}
                       </div>
                     </button>
                   </div>
                 );
-              })}
-            </div>
+              };
+              return (
+                <div>
+                  {top && row(top, null, false)}
+
+                  <div className="mb-3 mt-5 pl-1">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-br from-secondary to-primary px-3 py-1.5 text-[11px] font-bold tracking-wider text-secondary-foreground shadow-sm">
+                      <Star className="h-3 w-3" fill="currentColor" strokeWidth={0} />
+                      {t('heroSearch.bestValue')}
+                    </span>
+                  </div>
+
+                  <button
+                    onClick={() => setSelectedIdx(active.plans.indexOf(feat))}
+                    className="relative w-full overflow-hidden rounded-3xl bg-gradient-to-br from-secondary to-primary p-5 text-left text-secondary-foreground shadow-elegant transition active:scale-[0.995]"
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex items-center gap-2.5">
+                        <Radio checked={selectedIdx === active.plans.indexOf(feat)} onLight />
+                        <span className="text-[13px] font-bold uppercase tracking-wider text-secondary-foreground/90">
+                          {t('heroSearch.maxTier')}
+                        </span>
+                      </div>
+                      <span className="inline-flex items-center gap-1 rounded-full bg-white/20 px-3 py-1.5 text-[11px] font-bold tracking-wider">
+                        <Star className="h-3 w-3" fill="currentColor" strokeWidth={0} />
+                        {t('heroSearch.hitSale')}
+                      </span>
+                    </div>
+
+                    <div className="mt-3 flex items-end justify-between gap-3">
+                      <div>
+                        <div className="text-[42px] font-extrabold leading-none tracking-tight">
+                          {dataLabel(feat.data, lang)}
+                        </div>
+                        <div className="mt-2 text-[15px] font-medium text-secondary-foreground/90">
+                          {feat.days} {t('heroSearch.daysShort')}
+                        </div>
+                      </div>
+                      <div className="whitespace-nowrap pb-1 text-[26px] font-extrabold leading-none tracking-tight">
+                        {feat.price}
+                      </div>
+                    </div>
+
+                    <div className="mt-4 grid grid-cols-2 gap-2">
+                      <div className="rounded-xl bg-white/15 px-3 py-2.5">
+                        <div className="text-[10px] font-semibold uppercase leading-none tracking-wider text-secondary-foreground/70">
+                          {t('heroSearch.perGb')}
+                        </div>
+                        <div className="mt-1 text-[16px] font-extrabold leading-none">
+                          {perGbValue(feat)}
+                        </div>
+                      </div>
+                      <div className="rounded-xl bg-card px-3 py-2.5">
+                        <div className="text-[10px] font-semibold uppercase leading-none tracking-wider text-secondary">
+                          {t('heroSearch.cheaperBy')}
+                        </div>
+                        <div className="mt-1 text-[16px] font-extrabold leading-none text-secondary">
+                          {savingsPct(feat, base)}%
+                        </div>
+                      </div>
+                    </div>
+                  </button>
+
+                  <div className="mt-6">{short && row(short, t('heroSearch.shortTrips'), true)}</div>
+                </div>
+              );
+            })()}
 
             {active.slug === 'europe' && (
               <div className="mt-4">
@@ -280,6 +390,14 @@ const Hero = (_props: HeroProps) => {
                 </p>
               </div>
             )}
+
+            <button
+              onClick={() => (window.location.href = tariffUrl)}
+              className="mt-5 inline-flex h-12 w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-br from-secondary to-primary text-[15px] font-bold text-secondary-foreground shadow-elegant transition active:scale-[0.99]"
+            >
+              {t('heroSearch.buyFor')} {(active.plans[selectedIdx] ?? active.plans[3] ?? active.plans[0]).price}
+              <ChevronRight className="h-4 w-4" />
+            </button>
           </div>
         </div>
       )}
