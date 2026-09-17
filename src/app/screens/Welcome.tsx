@@ -4,7 +4,10 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import welcomeOne from '@/assets/welcome-background-1.png';
 import welcomeTwo from '@/assets/welcome-background-2.png';
-import welcomePinkReference from '@/assets/welcome-pink-reference.png.asset.json';
+import welcomePinkBase from '@/assets/welcome-background-3-animated-base.png';
+import welcomeBluePlanet from '@/assets/welcome-saturn-blue-denim.png';
+import welcomeYellowPlanet from '@/assets/welcome-saturn-yellow-denim.png';
+import welcomeEarth from '@/assets/welcome-earth-denim.png';
 
 export const WELCOME_KEY = 'silk-app-welcome-v1';
 
@@ -12,12 +15,13 @@ type Slide = {
   image: string;
   title: string;
   body: string;
+  animatedPlanets?: boolean;
 };
 
 const slides: Slide[] = [
   { image: welcomeOne, title: 'Choose a country', body: 'where you need data — connect in just 1 minute' },
   { image: welcomeTwo, title: 'Top up your plans', body: 'worldwide without reinstalling your eSIM' },
-  { image: welcomePinkReference.url, title: 'Choose a country', body: 'where you need data — connect in just 1 minute' },
+  { image: welcomePinkBase, title: 'Choose a country', body: 'where you need data — connect in just 1 minute', animatedPlanets: true },
 ];
 
 const Welcome = () => {
@@ -73,6 +77,14 @@ const Welcome = () => {
           alt=""
           className="absolute inset-0 h-full w-full object-cover animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none"
         />
+
+        {slide.animatedPlanets && (
+          <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden" aria-hidden="true">
+            <img src={welcomeBluePlanet} alt="" className="welcome-planet welcome-planet-blue absolute inset-0 h-full w-full object-cover" />
+            <img src={welcomeYellowPlanet} alt="" className="welcome-planet welcome-planet-yellow absolute inset-0 h-full w-full object-cover" />
+            <img src={welcomeEarth} alt="" className="welcome-planet welcome-planet-earth absolute inset-0 h-full w-full object-cover" />
+          </div>
+        )}
 
         <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between px-5 pt-[max(3.1rem,env(safe-area-inset-top))] max-h-[700px]:pt-8">
           <div className="pointer-events-none relative flex h-[50px] w-[50px] items-center justify-center rounded-full border-2 border-card before:absolute before:inset-[-4px] before:rounded-full before:border before:border-card/75">
