@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import welcomeOne from '@/assets/welcome-background-1.png';
 import welcomeTwo from '@/assets/welcome-background-2.png';
-import welcomePinkFinal from '@/assets/welcome-background-3-final.png';
+import welcomePinkFinal from '@/assets/welcome-background-3-final-cropped.png';
 
 export const WELCOME_KEY = 'silk-app-welcome-v1';
 
@@ -71,12 +71,28 @@ const Welcome = () => {
           touchX.current = null;
         }}
       >
+        {slide.captionLines ? (
+          <div
+            aria-hidden
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(180deg, rgb(247,153,224) 0%, rgb(246,150,223) 55%, rgb(244,144,221) 100%)' }}
+          />
+        ) : null}
+
         <img
           key={slide.image}
           src={slide.image}
           alt=""
-          className="absolute inset-x-0 top-0 h-[110%] w-full object-cover object-bottom animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none"
+          className={
+            slide.captionLines
+              ? 'absolute inset-x-0 bottom-0 h-auto w-full animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none'
+              : 'absolute inset-x-0 top-0 h-[110%] w-full object-cover object-bottom animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none'
+          }
         />
+
+
+
+
 
         <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between px-5 pt-[max(3.1rem,env(safe-area-inset-top))] max-h-[700px]:pt-8">
           <div className="pointer-events-none relative flex h-[50px] w-[50px] items-center justify-center rounded-full border-2 border-card before:absolute before:inset-[-4px] before:rounded-full before:border before:border-card/75">
@@ -104,7 +120,8 @@ const Welcome = () => {
 
         <div
           key={`copy-${index}`}
-          className="absolute inset-x-4 top-[81%] z-10 text-center text-foreground animate-[welcome-rise_0.5s_cubic-bezier(0.22,1,0.36,1)_both] motion-reduce:animate-none"
+          className="absolute inset-x-4 bottom-[5.75rem] z-10 text-center text-foreground animate-[welcome-rise_0.5s_cubic-bezier(0.22,1,0.36,1)_both] motion-reduce:animate-none"
+
         >
           {slide.title && (
             <h1 className="text-[22px] font-medium leading-[1.18] tracking-normal">
