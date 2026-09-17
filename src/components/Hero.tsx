@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Search, ChevronRight, X } from 'lucide-react';
 import heroBanner from '@/assets/hero-banner-wide.png';
@@ -17,6 +17,13 @@ const Hero = (_props: HeroProps) => {
   const [activeSlug, setActiveSlug] = useState<string>('');
   const [showAll, setShowAll] = useState(false);
   const [allQuery, setAllQuery] = useState('');
+
+  useEffect(() => {
+    const openAll = () => setShowAll(true);
+    window.addEventListener('silk:open-destinations', openAll);
+    return () => window.removeEventListener('silk:open-destinations', openAll);
+  }, []);
+
   const tariffUrl = `https://app.silk-esim.ru/app?lang=${lang}&utm_source=tanya_landing&utm_medium=referral&utm_content=tariff`;
 
   const chips = useMemo(
