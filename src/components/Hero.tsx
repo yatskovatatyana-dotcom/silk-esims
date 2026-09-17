@@ -17,6 +17,13 @@ const Hero = (_props: HeroProps) => {
   const [activeSlug, setActiveSlug] = useState<string>('');
   const [showAll, setShowAll] = useState(false);
   const [allQuery, setAllQuery] = useState('');
+
+  useEffect(() => {
+    const openAll = () => setShowAll(true);
+    window.addEventListener('silk:open-destinations', openAll);
+    return () => window.removeEventListener('silk:open-destinations', openAll);
+  }, []);
+
   const tariffUrl = `https://app.silk-esim.ru/app?lang=${lang}&utm_source=tanya_landing&utm_medium=referral&utm_content=tariff`;
 
   const chips = useMemo(
