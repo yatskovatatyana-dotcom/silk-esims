@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import welcomeOne from '@/assets/welcome-background-1.png';
 import welcomeMapHero from '@/assets/welcome-background-map-hero.png';
-import welcomeStepTwoGirl from '@/assets/welcome-background-step2-girl.png';
+import welcomeStepTwoGirl from '@/assets/welcome-background-step2-girl-refined.png';
 
 export const WELCOME_KEY = 'silk-app-welcome-v1';
 
@@ -95,7 +95,7 @@ const Welcome = () => {
           alt=""
           className={
              slide.bakedInterface
-               ? 'absolute inset-0 h-full w-full object-cover'
+               ? 'absolute inset-0 h-full w-full object-contain'
                : slide.captionLines
               ? 'absolute inset-x-0 bottom-0 h-auto w-full animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none'
               : slide.topCaption
