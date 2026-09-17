@@ -6,6 +6,7 @@ import welcomeOne from '@/assets/welcome-background-1.png';
 import welcomeTwo from '@/assets/welcome-background-2.png';
 import welcomePinkFinal from '@/assets/welcome-background-3-final-cropped.png';
 import welcomeMapHero from '@/assets/welcome-background-map-hero.png';
+import welcomeStepTwoGirl from '@/assets/welcome-background-step2-girl.png';
 
 export const WELCOME_KEY = 'silk-app-welcome-v1';
 
@@ -15,6 +16,7 @@ type Slide = {
   body?: string;
   captionLines?: string[];
   topCaption?: string[];
+  bakedInterface?: boolean;
 };
 
 const slides: Slide[] = [
@@ -27,7 +29,7 @@ const slides: Slide[] = [
     ],
   },
   { image: welcomeOne, title: 'Choose a country', body: 'where you need data — connect in just 1 minute' },
-  { image: welcomeTwo, title: 'Top up your plans', body: 'worldwide without reinstalling your eSIM' },
+  { image: welcomeStepTwoGirl, bakedInterface: true },
   {
     image: welcomePinkFinal,
     captionLines: ['Crossing borders?', 'Stay connected anywhere', 'without the roaming fees'],
@@ -98,7 +100,9 @@ const Welcome = () => {
           src={slide.image}
           alt=""
           className={
-            slide.captionLines
+             slide.bakedInterface
+               ? 'absolute inset-0 h-full w-full object-cover'
+               : slide.captionLines
               ? 'absolute inset-x-0 bottom-0 h-auto w-full animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none'
               : slide.topCaption
                 ? 'absolute inset-x-0 bottom-0 h-[88%] w-full object-contain object-bottom animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none'
@@ -127,7 +131,7 @@ const Welcome = () => {
 
 
 
-        <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between px-5 pt-[max(3.1rem,env(safe-area-inset-top))] max-h-[700px]:pt-8">
+        {!slide.bakedInterface && <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between px-5 pt-[max(3.1rem,env(safe-area-inset-top))] max-h-[700px]:pt-8">
           <div className="pointer-events-none relative flex h-[50px] w-[50px] items-center justify-center rounded-full border-2 border-card before:absolute before:inset-[-4px] before:rounded-full before:border before:border-card/75">
             <Button
               type="button"
@@ -149,7 +153,7 @@ const Welcome = () => {
           >
             Skip
           </Button>
-        </div>
+        </div>}
 
         <div
           key={`copy-${index}`}
@@ -181,7 +185,7 @@ const Welcome = () => {
           )}
         </div>
 
-        <div className="pointer-events-none absolute bottom-[max(1rem,env(safe-area-inset-bottom))] left-1/2 z-10 flex h-[58px] w-[58px] -translate-x-1/2 items-center justify-center rounded-full border-2 border-card before:absolute before:inset-[-4px] before:rounded-full before:border before:border-card/75">
+        <div className={`pointer-events-none absolute bottom-[max(1rem,env(safe-area-inset-bottom))] left-1/2 z-10 flex h-[58px] w-[58px] -translate-x-1/2 items-center justify-center rounded-full border-2 border-card before:absolute before:inset-[-4px] before:rounded-full before:border before:border-card/75 ${slide.bakedInterface ? 'opacity-0' : ''}`}>
           <Button
             type="button"
             size="icon"
