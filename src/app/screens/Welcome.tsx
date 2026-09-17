@@ -104,7 +104,7 @@ const Welcome = () => {
 
         <div
           key={`copy-${index}`}
-          className="absolute inset-x-5 top-[78%] z-10 text-center text-foreground animate-[welcome-rise_0.5s_cubic-bezier(0.22,1,0.36,1)_both] motion-reduce:animate-none"
+          className="absolute inset-x-4 top-[78%] z-10 text-center text-foreground animate-[welcome-rise_0.5s_cubic-bezier(0.22,1,0.36,1)_both] motion-reduce:animate-none"
         >
           {slide.title && (
             <h1 className="text-[22px] font-medium leading-[1.18] tracking-normal">
@@ -117,15 +117,13 @@ const Welcome = () => {
             </p>
           )}
           {slide.captionLines && (
-            <div className="flex flex-col items-center gap-2">
-              {slide.captionLines.map((line, i) => (
-                <p
-                  key={i}
-                  className="max-w-[320px] text-[17px] font-extrabold leading-[1.25] tracking-tight text-white [text-shadow:0_1px_5px_rgba(0,0,0,0.55)]"
-                >
-                  {line}
-                </p>
-              ))}
+            <div className="flex flex-col items-center gap-1.5">
+              <p className="w-full text-[18px] font-extrabold leading-[1.2] tracking-tight text-white [text-shadow:0_1px_5px_rgba(0,0,0,0.55)]">
+                {slide.captionLines[0]}
+              </p>
+              <p className="w-full text-[13.5px] font-extrabold leading-[1.25] tracking-tight text-white [text-shadow:0_1px_5px_rgba(0,0,0,0.55)]">
+                {slide.captionLines[1]}
+              </p>
             </div>
           )}
         </div>
