@@ -89,6 +89,10 @@ const Welcome = () => {
           />
         ) : null}
 
+        {slide.topCaption ? (
+          <div aria-hidden className="absolute inset-0" style={{ background: 'rgb(255,221,130)' }} />
+        ) : null}
+
         <img
           key={slide.image}
           src={slide.image}
@@ -96,9 +100,28 @@ const Welcome = () => {
           className={
             slide.captionLines
               ? 'absolute inset-x-0 bottom-0 h-auto w-full animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none'
-              : 'absolute inset-x-0 top-0 h-[110%] w-full object-cover object-bottom animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none'
+              : slide.topCaption
+                ? 'absolute inset-x-0 bottom-0 h-[82%] w-full object-contain object-bottom animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none'
+                : 'absolute inset-x-0 top-0 h-[110%] w-full object-cover object-bottom animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none'
           }
         />
+
+        {slide.topCaption && (
+          <div
+            key={`topcopy-${index}`}
+            className="absolute inset-x-5 top-[6.75rem] z-10 text-center animate-[welcome-rise_0.5s_cubic-bezier(0.22,1,0.36,1)_both] motion-reduce:animate-none"
+          >
+            <p className="text-[17px] font-extrabold leading-[1.25] tracking-tight text-foreground">
+              {slide.topCaption[0]}
+            </p>
+            <p className="mt-1 text-[14px] font-bold leading-[1.3] text-foreground/90">
+              {slide.topCaption[1]}
+            </p>
+            <p className="mt-0.5 text-[14px] font-bold leading-[1.3] text-foreground/90">
+              {slide.topCaption[2]}
+            </p>
+          </div>
+        )}
 
 
 
