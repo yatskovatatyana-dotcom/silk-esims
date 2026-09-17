@@ -20,17 +20,17 @@ export type Country = {
 
 // Три пакета: 5 / 10 / 20 ГБ.
 const makePlans = (_base: number): Plan[] => [
-  { id: 'optimal', tier: 'ОПТИМАЛЬНЫЙ',  data: '5 GB',  days: 14, daysLabel: '14 дней', price: 7,  priceLabel: '€7',  icon: 'sparkles' },
-  { id: 'max',     tier: 'МАКСИМАЛЬНЫЙ', data: '10 GB', days: 14, daysLabel: '14 дней', price: 9,  priceLabel: '€9',  icon: 'arrow-up-right' },
-  { id: 'super',   tier: 'СУПЕР',        data: '20 GB', days: 30, daysLabel: '1 месяц', price: 13, priceLabel: '€13', icon: 'wifi' },
+  { id: 'optimal', tier: 'ОПТИМАЛЬНЫЙ',  data: '5 GB',  days: 14, daysLabel: '14 дней', price: 690,  priceLabel: '690 ₽',  icon: 'sparkles' },
+  { id: 'max',     tier: 'МАКСИМАЛЬНЫЙ', data: '10 GB', days: 14, daysLabel: '14 дней', price: 890,  priceLabel: '890 ₽',  icon: 'arrow-up-right' },
+  { id: 'super',   tier: 'СУПЕР',        data: '20 GB', days: 30, daysLabel: '1 месяц', price: 1290, priceLabel: '1290 ₽', icon: 'wifi' },
 ];
 
 const makePlans5 = (_base: number): Plan[] => [
-  { id: 'starter',  tier: 'СТАРТ',       data: '1 GB',  days: 7,  daysLabel: '7 дней',  price: 4,  priceLabel: '€4',  icon: 'sparkles' },
-  { id: 'optimal',  tier: 'ОПТИМАЛЬНЫЙ', data: '5 GB',  days: 14, daysLabel: '14 дней', price: 7,  priceLabel: '€7',  icon: 'sparkles' },
-  { id: 'max',      tier: 'МАКСИМАЛЬНЫЙ', data: '10 GB', days: 14, daysLabel: '14 дней', price: 9,  priceLabel: '€9',  icon: 'arrow-up-right' },
-  { id: 'super',    tier: 'СУПЕР',        data: '20 GB', days: 30, daysLabel: '1 месяц', price: 13, priceLabel: '€13', icon: 'wifi' },
-  { id: 'ultra',    tier: 'УЛЬТРА',       data: '30 GB', days: 30, daysLabel: '1 месяц', price: 17, priceLabel: '€17', icon: 'wifi' },
+  { id: 'starter',  tier: 'СТАРТ',       data: '1 GB',  days: 7,  daysLabel: '7 дней',  price: 390,  priceLabel: '390 ₽',  icon: 'sparkles' },
+  { id: 'optimal',  tier: 'ОПТИМАЛЬНЫЙ', data: '5 GB',  days: 14, daysLabel: '14 дней', price: 690,  priceLabel: '690 ₽',  icon: 'sparkles' },
+  { id: 'max',      tier: 'МАКСИМАЛЬНЫЙ', data: '10 GB', days: 14, daysLabel: '14 дней', price: 890,  priceLabel: '890 ₽',  icon: 'arrow-up-right' },
+  { id: 'super',    tier: 'СУПЕР',        data: '20 GB', days: 30, daysLabel: '1 месяц', price: 1290, priceLabel: '1290 ₽', icon: 'wifi' },
+  { id: 'ultra',    tier: 'УЛЬТРА',       data: '30 GB', days: 30, daysLabel: '1 месяц', price: 1690, priceLabel: '1690 ₽', icon: 'wifi' },
 ];
 
 export const countries: Country[] = [

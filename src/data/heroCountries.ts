@@ -8,11 +8,11 @@ export type HeroCountry = {
 };
 
 const plans: HeroPlan[] = [
-  { data: '1 ГБ', days: 7, price: '€4' },
-  { data: '5 ГБ', days: 14, price: '€7' },
-  { data: '10 ГБ', days: 14, price: '€9' },
-  { data: '20 ГБ', days: 30, price: '€13' },
-  { data: '30 ГБ', days: 30, price: '€17' },
+  { data: '1 ГБ', days: 7, price: '390 ₽' },
+  { data: '5 ГБ', days: 14, price: '690 ₽' },
+  { data: '10 ГБ', days: 14, price: '890 ₽' },
+  { data: '20 ГБ', days: 30, price: '1290 ₽' },
+  { data: '30 ГБ', days: 30, price: '1690 ₽' },
 ];
 
 const standard = plans;
