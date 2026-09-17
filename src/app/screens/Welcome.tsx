@@ -75,7 +75,7 @@ const Welcome = () => {
           key={slide.image}
           src={slide.image}
           alt=""
-          className="absolute inset-0 h-full w-full object-cover object-[center_30%] animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none"
+          className="absolute inset-x-0 top-0 h-[110%] w-full object-cover object-bottom animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none"
         />
 
         <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between px-5 pt-[max(3.1rem,env(safe-area-inset-top))] max-h-[700px]:pt-8">
@@ -104,7 +104,7 @@ const Welcome = () => {
 
         <div
           key={`copy-${index}`}
-          className="absolute inset-x-4 top-[70%] z-10 text-center text-foreground animate-[welcome-rise_0.5s_cubic-bezier(0.22,1,0.36,1)_both] motion-reduce:animate-none"
+          className="absolute inset-x-4 top-[81%] z-10 text-center text-foreground animate-[welcome-rise_0.5s_cubic-bezier(0.22,1,0.36,1)_both] motion-reduce:animate-none"
         >
           {slide.title && (
             <h1 className="text-[22px] font-medium leading-[1.18] tracking-normal">
