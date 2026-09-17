@@ -16,12 +16,19 @@ type Slide = {
   title: string;
   body: string;
   animatedPlanets?: boolean;
+  caption?: string;
 };
 
 const slides: Slide[] = [
   { image: welcomeOne, title: 'Choose a country', body: 'where you need data — connect in just 1 minute' },
   { image: welcomeTwo, title: 'Top up your plans', body: 'worldwide without reinstalling your eSIM' },
-  { image: welcomePinkBase, title: 'Choose a country', body: 'where you need data — connect in just 1 minute', animatedPlanets: true },
+  {
+    image: welcomePinkBase,
+    title: 'Choose a country',
+    body: 'where you need data — connect in just 1 minute',
+    animatedPlanets: true,
+    caption: 'Crossing borders? Stay connected anywhere, without the roaming fees.',
+  },
 ];
 
 const Welcome = () => {
