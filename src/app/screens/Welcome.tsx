@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import welcomeOne from '@/assets/welcome-background-1.png';
 import welcomeTwo from '@/assets/welcome-background-2.png';
 import welcomePinkFinal from '@/assets/welcome-background-3-final-cropped.png';
+import welcomeMapHero from '@/assets/welcome-background-map-hero.png';
 
 export const WELCOME_KEY = 'silk-app-welcome-v1';
 
@@ -13,9 +14,18 @@ type Slide = {
   title?: string;
   body?: string;
   captionLines?: string[];
+  topCaption?: string[];
 };
 
 const slides: Slide[] = [
+  {
+    image: welcomeMapHero,
+    topCaption: [
+      'Connect the minute you arrive.',
+      'Forget about WiFi and hotspots.',
+      'Just enjoy your trip straight away.',
+    ],
+  },
   { image: welcomeOne, title: 'Choose a country', body: 'where you need data — connect in just 1 minute' },
   { image: welcomeTwo, title: 'Top up your plans', body: 'worldwide without reinstalling your eSIM' },
   {
