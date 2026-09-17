@@ -90,11 +90,7 @@ const Welcome = () => {
         ) : null}
 
         {slide.topCaption ? (
-          <div
-            aria-hidden
-            className="absolute inset-0"
-            style={{ background: 'linear-gradient(90deg, rgb(247,215,133) 0%, rgb(252,211,132) 50%, rgb(250,206,131) 100%)' }}
-          />
+          <div aria-hidden className="absolute inset-0" style={{ background: 'rgb(253,215,131)' }} />
         ) : null}
 
         <img
@@ -105,7 +101,7 @@ const Welcome = () => {
             slide.captionLines
               ? 'absolute inset-x-0 bottom-0 h-auto w-full animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none'
               : slide.topCaption
-                ? 'absolute inset-x-0 bottom-0 h-[82%] w-full object-contain object-bottom animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none'
+                ? 'absolute inset-x-0 bottom-0 h-[88%] w-full object-contain object-bottom animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none'
                 : 'absolute inset-x-0 top-0 h-[110%] w-full object-cover object-bottom animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none'
           }
         />
