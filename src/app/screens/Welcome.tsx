@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import welcomeOne from '@/assets/welcome-background-1.png';
 import welcomeTwo from '@/assets/welcome-background-2.png';
-import welcomePinkBase from '@/assets/welcome-background-3-clean-base.png';
+import welcomePinkBase from '@/assets/welcome-background-3-heroes-sharpened-local.png';
 import welcomeBluePlanet from '@/assets/welcome-saturn-blue-clean.png';
 import welcomeYellowPlanet from '@/assets/welcome-saturn-yellow-clean.png';
 import welcomeEarth from '@/assets/welcome-earth-clean.png';
