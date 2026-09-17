@@ -104,7 +104,7 @@ const Welcome = () => {
 
         <div
           key={`copy-${index}`}
-          className="absolute inset-x-4 top-[78%] z-10 text-center text-foreground animate-[welcome-rise_0.5s_cubic-bezier(0.22,1,0.36,1)_both] motion-reduce:animate-none"
+          className={`absolute inset-x-4 z-10 text-center animate-[welcome-rise_0.5s_cubic-bezier(0.22,1,0.36,1)_both] motion-reduce:animate-none ${slide.captionLines ? 'top-[58%] text-foreground' : 'top-[78%] text-foreground'}`}
         >
           {slide.title && (
             <h1 className="text-[22px] font-medium leading-[1.18] tracking-normal">
@@ -117,14 +117,14 @@ const Welcome = () => {
             </p>
           )}
           {slide.captionLines && (
-            <div className="flex flex-col items-center gap-1.5">
-              <p className="w-full text-[18px] font-extrabold leading-[1.2] tracking-tight text-white [text-shadow:0_1px_5px_rgba(0,0,0,0.55)]">
+            <div className="flex flex-col items-center gap-2 rounded-2xl bg-black/35 px-4 py-3 backdrop-blur-[2px]">
+              <p className="w-full text-[20px] font-extrabold leading-[1.18] tracking-tight text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.85)]">
                 {slide.captionLines[0]}
               </p>
-              <p className="w-full text-[15px] font-extrabold leading-[1.25] tracking-tight text-white [text-shadow:0_1px_5px_rgba(0,0,0,0.55)]">
+              <p className="w-full text-[16px] font-extrabold leading-[1.22] tracking-tight text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.85)]">
                 {slide.captionLines[1]}
               </p>
-              <p className="w-full text-[15px] font-extrabold leading-[1.25] tracking-tight text-white [text-shadow:0_1px_5px_rgba(0,0,0,0.55)]">
+              <p className="w-full text-[16px] font-extrabold leading-[1.22] tracking-tight text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.85)]">
                 {slide.captionLines[2]}
               </p>
             </div>
