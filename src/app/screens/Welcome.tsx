@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import welcomeOne from '@/assets/welcome-background-1.png';
-import welcomeTwo from '@/assets/welcome-background-2.png';
-import welcomePinkFinal from '@/assets/welcome-background-3-final-cropped.png';
 import welcomeMapHero from '@/assets/welcome-background-map-hero.png';
 import welcomeStepTwoGirl from '@/assets/welcome-background-step2-girl.png';
 
@@ -30,10 +28,6 @@ const slides: Slide[] = [
   },
   { image: welcomeOne, title: 'Choose a country', body: 'where you need data — connect in just 1 minute' },
   { image: welcomeStepTwoGirl, bakedInterface: true },
-  {
-    image: welcomePinkFinal,
-    captionLines: ['Crossing borders?', 'Stay connected anywhere', 'without the roaming fees'],
-  },
 ];
 
 const Welcome = () => {
