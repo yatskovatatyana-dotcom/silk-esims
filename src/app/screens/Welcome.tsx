@@ -20,7 +20,7 @@ const slides: Slide[] = [
   { image: welcomeTwo, title: 'Top up your plans', body: 'worldwide without reinstalling your eSIM' },
   {
     image: welcomePinkFinal,
-    captionLines: ['Crossing borders?', 'Stay connected anywhere, without the roaming fees.'],
+    captionLines: ['Crossing borders?', 'Stay connected anywhere', 'without the roaming fees'],
   },
 ];
 
@@ -121,8 +121,11 @@ const Welcome = () => {
               <p className="w-full text-[18px] font-extrabold leading-[1.2] tracking-tight text-white [text-shadow:0_1px_5px_rgba(0,0,0,0.55)]">
                 {slide.captionLines[0]}
               </p>
-              <p className="w-full text-[13.5px] font-extrabold leading-[1.25] tracking-tight text-white [text-shadow:0_1px_5px_rgba(0,0,0,0.55)]">
+              <p className="w-full text-[15px] font-extrabold leading-[1.25] tracking-tight text-white [text-shadow:0_1px_5px_rgba(0,0,0,0.55)]">
                 {slide.captionLines[1]}
+              </p>
+              <p className="w-full text-[15px] font-extrabold leading-[1.25] tracking-tight text-white [text-shadow:0_1px_5px_rgba(0,0,0,0.55)]">
+                {slide.captionLines[2]}
               </p>
             </div>
           )}
