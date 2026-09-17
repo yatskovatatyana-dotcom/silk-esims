@@ -14,7 +14,7 @@ const gbNumber = (data: string) => parseInt(data, 10) || 0;
 const perGbPrice = (plan: Plan) => plan.price / gbNumber(plan.data);
 const perGbLabel = (plan: Plan, lang: Lang) => {
   const unit = lang === 'ru' ? 'ГБ' : 'GB';
-  return `1 ${unit} — €${perGbPrice(plan).toFixed(2)}`;
+  return `1 ${unit} — ${Math.round(perGbPrice(plan))} ₽`;
 };
 /** Percentage saving vs the cheapest plan's per-GB rate. */
 const savingsPct = (plan: Plan, base: Plan) => {
@@ -249,7 +249,7 @@ const Country = ({ defaultSlug }: { defaultSlug?: string }) => {
                   {lang === 'ru' ? 'цена за 1 ГБ' : 'price per 1 GB'}
                 </div>
                 <div className="mt-1 text-[16px] font-extrabold leading-none">
-                  €{perGbPrice(featured).toFixed(2)}
+                  {Math.round(perGbPrice(featured))} ₽
                 </div>
               </div>
               <div className="rounded-xl bg-white px-3 py-2.5">
