@@ -95,7 +95,7 @@ const Welcome = () => {
           alt=""
           className={
              slide.bakedInterface
-               ? 'absolute inset-0 h-full w-full object-cover'
+               ? 'absolute inset-0 h-full w-full object-contain'
                : slide.captionLines
               ? 'absolute inset-x-0 bottom-0 h-auto w-full animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none'
               : slide.topCaption
