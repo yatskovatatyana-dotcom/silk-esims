@@ -4,7 +4,6 @@ import { Globe } from 'lucide-react';
 
 const Header = () => {
   const { t, i18n } = useTranslation();
-  const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
