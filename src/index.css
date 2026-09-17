@@ -117,29 +117,37 @@
 }
 
 @keyframes planet-drift-blue {
-  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
-  50% { transform: translate3d(7px, -10px, 0) rotate(2deg); }
+  0%, 100% { transform: translate3d(-7px, 8px, 0) rotate(-4deg); }
+  50% { transform: translate3d(13px, -17px, 0) rotate(5deg); }
 }
 
 @keyframes planet-drift-yellow {
-  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
-  50% { transform: translate3d(-8px, 8px, 0) rotate(-2deg); }
+  0%, 100% { transform: translate3d(9px, -7px, 0) rotate(4deg); }
+  50% { transform: translate3d(-15px, 15px, 0) rotate(-5deg); }
 }
 
 @keyframes planet-drift-earth {
-  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
-  50% { transform: translate3d(5px, -7px, 0) rotate(2.5deg); }
+  0%, 100% { transform: translate3d(-8px, -8px, 0) rotate(-5deg); }
+  50% { transform: translate3d(16px, 13px, 0) rotate(6deg); }
 }
 
 .welcome-planet {
   pointer-events: none;
-  transform-origin: center;
   will-change: transform;
 }
 
-.welcome-planet-blue { animation: planet-drift-blue 5.5s ease-in-out infinite; }
-.welcome-planet-yellow { animation: planet-drift-yellow 6.5s ease-in-out infinite 0.4s; }
-.welcome-planet-earth { animation: planet-drift-earth 7s ease-in-out infinite 0.8s; }
+.welcome-planet-blue {
+  animation: planet-drift-blue 4.2s ease-in-out infinite;
+  transform-origin: 21% 29.5%;
+}
+.welcome-planet-yellow {
+  animation: planet-drift-yellow 4.8s ease-in-out infinite 0.35s;
+  transform-origin: 88% 31%;
+}
+.welcome-planet-earth {
+  animation: planet-drift-earth 5.3s ease-in-out infinite 0.7s;
+  transform-origin: 17% 57%;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .welcome-planet { animation: none; }
