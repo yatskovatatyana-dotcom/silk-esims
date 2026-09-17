@@ -59,6 +59,10 @@ const Hero = (_props: HeroProps) => {
     return () => window.removeEventListener('silk:open-destinations', openAll);
   }, []);
 
+  useEffect(() => {
+    setSelectedIdx(3);
+  }, [activeSlug]);
+
   const tariffUrl = `https://app.silk-esim.srsignal.com/app?lang=${lang}&utm_source=tanya_landing&utm_medium=referral&utm_content=tariff`;
 
   const chips = useMemo(
