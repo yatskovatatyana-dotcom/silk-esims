@@ -24,7 +24,7 @@ const Hero = (_props: HeroProps) => {
     return () => window.removeEventListener('silk:open-destinations', openAll);
   }, []);
 
-  const tariffUrl = `https://app.silk-esim.ru/app?lang=${lang}&utm_source=tanya_landing&utm_medium=referral&utm_content=tariff`;
+  const tariffUrl = `https://app.silk-esim.srsignal.com/app?lang=${lang}&utm_source=tanya_landing&utm_medium=referral&utm_content=tariff`;
 
   const chips = useMemo(
     () => heroChipSlugs
