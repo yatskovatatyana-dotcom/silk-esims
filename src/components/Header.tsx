@@ -60,7 +60,7 @@ const Header = () => {
             {i18n.language === 'ru' ? 'EN' : 'RU'}
           </button>
           <a
-            href={`https://app.silk-esim.ru/app?lang=${i18n.language === 'ru' ? 'ru' : 'en'}&utm_source=tanya_landing&utm_medium=referral&utm_content=login`}
+            href={`https://app.silk-esim.srsignal.com/app?lang=${i18n.language === 'ru' ? 'ru' : 'en'}&utm_source=tanya_landing&utm_medium=referral&utm_content=login`}
             className={`hidden sm:inline-flex items-center h-10 md:h-11 px-4 md:px-5 rounded-full border font-semibold text-sm transition-colors ${
               scrolled
                 ? 'border-border text-foreground hover:bg-muted'
@@ -69,15 +69,12 @@ const Header = () => {
           >
             {t('navNew.signIn')}
           </a>
-          <button
-            onClick={() => {
-              document.getElementById('destinations')?.scrollIntoView({ behavior: 'smooth' });
-              window.dispatchEvent(new CustomEvent('silk:open-destinations'));
-            }}
+          <a
+            href={`https://app.silk-esim.srsignal.com/app?lang=${i18n.language === 'ru' ? 'ru' : 'en'}&utm_source=tanya_landing&utm_medium=referral&utm_content=tariff`}
             className="inline-flex items-center h-10 md:h-11 px-4 md:px-5 rounded-full bg-secondary text-secondary-foreground font-semibold text-sm hover:bg-secondary/90 transition-colors"
           >
             {t('navNew.buy')}
-          </button>
+          </a>
         </div>
       </div>
     </header>
