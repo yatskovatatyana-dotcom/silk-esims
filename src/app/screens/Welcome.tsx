@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import welcomeOne from '@/assets/welcome-background-1.png';
 import welcomeMapHero from '@/assets/welcome-background-map-hero.png';
-import welcomeStepTwoGirl from '@/assets/welcome-background-step2-girl-redone.png';
+import welcomeStepThreeClean from '@/assets/welcome-background-step3-clean.png';
 
 export const WELCOME_KEY = 'silk-app-welcome-v1';
 
@@ -27,7 +27,10 @@ const slides: Slide[] = [
     ],
   },
   { image: welcomeOne, title: 'Choose a country', body: 'where you need data — connect in just 1 minute' },
-  { image: welcomeStepTwoGirl, bakedInterface: true },
+  {
+    image: welcomeStepThreeClean,
+    captionLines: ['One eSIM for every trip', 'Affordable data in 180+ countries'],
+  },
 ];
 
 const Welcome = () => {
@@ -77,14 +80,6 @@ const Welcome = () => {
           touchX.current = null;
         }}
       >
-        {slide.captionLines ? (
-          <div
-            aria-hidden
-            className="absolute inset-0"
-            style={{ background: 'linear-gradient(180deg, rgb(247,153,224) 0%, rgb(246,150,223) 55%, rgb(244,144,221) 100%)' }}
-          />
-        ) : null}
-
         {slide.topCaption ? (
           <div aria-hidden className="absolute inset-0" style={{ background: 'rgb(253,215,131)' }} />
         ) : null}
@@ -94,13 +89,13 @@ const Welcome = () => {
           src={slide.image}
           alt=""
           className={
-             slide.bakedInterface
-               ? 'absolute inset-0 h-full w-full object-contain'
-               : slide.captionLines
-              ? 'absolute inset-x-0 bottom-0 h-auto w-full animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none'
-              : slide.topCaption
-                ? 'absolute inset-x-0 bottom-0 h-[88%] w-full object-contain object-bottom animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none'
-                : 'absolute inset-x-0 top-0 h-[110%] w-full object-cover object-bottom animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none'
+            slide.bakedInterface
+              ? 'absolute inset-0 h-full w-full object-contain'
+              : slide.captionLines
+                ? 'absolute inset-0 h-full w-full object-cover object-center animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none'
+                : slide.topCaption
+                  ? 'absolute inset-x-0 bottom-0 h-[88%] w-full object-contain object-bottom animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none'
+                  : 'absolute inset-x-0 top-0 h-[110%] w-full object-cover object-bottom animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none'
           }
         />
 
@@ -166,14 +161,11 @@ const Welcome = () => {
           )}
           {slide.captionLines && (
             <div className="flex flex-col items-center gap-1.5">
-              <p className="w-full text-[18px] font-extrabold leading-[1.2] tracking-tight text-white [text-shadow:0_1px_5px_rgba(0,0,0,0.55)]">
+              <p className="w-full text-[20px] font-extrabold leading-[1.2] tracking-tight text-foreground">
                 {slide.captionLines[0]}
               </p>
-              <p className="w-full text-[15px] font-extrabold leading-[1.25] tracking-tight text-white [text-shadow:0_1px_5px_rgba(0,0,0,0.55)]">
-                {slide.captionLines[1]}
-              </p>
-              <p className="w-full text-[15px] font-extrabold leading-[1.25] tracking-tight text-white [text-shadow:0_1px_5px_rgba(0,0,0,0.55)]">
-                {slide.captionLines[2]}
+              <p className="w-full text-[14px] font-semibold leading-[1.3] text-foreground/75">
+                {slide.captionLines.slice(1).join(' ')}
               </p>
             </div>
           )}
