@@ -80,14 +80,6 @@ const Welcome = () => {
           touchX.current = null;
         }}
       >
-        {slide.captionLines ? (
-          <div
-            aria-hidden
-            className="absolute inset-0"
-            style={{ background: 'linear-gradient(180deg, rgb(247,153,224) 0%, rgb(246,150,223) 55%, rgb(244,144,221) 100%)' }}
-          />
-        ) : null}
-
         {slide.topCaption ? (
           <div aria-hidden className="absolute inset-0" style={{ background: 'rgb(253,215,131)' }} />
         ) : null}
@@ -97,13 +89,13 @@ const Welcome = () => {
           src={slide.image}
           alt=""
           className={
-             slide.bakedInterface
-               ? 'absolute inset-0 h-full w-full object-contain'
-               : slide.captionLines
-              ? 'absolute inset-x-0 bottom-0 h-auto w-full animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none'
-              : slide.topCaption
-                ? 'absolute inset-x-0 bottom-0 h-[88%] w-full object-contain object-bottom animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none'
-                : 'absolute inset-x-0 top-0 h-[110%] w-full object-cover object-bottom animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none'
+            slide.bakedInterface
+              ? 'absolute inset-0 h-full w-full object-contain'
+              : slide.captionLines
+                ? 'absolute inset-0 h-full w-full object-cover object-center animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none'
+                : slide.topCaption
+                  ? 'absolute inset-x-0 bottom-0 h-[88%] w-full object-contain object-bottom animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none'
+                  : 'absolute inset-x-0 top-0 h-[110%] w-full object-cover object-bottom animate-[welcome-reveal_0.7s_ease-out_both] motion-reduce:animate-none'
           }
         />
 
