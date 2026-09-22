@@ -161,14 +161,11 @@ const Welcome = () => {
           )}
           {slide.captionLines && (
             <div className="flex flex-col items-center gap-1.5">
-              <p className="w-full text-[18px] font-extrabold leading-[1.2] tracking-tight text-white [text-shadow:0_1px_5px_rgba(0,0,0,0.55)]">
+              <p className="w-full text-[20px] font-extrabold leading-[1.2] tracking-tight text-foreground">
                 {slide.captionLines[0]}
               </p>
-              <p className="w-full text-[15px] font-extrabold leading-[1.25] tracking-tight text-white [text-shadow:0_1px_5px_rgba(0,0,0,0.55)]">
-                {slide.captionLines[1]}
-              </p>
-              <p className="w-full text-[15px] font-extrabold leading-[1.25] tracking-tight text-white [text-shadow:0_1px_5px_rgba(0,0,0,0.55)]">
-                {slide.captionLines[2]}
+              <p className="w-full text-[14px] font-semibold leading-[1.3] text-foreground/75">
+                {slide.captionLines.slice(1).join(' ')}
               </p>
             </div>
           )}
