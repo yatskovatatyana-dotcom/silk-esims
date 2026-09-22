@@ -27,7 +27,10 @@ const slides: Slide[] = [
     ],
   },
   { image: welcomeOne, title: 'Choose a country', body: 'where you need data — connect in just 1 minute' },
-  { image: welcomeStepTwoGirl, bakedInterface: true },
+  {
+    image: welcomeStepThreeClean,
+    captionLines: ['One eSIM for every trip', 'Affordable data in 180+ countries'],
+  },
 ];
 
 const Welcome = () => {
