@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import welcomeOne from '@/assets/welcome-background-1.png';
 import welcomeMapHero from '@/assets/welcome-background-map-hero.png';
-import welcomeStepThreeClean from '@/assets/welcome-background-step3-clean.png';
+import welcomeStepThreeClean from '@/assets/welcome-background-step3-vivid.png';
 
 export const WELCOME_KEY = 'silk-app-welcome-v1';
 
