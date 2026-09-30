@@ -1,6 +1,6 @@
 # Roadmap
 
-- [x] Три стартовых (welcome) экрана мобильного приложения перед основным экраном /app
-- [x] Тексты трёх экранов: выбор страны и подключение за 1 минуту; докупка пакетов без переустановки eSIM; выгодные пакеты, скидки и бонусы
-- [x] Герои с основного баннера, анимация и дизайнерские элементы в стиле приложения
-- [x] Основной экран с кнопками входа и тарифов сохранён без изменений
+- [x] Research current store-listing specifications and visual trends
+- [x] Create and inspect a 512×512 app icon
+- [x] Create and inspect a 1024×500 store banner
+- [x] Verify dimensions, formats, file sizes, and final visual quality
