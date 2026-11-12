@@ -83,3 +83,11 @@
 @media(min-width:1600px) { .admin-main { padding-top:40px; } }
 @media(max-width:1100px) { .admin-shell { grid-template-columns:190px minmax(0,1fr); } .admin-main { padding:28px 24px; } .admin-topbar { padding:0 24px; } .admin-pricing-grid { grid-template-columns:1fr; } }
 @media(max-width:760px) { .admin-shell { display:block; } .admin-sidebar { position:relative; width:100%; height:auto; padding:16px; border-right:0; border-bottom:1px solid hsl(var(--border)); } .admin-brand { padding:0 0 14px; } .admin-sidebar nav { display:flex; overflow:auto; gap:6px; } .admin-nav-item { width:auto; flex-shrink:0; font-size:11px; padding:0 10px; height:36px; margin:0; } .admin-nav-label,.admin-sidebar-bottom { display:none; } .admin-topbar { height:52px; padding:0 16px; } .admin-main { padding:24px 16px; } .admin-page-heading { flex-direction:column; gap:16px; } .admin-page-heading h1 { font-size:24px; } .admin-stats { grid-template-columns:1fr 1fr; gap:22px 0; } .admin-stat:nth-child(3) { padding-left:0; } .admin-stat:nth-child(2) { border:0; } .admin-stat-value { font-size:24px; } .admin-source-grid,.admin-form-grid { grid-template-columns:1fr; } .admin-stepper { gap:6px; } .admin-step { font-size:10px; gap:5px; } .admin-step-number { width:20px; height:20px; } .admin-source { padding:18px; } .admin-search { max-width:100%; width:100%; } .admin-table-footer { flex-wrap:wrap; } }
+.adm-classic { display:block; padding:28px 16px 40px; min-height:100vh; }
+.adm-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; }
+.adm-pills { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:22px; }
+.adm-pill { height:40px; padding:0 18px; border-radius:10px; background:hsl(var(--card)); border:1px solid hsl(var(--border)); font-weight:600; font-size:13px; color:hsl(var(--foreground)); }
+.adm-pill[data-active=true] { background:hsl(var(--primary)); color:hsl(var(--primary-foreground)); border-color:hsl(var(--primary)); }
+.adm-pill:disabled { cursor:default; }
+.adm-card { background:hsl(var(--card)); border:1px solid hsl(var(--border)); border-radius:14px; padding:24px; }
+.adm-link { font-size:12px; font-weight:500; color:hsl(var(--primary)); } .adm-link.danger { color:hsl(var(--destructive)); }
