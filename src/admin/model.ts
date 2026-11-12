@@ -17,17 +17,17 @@ export function proposedPrice(t: Tariff, p: Pricing) {
 export function currentInCurrency(t: Tariff, p: Pricing) { return t.price / (p.currency === 'EUR' ? p.rate : 1); }
 export function actualMargin(cost: number, price: number) { return price > 0 ? (price - cost) / price * 100 : 0; }
 export function pricingIssue(t: Tariff, p: Pricing, price: number) {
-  if (!Number.isFinite(price) || price <= 0) return 'Некорректная цена';
-  if (price <= costInCurrency(t, p)) return 'Ниже себестоимости';
-  if (actualMargin(costInCurrency(t, p), price) + 0.01 < p.margin) return 'Маржа ниже целевой';
-  if (Math.abs(price / currentInCurrency(t, p) - 1) > 0.5) return 'Изменение более 50%';
+  if (!Number.isFinite(price) || price <= 0) return 'Invalid price';
+  if (price <= costInCurrency(t, p)) return 'Below cost';
+  if (actualMargin(costInCurrency(t, p), price) + 0.01 < p.margin) return 'Margin below target';
+  if (Math.abs(price / currentInCurrency(t, p) - 1) > 0.5) return 'Change over 50%';
   return '';
 }
 export function applySelected(catalog: Tariff[], staged: Tariff[], selected: string[], prices: Record<string, number>, p: Pricing) {
   const result = [...catalog];
   for (const t of staged.filter(t => selected.includes(t.id))) {
     const price = prices[t.id] ?? proposedPrice(t, p);
-    if (!Number.isFinite(price) || price <= costInCurrency(t, p)) throw new Error('Цена должна быть выше себестоимости');
+    if (!Number.isFinite(price) || price <= costInCurrency(t, p)) throw new Error('Price must be above cost');
     const next = { ...t, price: Math.round(price * (p.currency === 'EUR' ? p.rate : 1) * 100) / 100 };
     const index = result.findIndex(row => row.id === t.id);
     if (index === -1) result.push(next); else result[index] = next;
@@ -54,18 +54,18 @@ export function parseTariffCsv(text: string, catalog: Tariff[]): { rows: Tariff[
   const parsed = Papa.parse<Record<string, string>>(text, { header: true, skipEmptyLines: 'greedy', transformHeader: h => h.trim().replace(/^\uFEFF/, '') });
   const required = ['id', 'country', 'code', 'gb', 'days', 'cost_eur', 'template'];
   const missing = required.filter(key => !parsed.meta.fields?.includes(key));
-  if (missing.length) return { rows: [], errors: [`Нет колонок: ${missing.join(', ')}`] };
-  const errors = parsed.errors.map(e => `Строка ${(e.row ?? 0) + 2}: ${e.message}`);
+  if (missing.length) return { rows: [], errors: [`Missing columns: ${missing.join(', ')}`] };
+  const errors = parsed.errors.map(e => `Row ${(e.row ?? 0) + 2}: ${e.message}`);
   const rows: Tariff[] = []; const ids = new Set<string>();
   parsed.data.forEach((r, i) => {
     const id = r.id?.trim(); const gb = Number(r.gb); const days = Number(r.days); const cost = Number(r.cost_eur?.replace(',', '.'));
     if (!id || ids.has(id) || !r.country?.trim() || !/^[A-Z]{2}$/.test(r.code?.trim()) || !(gb > 0) || !(days > 0 && Number.isInteger(days)) || !(cost > 0) || !r.template?.trim()) {
-      errors.push(`Строка ${i + 2}: проверь ID (без повторов), страну, ISO-код, ГБ, дни, себестоимость и шаблон`); return;
+      errors.push(`Row ${i + 2}: check ID (unique), country, ISO code, GB, days, cost and template`); return;
     }
     ids.add(id); const existing = catalog.find(t => t.id === id);
-    rows.push({ id, country: r.country.trim(), countryEn: r.country_en || existing?.countryEn || '', code: r.code.trim(), gb, days, costEur: cost, template: r.template.trim(), networks: r.networks || existing?.networks || '', title: existing?.title || 'Новый пакет', titleEn: existing?.titleEn || '', price: existing?.price || Math.ceil(cost * 150), active: existing?.active ?? false, hit: existing?.hit ?? false, featuresRu: existing?.featuresRu || '', featuresEn: existing?.featuresEn || '' });
+    rows.push({ id, country: r.country.trim(), countryEn: r.country_en || existing?.countryEn || '', code: r.code.trim(), gb, days, costEur: cost, template: r.template.trim(), networks: r.networks || existing?.networks || '', title: existing?.title || 'New plan', titleEn: existing?.titleEn || 'New plan', price: existing?.price || Math.ceil(cost * 150), active: existing?.active ?? false, hit: existing?.hit ?? false, featuresRu: existing?.featuresRu || '', featuresEn: existing?.featuresEn || '' });
   });
-  if (!parsed.data.length) errors.push('Файл не содержит тарифов');
+  if (!parsed.data.length) errors.push('File contains no plans');
   return { rows, errors };
 }
 export function downloadCsv(text: string, filename: string) {
@@ -74,4 +74,4 @@ export function downloadCsv(text: string, filename: string) {
   setTimeout(() => URL.revokeObjectURL(url), 30000);
 }
 export function flag(code: string) { return [...code.toUpperCase()].map(c => String.fromCodePoint(127397 + c.charCodeAt(0))).join(''); }
-export function money(value: number, currency: Currency = 'RUB') { return new Intl.NumberFormat('ru-RU', { style: 'currency', currency, maximumFractionDigits: currency === 'RUB' ? 0 : 2 }).format(value); }
+export function money(value: number, currency: Currency = 'RUB') { return new Intl.NumberFormat('en-US', { style: 'currency', currency, maximumFractionDigits: currency === 'RUB' ? 0 : 2 }).format(value); }
