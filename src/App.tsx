@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import Mockups from "./pages/Mockups";
 import HeroAlternate from "./pages/HeroAlternate";
 import HeroCompare from "./pages/HeroCompare";
+import Admin from "./admin/Admin";
 
 import { AppStoreProvider } from "./app/store";
 import { I18nProvider } from "./app/i18n";
@@ -96,7 +97,7 @@ const App = () => (
 
             <Route path="/privacy-policy" element={<Navigate to="/legal" replace />} />
             <Route path="/terms-of-service" element={<Navigate to="/legal" replace />} />
-            <Route path="/admin" element={<Navigate to="/" replace />} />
+            <Route path="/admin" element={<Admin />} />
             <Route path="/connection-guide" element={<Navigate to="/" replace />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
