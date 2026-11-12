@@ -46,9 +46,9 @@
 .admin-sub { font-size:10px; color:hsl(var(--muted-foreground)); margin-top:4px; font-weight:400; }
 .admin-status { display:inline-flex; align-items:center; gap:5px; padding:4px 7px; border-radius:4px; font-size:10px; font-weight:600; }
 .admin-status.success { color:hsl(var(--admin-success)); background:hsl(var(--admin-success-bg)); }
-.admin-publish { background:hsl(var(--admin-success)); border-color:hsl(var(--admin-success)); color:#fff; }
-.admin-publish:hover:not(:disabled) { background:hsl(157 53% 28%); border-color:hsl(157 53% 28%); color:#fff; }
-.admin-publish:disabled { opacity:.45; }
+.admin-publish.admin-publish { background:hsl(var(--admin-success)); border-color:hsl(var(--admin-success)); color:#fff; }
+.admin-publish.admin-publish:hover:not(:disabled) { background:hsl(157 53% 28%); border-color:hsl(157 53% 28%); color:#fff; }
+.admin-publish.admin-publish:disabled { opacity:.45; }
 .admin-status.warning { color:hsl(var(--admin-warning)); background:hsl(var(--admin-warning-bg)); }
 .admin-status.neutral { color:hsl(var(--muted-foreground)); background:hsl(var(--muted)); }
 .admin-status.violet { color:hsl(var(--primary)); background:hsl(var(--secondary)); }
