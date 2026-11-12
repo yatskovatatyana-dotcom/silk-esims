@@ -94,3 +94,6 @@
 .adm-pill:disabled { cursor:default; }
 .adm-card { background:hsl(var(--card)); border:1px solid hsl(var(--border)); border-radius:14px; padding:24px; }
 .adm-link { font-size:12px; font-weight:500; color:hsl(var(--primary)); } .adm-link.danger { color:hsl(var(--destructive)); }
+tr:has(+ .admin-nets-row) > td { border-bottom:0 !important; padding-bottom:4px; }
+.admin-nets-row > td { padding-top:0 !important; padding-bottom:12px !important; border-bottom:6px solid hsl(var(--muted)) !important; }
+tr:has(+ .admin-nets-row):hover > td, tr:has(+ .admin-nets-row):hover + .admin-nets-row > td, .admin-nets-row:hover > td { background:hsl(var(--muted) / .35); }
