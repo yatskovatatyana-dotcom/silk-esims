@@ -9,3 +9,8 @@
 - [x] Build a Russian interactive interface for catalog, imports, pricing, approval, and history
 - [x] Verify CSV import, margin calculations, selected-only approval, and mobile layout
 - [x] Clearly distinguish sample data and unavailable partner integration
+
+## Approval refinements
+- [x] Keep Reset visible between price and margin and verify resetting both values
+- [x] Remove warning-based Publish blocking and verify individual and bulk publication
+- [x] Update design recommendations without country repetition, country-count, or currency-transition corrections; retain supplier durations

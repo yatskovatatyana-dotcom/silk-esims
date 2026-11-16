@@ -27,7 +27,7 @@ export function applySelected(catalog: Tariff[], staged: Tariff[], selected: str
   const result = [...catalog];
   for (const t of staged.filter(t => selected.includes(t.id))) {
     const price = prices[t.id] ?? proposedPrice(t, p);
-    if (!Number.isFinite(price) || price <= costInCurrency(t, p)) throw new Error('Price must be above cost');
+    if (!Number.isFinite(price) || price <= 0) throw new Error('Enter a valid positive price');
     const next = { ...t, price: Math.round(price * (p.currency === 'EUR' ? p.rate : 1) * 100) / 100 };
     const index = result.findIndex(row => row.id === t.id);
     if (index === -1) result.push(next); else result[index] = next;

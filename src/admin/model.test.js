@@ -14,8 +14,15 @@ test('approval changes only selected positions', () => {
   const next = applySelected(rows, rows, [rows[0].id], { [rows[0].id]: 700, [rows[1].id]: 800 }, settings);
   expect(next[0].price).toBe(700); expect(next[1].price).toBe(rows[1].price);
 });
-test('approval refuses below-cost price', () => {
-  expect(() => applySelected([row], [row], [row.id], { [row.id]: 100 }, settings)).toThrow();
+test('Publish accepts a positive below-cost price without blocking', () => {
+  expect(applySelected([row], [row], [row.id], { [row.id]: 100 }, settings)[0].price).toBe(100);
+});
+test('Publish accepts below-target margin and large price changes', () => {
+  expect(applySelected([row], [row], [row.id], { [row.id]: 250 }, settings)[0].price).toBe(250);
+  expect(applySelected([row], [row], [row.id], { [row.id]: 900 }, settings)[0].price).toBe(900);
+});
+test('publication keeps invalid numeric input out of the catalog', () => {
+  expect(() => applySelected([row], [row], [row.id], { [row.id]: NaN }, settings)).toThrow('Enter a valid positive price');
 });
 test('supplier file retains package quantities and durations', () => {
   const result = parseTariffCsv(csvTemplate, []);
