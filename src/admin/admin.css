@@ -37,6 +37,8 @@
 .admin-table-wrap { background:hsl(var(--card)); border:1px solid hsl(var(--border)); border-radius:8px; overflow:auto; }
 .admin-table { width:100%; border-collapse:collapse; text-align:left; white-space:nowrap; font-size:12px; }
 .admin-table th { height:46px; color:hsl(var(--muted-foreground)); font-size:10px; font-weight:600; background:hsl(var(--muted) / .5); border-bottom:1px solid hsl(var(--border)); padding:0 15px; }
+.admin-table-wrap:has([aria-label="Select plans on page"]) { max-height:calc(100dvh - 160px); }
+.admin-table-wrap:has([aria-label="Select plans on page"]) thead th { position:sticky; top:0; z-index:2; background:hsl(var(--muted)); }
 .admin-table td { padding:13px 15px; border-bottom:1px solid hsl(var(--border)); height:65px; }
 .admin-table tbody tr:last-child td { border-bottom:0; } .admin-table tbody tr:hover { background:hsl(var(--muted) / .45); }
 .admin-table tr.selected { background:hsl(var(--admin-highlight)); }
